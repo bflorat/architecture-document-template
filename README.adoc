@@ -1,0 +1,85 @@
+# architecture-document-template
+
+Architecture template applicable to most management IT projects, regardless of the general architecture chosen (monolith, SOA, micro-service, n-tier, ...).
+This model has already been used on several important projects including within large organizations. It is maintened an a regular basis.
+
+## Principles of the template
+We have divided the architecture into five views (application, security, dimensioning, infrastructure and development), each view being self-supporting.
+
+The idea is to offer a set of architecture views aligned with the roles that are most frequently found in organizations and their respective concerns. 
+For example, an infrastructure architect or a DevOps engineer rarely needs to know the details of the software architecture 
+(the details of the frameworks used or how to handle errors). Likewise, a PO or a business architect will be interested in the 
+macroscopic view of application modules and their main interactions ("batch B calls service S") but rarely by the   
+underlying infrastructure details (choice of service database, machine sizing, etc.).
+
+image:blank-template/resources/views.png[read this first]
+
+A file following this model will thus be constituted by :
+
+* an link:view-architecture-applicative.adoc[applicative view] presenting the general context and the application architecture;
+* a link:view-architecture-developpement.adoc[development view] presenting the software architecture and its environment;
+* a link:view-architecture-dimensioning.adoc[sizing view] presenting aspects related to the performance and sizing of the infrastructure;
+* an link:view-architecture-infrastructure.adoc[infrastructure view] presenting the servers, middleware, operations, etc.;
+* a link:view-architecture-securite.adoc[security view].
+
+In each section, we will find the triptych :
+
+* Constraints (legal, budgetary, technological, normative, ...) applicable to the project ;
+* Non-functional requirements (NFR) expressed by the project leaders within the limits of the constraints ;
+* Solution (description of the chosen architecture responding to the ENR).
+
+The file also includes an example of a glossary which can be used as support for the https://martinfowler.com/bliki/UbiquitousLanguage.html[Ubiquitous Language], fundamental element of an architecture.
+
+## Using this template
+### General presentation
+* This template is written using https://www.methods.co.nz/asciidoc/index.html[asciidoc]. You can convert it to the format of your choice even if we recommend a textual and readable format (Markdown type) easy to follow and to modify 
+by merge requests in a version management tool and thus transform your document into a living documentation ;
+* This model can be improved, which is why all feedback, criticism (constructive), contributions and suggestions are appreciated (please make a https://github.com/bflorat/architecture-document-template/pulls[pull request]
+or create an https://github.com/bflorat/architecture-document-template/issues[issue]);
+* In addition, it is voluntarily rich in explanations and examples because it also has a (modest) educational claim aimed at students and young architects.
+* Text in italics contains examples;
+* Each chapter has notes to help fill it out;
+* link:blank-template[blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
+
+### Advice on writing your architecture document
+* Keep it short, each word must have its purpose. No typical 'this is the introduction' boat explanation, no repetition of other documents, company history or vague concepts;
+* A reader should understand the operation and constraints of the application without being flooded with details. The document must remain maintainable and up to date;
+* If the application follows an architecture standardized by the organization, never repeat it (principle https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[DRY]) and refer to a common document;
+* If a chapter is not applicable, do not leave it blank but simply mention `N / A` so the reader will know that the subject has been covered or` TODO` if it remains to be completed;
+* This model is intended to be comprehensive enough to cover most applications. It is therefore normal that many chapters are not applicable in your context;
+* List the architectural assumptions and studies in progress in the chapter "Unresolved points" of each section (they must be exceptional, otherwise the document is written too early);
+* Isolate in appendices at the end of the document important architectural information but concerning specific points of interest only a few readers;
+
+
+### What is * NOT * in this document?
+** the detailed design of the project (UML diagrams of classes, sequences ...) except to present a general pattern specific to the application;
+** study elements (SWOT, scenarios, etc.): the choices must have already been made;
+** the urbanization of the IS (we are positioning ourselves here at the level of an application or a set of coherent views);
+** the reference architecture rules (common to all applications);
+** technical details (IP, logins) that could compromise security;
+** physical architecture (details of servers and datacenters, network architecture, storage architecture, provisioning, etc.). These are very specific subjects and are generally dealt with by infrastructure architects at an IS level;
+** details of environments other than production (acceptance, development, etc.). These are generally too fluctuating to appear in this file and will benefit from being documented by the integrator instead in other files, files, wikis or CMDB tools.
+
+## Licence
+* Copyright (c) 2017-2020 Bertrand Florat
+* This template is licensed under https://creativecommons.org/licenses/by-sa/4.0/[CC-BY-SA 4.0] : Creative Commons Attribution - Share Alike V4.0
+* You can create your own template as long as it retains the CC BY-SA 4.0 license and therefore contains these three elements:
+** The name of the creator (Bertrand Florat);
+** A link to https://creativecommons.org/licenses/by-sa/4.0/;
+** A disclaimer and a link to https://github.com/bflorat/architecture-document-template.
+* The architecture files resulting from this model do not have to apply this license. It is nevertheless recommended to include a link to https://github.com/bflorat/architecture-document-template.
+
+## Thanks
+* Proofreading: Frédérique Lefranc
+* Feedback: Antoine Parra Del Pozo, Pascal Bousquet, Philippe Mayjonade, Nicolas Chahwekilian, Steven Morvan, Dr. Christophe Gaie
+* All diagrams of this model were generated with the excellent tool http://plantuml.com/→PlantUML]
+The https://c4model.com/[diagrammes C4] use the https://github.com/RicardoNiepel/C4-PlantUML[C4 Plantuml customization].
+
+## Partial bibliography
+* _Site Reliability Engineering_ - Google
+* _Living documentation_ - Cyril Martraire
+* _Clean Code_ - Uncle Bob
+* _Performance of IT architectures - 2nd ed._ - Pascal Grojean
+* _Design Patterns: Elements of Reusable Object-Oriented Software by Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides_ (GOF)
+* _The SI Urbanization Project_ - Christophe Longépé
+* _Security of dematerialization_ - Dimitri Mouton
