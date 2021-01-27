@@ -1,0 +1,51 @@
+= Glossary of terms used
+
+WARNING: Please respect the alphabetical order when editing the document
+
+== Terms under discussion / to be validated
+
+[cols="1e,4e,4e"]
+|==================================================
+| Term | Meaning | Comment
+
+| Channel | Origin of the request | Channel or origin ?
+|==================================================
+
+== Business and organizational terms
+
+[cols="1e,4e,4e"]
+|==================================================
+| Term | Meaning | Comment
+
+| CA | Court of Appeal | "While first instance courts deliver 'judgment', appellate court renders 'judgment'" [Wikipedia]
+
+
+|==================================================
+
+== Application terms
+
+[cols="1e,4e,4e"]
+|==================================================
+| Term | Meaning | Comment
+
+| EIDAS | Electronic IDentification Authentication and trust Services | European regulation on electronic signatures
+
+| SPA | Single Page Application | Web application whose pages are generated in javascript in the browser
+
+|==================================================
+
+
+== Technical terms
+
+[cols="1e,4e,4e"]
+|==================================================
+| Term | Meaning | Comment
+
+| RP | Reverse Proxy | Makes HTTP calls on behalf of a client (usually over the Internet).
+Among other things, it improve security by avoiding direct calls.
+
+|==================================================
+
+== Sources
+
+* _http://km.mydomain.fr_

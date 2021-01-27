@@ -1,38 +1,44 @@
 = Application architecture component
-: sectnumlevels: 4
-: toclevels: 4
-: sectnums: 4
-: toc: left
-: icons: font
-: toc-title: Summary
+
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
 
 Last modified: {docdate}
+
 
 == Introduction
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other parts of the file are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
 
 === Reference Documentation
 
 Mention here the reference architecture documents (shared). This file must not in any case resume their content under penalty of quickly becoming obsolete and unmaintainable.
 
-Documentary references
-[cols = "1st, 1st, 4th, 4th"]
-| ===
+.Documentary references
+[cols="1e, 1e, 4e, 4e"]
+|===
 | N ° | Version | Document title / URL | Detail
 
 | 1 | 2.0.4 | XX_Urba_POS.pdf | IS POS |
-| === == Not ruled
+|=== 
+
+== Not ruled
 
 === Points subject to further study
 
-Points subject to further study
-[cols = "1st, 6th, 1st, 1st, 1st"]
-| ===
+.Points subject to further study
+[cols="1e, 6e, 1e, 1e, 1e"]
+|===
 | Subject | Detail | Status | Subject bearer | Deadline
 
 | Use of Y services
@@ -40,18 +46,18 @@ Points subject to further study
 | PENDING
 | Project Y
 | BEFORE 2040
-| ===
+|===
 
 === Assumptions
 
-.Hypotheses
-[cols = "1st, 6th"]
-| ====
+.Assumptions
+[cols="1e, 6e"]
+|====
 | ID | Detail
 
 | HA1
 | Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
-| ====
+|====
 
 == General context
 
@@ -75,7 +81,7 @@ Example 3: The X application is one of the main components of the Y program. It 
 [TIP]
 If this document presents a redesign or migration project, describe at least the existing application. Do not repeat the documentation, simply refer to it and point to its possible architecture file. However, mention any information having a strong impact on the migration or the design of the new project.
 ====
-Example 1: The VENIR2 application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in [REFxyz].
+Example 1: The VENIR2 application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in[REFxyz].
 ====
 ====
 Example 2: The existing application is based and supplies an LDAP directory for its authorizations. The new project having to work for a time with the old one, it is advisable to take into account concurrent accesses and the coherence of LDAP during the tiling period.
@@ -94,8 +100,8 @@ If the IS is urbanized, take the land use plan and specify the block concerned
 By "internal" we mean actors belonging to the organization. They can be humans or application components.
 
 List of internal actors
-[cols = "1st, 1st, 4th, 4th"]
-| ===
+[cols="1e, 1e, 4e, 4e"]
+|===
 | Actor | Description | Population | Location
 
 | Administration system B
@@ -108,24 +114,24 @@ List of internal actors
 | 100
 | Paris site
 
-| ===
+|===
 
 ==== External actors
 
 List of external actors
-[cols = "e, e, e, e"]
-| ===
+[cols="e, e, e, e"]
+|===
 | Actor | Description | Population | Location
 
 | Web client
 | Business from a PC
 | Max 1M
-| 10 calls to the HMI per session, one session per day and per actor
+| 10 calls to the GUI per session, one session per day and per actor
 | Mobile client
 | A business from a mobile
 | Max 2M
 | Worldwide
-| ===
+|===
 
 == Constraints
 
@@ -133,10 +139,10 @@ List of external actors
 
 TIP: Give the budget constraints of the project
 ====
-Example 1: Global envelope of 1 M €
+Example 1: Overall envelope of $1M
 ====
 ====
-Example 2: Cloud infrastructure costs <20K € / month
+Example 2: Cloud infrastructure should costs less than $20K a month
 ====
 
 === Planning
@@ -206,7 +212,7 @@ Example 2: Development should be able to take place within distributed teams, ea
 ====
 Present here the application as a whole (without detailing its sub-components) in relation to the other applications of the IS. Also present the macro-data exchanged or stored.
 
-Call back :
+Summarize :
 
  * The type of architecture (client-server, monolithic Web, SOA, micro-service ...).
  * Large flows between components or between applications in the case of monoliths.
@@ -220,16 +226,16 @@ Do not include the many infrastructure systems (SMTP server, security device, re
 ====
 
 ====
-Example 1: MesInfosEnLigne allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration.
+Example 1: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration.
 ====
 ====
-Example 2: MesInfosEnLigne is made up of several independent microservices (HMI components, batches or REST services)
+Example 2: AllMyData is made up of several independent microservices (GUI components, batches or REST services)
 ====
 ====
-Example 3: Following the exemption from the DSI on August 03, 20xx, the HMI will be in SPA (Single Page Application) architecture
+Example 3: Following the exemption from the DSI on August 03, 20xx, the GUI will be in SPA (Single Page Application) architecture
 ====
 
-image :: diagrams / archi-applicative-generale.svg [General application architecture diagram]
+image::diagrams/general-application-design.svg[General application architecture diagram]
 
 === Detailed application architecture
 
@@ -287,7 +293,7 @@ If the application is complex, propose a global exponent diagram
 ====
 Example:
 
-image :: diagrams / archi-applicative-detaillee.svg [Detailed application architecture diagram]
+image::diagrams/detailed-application-architecture.svg[Detailed application architecture diagram]
 
 ====
 
@@ -301,10 +307,10 @@ Do not detail the technical supervision or clustering flows for example. Indicat
 ====
 
 Partial example of an application flow matrix
-[cols = '1st, 3rd, 1st, 1st, 1st']
-| ====
-| Source | Destination | Network type | Protocol | Mode.footnote: [(Read, (E) write or Read / Write (LE), (A) ppel (to a stateless system)]
+[cols = '1e, 3e, 1e, 1e, 1e']
+|====
+| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
 
-| Company| PC / tablet / external mobile | ihm-honey | WAN | THE
-| batch-process-requests | service-compo-pdf | HTTP | LAN | AT
-| ==== 
+| Company| PC / tablet / external mobile | gui-allmydata | WAN | R
+| batch-process-requests | service-compo-pdf | HTTP | LAN | C
+|==== 

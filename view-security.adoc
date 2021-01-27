@@ -1,10 +1,10 @@
 = Security architecture component
-: sectnumlevels: 4
-: toclevels: 4
-: sectnums: 4
-: toc: left
-: icons: font
-: toc-title: Summary
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
 
 Last modified: {docdate}
 
@@ -12,12 +12,15 @@ Last modified: {docdate}
 
 This is the security point of view. It describes all the devices implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other parts of the file are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
 [TIP]
 Availability is dealt with in the infrastructure section.
+
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+
 
 === Reference Documentation
 
@@ -27,21 +30,21 @@ Mention here the reference architecture documents (shared). This document must i
 ====
 
 Safety documentary references
-[cols = "1st, 1st, 3rd, 3rd"]
-| ====
+[cols="1e, 1e, 3e, 3e"]
+|====
 | N ° | Version | Document title / URL | Detail
 
 | 1 | 1.0 | Safety_devices.pdf | Catalog of authorized safety devices
 | 2 | latest | Company security standards | http: // masociete / monurl
-| ====
+|====
 
 == Not ruled
 
 === Points subject to further study
 
 Points subject to further study
-[cols = "1st, 3rd, 1st, 1st, 2nd"]
-| ====
+[cols="1e, 3e, 1e, 1e, 2e"]
+|====
 | ID | Detail | Status | Subject holder | Deadline
 
 | ES1
@@ -50,18 +53,18 @@ Points subject to further study
 | Safety team
 | BEFORE 2040
 
-| ====
+|====
 
 === Assumptions
 
 .Hypotheses
-[cols = "e, e"]
-| ====
+[cols="e, e"]
+|====
 | ID | Detail
 
 | HS1
 | The SAML solution currently in place in the organization does not meet the authentication needs expressed for this web application. An OpenID Connect solution will be offered.
-| ====
+|====
 
 == Constraints
 
@@ -107,7 +110,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 
 Integrity level required by data class
 [cols = '2e, 1e, 1e, 1e, 1e']
-| ====
+|====
 | Data class
 | "Not Integral" level ([small] #The data may not be complete) #
 | "Detectable" level ([small] #The data may not be intact if the alteration is identified within a reasonable time) #
@@ -149,7 +152,7 @@ Integrity level required by data class
 |
 |
 | X
-| ====
+|====
 
 === Confidentiality requirements
 
@@ -162,8 +165,8 @@ Be careful not to multiply the data classes. It is possible to define only one d
 ====
 
 Level of confidentiality required by data class
-[cols = "e, e, e, e, e"]
-| ====
+[cols="e, e, e, e, e"]
+|====
 | Data class | “Public” level ([small] # Anyone can access the data) #
 | Limited Level "([small] #Data is only accessible to authorized persons) #
 | "Reserved" level ([small] #Data can only be accessed by authorized internal staff) #
@@ -198,7 +201,7 @@ Level of confidentiality required by data class
 |
 |
 | X
-| ====
+|====
 
 [[requirements-identification]]
 === Identification requirements
@@ -243,8 +246,8 @@ It is of course possible to add authentication factors specific to your organiza
 The authentication factors required depending on the situation are (you can require several occurrences of the same factor, use as many crosses):
 
 Authentication requirement per use case
-[cols = "e, e, e, e, e, e, e, e"]
-| ====
+[cols="e, e, e, e, e, e, e, e"]
+|====
 | Authentication case
 | Password respecting the P password policy
 | Known ssh public key
@@ -271,7 +274,7 @@ Authentication requirement per use case
 
 | Mobile application Y
 ||||||| X
-| ====
+|====
 
 [[requirement-federation-identity]]
 === Identity Federation Requirements
@@ -282,7 +285,7 @@ Identity federation is the use of the same identity managed by an identity provi
 
 For example, France Connect, widely used by administrations and based on OpenId Connect, makes it possible to reuse the account of one administration to log on to the account of another (DGFiP and CNAM for example).
 
-See also the “Connect with [Google | Twitter | ...]” in OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login / password).
+See also the “Connect with[Google | Twitter | ...]” in OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login / password).
 ====
 
 ====
@@ -308,7 +311,7 @@ An infrequently used peripheral application or tool usually does not need SSO (a
 Also, be careful to assess the impact that weak authentication (bad password for example) would have on the security of the entire IS.
 ====
 ====
-Example 1: No SSO is required since all application HMIs are exposed within a JSR352 portal which already manages authentication.
+Example 1: No SSO is required since all application GUIs are exposed within a JSR352 portal which already manages authentication.
 ====
 ====
 Example 2: no need for SSO or SLO is identified
@@ -325,14 +328,14 @@ List here the business actions with a non-repudiation requirement, i.e. a device
 ====
 
 .Non-repudiation needs
-[cols = "e, e, e"]
-| ===
+[cols="e, e, e"]
+|===
 | Signed data | Origin of the client certificate | Origin of the server certificate
 
 | Income tax declaration (X, Y and Z data)
 | Tax administration PKI
 | Verisign
-| ===
+|===
 
 [[requirement-anonymity]]
 === Anonymity and privacy requirements
@@ -376,7 +379,7 @@ To simplify the management of authorizations by factorization, one can:
 
 Example of a classic authorization management model:
 
-image :: diagrams / roles.svg [Classic role management]
+image::diagrams/roles.svg[Classic role management]
 
 Remember to specify the possible pseudos-users and their roles as:
 
@@ -390,13 +393,13 @@ Specify whether the application should use authorization delegation (OAuth2 type
 Example 1: people who are not logged in will have access to all read-only privileges
 ====
 ====
-Example 2: the application will rely on a matrix authorization management of the type [roles] -> [groups or users] as described below. The details of the authorizations will be given in the SFDs.
+Example 2: the application will rely on a matrix authorization management of the type[roles] ->[groups or users] as described below. The details of the authorizations will be given in the SFDs.
 ====
 
 ====
 Example role matrix
-[cols = "e, e, e, e"]
-| ===
+[cols="e, e, e, e"]
+|===
 | _Group or user_ | _Role_ `deletion` | _Role_` administration` | _Role `_ basic data consultation`
 
 | Group `g_usagers`
@@ -418,7 +421,7 @@ Example role matrix
 | X
 |
 | X
-| ===
+|===
 
 ====
 
@@ -438,7 +441,7 @@ The traces are nominative and complete data to allow the audit. They are therefo
 Differentiate:
 
 * Business traces (assessment of a complete management act such as `` Agent X consulted Ms. Y's file ');
-* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14 [Agent X] Call of the consult service` which are of technical level.
+* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level.
 
 For the most sensitive data, it is possible to provide traceability at two levels (tracing the consultation of traces) to avoid abusive hierarchical traceability.
 
@@ -458,8 +461,8 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 ====
 
 .Data to be kept for proof
-[cols = "e, e, e"]
-| ===
+[cols="e, e, e"]
+|===
 | Data | Objective | Retention period
 
 | Full log (IP, GMT time, detail) of orders placed on the site
@@ -477,7 +480,7 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 | Initial tax notice with digital signature
 | Keep the amount and tax.
 | 5 years
-| ===
+|===
 
 == Security measures
 
@@ -486,8 +489,8 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 Devices meeting the "integrity requirements, integrity requirements":
 
 Measures to ensure the required level of integrity
-[cols = "e, e, e"]
-| ===
+[cols="e, e, e"]
+|===
 | Data class | Required level | Measures
 
 | Business database data
@@ -516,15 +519,15 @@ a |
 | Integrates
 | Digital signature by the private key of the data administration D of the notice in PKCS # 7 (RSA, SHA256) format with time stamp. D = base64 (net amount + date + name). +
 The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF
-| ===
+|===
 
 === Confidentiality
 
 Devices meeting the "Confidentiality Requirements":
 
 Measures to ensure the requested level of confidentiality
-[cols = "e, e, e"]
-| ===
+[cols="e, e, e"]
+|===
 | Data class | Required level | Measures
 
 | Editorial content
@@ -547,7 +550,7 @@ Measures to ensure the requested level of confidentiality
 | Private
 | This data is encrypted in AES 256 in the form of a BLOB in the database, sent to the Web client via the REST Y service then decrypted in the browser in the Angular application (forge.js library) via an additional password of the user (not stored on the server side). +
 So this is client-only encryption. Loss of password renders data unrecoverable. Data changed on the client is encrypted and saved back to the BLOB through the REST X service.
-| ===
+|===
 
 [TIP]
 ====
@@ -594,12 +597,12 @@ Service accounts are used for authentication to a technical component from a bat
 
 .Service accounts
 [cols = '1,2,2']
-| ====
+|====
 | Account | Resource requiring authentication | how credentials are stored
 
 | JDBC accounts (one account per database) | PG and SqlServer instances.
 | Clear storage in the configuration of data sources. Valued from API Salt pilars.
-| ====
+|====
 
 
 === Identity federation
@@ -614,7 +617,7 @@ For Web applications, specify the browser constraints (activation of cookies in 
 ====
 
 ====
-Example: The general public HMI will allow France Connect identification and authentication (based on OIDC) so that users can use their DGFiP or CNAM account to identify and authenticate themselves. The authentication kinematics will be as follows: <draw a diagram>
+Example: The general public GUI will allow France Connect identification and authentication (based on OIDC) so that users can use their DGFiP or CNAM account to identify and authenticate themselves. The authentication kinematics will be as follows: <draw a diagram>
 ====
 
 === SSO, SLO
@@ -625,10 +628,10 @@ Devices meeting the "SSO and SLO Requirements":
 Detail the chosen technology and its integration. Some common solutions: CAS, OpenAM, LemonLDAP :: NG. For Web applications, specify the browser constraints (activation of cookies in particular).
 ====
 ====
-Example 1: The HMI X will integrate a CAS spring-security client for SSO. The CAS server used will be YYY. Its authentication realm will be the AD Y directory.
+Example 1: The GUI X will integrate a CAS spring-security client for SSO. The CAS server used will be YYY. Its authentication realm will be the AD Y directory.
 ====
 ====
-Example 2: Like all business portal applications, HMI X will have to manage disconnection callbacks from the CAS server following an SLO request.
+Example 2: Like all business portal applications, GUI X will have to manage disconnection callbacks from the CAS server following an SLO request.
 ====
 
 === Non-repudiation
@@ -680,7 +683,7 @@ Example 3: The tables X, Y, .. will be historized according to the following pri
 Example 4: all the documents used as proof will be archived in the EDM.
 ====
 ====
-Example 5: The logs containing the term [PROOF] and from all the components will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the MongoDB "evidence" database.
+Example 5: The logs containing the term[PROOF] and from all the components will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the MongoDB "evidence" database.
 ====
 
 
@@ -696,8 +699,8 @@ Of course, there are many other control points depending on the context of the a
 ====
 
 Self-checking checklist to take into account common vulnerabilities
-[cols = "e, e, e"]
-| ===
+[cols="e, e, e"]
+|===
 | Vulnerability
 | Taken into account?
 | Technical measures undertaken
@@ -728,7 +731,7 @@ Self-checking checklist to take into account common vulnerabilities
 
 | OS injection
 | X
-| Check that there is no system command call in the code (type Runtime.exec ())
+| Check that there is no system command call in the code (like `Runtime.exec()`)
 
 | Authentication and session management violation
 | X
@@ -789,5 +792,5 @@ a |
 | X
 | Validation of attachments by the anti-virus clamav
 
-| ===
+|===
 

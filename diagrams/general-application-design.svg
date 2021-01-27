@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="770px" preserveAspectRatio="none" style="width:677px;height:770px;" version="1.1" viewBox="0 0 677 770" width="677px" zoomAndPan="magnify"><defs/><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="429" x="235" y="9.2822">System context diagram \ nGeneral application point of view \ n of the AllMyData project</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="233" x="215.5" y="28.3486">general-application-design</text><!--MD5=[0b1e1d5afbe222e194d3592c757a343c]
+cluster administration--><rect fill="#FFFFFF" height="90" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="232" x="439" y="407.5938"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="216" x="447" y="424.4453">System administration B</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="524" y="439.3574">[System]</text><!--MD5=[3aaaa60f6cdac4d9080e986fddba613d]
+cluster si,--><rect fill="#FFFFFF" height="445" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="418" x="7" y="184.5938"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="175" x="128.5" y="201.4453">Information System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="185" y="216.3574">[System]</text><!--MD5=[c3dd7293d4e74cc67bec6d68663a773e]
+entity p1--><rect fill="#1168BD" height="38.625" style="stroke:#3C7FC0;stroke-width:1.5;" width="190" x="452" y="450.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="462" y="475.4453">Accounting system</text><!--MD5=[99c5416311fbf9d118be657efd773f39]
+entity ma--><rect fill="#1168BD" height="87.5156" style="stroke:#3C7FC0;stroke-width:1.5;" width="169" x="196.5" y="227.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="87" x="237.5" y="252.4453">AllMyData</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="283" y="269.2139"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="210.5" y="285.5107">Allows companies to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="220.5" y="301.8076">recover their data</text><!--MD5=[2dc3847bc2cbbb4406fa09ddfca9c13d]
+entity ref1--><rect fill="#1168BD" height="71.2188" style="stroke:#3C7FC0;stroke-width:1.5;" width="167" x="14.5" y="550.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="147" x="24.5" y="575.4453">REF_ENTREPRISE</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="100" y="592.2139"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="39" y="608.5107">Person repository</text><!--MD5=[1d51138b063b4ea7af95f6dcbfdcef50]
+entity compo--><rect fill="#1168BD" height="71.2188" style="stroke:#3C7FC0;stroke-width:1.5;" width="200" x="217" y="550.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="180" x="227" y="575.4453">Composition system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="319" y="592.2139"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="247.5" y="608.5107">Transactional editing</text><!--MD5=[3f67c52585c4dc562efcf4859a544515]
+entity company--><rect fill="#686868" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="101" x="230.5" y="39.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="81" x="240.5" y="64.4453">Company</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="283" y="81.2139"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="253.5" y="97.5107">[Person]</text><!--MD5=[0ae0696fd382670f225f2ce7be0d475a]
+link company to ma--><path d="M281,110.6785 C281,141.8807 281,187.5551 281,222.2786 " fill="none" id="company-to-ma" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="281,227.3193,285,218.3193,281,222.3193,277,218.3193,281,227.3193" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="124" x="282" y="155.5171">[1] Request via</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="40" x="326.5" y="172.978">form</text><!--MD5=[14f500338939dcdcdcb5ccac8dc5b25b]
+link ma to ref1--><path d="M215.2195,315.6619 C184.9281,339.3697 151.2826,371.2104 131,407.5938 C107.1599,450.3587 100.1019,506.9584 98.237,544.851 " fill="none" id="ma-to-ref1" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="97.9981,550.3021,102.3885,541.4859,98.2171,545.3068,94.3961,541.1355,97.9981,550.3021" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="138" x="132.5" y="467.0171">[2.1] Enrichment</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="144" x="132" y="484.478">with internal data</text><!--MD5=[d58216bb64e185028baf2cf880ba1aca]
+link ma to p1--><path d="M340.034,315.6474 C394.7475,356.4768 473.9481,415.5795 516.7725,447.5368 " fill="none" id="ma-to-p1" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="520.8012,450.5431,515.9805,441.9547,516.794,447.5528,511.1959,448.3663,520.8012,450.5431" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="127" x="446" y="360.5171">[2.2] Retrieving</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="89" x="465" y="377.978">accounting</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="95" x="464.5" y="395.439">information</text><!--MD5=[02057eea38557a28345d559cf8372f1d]
+link ma to compo--><path d="M281.3655,315.5941 C282.296,361.3235 285.3394,434.8452 295,497.5938 C297.4242,513.3394 301.3416,530.3802 305.2039,545.2654 " fill="none" id="ma-to-compo" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="306.5094,550.2257,308.0871,540.504,305.2368,545.3903,300.3505,542.5401,306.5094,550.2257" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="134" x="296" y="475.5171">[3] PDF creation</text><rect fill="#DDDDDD" height="111.7813" rx="5" ry="5" style="stroke:#000000;stroke-width:1.0;" width="199" x="456" y="642.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="0" x="532" y="662.5889"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="39" x="537" y="662.5889">Type</text><rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="462" y="665.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="486" y="678.8857"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="536" y="678.8857">person</text><rect fill="#686868" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="462" y="682.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="486" y="695.1826"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="536" y="695.1826">external person</text><rect fill="#1168BD" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="462" y="698.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="474" y="711.4795"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="536" y="711.4795">system</text><rect fill="#999999" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="462" y="714.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="486" y="727.7764"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="536" y="727.7764">external system</text><rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="462" y="731.0781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="474" y="744.0732"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="536" y="744.0732">container</text><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="649.5938" y2="649.5938"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="665.8906" y2="665.8906"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="682.1875" y2="682.1875"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="698.4844" y2="698.4844"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="714.7813" y2="714.7813"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="731.0781" y2="731.0781"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="649" y1="747.375" y2="747.375"/><line style="stroke:#000000;stroke-width:1.0;" x1="462" x2="462" y1="649.5938" y2="747.375"/><line style="stroke:#000000;stroke-width:1.0;" x1="532" x2="532" y1="649.5938" y2="747.375"/><line style="stroke:#000000;stroke-width:1.0;" x1="649" x2="649" y1="649.5938" y2="747.375"/><!--MD5=[9867cdff449a604859f0f68b7fd204fa]
+@startuml
+' C4-PlantUML, version 1.0.0
+' https://github.com/RicardoNiepel/C4-PlantUML
+
+' Colors
+' ##################################
+
+!define ELEMENT_FONT_COLOR #FFFFFF
+
+' Styling
+' ##################################
+
+!define TECHN_FONT_SIZE 12
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 14
+    Thickness 2
+}
+
+skinparam rectangle<<zone>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+' Layout
+' ##################################
+
+!definelong LAYOUT_AS_SKETCH
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam defaultFontName "Comic Sans MS"
+center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+!enddefinelong
+
+!define LAYOUT_TOP_DOWN top to bottom direction
+!define LAYOUT_LEFT_RIGHT left to right direction
+
+' Boundaries
+' ##################################
+
+!define Boundary(e_alias, e_label) rectangle "==e_label" <<zone>> as e_alias
+!define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<zone>> as e_alias
+
+' Relationship
+' ##################################
+
+!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
+!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+
+!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "- ->")
+!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "- ->")
+
+!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<- -")
+!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<- -")
+
+!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "->")
+!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "->")
+
+!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
+!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
+
+!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
+!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
+!define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
+!define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
+
+!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
+!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
+!define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
+!define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
+
+!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
+!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
+!define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
+!define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
+
+!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
+!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
+!define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
+!define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
+
+' Layout Helpers
+' ##################################
+
+!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
+!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
+!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
+!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
+
+' Scope: A single software system.
+' Primary elements: The software system in scope.
+' Supporting elements: People and software systems directly connected to the software system in scope.
+' Intended audience: Everybody, both technical and non-technical people, inside and outside of the software development team.
+
+' Colors
+' ##################################
+
+!define PERSON_BG_COLOR #08427B
+!define EXTERNAL_PERSON_BG_COLOR #686868
+!define SYSTEM_BG_COLOR #1168BD
+!define EXTERNAL_SYSTEM_BG_COLOR #999999
+
+' Styling
+' ##################################
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor PERSON_BG_COLOR
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_PERSON_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor SYSTEM_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor EXTERNAL_SYSTEM_BG_COLOR
+    BorderColor #8A8A8A
+}
+
+' Layout
+' ##################################
+
+!definelong LAYOUT_WITH_LEGEND
+hide stereotype
+legend right
+|=              |= Type |
+|<PERSON_BG_COLOR>      | person |
+|<EXTERNAL_PERSON_BG_COLOR>      | external person |
+|<SYSTEM_BG_COLOR>   | system |
+|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+endlegend
+!enddefinelong
+
+' Elements
+' ##################################
+
+!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
+!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
+
+!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
+
+!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
+!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
+!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
+!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
+!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+' Boundaries
+' ##################################
+
+!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
+!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
+
+' Scope: A single software system.
+' Primary elements: Containers within the software system in scope.
+' Supporting elements: People and software systems directly connected to the containers.
+' Intended audience: Technical people inside and outside of the software development team; including software architects, developers and operations/support staff.
+
+' Colors
+' ##################################
+
+!define CONTAINER_BG_COLOR #438DD5
+
+' Styling
+' ##################################
+
+skinparam rectangle<<unité déployable>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor CONTAINER_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+skinparam database<<unité déployable>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor CONTAINER_BG_COLOR
+    BorderColor #3C7FC0
+}
+
+' Layout
+' ##################################
+
+!definelong LAYOUT_WITH_LEGEND
+hide stereotype
+legend right
+|=              |= Type |
+|<PERSON_BG_COLOR>      | person |
+|<EXTERNAL_PERSON_BG_COLOR>      | external person |
+|<SYSTEM_BG_COLOR>   | system |
+|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
+|<CONTAINER_BG_COLOR>   | container |
+endlegend
+!enddefinelong
+
+' Elements
+' ##################################
+
+!define Container(e_alias, e_label) rectangle "==e_label" <<unité déployable>> as e_alias
+!define Container(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<unité déployable>> as e_alias
+!define Container(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<unité déployable>> as e_alias
+
+!define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<unité déployable>> as e_alias
+!define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<unité déployable>> as e_alias
+
+' Boundaries
+' ##################################
+
+!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
+title general-application-design
+header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+LAYOUT_WITH_LEGEND()
+Person_Ext(company, "Company", "[Person]")
+
+System_Boundary(administration, "System administration B") {
+     System(p1, "Accounting system")
+}
+
+System_Boundary(si, "Information System"), {
+   System(ma, "AllMyData", "Allows companies to recover their data")
+   System(ref1, "REF_ENTREPRISE", "Person repository")
+   System(compo, "Composition system", "Transactional editing") {
+}
+
+Rel(company, ma, "[1] Request via form")
+Rel(ma, ref1, "[2.1] Enrichment with internal data")
+Rel(ma, p1, "[2.2] Retrieving accounting information")
+Rel(ma, compo, "[3] PDF creation")
+@enduml
+
+@startuml
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 14
+    Thickness 2
+}
+
+skinparam rectangle<<zone>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+title general-application-design
+header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+hide stereotype
+legend right
+|=              |= Type |
+|<#08427B>      | person |
+|<#686868>      | external person |
+|<#1168BD>   | system |
+|<#999999>      | external system |
+|<#438DD5>   | container |
+endlegend
+rectangle "==Company\n\n [Person]" <<external_person>> as company
+
+rectangle "==System administration B\n<size:12>[System]</size>" <<zone>> as administration {
+     rectangle "==Accounting system" <<system>> as p1
+}
+
+rectangle "==Information System\n<size:12>[System]</size>" <<zone>> as si, {
+   rectangle "==AllMyData\n\n Allows companies to recover their data" <<system>> as ma
+   rectangle "==REF_ENTREPRISE\n\n Person repository" <<system>> as ref1
+   rectangle "==Composition system\n\n Transactional editing" <<system>> as compo {
+}
+
+company - -> ma : "===[1] Request via form"
+ma - -> ref1 : "===[2.1] Enrichment with internal data"
+ma - -> p1 : "===[2.2] Retrieving accounting information"
+ma - -> compo : "===[3] PDF creation"
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 10:25:05 UTC 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

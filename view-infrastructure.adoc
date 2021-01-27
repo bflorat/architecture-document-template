@@ -1,19 +1,19 @@
 = Infrastructure component
-: sectnumlevels: 4
-: toclevels: 4
-: sectnums: 4
-: toc: left
-: icons: font
-: toc-title: Summary
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
 
 Last modified: {docdate}
 
 == Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all of the devices ensuring their proper functioning.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other parts of the file are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
 [TIP]
 ====
@@ -22,25 +22,28 @@ This point of view is also often called "technical point of view" and concerns t
 In short, it covers everything that is external to the application and necessary for its execution.
 ====
 
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+
+
 === Reference Documentation
 [TIP]
 Mention here the reference architecture documents (shared). This document must in no case include their content under penalty of quickly becoming obsolete and not maintainable.
 
 Documentary references
-[cols = "1st, 2nd, 5th, 4th"]
-| ====
+[cols="1e, 2e, 5e, 4e"]
+|====
 | N ° | Version | Document title / URL | Detail
 
 | 1 || Rules_savements.pdf
 | Safeguards rules
 
-| ====
+|====
 
 == Not ruled
 === Points subject to further study
 Points subject to further study
-[cols = "1st, 5th, 2nd, 2nd, 2nd"]
-| ====
+[cols="1e, 5e, 2e, 2e, 2e"]
+|====
 | ID | Detail | Status | Subject holder | Deadline
 
 | EI1
@@ -49,18 +52,18 @@ Points subject to further study
 | Archi Technique team
 | BEFORE 2040
 
-| ====
+|====
 
 === Assumptions
 
 .Hypotheses
-[cols = "1st, 5th"]
-| ====
+[cols="1e, 5e"]
+|====
 | ID | Detail
 
 | HI1
 | We assume that by the time of the project PEM, PostgreSQL 11 will be validated internally.
-| ====
+|====
 
 == Constraints
 
@@ -143,7 +146,7 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 ====
 
-==== Levelat the service of the data center
+==== Level of service of the datacenter
 
 [TIP]
 ====
@@ -151,7 +154,7 @@ Give here the security level of the data center according to the Uptime Institut
 Most data centers are level I or II.
 
 Tier levels of data centers (Source: Wikipedia)
-| ====
+|====
 Tier | Features | Availability rate | Annual statistical unavailability | Hot maintenance possible? | Tolerance
 breakdowns?
 
@@ -179,7 +182,7 @@ breakdowns?
 | 0.4 h
 | Yes
 | Yes
-| ====
+|====
 ====
 
 ====
@@ -221,17 +224,19 @@ Describe among others:
 * How are the blank scale tests organized? How often?
 ====
 ====
-Example: As a reminder (see [doc xyz]), the VMs are replicated in the standby datacenter via vSphere Metro Storage Cluster technology using SRDF in asynhrone mode for inter-bay replication. In the event of a disaster, the replicated VM at the standby site is up to date and ready to start.
+Example: As a reminder (see[doc xyz]), the VMs are replicated in the standby datacenter via vSphere Metro Storage Cluster technology using SRDF in asynhrone mode for inter-bay replication. In the event of a disaster, the replicated VM at the standby site is up to date and ready to start.
 
 Example 2 (SME with its own datacenter in Paris in the Seine flood zone): Storage of two spare servers in the premises of Lille. Hot backup of core business data every 4 hours and upload (with client encryption) to BackBlaze.com. 4h RPO, 2h RTO.
 ====
 
 
-=== Accommodation
+=== Hosting
 
 * Where will this application be hosted? "on premises" datacenter? Internal cloud? Cloud IaaS? PaaS? other?
 * Who will administer this application? internally? Outsourced? No administration (PaaS) ...?
-====Example 1: This application will be hosted internally in the Nantes data center (the only one to ensure the required service availability) and it will be administered by the Lyon X team.
+
+====
+Example 1: This application will be hosted internally in the Nantes data center (the only one to ensure the required service availability) and it will be administered by the Lyon X team.
 ====
 
 ====
@@ -333,8 +338,8 @@ The information given here will be used as input to the application SLA.
 
 ====
 Example of operating ranges
-[cols = "1st, 5th, 2nd"]
-| ====
+[cols="1e, 5e, 2e"]
+|====
 | No beach | Hours | Detail
 
 | 1
@@ -352,7 +357,7 @@ Example of operating ranges
 | 4
 | From 5:30 a.m. to 8:30 a.m. Paris time, 5 days / 7 working days
 | Intranet opening to employees of New Caledonia
-| ====
+|====
 ====
 
 === Availability requirements
@@ -377,8 +382,8 @@ The availability required here must be consistent with the “Constraints on ava
 ====
 
 .Maximum allowable downtime per range
-[cols = "1st, 5th"]
-| ====
+[cols="1e, 5e"]
+|====
 | No Beach | Maximum downtime
 
 | 1
@@ -389,7 +394,7 @@ The availability required here must be consistent with the “Constraints on ava
 
 | 3
 | 4 hours, 8 times a year
-| ====
+|====
 
 === Degraded modes
 [TIP]
@@ -534,7 +539,7 @@ Example: The application will be deployed in blue / green mode, ie completely in
 Specify here the internal or external components that may interfere with the application.
 ====
 ====
-Example 1: All components of this application must be able to run concurrently. In particular, batch / HMI concurrency must always be possible because the batches must be able to run during the day if there is a need to catch up
+Example 1: All components of this application must be able to run concurrently. In particular, batch / GUI concurrency must always be possible because the batches must be able to run during the day if there is a need to catch up
 ====
 ====
 Example 2: batch X should only be started if batch Y is completed correctly, otherwise data will be corrupted.
@@ -680,7 +685,7 @@ Be careful to properly qualify the requirements before building an FT architectu
 ====
 
 .Some availability solutions (excluding datacenter availability)
-| ====
+|====
 | Solution | Cost | Indicative implementation complexity | Improvement of indicative availability
 
 | Disks in RAID 1 | XXX | X | XXX
@@ -695,7 +700,7 @@ Be careful to properly qualify the requirements before building an FT architectu
 | Remote site life test systems | X | X | XX
 | On call dedicated to the application, 24/7/365 | XXX | XX | XXX
 | Copy of the backup of the last business database dump on SAN bay (for express restoration) | XX | X | XX
-| ====
+|====
 
 ====
 Example 1: To achieve the required 98% availability, the envisaged availability mechanisms are as follows:
@@ -734,7 +739,7 @@ Clearly identify the hardware dedicated to the application (and possibly to buy)
 ====
 Example:
 
-image :: diagrams / archi-infra.svg [MIEL deployment diagram]
+image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 ====
 
 === Versions of infrastructure components
@@ -744,8 +749,8 @@ image :: diagrams / archi-infra.svg [MIEL deployment diagram]
 List here OS, databases, MOM, application servers, etc ...
 ====
 Example of infrastructure components
-[cols = "1st, 2nd, 1st, 2nd"]
-| ====
+[cols="1e, 2e, 1e, 2e"]
+|====
 | Component | Role | Version | Technical environment
 
 | CFT
@@ -772,7 +777,7 @@ Example of infrastructure components
 | RDBMS
 | 9.3.15
 | CentOS 7
-| ====
+|====
 
 === Matrix of technical flows
 
@@ -788,15 +793,15 @@ Types of networks include useful information about the network being used in ord
 ====
 
 Partial example of technical flow matrix
-[cols = "1st, 2nd, 2nd, 2nd, 1st, 1st"]
-| ====
+[cols="1e, 2e, 2e, 2e, 1e, 1e"]
+|====
 | ID | Source | Destination | Network type | Protocol | Listening port
 
 | 1 | lb2 | IP multicast 224.0.0.18 | LAN | VRRP over UDP | 3222
 | 2 | lb1 | host1, host2 | LAN | HTTP | 80
 | 3 | host3, host4, host5 | bdd1 | LAN | PG | 5432
-| 4 | sup1 | host [1-6] | LAN | SNMP | 199
-| ====
+| 4 | sup1 | host[1-6] | LAN | SNMP | 199
+|====
 
 === Environments
 
@@ -808,7 +813,7 @@ Give here a general vision of the environments used by the application. The most
 
 .Environments
 [cols = '1,2,2,2']
-| ====
+|====
 | Environment | Role | Content | Corridor
 
 | Development
@@ -837,7 +842,7 @@ However, ecodesign analyzes and solutions can be specific to this theme. Some av
 * For large projects or as part of the use of a CaaS cloud, the use of a cluster of containers (Swarm, Mesos or Kubernete type solution) makes it possible to optimize the use of VMs or physical machines by starting them / resiliently stopping on the fly.
 * Host its servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). OVH, for example, offers data centers with a PUE of 1.2 in 2017 against 2.5 on average.
 * However :
-** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org [the use of energy from coal and nuclear] by Amazon for its AWS cloud );
+** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org[the use of energy from coal and nuclear] by Amazon for its AWS cloud );
 ** keep in mind that the energy consumed by the application on the client and network side is much greater than that used on the server side (for example, we can estimate that a server consuming barely more than one workstation is enough for several thousands or even tens of thousands of users). Energy reduction also involves extending the lifespan of terminals and the use of more economical equipment.
 ====
 ====
@@ -873,13 +878,13 @@ It is also useful to provide dynamic application regulation systems, for example
 Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make replay to be progressively spaced out in time).
 
 Example: distribution of tokens will be as follows bydefault
-| ====
+|====
 | Operation on `DetailArticle` | Proportion of tokens
 
 | GET | 80%
 | POST | 5%
 | PUT | 15%
-| ====
+|====
 ====
 ====
 Example 2: a throttling of 100 requests per source and per minute will be set up at the level of the reverse proxy.
@@ -901,7 +906,7 @@ Also avoid using the same value in all the technical components to avoid unexpec
 ====
 Example:
 
-| ===
+|===
 | Component | Timeout (ms)
 
 | Rest JavaScript Client | 5000
@@ -909,7 +914,7 @@ Example:
 | API Rest Node.js | 3500
 | PG database | 3000
 
-| ===
+|===
 
 ====
 
@@ -942,7 +947,7 @@ Example of a start-up order:
 . services1 on host3, host4 and host5 servers
 . services2 on host3, host4 and host5 servers
 . batches on servers host1, host2
-. ihm on servers host1, host2
+. gui on servers host1, host2
 
 Example of stop order:
 
@@ -1052,7 +1057,7 @@ Without being exhaustive on the log files (to be provided in the DEX), present t
 * Think about saving logs in chapter 12.3.
 ====
 ====
-Example 1: the application logs of the service-honey component will be in production at INFO level with daily rotation and two-month conservation.
+Example 1: the application logs of the service-allmydata component will be in production at INFO level with daily rotation and two-month conservation.
 ====
 ====
 Example 2: the logs will be escaped when they are created via the `StringEscapeUtils.escapeHtml ()` method of Jakarta commons-lang.

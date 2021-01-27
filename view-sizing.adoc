@@ -1,10 +1,10 @@
-= Dimensioning pane
-: sectnumlevels: 4
-: toclevels: 4
-: sectnums: 4
-: toc: left
-: icons: font
-: toc-title: Summary
+= Sizing pane
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
 
 Last modified: {docdate}
 
@@ -12,22 +12,25 @@ Last modified: {docdate}
 
 This is the sizing point of view of the project. It determines the size of the infrastructure required for the project.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other parts of the file are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+
 
 === Reference Documentation
 
 Sizing documentary references
-[cols = "1st, 1st, 4th, 4th"]
-| ====
+[cols="1e, 1e, 4e, 4e"]
+|====
 | N ° | Version | Document title / URL | Detail
 
 | 1 | 1.2 | Report_benchmark_xyz.pdf |
 | 2 | 2019 | INSEE report on French companies |
 
 
-| ====
+|====
 
 
 == Not ruled
@@ -35,13 +38,13 @@ Sizing documentary references
 === Points subject to further study
 
 Points subject to further study
-[cols = "1st, 1st, 1st, 2nd, 2nd"]
-| ====
+[cols="1e, 1e, 1e, 2e, 2e"]
+|====
 | ID | Detail | Status | Subject holder | Deadline
 
 | 1 | SSD disk capacity | EN_COURS | XYZ | 01/01/2022
 
-| ====
+|====
 
 
 === Assumptions
@@ -55,13 +58,13 @@ Give here the structuring assumptions taken for the design
 Example:
 
 .Hypotheses
-[cols = "1st, 4th"]
-| ====
+[cols="1e, 4e"]
+|====
 | ID | Detail
 
 | 1 | We estimate that 10M people will download the StopCovid app
 
-| ====
+|====
 
 ====
 
@@ -139,13 +142,13 @@ TIP: These are the metrics used to determine the * cumulative * storage volume o
 
 TIP: These are measured or estimated business data that will be used as inputs to the calculation of technical storage needs.
 
-[cols = "e, e, e, e, e, e, e"]
-| ====
+[cols="e, e, e, e, e, e, e"]
+|====
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail / assumptions
 
-| S1 | Number of eligible companies | Estimated | 4M | + 1% | INSEE [2] | We consider that MIEL does not concern the self-employed
+| S1 | Number of eligible companies | Estimated | 4M | + 1% | INSEE[2] | We consider that AllMyData does not concern the self-employed
 | S2 | Average size of a PDF | Measured | 40Kb | 0% | Operators |
-| ====
+|====
 
 ==== Estimated storage needs
 
@@ -178,7 +181,7 @@ Only estimate data whose size is not negligible (several hundreds of MB minimum)
 
 ====
 . Example of static volumetry of component C:
-| ====
+|====
 | Data | Description | Unit size | Number of elements at 2 years | Total size | Annual increase
 
 | Table Article
@@ -201,7 +204,7 @@ Only estimate data whose size is not negligible (several hundreds of MB minimum)
 | 300M
 | 56 GB
 | 0% (archiving)
-| ====
+|====
 ====
 
 === Dynamic volumetry
@@ -212,8 +215,8 @@ TIP: These are metrics by duration (year, month, hour, ...) and allowing to dete
 
 TIP: These are the measured or estimated business data that will be used as inputs for the calculation of the load.
 
-[cols = "e, e, e, e, e, e, e, e"]
-| ====
+[cols="e, e, e, e, e, e, e, e"]
+|====
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail / assumptions
 
 | D1 | Proportion of users connecting to the service / J | Estimated | 1% | + 5%
@@ -223,7 +226,7 @@ a |
  - Constant over the week
  - 3 peaks at 20% of the day at 8: 00-9: 00, 11: 00-12: 00 and 14: 00-15: 00
  | | Users are professionals using the application from mainland France during standard office hours
-| ====
+|====
 
 
 ==== Estimated load
@@ -244,8 +247,8 @@ If the calculation of the peak for a component at the end of the link chain is c
 If the application runs on a PaaS type cloud, the load will be absorbed dynamically, but take care to estimate the additional cost and to set consistent consumption limits to respect the budget while ensuring a good level of service.
 ====
 
-.Example: dynamic volumetric estimation of the REST operation `GET Detail` of the MIEL application
-| ====
+.Example: dynamic volumetric estimation of the REST operation `GET Detail` of the AllMyData application
+|====
 | Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K / H
 | Average duration of a user session
 | 15 mins
@@ -253,7 +256,7 @@ If the application runs on a PaaS type cloud, the load will be absorbed dynamica
 | 10
 | Charge (Transaction / second)
 | 8K / 4 x 10/3600 = 5.5 Tps
-| ====
+|====
 
 
 [TIP]
@@ -271,7 +274,7 @@ Finally, keep in mind that this is simply an estimate to be validated during cam
 Example: the Oracle BD01 database is used for reading by the REST calls `GET DetailArticle` made from the end-user application and for updating by the POST and PUT calls on` DetailArticle` from the supply batch B03 at night between 01:00 and 02:00.
 
 .Example estimates number of peak SQL queries to instance BD01 from 01:00 to 02:00 in December
-| ====
+|====
 | Maximum rate of users logged in at the same time | 0.5%
 | Maximum number of concurrent connected users
 | 5K
@@ -297,12 +300,12 @@ Example: the Oracle BD01 database is used for reading by the REST calls `GET Det
 | 0 + 3 x 4K / 3600 = 3.4 Tps
 | Number of UPDATE / sec
 | 0 + 3 x 10K / 3600 = 8.3 Tps
-| ====
+|====
 ====
 
 === Response time requirements
 
-==== Response time of HMIs
+==== Response time of GUIs
 
 [TIP]
 ====
@@ -316,8 +319,8 @@ No need to multiply the types of requests (depending on the complexity of the sc
 ====
 ====
 Example of types of solicitation:
-[cols = '3rd, 1st, 1st, 1st']
-| ====
+[cols = '3e, 1e, 1e, 1e']
+|====
 | Type of request | Good level | Medium level | Insufficient level
 
 | Loading a page
@@ -334,7 +337,7 @@ Example of types of solicitation:
 | <3 s
 | <6 s
 |> 15 s
-| ====
+|====
 
 Example of acceptability of TRs:
 
@@ -374,7 +377,7 @@ Example 3: the batches and the UIs can operate in competition, there is no stric
 
 [TIP]
 ====
-We give a final dimensioning to support the static and dynamic volumetry and meet the requirements.
+We give a final sizing to support the static and dynamic volumetry and meet the requirements.
 ====
 
 === Estimate of resource requirements by technical component
@@ -387,8 +390,8 @@ Give here RAM, disk and CPU per instance of technical component deployed (to be 
 ====
 Example:
 .Estimation of resource requirements by technical component
-[cols = "2nd, 1st, 1st, 3rd, 2nd"]
-| ====
+[cols="2e, 1e, 1e, 3e, 2e"]
+|====
 | Deployable unit | (V) CPU requirement per instance | Memory requirement per instance (Mio) | Periods of activity | Comments
 
 | `tomcat-batchs1`
@@ -412,7 +415,7 @@ Example:
 
 === Sizing of machines
 
-See the link: ./ component-architecture-infrastructure.adoc # _déployer_en_production [deployment model].
+See the link:./component-architecture-infrastructure.adoc # _déployer_en_production[deployment model].
 
 [TIP]
 ====
@@ -425,8 +428,8 @@ This section provides the final sizing of the machines required.res
 ====
 
 .Sizing of machines
-[cols = '1st, 3rd, 1st, 1st, 1st, 1st, 1st ”]
-| ====
+[cols = '1e, 3e, 1e, 1e, 1e, 1e, 1e ”]
+|====
 | Zone | Machine type | Number of machines | Nb (V) CPU | Memory (GiB) | Internal disk (GiB) | External disk (GiB)
 
 | DMZ 01
@@ -446,5 +449,5 @@ This section provides the final sizing of the machines required.res
 | 1024 (SAN)
 
 
-| ==== 
+|==== 
 

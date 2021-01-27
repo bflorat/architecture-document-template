@@ -1,0 +1,11 @@
+@startuml
+title roles
+header Classic authorization model
+skinparam defaultFontName Liberation Sans
+scale 500 * 400
+Role "0 .. *" o-- "0 .. *" Function: "contains"
+Group "0 .. *" o-- "0 .. *" User: "contains"
+User "0 .. *" -> "0 .. *" Role: "owns"
+User "0 .. *" -> "0 .. *" Function: "has privilege on"
+Group "1" -> "0 .. *" Role: "owns"
+@enduml 

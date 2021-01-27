@@ -1,10 +1,10 @@
 = Development component
-: sectnumlevels: 4
-: toclevels: 4
-: sectnums: 4
-: toc: left
-: icons: font
-: toc-title: Summary
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
 
 Last modified: {docdate}
 
@@ -12,9 +12,12 @@ Last modified: {docdate}
 
 This is the development point of view of the application. It describes the code to be produced and how to write it.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other parts of the file are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+
 
 === Reference Documentation
 
@@ -22,22 +25,22 @@ The project glossary is available at link: glossaire.adoc [here]. We will not re
 Mention here the reference architecture documents (shared). This document must in no case include their content, otherwise it will quickly become obsolete and unmaintainable.
 
 . Development documentary references
-[cols = "1st, 1st, 4th, 4th"]
-| ====
+[cols="1e, 1e, 4e, 4e"]
+|====
 | N ° | Version | Document title / URL | Detail
 
 | 1 | 1.0 | https: //references.modernisation.gouv.fr/rgaa-accessibilite/#menu
 | RGAA
 
-| ====
+|====
 
 == Not ruled
 
 === Points subject to further study
 
 Points subject to further study
-[cols = "e, e, e, e, e"]
-| ====
+[cols="e, e, e, e, e"]
+|====
 | ID | Detail | Status | Subject holder | Deadline
 
 | ED1
@@ -46,19 +49,19 @@ Points subject to further study
 | Methods and tools team
 | BEFORE 2040
 
-| ====
+|====
 
 
 === Assumptions
 
 .Hypotheses
-[cols = "1st, 4th"]
-| ====
+[cols="1e, 4e"]
+|====
 | ID | Detail
 
 | HD1
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
-| ====
+|====
 
 == Constraints
 
@@ -198,7 +201,7 @@ Example 3: Application Z is aimed at the broadest audience and with reasonably o
 Specify the constraints of the application in terms of i18n: location of labels, direction of the text, adaptable layout, specific color code, date format, currencies, display of decimal separators, etc.
 ====
 ====
-Example 1: The HMI X will be translated into 25 languages ​​including some Asian languages ​​and Arabic.
+Example 1: The GUI X will be translated into 25 languages ​​including some Asian languages ​​and Arabic.
 ====
 ====
 Example 2: Date formats and other input fields must be perfectly localized for maximum user convenience.
@@ -259,8 +262,8 @@ List here for each component the main libraries and frameworks used as well as t
 Example:
 
 Software stack example
-[cols = "1st, 4th, 1st"]
-| ====
+[cols="1e, 4e, 1e"]
+|====
 | Library | Role | Version
 
 | Angular2 Framework
@@ -270,12 +273,12 @@ Software stack example
 | JasperReport
 | Transactional editing, composition of invoices in PDF format
 | 6.3.0
-| ====
+|====
 ====
 
 === Performance
 
-IMPORTANT: See the MOA requirements in the link: ./ component-architecture-dimensioning.adoc [dimensioning section].
+IMPORTANT: See the MOA requirements in the link:./component-architecture-sizing.adoc[Sizing section].
 
 
 [TIP]
@@ -299,7 +302,7 @@ Backend side:
 * In cases of large volumes, study the solutions for partitioning tables.
 * Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify that there are no full scans.
 * Beware of SQL functions that 'break' indexes (like `UPPER ()`). Give priority to processing on the backend code side if possible.
-* Activate the query logs (Hibernate example: `org.hibernate.SQL = DEBUG`,` -Dhibernate.generate_statistics = true`) and check the SQL queries and their number (to detect in particular the problem of https: // stackoverflow .com / questions / 97197 / what-is-the-n1-selects-problem-in-orm-object-relational-mapping [SELECT N + 1], very common).
+* Activate the query logs (Hibernate example: `org.hibernate.SQL = DEBUG`,` -Dhibernate.generate_statistics = true`) and check the SQL queries and their number (to detect in particular the problem of https: // stackoverflow .com / questions / 97197 / what-is-the-n1-selects-problem-in-orm-object-relational-mapping[SELECT N + 1], very common).
 * Have a minimum data set (around a hundred records) even on a workstation.
 * Check with a profiler (like JVisualVM in Java) the memory consumption to detect leaks or overconsumption.
 * Check that there are no threads or deadlock leaks by counting the number of active threads.
@@ -341,7 +344,7 @@ Make explicit the rules and the level of quality required for the code
 Example 1: The quality rules to be used for the code will be (https://rules.sonarsource.com/javaogène standard SonarQube for Java rules]).
 ====
 ====
-Example 2: The required quality level corresponds to the recommended https://docs.sonarqube.org/6.7/QualityGates.html [Quality Gate SonarQube]:
+Example 2: The required quality level corresponds to the recommended https://docs.sonarqube.org/6.7/QualityGates.html[Quality Gate SonarQube]:
 
 * 80% minimum code coverage
 * 3% max of duplicate lines
@@ -359,7 +362,7 @@ Example 3: What language used for the code? French for functional terms (it is i
 Specify whether this project has implemented structuring patterns (GoF, JEE or other). No need to use patterns already supported by languages ​​or application servers (for example, IoC with CDI in a JEE 6 server).
 ====
 ====
-Example 1: to deal with the combinatorial explosion of possible contracts and avoid multiplying the levels of inheritance, we will massively use the decorator pattern [GoF], of which here is an example of use: <diagram>.
+Example 1: to deal with the combinatorial explosion of possible contracts and avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <diagram>.
 ====
 
 === Specificities of the tests
@@ -380,7 +383,7 @@ Example 3: Types of tests
 
 Types of tests
 [cols = '2s, 1,1,1,1,4a']
-| ====
+|====
 | Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
 
 | TU
@@ -461,7 +464,7 @@ detect as many bugs as possible before UAT tests.
 | UI, hand-launched batches
 | from 30% to 80% depending on the number of scenarios planned
 | Tests carried out in acceptance by the MOA on an uncapped environment with test books. End-to-end acceptance tests (we follow a test booklet with nominal cases), Exploratory tests (we try all possible combinations with minimal guidance in the test booklet)
-| ====
+|====
 ====
 
 NOTE: For a large projecture, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
@@ -520,7 +523,7 @@ How are HTTP sessions managed to provide an execution context to a user (example
 
 Note that this is primarily a problem for classic web applications whose presentation is generated on the server, not for Single Page Application (SPA) applications which manage all presentation and state locally in the browser.
 
-The choices made here will affect the links: component-architecture-infrastructure [choice of infrastructure]. For example, if a session is required and the infrastructure is clustered, it will either be necessary to set up session affinity on the servers to force each user to always arrive on the same server with their data, or to set up a distributed cache allowing servers to share sessions for all users (more complex).
+The choices made here will affect the links: component-architecture-infrastructure[choice of infrastructure]. For example, if a session is required and the infrastructure is clustered, it will either be necessary to set up session affinity on the servers to force each user to always arrive on the same server with their data, or to set up a distributed cache allowing servers to share sessions for all users (more complex).
 
 Examples of points to be addressed:
 
@@ -654,7 +657,7 @@ Example 2: If an external system requires sending orto receive character strings
 
 [TIP]
 ====
-How do we manage the storage of dates? This, as the management of encoding is a recurring problem (one day shift, bugs during summer / winter time changes, etc.) and yet simple to solve: follow the https: // standard. .wikipedia.org / wiki / ISO_8601 [ISO 8601] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC." [Wikipedia]).
+How do we manage the storage of dates? This, as the management of encoding is a recurring problem (one day shift, bugs during summer / winter time changes, etc.) and yet simple to solve: follow the https: // standard. .wikipedia.org / wiki / ISO_8601[ISO 8601] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC."[Wikipedia]).
 ====
 
 ====
@@ -666,7 +669,7 @@ Example 2: Dates and date-times will be stored in database as epoch millis in lo
 
 === Log management
 
-NOTE: The log infrastructure aspects are detailed in link: ./ pane-architecture-infrastructure.adoc # _logs [the infrastructure pane].
+NOTE: The log infrastructure aspects are detailed in link:./pane-architecture-infrastructure.adoc # _logs[the infrastructure pane].
 
 [TIP]
 ====
@@ -702,7 +705,7 @@ Example:
 
 .Log levels
 [cols = '1,3,1,1']
-| ====
+|====
 | Severity level | Context of use | Indicative volume | Surround
 
 | DEBUG
@@ -729,7 +732,7 @@ Example:
 | All blocking errors for the application (BDD access problem, HTTP 404 or 500). Position a maximum of context detail. Remember to log these errors on an appender console in the event that writing to FS is impossible (disk full). Remember that during a fatal error, even writing the log is questionable (for example in the event of memory overflow).
 | No limits.
 | All
-| ====
+|====
 
 ====
  
@@ -755,7 +758,7 @@ Example: The `/ internal / maj_2` service will perform a version upgrade of the 
 
 [TIP]
 ====
-It is necessary to keepgood fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (HMI and batches) and the APIs. Describe here the paging devices implemented on the client side and on the server side.
+It is necessary to keepgood fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (GUI and batches) and the APIs. Describe here the paging devices implemented on the client side and on the server side.
 ====
 
 ====

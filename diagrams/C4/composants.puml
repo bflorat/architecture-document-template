@@ -1,0 +1,14 @@
+skinparam component {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+    StereotypeFontSize 12
+    shadowing false
+}
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+
+}

@@ -1,0 +1,23 @@
+@startuml
+!include C4/C4_Container.puml
+title general-application-design
+header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+LAYOUT_WITH_LEGEND()
+Person_Ext(company, "Company", "[Person]")
+
+System_Boundary(administration, "System administration B") {
+     System(p1, "Accounting system")
+}
+
+System_Boundary(si, "Information System"), {
+   System(ma, "AllMyData", "Allows companies to recover their data")
+   System(ref1, "REF_ENTREPRISE", "Person repository")
+   System(compo, "Composition system", "Transactional editing") {
+}
+
+Rel(company, ma, "[1] Request via form")
+Rel(ma, ref1, "[2.1] Enrichment with internal data")
+Rel(ma, p1, "[2.2] Retrieving accounting information")
+Rel(ma, compo, "[3] PDF creation")
+
+@enduml 
