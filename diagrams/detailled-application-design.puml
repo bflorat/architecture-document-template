@@ -21,7 +21,7 @@ System_Boundary(si, "Information System") {
     Container(smails, "mail server", "Container: Postfix", "Send emails")
 }
 
-Rel(company, static_resources, "Visit https://mesinfos.gouv.fr", "HTTPS, synchronous, read only")
+Rel(company, static_resources, "Visit https://allmydata.gouv", "HTTPS, synchronous, read only")
 Rel(company, spa, "Retrieves information via")
 Rel(company, mobile, "Retrieves information via")
 Rel(static_resources, spa, "Provide to client's web browser", "HTTPS, synchronous, read-only")
