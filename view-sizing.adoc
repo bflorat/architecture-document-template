@@ -1,0 +1,450 @@
+= Dimensioning pane
+: sectnumlevels: 4
+: toclevels: 4
+: sectnums: 4
+: toc: left
+: icons: font
+: toc-title: Summary
+
+Last modified: {docdate}
+
+== Introduction
+
+This is the sizing point of view of the project. It determines the size of the infrastructure required for the project.
+
+The other parts of the file are accessible at link: ./ README.adoc [from here].
+
+The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+
+=== Reference Documentation
+
+Sizing documentary references
+[cols = "1st, 1st, 4th, 4th"]
+| ====
+| N ° | Version | Document title / URL | Detail
+
+| 1 | 1.2 | Report_benchmark_xyz.pdf |
+| 2 | 2019 | INSEE report on French companies |
+
+
+| ====
+
+
+== Not ruled
+
+=== Points subject to further study
+
+Points subject to further study
+[cols = "1st, 1st, 1st, 2nd, 2nd"]
+| ====
+| ID | Detail | Status | Subject holder | Deadline
+
+| 1 | SSD disk capacity | EN_COURS | XYZ | 01/01/2022
+
+| ====
+
+
+=== Assumptions
+
+[TIP]
+====
+Give here the structuring assumptions taken for the design
+====
+
+====
+Example:
+
+.Hypotheses
+[cols = "1st, 4th"]
+| ====
+| ID | Detail
+
+| 1 | We estimate that 10M people will download the StopCovid app
+
+| ====
+
+====
+
+== Constraints
+
+[TIP]
+====
+Constraints are the limits applicable to the requirements on the project.
+
+It is interesting to explain them in order to obtain realistic requirements. For example, it would not be realistic to require response times from a web service incompatible with the speed of the underlying network.
+
+====
+
+
+=== Storage constraints
+
+TIP: List here the possible constraints related to the disks
+
+[Example]
+====
+Example: The maximum disk space that can be allocated to a VM is 2 TB.
+====
+
+=== CPU constraints
+
+TIP: List here the possible constraints related to the computing power
+[Example]
+====
+Example 1: A VM will have a maximum of 10 VCPUs
+====
+
+====
+Example 2: All the pods of the application should not require more than 1 CPU per node.
+====
+
+=== Memory constraints
+
+TIP: List here the possible constraints related to memory
+[Example]
+====
+Example: a pod or a Kubernetes job should not use more than 6 GB of RAM
+====
+
+=== Network constraints
+
+TIP: List here the possible network volume constraints used
+[Example]
+====
+Example 1: The minimum latency for requests on the WAN between London and Tokyo is 250 ms
+====
+
+[Example]
+====
+Example 2: The Ethernet network of the Datacenter has a bandwidth of 40 Gbps.
+====
+
+== Requirements
+
+[TIP]
+====
+It is crucial to collect as much information as possible from production rather than estimates because the latter often turn out to be far from reality. It is all the more difficult if it is a new project. Allow for a significant margin. The information given here can be used as input to the SLO (Service Objective set by the operators).
+====
+
+[TIP]
+====
+The following sections dealing with static and dynamic volumetry calculations give examples of calculations and elements to consider. Formally, it may be better to replace the text with spreadsheets in a spreadsheet. For a complex project or one with changing hypotheses, this is essential.
+
+====
+
+=== Static volumetry
+
+TIP: These are the metrics used to determine the * cumulative * storage volume of the project. Remember to clearly specify the assumptions made for the estimated metrics. It will thus be possible to review them if new business elements appear.
+
+==== Metrics
+
+TIP: These are measured or estimated business data that will be used as inputs to the calculation of technical storage needs.
+
+[cols = "e, e, e, e, e, e, e"]
+| ====
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail / assumptions
+
+| S1 | Number of eligible companies | Estimated | 4M | + 1% | INSEE [2] | We consider that MIEL does not concern the self-employed
+| S2 | Average size of a PDF | Measured | 40Kb | 0% | Operators |
+| ====
+
+==== Estimated storage needs
+
+[TIP]
+====
+List here the storage needs of each component once the application has reached full load (volume at two years for example).
+
+Take into account :
+
+* The size of the databases.
+* The size of the files produced.
+* The size of the queues.
+* The size of the logs.
+* ...
+
+Does not take into account :
+
+* The volume linked to the backup: it is managed by the operators.
+* The volume of binaries (OS, middleware ...) which is to be considered by operators as a basic volume of a server (the entry ticket) and which is their responsibility.
+* Archived data which is therefore no longer online.
+
+Also provide an estimate of the annual% increase in volume to allow operators to order or reserve enough disk.
+
+For the volumetry calculations, remember to take into account the specificities of the encoding (number of octets by character, by date, by numerical value ...).
+
+For a database, plan the space occupied by the indexes, which is very specific to each application. A (very poor) preliminary estimate is to double the disk space (to be refined later).
+
+Only estimate data whose size is not negligible (several hundreds of MB minimum).
+====
+
+====
+. Example of static volumetry of component C:
+| ====
+| Data | Description | Unit size | Number of elements at 2 years | Total size | Annual increase
+
+| Table Article
+| Catalog items
+| 2KB
+| 100K
+| 200 MB
+| 5%
+
+| Command Table
+| Customer orders
+| 10KB
+| 3M
+| 26.6 GB
+| 10%
+
+| Logs
+| Application logs (INFO level)
+| 200 o
+| 300M
+| 56 GB
+| 0% (archiving)
+| ====
+====
+
+=== Dynamic volumetry
+
+TIP: These are metrics by duration (year, month, hour, ...) and allowing to determine the load applied to the architecture, which will help to size the systems in terms of CPU, bandwidth and performance of discs.
+
+==== Metrics
+
+TIP: These are the measured or estimated business data that will be used as inputs for the calculation of the load.
+
+[cols = "e, e, e, e, e, e, e, e"]
+| ====
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail / assumptions
+
+| D1 | Proportion of users connecting to the service / J | Estimated | 1% | + 5%
+a |
+
+ - Constant over the year
+ - Constant over the week
+ - 3 peaks at 20% of the day at 8: 00-9: 00, 11: 00-12: 00 and 14: 00-15: 00
+ | | Users are professionals using the application from mainland France during standard office hours
+| ====
+
+
+==== Estimated load
+
+[TIP]
+====
+This involves estimating the number of calls to components and therefore the target throughput (in TPS = Transactions per second) that each of them will have to absorb. A well-sized system should have average response times of the same order at nominal load and peak.
+
+Always estimate the "peak of the peak", ie the moment when the load will be maximum following the accumulation of all the factors (for example for an accounting system: between 2 pm and 3 pm on a weekday at the end of December).
+
+Do not consider that the load is constant but take into account:
+
+* Daily variations. For a management application with users working during office hours, we typically see peaks of double the average load at 8-9 a.m., 11-12 a.m. and 2 p.m.-3 p.m. For a consumer Internet application, it will be more at the end of the evening. Again, rely on measurements of similar applications when possible rather than estimates.
+* The elements of seasonality. Most trades have them: Christmas for the chocolate industry, Saturday evening for emergency admissions, June for central booking stays etc. The load can then double or even more. This estimate should therefore not be neglected.
+
+If the calculation of the peak for a component at the end of the link chain is complex (for example, a central IS service exposing referential data and called by many components which each have their peak), we will cut the day into time intervals sufficiently fine (one hour for example) and the measured or estimated sum of the calls of each caller (batch or transactional) will be calculated over each interval to thus determine the highest cumulative demand.
+
+If the application runs on a PaaS type cloud, the load will be absorbed dynamically, but take care to estimate the additional cost and to set consistent consumption limits to respect the budget while ensuring a good level of service.
+====
+
+.Example: dynamic volumetric estimation of the REST operation `GET Detail` of the MIEL application
+| ====
+| Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K / H
+| Average duration of a user session
+| 15 mins
+| Average number of service calls per session
+| 10
+| Charge (Transaction / second)
+| 8K / 4 x 10/3600 = 5.5 Tps
+| ====
+
+
+[TIP]
+====
+For a technical component (such as a database instance) at the end of the chain and requested by many services, it is necessary to estimate the number of peak requests by cumulating the calls from all the clients and to specify the read / write when this information is relevant (it is very important for a database).
+
+The level of detail of the estimate depends on the progress of the application design and the reliability of the assumptions.
+
+In the example below, we already have an idea of ​​the number of requests for each operation. In other cases, we will have to be satisfied with a very broad estimate of the total number of requests to the database and a read / write ratio based on charts of similar applications. No need to go into more detail at this point.
+
+Finally, keep in mind that this is simply an estimate to be validated during campaignsperformance then in production. Plan a sizing adjustment shortly after the MEP (relatively easy if the hardware resources are virtualized and / or if the architecture is horizontally scalable).
+====
+
+====
+Example: the Oracle BD01 database is used for reading by the REST calls `GET DetailArticle` made from the end-user application and for updating by the POST and PUT calls on` DetailArticle` from the supply batch B03 at night between 01:00 and 02:00.
+
+.Example estimates number of peak SQL queries to instance BD01 from 01:00 to 02:00 in December
+| ====
+| Maximum rate of users logged in at the same time | 0.5%
+| Maximum number of concurrent connected users
+| 5K
+| Average duration of a user session
+| 15 mins
+| Average number of calls to the `GET DetailArticle` service per session
+| 10
+| User charge GET DetailArticle (Transaction / second)
+| (10/15) x 5K / 60 = 55 Tps
+| Number of read and write requests per service call
+| 2 and 0
+| Number of daily calls to the `POST DetailArticle` service from batch B03
+| 4K
+| Number of INSERT and SELECT requests per service call
+| 3 and 2
+| Daily number of items modified by batch B03
+| 10K
+| Number of SELECT and UPDATE queries
+| 1 and 3
+| Number of SELECT / sec
+| 55x2 + 2 x 4K / 3600 + 1 x 10K / 3600 = 115 Tps
+| Number of INSERT / sec
+| 0 + 3 x 4K / 3600 = 3.4 Tps
+| Number of UPDATE / sec
+| 0 + 3 x 10K / 3600 = 8.3 Tps
+| ====
+====
+
+=== Response time requirements
+
+==== Response time of HMIs
+
+[TIP]
+====
+If the clients access the system via WAN (Internet, VPN, LS, etc.), specify that the TR requirements are given outside network transit because it is impossible to commit to the latency and throughput of this type of client.
+
+In the case of LAN access, it is preferable to integrate the network time, as the load testing tools will already take this into account.
+
+The TR objectives are always given with a statistical tolerance (90th percentile for example) because reality shows that the TR is very fluctuating because it is affected by a large number of factors.
+
+No need to multiply the types of requests (depending on the complexity of the screen, for example) because this type of criterion no longer makes much sense today, particularly for a SPA application).
+====
+====
+Example of types of solicitation:
+[cols = '3rd, 1st, 1st, 1st']
+| ====
+| Type of request | Good level | Medium level | Insufficient level
+
+| Loading a page
+| <0.5 s
+| <1 s
+|> 2 s
+
+| Business operation
+| <2 s
+| <4 s
+|> 6 s
+
+| Editing, Export, Generation
+| <3 s
+| <6 s
+|> 15 s
+| ====
+
+Example of acceptability of TRs:
+
+The level of compliance with response time requirements is good if:
+
+* At least 90% of response times are good.
+* At most 2% of response times are insufficient.
+
+Acceptable if:
+
+* At least 80% of response times are good.
+* At most 5% of response times are insufficient.
+      
+Apart from these values, the application must be optimized and go back to acceptance and then be subjected to load tests again.
+====
+
+==== Duration of batch execution
+
+[TIP]
+====
+Specify here in what time interval the batch processes should run.
+====
+====
+Example 1: The end of the execution of the batches being a prerequisite for the opening of the TP, these first must imperatively end before the end of the batch range defined above.
+====
+
+====
+Example 2: the monthly account consolidation batch B1 must be executed in less than 4 days.
+====
+
+====
+Example 3: the batches and the UIs can operate in competition, there is no strict constraint on the execution time of the batches but to ensure an optimization of the hardware infrastructure, we will favor the night during which the UI requests are less numerous.
+====
+
+
+== Target sizing
+
+[TIP]
+====
+We give a final dimensioning to support the static and dynamic volumetry and meet the requirements.
+====
+
+=== Estimate of resource requirements by technical component
+
+[TIP]
+====
+Give here RAM, disk and CPU per instance of technical component deployed (to be refined after performance campaign or MEP).
+
+====
+====
+Example:
+.Estimation of resource requirements by technical component
+[cols = "2nd, 1st, 1st, 3rd, 2nd"]
+| ====
+| Deployable unit | (V) CPU requirement per instance | Memory requirement per instance (Mio) | Periods of activity | Comments
+
+| `tomcat-batchs1`
+| <negligible>
+| 1024
+| Every hour, 24/7/365
+| The application server remains started even outside the execution of jobs
+
+| `spa`
+| <negligible>
+| 50
+| 24/6, main activity 8 am-5pm Europe / Paris Mon-Fri
+| SPA Web App, runs in the browser
+
+| `bdd-postgresql`
+| 2
+| 2024
+| 24/7, main activity 8 am-5pm Europe / Paris Mon-Fri
+| Postgresql instance
+====
+
+=== Sizing of machines
+
+See the link: ./ component-architecture-infrastructure.adoc # _déployer_en_production [deployment model].
+
+[TIP]
+====
+
+This section provides the final sizing of the machines required.res
+
+* For VMs, be careful to check that a VCPU = 1 physical core (and not a thread if hyperthreading enabled)
+* The internal disk concerns the disk necessary for the OS and the binaries. For a physical machine, this is local storage (local SDD, NMVe or HDD disks). For a VM, it can be a local disk on the physical machine running the VM or a SAN.
+* The external disk concerns storage on a disk bay (SAN) or on a distributed file system (NFS, CIFS, WebDav ...)
+====
+
+.Sizing of machines
+[cols = '1st, 3rd, 1st, 1st, 1st, 1st, 1st ”]
+| ====
+| Zone | Machine type | Number of machines | Nb (V) CPU | Memory (GiB) | Internal disk (GiB) | External disk (GiB)
+
+| DMZ 01
+| VM application server
+| 3
+| 2
+| 4
+| 100
+| 0
+
+| DMZ 02
+| Physical machine Database
+| 1
+| 2
+| 6
+| 50
+| 1024 (SAN)
+
+
+| ==== 
+

@@ -1,0 +1,310 @@
+= Application architecture component
+: sectnumlevels: 4
+: toclevels: 4
+: sectnums: 4
+: toc: left
+: icons: font
+: toc-title: Summary
+
+Last modified: {docdate}
+
+== Introduction
+
+This is the application point of view of the project. It describes the application modules in play and their exchanges.
+
+The other parts of the file are accessible at link: ./ README.adoc [from here].
+
+The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+
+=== Reference Documentation
+
+Mention here the reference architecture documents (shared). This file must not in any case resume their content under penalty of quickly becoming obsolete and unmaintainable.
+
+Documentary references
+[cols = "1st, 1st, 4th, 4th"]
+| ===
+| N ° | Version | Document title / URL | Detail
+
+| 1 | 2.0.4 | XX_Urba_POS.pdf | IS POS |
+| === == Not ruled
+
+=== Points subject to further study
+
+Points subject to further study
+[cols = "1st, 6th, 1st, 1st, 1st"]
+| ===
+| Subject | Detail | Status | Subject bearer | Deadline
+
+| Use of Y services
+| Depending on the progress of project Y, this component could call the services of the latter or those of the old component Z
+| PENDING
+| Project Y
+| BEFORE 2040
+| ===
+
+=== Assumptions
+
+.Hypotheses
+[cols = "1st, 6th"]
+| ====
+| ID | Detail
+
+| HA1
+| Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
+| ====
+
+== General context
+
+=== Objectives
+
+[TIP]
+Briefly describe the project and recall its objectives. Highlight those which are structuring for the architecture.
+
+====
+Example 1: This application must allow the dematerialization of invoices received from our suppliers and easy consultation of these documents by the accounting services.
+====
+====
+Example 2: This project is the rewrite in web technologies of the Cobol X application.
+====
+====
+Example 3: The X application is one of the main components of the Y program. It leans on the Person and Billing repositories to enrich the CMS with real-time customer data.
+====
+
+=== Existing
+
+[TIP]
+If this document presents a redesign or migration project, describe at least the existing application. Do not repeat the documentation, simply refer to it and point to its possible architecture file. However, mention any information having a strong impact on the migration or the design of the new project.
+====
+Example 1: The VENIR2 application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in [REFxyz].
+====
+====
+Example 2: The existing application is based and supplies an LDAP directory for its authorizations. The new project having to work for a time with the old one, it is advisable to take into account concurrent accesses and the coherence of LDAP during the tiling period.
+====
+
+=== Positioning in the IS
+
+[TIP]
+If the IS is urbanized, take the land use plan and specify the block concerned
+
+=== Actors
+
+==== Internal actors
+
+[TIP]
+By "internal" we mean actors belonging to the organization. They can be humans or application components.
+
+List of internal actors
+[cols = "1st, 1st, 4th, 4th"]
+| ===
+| Actor | Description | Population | Location
+
+| Administration system B
+| provides company accounting data
+| N / A
+| Berlin site
+
+| Agent
+| Back-office agent
+| 100
+| Paris site
+
+| ===
+
+==== External actors
+
+List of external actors
+[cols = "e, e, e, e"]
+| ===
+| Actor | Description | Population | Location
+
+| Web client
+| Business from a PC
+| Max 1M
+| 10 calls to the HMI per session, one session per day and per actor
+| Mobile client
+| A business from a mobile
+| Max 2M
+| Worldwide
+| ===
+
+== Constraints
+
+=== Budget
+
+TIP: Give the budget constraints of the project
+====
+Example 1: Global envelope of 1 M €
+====
+====
+Example 2: Cloud infrastructure costs <20K € / month
+====
+
+=== Planning
+
+TIP: Without going into the project schedules in detail, give interesting elements for the architecture.
+====
+Example 1: MEP before February 2034, prerequisite for the HEAVY program in May 2034.
+====
+
+=== Urbanization
+
+[TIP]
+====
+List here the constraints relating to urbanization, this includes for example but not only:
+
+* The rules applicable in calls between components (SOA)
+* Call rules between network zones
+* The rules concerning the localization of data (MDM)
+* The rules concerning the propagation of updates by events (EDA)
+
+====
+====
+Example 1: inter-service calls are prohibited except service calls to a nomenclature service.
+====
+====
+Example 2: to ensure freshness, it is forbidden to replicate data from the PERSON repository. The latter must be interrogated synchronously if necessary.
+====
+====
+Example 3: When modifying an order, the accounting and invoicing areas will be updated asynchronously via a
+event.
+====
+====
+Example 4: all the batches must be able to operate in competition with the UIs without locking the resources.
+====
+====
+Example 5: Services cannot be called directly. The calls must be made via an exposed route at the level of the company bus which will in turn call the service. It is then possible to control, prioritize, orchestrate or manage the calls.
+====
+====
+Example 6: The components of this application follow the SOA architecture as defined in the reference document X.
+====
+====
+Example 7: Components in an Internet zone cannot call components in an Intranet zone for security reasons.
+====
+
+== Requirements
+
+TIP: Give here the application architecture requirements that can be applied to the project.
+
+====
+Example 1 (migration project): The legacy devron modulest be subject to as few adaptations as possible.
+====
+
+====
+Example 2: The modules must be able to interface with the partner XYZ via their APIs.
+====
+
+====
+Example 2: Development should be able to take place within distributed teams, each working on separate modules.
+====
+
+
+== Target architecture
+
+=== General application architecture
+
+[TIP]
+====
+Present here the application as a whole (without detailing its sub-components) in relation to the other applications of the IS. Also present the macro-data exchanged or stored.
+
+Call back :
+
+ * The type of architecture (client-server, monolithic Web, SOA, micro-service ...).
+ * Large flows between components or between applications in the case of monoliths.
+ * Any exceptions.
+
+The choice of representation is free but a C4 diagram from System Landscape or a UML2 component diagram seems the most suitable.
+
+Numbering the steps in chronological order ensures a better understanding of the diagram. Group the sub-steps by the notation x, x.y, x.y.z, ...
+
+Do not include the many infrastructure systems (SMTP server, security device, reverse proxy, LDAP directories, etc.) which are in the domain of technical architecture. On the other hand, mention any business buses that have an application role (service orchestration for example).
+====
+
+====
+Example 1: MesInfosEnLigne allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration.
+====
+====
+Example 2: MesInfosEnLigne is made up of several independent microservices (HMI components, batches or REST services)
+====
+====
+Example 3: Following the exemption from the DSI on August 03, 20xx, the HMI will be in SPA (Single Page Application) architecture
+====
+
+image :: diagrams / archi-applicative-generale.svg [General application architecture diagram]
+
+=== Detailed application architecture
+
+[TIP]
+====
+Detail here all the components of the application, their flows between themselves and with the other applications of the IS.
+
+Provide one or more diagrams (preferably C4 diagrams of the container type or UML2 component diagram).
+
+Ideally, the diagram will fit on an A4 page, be self-supporting and understandable by a non-technician. It should become one of the most important documentary artifacts and be in the war room of an agile project or be printed by every developer.
+
+If the application is particularly complex, draw a diagram for each link chain.
+
+Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
+The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer). This level of detail will be given in the infrastructure section.
+
+For each stream, give the protocol, a synchronous / asynchronous attribute, a read / write / execute attribute and a description so that the scheme is self-supporting.
+====
+
+
+NOTE: This is only a suggestion because writing the detailed application architecture depends a lot on the project and its complexity. For a relatively complex project, it may be useful to subdivide it into the following subsections:
+
+
+=== Principles that dictated the choices
+
+[TIP]
+====
+Give here the intention in the construction of the architecture.
+====
+====
+Example: we will use a monolithic and non-micro-service approach for lack of expertise.
+====
+
+=== Static vision
+
+[TIP]
+====
+Expose the application modules in their different zones or domains.
+====
+====
+Example: module X, Y and Z in the EDM domain. Modules A, B in the PERSON area.
+====
+
+=== Dynamic vision
+
+[TIP]
+====
+Expose the application modules in their different areas or domains with their main application flows.
+
+Do not detail technical flows (such as flows related to supervision or clustering).
+
+If the application is complex, propose a global exponent diagram
+ all the application flows then a diagram for each main link chain by numbering the exchanges (use a sequence diagram or (better) a C4 Dynamic Diagram). It is also possible to detail the link chains by main functionality.
+====
+====
+Example:
+
+image :: diagrams / archi-applicative-detaillee.svg [Detailed application architecture diagram]
+
+====
+
+=== Matrix of application flows
+
+[TIP]
+====
+List here the main flows of the application.
+
+Do not detail the technical supervision or clustering flows for example. Indicate the type of network (LAN, WAN).
+====
+
+Partial example of an application flow matrix
+[cols = '1st, 3rd, 1st, 1st, 1st']
+| ====
+| Source | Destination | Network type | Protocol | Mode.footnote: [(Read, (E) write or Read / Write (LE), (A) ppel (to a stateless system)]
+
+| Company| PC / tablet / external mobile | ihm-honey | WAN | THE
+| batch-process-requests | service-compo-pdf | HTTP | LAN | AT
+| ==== 

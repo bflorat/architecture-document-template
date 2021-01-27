@@ -3,6 +3,8 @@
 Architecture template applicable to most management IT projects, regardless of the general architecture chosen (monolith, SOA, micro-service, n-tier, ...).
 This model has already been used on several important projects including within large organizations. It is maintened an a regular basis.
 
+Others languages : https://github.com/bflorat/modele-da[French].
+
 ## Principles of the template
 We have divided the architecture into five views (application, security, dimensioning, infrastructure and development), each view being self-supporting.
 
@@ -16,11 +18,11 @@ image:blank-template/resources/views.png[read this first]
 
 A file following this model will thus be constituted by :
 
-* an link:view-architecture-applicative.adoc[applicative view] presenting the general context and the application architecture;
-* a link:view-architecture-developpement.adoc[development view] presenting the software architecture and its environment;
-* a link:view-architecture-dimensioning.adoc[sizing view] presenting aspects related to the performance and sizing of the infrastructure;
-* an link:view-architecture-infrastructure.adoc[infrastructure view] presenting the servers, middleware, operations, etc.;
-* a link:view-architecture-securite.adoc[security view].
+* an link:view-applicative.adoc[applicative view] presenting the general context and the application architecture;
+* a link:view-developpement.adoc[development view] presenting the software architecture and its environment;
+* a link:view-sizing.adoc[sizing view] presenting aspects related to the performance and sizing of the infrastructure;
+* an link:view-infrastructure.adoc[infrastructure view] presenting the servers, middleware, operations, etc.;
+* a link:view-security.adoc[security view].
 
 In each section, we will find the triptych :
 

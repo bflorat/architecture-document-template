@@ -1,0 +1,1215 @@
+= Infrastructure component
+: sectnumlevels: 4
+: toclevels: 4
+: sectnums: 4
+: toc: left
+: icons: font
+: toc-title: Summary
+
+Last modified: {docdate}
+
+== Introduction
+This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all of the devices ensuring their proper functioning.
+
+The other parts of the file are accessible at link: ./ README.adoc [from here].
+
+The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+
+[TIP]
+====
+This point of view is also often called "technical point of view" and concerns the infrastructure: servers, networks, operating systems, databases, middleware, ...
+
+In short, it covers everything that is external to the application and necessary for its execution.
+====
+
+=== Reference Documentation
+[TIP]
+Mention here the reference architecture documents (shared). This document must in no case include their content under penalty of quickly becoming obsolete and not maintainable.
+
+Documentary references
+[cols = "1st, 2nd, 5th, 4th"]
+| ====
+| N ° | Version | Document title / URL | Detail
+
+| 1 || Rules_savements.pdf
+| Safeguards rules
+
+| ====
+
+== Not ruled
+=== Points subject to further study
+Points subject to further study
+[cols = "1st, 5th, 2nd, 2nd, 2nd"]
+| ====
+| ID | Detail | Status | Subject holder | Deadline
+
+| EI1
+| The technical choice of the API Management solution remains subject to further study
+| IN_CURRENT
+| Archi Technique team
+| BEFORE 2040
+
+| ====
+
+=== Assumptions
+
+.Hypotheses
+[cols = "1st, 5th"]
+| ====
+| ID | Detail
+
+| HI1
+| We assume that by the time of the project PEM, PostgreSQL 11 will be validated internally.
+| ====
+
+== Constraints
+
+[TIP]
+====
+Constraints are the limits applicable to the requirements on the project.
+
+It is interesting to explain them in order to obtain realistic requirements. For example, it would not be valid to require an availability incompatible with the Tier security level of the data center that will host it.
+
+====
+
+=== Constraints on availability
+
+[TIP]
+====
+The elements provided here can serve as a basis for the SLO (Service Level Objective). Ideally, this file should simply point to such an SLO without further clarification.
+
+This chapter has an educational vocation because it recalls the possible maximum availability: the final availability of the application can only be lower.
+====
+
+==== MTTD
+
+[TIP]
+====
+Provide the elements making it possible to estimate the average incident detection time.
+====
+====
+Example 1: hypervision is done 24/7/365
+
+Example 2: the production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
+====
+
+==== GTR
+
+[TIP]
+====
+Provide the elements making it possible to estimate the guaranteed recovery time. Note that it is important to distinguish MTTD from GTR (or MTTR in English) because it is not because a failure is detected that the skills or resources necessary for its correction are available.
+
+Specify the hours of presence of operators during the day and the possibilities of on-call duty.
+
+List here the intervention times of hardware, software, electricity, telecom providers ...
+====
+====
+Example 1: Five physical spare servers are available at any time.
+
+Example 2: The Hitashi support contract provides for intervention on SAN arrays in less than 24 hours.
+
+Example 3: At least one expert from each main domain (system and virtualization, storage, network) is present during office hours.
+
+Example 4: Like any application hosted in the X datacenter, the application will have the presence of operators from 7 am to 8 pm working days. No penalty is possible.
+
+Example 5: IBM hardware support replacement on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, business days only.
+====
+
+==== Supervision tools and standards
+
+[TIP]
+====
+Give here the tools and supervision standards imposed at the IS level and any related constraints.
+====
+====
+Example 1: The application will be supervised with Zabbix
+
+Example 2: The batches must be able to launch on a REST endpoint
+
+Example 3: a batch in error must not be able to restart without a human acknowledgment
+====
+
+==== Scheduled interruptions
+
+[TIP]
+====
+Give here the list and the duration of the standard programmed interruptions in the IS.
+====
+
+====
+Example 1: We estimate the interruption of each server at 5 mins per month. The effective server availability rate, taking into account scheduled system interruptions, is therefore 99.99%.
+
+Example 2: following security updates to certain RPM packages (kernel, libc, etc.), the RHEL servers are restarted automatically the night of the Wednesday following the update. This will result in an downtime of 5 mins on average 4 times a year.
+
+====
+
+==== Levelat the service of the data center
+
+[TIP]
+====
+Give here the security level of the data center according to the Uptime Institute scale (Tier from I to IV).
+Most data centers are level I or II.
+
+Tier levels of data centers (Source: Wikipedia)
+| ====
+Tier | Features | Availability rate | Annual statistical unavailability | Hot maintenance possible? | Tolerance
+breakdowns?
+
+| Tier I
+| Not redundant
+| 99.671%
+| 28.8 h
+| No
+| No
+| Tier II
+| Partial redundancy
+| 99.749%
+| 10 p.m.
+| No
+| No
+| Tier III
+| Maintainability
+| 99.982%
+| 1.6 hrs
+| Yes
+| No
+| Tier IV
+| Fault tolerance
+| 99.995%
+| 0.4 h
+| Yes
+| Yes
+| ====
+====
+
+====
+Example: the Paris datacenter is Tier III and that of Toulouse Tier II.
+====
+
+==== Summary of floor availability
+
+[TIP]
+====
+Taking into account the previous elements, estimate the floor availability (maximum) of an application (excluding disaster). Any requirement should be lower than this. In the case of a cloud, use the supplier's SLA as a basis. In the case of an internally hosted application, take into account the availability of the datacenter and scheduled downtime.
+====
+
+====
+Example: <datacenter availability> x <effective operating range> x <system availability> x <hardware availability> = 99.8 x 99.99 x 99.6 x 99.99 = ~ * 99.4% *.
+====
+
+==== Disaster management
+
+[TIP]
+====
+PRA (Business Recovery Plan) like PCA (Business Continuity Plan) respond to a disaster risk on the IS (natural disaster, industrial accident, fire ...). An PRA allows activity to be resumed following a disaster after a certain period of restoration. It requires at least a doubling of the data center.
+
+A PCA makes it possible to continue the critical activities of the organization (generally in a degraded mode) without notable interruption, see standard ISO 22301. This principle is reserved for very mature organizations because it requires expensive and complex technical devices (distributed filesystems and competitors for example).
+
+The PRI (what interests the architect) is Plan de Reprise Informatique. It defines the technical means and procedures for restoring data and services within the framework of a PRA or a PCA. The PRI does not use the same technologies depending on whether it is aimed at a PRA or a PCA. For example, if we are targeting a PCA, we must plan for multi-zone active-active clusters (located in geographically distant data centers) while for a PRA, the important thing is the quality and speed of data backup / restore in the backup data center.
+
+Note: in most large accounts, both PRA and PCA involve replication by optical link of SAN arrays to limit RPO to a minimum and ensure that all data in the datacenter is well replicated. Traditional backup / restore systems are rarely sufficient to cover this need. The difference is that in the case of a PRA, it is necessary to plan a switchover and a consequent preparation of the backup data center whereas in the case of a PCA, two (or more) data centers operate in parallel in active / active mode. nominally.
+
+Note 2: Disaster management is a very complex subject. It is one of the strengths of public clouds (OVH, GCP, Azure, AWS ...) to manage this complexity for you.
+
+Describe among others:
+
+* Redundant equipment in the second data center, number of spare servers, capacity of the standby data center compared to the nominal data center.
+* For a PRA, the recovery devices (OS, data, applications) provided.
+* For a PRA, give the organization's Recovery Time Objective (maximum allowable recovery time in hours) and Recovery Point Objective (maximum allowable time of lost data in hours).
+* For a PCA the data replication devices (synchronous? Flow of water? How many transactions can be lost?).
+* Present the failback policy (reversibility): should we switch back to the first datacenter? How? 'Or' What ?
+* How are the blank scale tests organized? How often?
+====
+====
+Example: As a reminder (see [doc xyz]), the VMs are replicated in the standby datacenter via vSphere Metro Storage Cluster technology using SRDF in asynhrone mode for inter-bay replication. In the event of a disaster, the replicated VM at the standby site is up to date and ready to start.
+
+Example 2 (SME with its own datacenter in Paris in the Seine flood zone): Storage of two spare servers in the premises of Lille. Hot backup of core business data every 4 hours and upload (with client encryption) to BackBlaze.com. 4h RPO, 2h RTO.
+====
+
+
+=== Accommodation
+
+* Where will this application be hosted? "on premises" datacenter? Internal cloud? Cloud IaaS? PaaS? other?
+* Who will administer this application? internally? Outsourced? No administration (PaaS) ...?
+====Example 1: This application will be hosted internally in the Nantes data center (the only one to ensure the required service availability) and it will be administered by the Lyon X team.
+====
+
+====
+Example 2: Given the very high level of security of the application, the solution should only be operated internally by sworn agents. For the same reason, cloud solutions are excluded.
+====
+
+====
+Example 3: Given the very large number of calls from this application to the PERSON repository, it will be collocated with the PERSON component in the XYZ VLAN.
+====
+
+=== Network constraints
+
+[TIP]
+====
+List the constraints linked to the network, in particular the theoretical maximum speed and the divisions into security zones.
+====
+====
+Example 1: the LAN has a maximum speed of 10 Gbps
+====
+====
+Example 2: The application components of intranet applications must be located in a trusted zone that cannot be accessed from the Internet.
+====
+
+=== Deployment constraints
+
+[TIP]
+====
+List the constraints related to the deployment of applications and technical components.
+====
+====
+Example 1: A VM should only host a single Postgresql instance
+
+Example 2: Java applications must be deployed as an executable jar and not as a war.
+
+Example 3: Any application must be packaged as an OCI image and deployable on Kubernetes via a set of structured manifests in Kustomize format.
+
+====
+
+=== Log constraints
+
+[TIP]
+====
+List the constraints related to logs
+====
+====
+Example 1: an application must not produce more than 1Tio of logs / month.
+
+Example 2: the maximum retention period for logs is 3 months
+====
+
+=== Backup and restore constraints
+
+[TIP]
+====
+List the constraints related to backups
+====
+====
+Example 1: The maximum disk space that can be provisioned by a project for backups is 100 TiB on HDD.
+
+Example 2: the maximum retention period for backups is two years
+
+Example 3: Count 1 min / GiB for a NetBackup restore.
+====
+
+=== Costs
+
+[TIP]
+====
+List the budget limits.
+====
+====
+Example 1: AWS Cloud service charges should not exceed € 5K / year for this project.
+====
+
+== Requirements
+
+[TIP]
+====
+Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements are given by the project leaders (MOA in general).
+
+Schedule interviews to collect them.
+
+If certain requirements are not realistic, mention it in the document of unresolved points.
+
+The requirements related to availability should be specified via a risk study (EBIOS Risk Manager type)
+
+====
+
+=== Operating ranges
+
+[TIP]
+====
+The main operating ranges are listed here (do not go into too much detail, this is not a production plan).
+
+Think about users located in other time zones.
+
+The information given here will be used as input to the application SLA.
+====
+
+====
+Example of operating ranges
+[cols = "1st, 5th, 2nd"]
+| ====
+| No beach | Hours | Detail
+
+| 1
+| From 8:00 a.m. to 7:30 p.m. Paris time, 5 days / 7 working days
+| Intranet opening to metropolitan employees
+
+| 2
+| 9:00 p.m. to 5:00 a.m. Paris time
+| Batch range
+
+| 3
+| 24/7/365
+| Internet openness to users
+
+| 4
+| From 5:30 a.m. to 8:30 a.m. Paris time, 5 days / 7 working days
+| Intranet opening to employees of New Caledonia
+| ====
+====
+
+=== Availability requirements
+
+[TIP]
+====
+We list the availability requirements here. The technical measures to achieve them will be given in the technical architecture of the solution.
+
+The information given here will be used as input to the application SLA.
+
+Be careful to frame these requirements because a project leader often tends to request very high availability without always realizing the implications. The cost and complexity of the solution increases exponentially with the level of availability required.
+
+The physical, technical or even software architecture changes completely depending on the need for availability (middleware or even database clusters, expensive hardware redundancies, asynchronous architecture, session caches, failover, etc.).
+
+Do not forget also the very high on-call costs if the requirements are very high. Education and an estimate generally make it possible to moderate the requirements.
+
+It is generally estimated that high availability (HA) starts at two new ones (99%), that is to say around 90 hours of downtime per year.
+
+Give the availability requested by range.
+
+The availability required here must be consistent with the “Constraints on availability” of the IS.
+====
+
+.Maximum allowable downtime per range
+[cols = "1st, 5th"]
+| ====
+| No Beach | Maximum downtime
+
+| 1
+| 24h, maximum 7 times a year
+
+| 2
+| 4 hours, 8 times a year
+
+| 3
+| 4 hours, 8 times a year
+| ====
+
+=== Degraded modes
+[TIP]
+====
+Specify the degraded application modes enviwise.
+====
+
+====
+Example 1: The _mysite.com_ site must be able to continue to accept orders in the absence of the logistics department.
+====
+====
+Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
+====
+
+=== Robustness requirements
+
+[TIP]
+====
+The robustness of the system indicates its ability not to produce errors during exceptional events such as overload or failure of one of its components.
+
+This robustness is expressed in absolute value per unit of time: number of (technical) errors per month, number of messages lost per year, etc.
+
+Be careful not to be too demanding on this point because great robustness can imply the implementation of fault-tolerant systems that are complex, expensive and that can go against the capacity to scale up, or even availability.
+====
+====
+Example 1: no more than 0.001% of requests in error
+====
+====
+Example 2: the user must not lose his shopping cart even in the event of a breakdown
+-> be careful, this type of requirement impacts the architecture in depth, see the <<Availability>> section.
+====
+====
+Example 3: the system should be able to withstand a load three times greater than the average load with a response time of less than 10 seconds at the 95th percentile.
+====
+
+=== RPO requirements
+
+[TIP]
+====
+The backup consists in recopying the data of a system on a dedicated medium with a view to restoration in the event of loss. This data is necessary for the system to function.
+
+Give here the Recovery Point Objective (RPO) of the application. It may be useful to restore following:
+
+* Hardware data loss (unlikely with redundant systems).
+* A false manipulation of a power-user or an administrator (quite common).
+* An application bug.
+* A deliberate destruction of data (ransomware type attack such as wannacry for example) ...
+
+====
+====
+Example: we must not be able to lose more than a day of application data
+====
+
+=== Archiving requirements
+
+[TIP]
+====
+Archiving is the copying of important data onto a dedicated offline medium with a view not to restore such as backup but to occasional _consultation_. Archives are often required for legal reasons and kept for thirty years or more.
+
+Specify whether application data should be retained for the long term. Specify the reasons for this archiving (most often https://www.service-public.fr/professionnels-entreprises/vosdroits/F10029 margelégales]).
+
+Specify whether specific integrity protection devices (mainly to prevent any modification) must be put in place.
+====
+
+====
+Example 1: as required by article L.123-22 of the Commercial Code, accounting data must be kept for at least ten years.
+====
+====
+Example 2: The accounting documents must be kept online (in database) for at least two years then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at time of archiving and stored separately for document integrity verification if needed.
+====
+
+=== Purge requirements
+
+[TIP]
+====
+
+It is crucial to plan for regular purges to avoid a continuous drift in performance and disk usage (for example due to too large a database volume).
+
+Purges can also be required by law. Since 2018, the GDPR has brought new constraints on the right to be forgotten that may affect the length of time personal information is retained.
+
+It is often wise to wait for the MEP or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to provide for the very principle of the existence of purges as soon as the definition of the application architecture. Indeed, the existence of purges often has important consequences on the functional (example: if there is no _ad vitam aeternam_ retention of the history, some patterns based on linked lists are not possible).
+====
+
+====
+Example 1: files older than six months will be purged (after archiving)
+====
+
+=== Deployment and update requirements
+
+==== Server side
+
+[TIP]
+====
+Specify here how the application should be deployed on the server side.
+
+For example :
+
+* Is the installation manual? scripted with IT Automation tools like Ansible or SaltStack? via Docker images?
+* How are the components deployed? In the form of packages? Are we using a package repository (type yum or apt)? Do we use containers?
+* How are the updates applied?
+====
+
+==== Customer side
+
+[TIP]
+====
+Specify here how the application should be deployed on the customer side:
+
+* If the application is large (a lot of JS or images for example), is there a risk of an impact on the network?
+* Uis local proxy caching to be expected?
+* Are firewall or QoS rules to be expected?
+
+Client side, for a Java application:
+
+* Which version of JRE is needed on clients?
+
+Client side, for a heavy client application:
+
+* Which version of the OS is supported?
+* If the OS is Windows, does the installation go through a deployment tool (Novell ZENWorks for example)? Does the application come with a Nullsoft-style installer? Does it affect the system (environment variables, registry, etc.) or is it in portable mode (single zip)?
+* If the OS is Linux, should the application be provided as a package?
+* How are the updates applied?
+====
+
+==== Specific deployment strategy
+
+[TIP]
+====
+* Are we planning a blue / green deployment?
+* Are we planning a canary testing type deployment? if so, on what criteria?
+* Are we using feature flags? if so, on which features?
+====
+
+====
+Example: The application will be deployed in blue / green mode, ie completely installed on machines initially inaccessible, then a DNS switch will point to machines with the latest version.
+====
+
+=== Competition management requirements
+
+[TIP]
+====
+Specify here the internal or external components that may interfere with the application.
+====
+====
+Example 1: All components of this application must be able to run concurrently. In particular, batch / HMI concurrency must always be possible because the batches must be able to run during the day if there is a need to catch up
+====
+====
+Example 2: batch X should only be started if batch Y is completed correctly, otherwise data will be corrupted.
+====
+
+=== Ecodesign requirements
+
+[TIP]
+====
+Ecodesign consists of limiting the environmental impact of the software and hardware used by the application. Requirements in this area are generally expressed in WH or CO2 equivalent.
+
+Also take into account impressions and letters.
+
+According to ADEME (2014 estimate), the CO2 equivalent emissions of one KWH in mainland France for the tertiary sector is 50g / KWH1.
+====
+====
+Example 1: The average power consumption caused by the display of a Web page should not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 J per year: 50 g / KWH x 10mWH x 100 x 10K x 200 = 100 Kg of CO2 equivalent / year.
+====
+====
+Example 2: The WEA2 energy class of the site must be C or better.
+====
+====
+Example 3: Ink and paper consumption should be reduced by 10% compared to 2020.
+====
+
+== Target architecture
+
+=== Principles of technical architecture
+
+[TIP]
+====
+What are the main technical principles of our application?
+====
+====
+Examples:
+
+* Application components exposed to the Internet in a DMZ protected behind a firewall then a reverse-proxy and on an isolated VLAN.
+* Regarding interactions between the DMZ and the intranet, a firewall only allows communications from the intranet to the DMZ
+* Active / active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
+====
+
+=== Availability
+
+[TIP]
+====
+List here the arrangements for meeting the "Availability Requirements".
+
+The measures to achieve the required availability are very numerous and should be chosen by the architect according to their contribution and their cost (financial, complexity, etc.).
+
+We group availability devices into four main categories:
+
+* Supervisory devices (technical and application) allowing faults to be detected as early as possible and therefore to limit the MTDT (average detection time).
+* Organizational devices:
+** the human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which supervision is inefficient;
+** The quality of incident management (see ITIL best practices), for example, is an incident resolution workflow planned? if so, what is its complexity? its duration of implementation? if for example it requires several hierarchical validations, the presence of many operators does not necessarily improve the MTTR.
+* Technical redundancy devices (clusters, RAID ...) that should not be overestimated if the previous devices are insufficient.
+* Data recovery devices: is the recovery procedure well defined? tested? of a duration compatible with the availability requirements? This is typically useful in the case of data loss caused by a false manipulation or bug in the code: it is then necessary to stop the application and in this situation, being able to quickly restore the last backup greatly improves the MTTR.
+
+====
+[TIP]
+====
+Reminders on the principles of availability:
+
+* The availability of a set of serial components: `D = D1 * D2 * ... * Dn`. ExExample: the availability of an application using a 98% Tomcat server and a 99% Oracle database will be 97.02%.
+* The availability of a set of components in parallel: `D = 1 - (1-D1) * (1- D2) * .. * (1-Dn)`. Example: the availability of three clustered Nginx servers each of which has an availability of 98% is 99.999%.
+* It is important to be consistent on the availability of each link in the link chain: there is no point in having an active / active cluster of JEE application servers if all these servers attack a database located on a single server physical with disks without RAID.
+* A system is estimated to be highly available (HA) from 99% availability.
+* The term “spare” denotes a spare device (server, disk, electronic card, etc.) which is dedicated to the need for availability but which is not activated outside of failures. Depending on the level of availability sought, it can be dedicated to the application or shared at the IS level.
+* The level of redundancy of a device can be expressed with the following concept (with N, the number of devices ensuring correct operation under load):
+
+** N: no redundancy (example: two power supplies are needed for the server, if one falls, the server stops)
+** N + 1: a spare component is available (but not necessarily active), we can support the failure of a piece of equipment (example: we have a spare power supply available).
+** 2N: the system is fully redundant (but the replacement components are not necessarily active) and can withstand the loss of half of the components (example: we have four power supplies)
+====
+[TIP]
+====
+Clustering:
+
+* A cluster is a set of nodes (machines) hosting the same application.
+* Failover is the ability of a cluster to ensure that in the event of a failure, requests are no longer sent to the failed node but to an operational node.
+* Depending on the level of availability sought, each node can be:
+
+** active: the node processes the requests (example: one Apache server among ten and behind a load balancer). Failover time: zero;
+** passive in “hot standby” mode: the node is installed and started but does not process requests (example: a MySql slave database which becomes master in the event of failure of the latter via the mysqlfailover tool). Failover time: of the order of a few seconds (failure detection time);
+** passive in “warm standby” mode: the node is started and the application is installed but not started (example: a server with a turned off Tomcat instance hosting our application). In case of failure, our application is started automatically. Failover time: of the order of a minute (time for detection of the failure and activation of the application);
+** passive in "cold standby" mode: the node is a simple spare. To use it, you must install the application and start it. Failover time: around tens of minutes with virtualization solutions (eg: KVM live migration) and / or containers (Docker) to one day when it is necessary to install / restore and start the application.
+* There are two active / active cluster architectures:
+** Loosely coupled active / active clusters in which one node is completely independent from the others, either because the application is stateless (the best case), or because the context data (typically an HTTP session) is managed in isolation by each node. In the latter case, the load balancer must ensure session affinity, i.e. always route requests from a client to the same node and in the event of failure of this node, the users routed there lose their session data and need to reconnect. Note: of course, the nodes all share the same data persisted in the database, the context data is only transient data in memory.
+** Strongly coupled active / active clusters (fault tolerant clusters) in which all nodes form a sort of logical super machine sharing the same data. In this architecture, all context data must be replicated in all nodes (eg distributed cache of HTTP sessions replicated with JGroups).
+====
+[TIP]
+====
+Failover:
+
+Failover is the ability of a cluster to fail over a flow of requests from one node to another in the event of a failure.
+
+Without failover, it is up to the customer to detect the failure and replay its request on another node. In fact, this is rarely practicable and the clusters almost always have failover devices.
+
+A failover solution can be described by the following attributes:
+
+* Automatic or manual? (In an HA solution, failover is generally automatic unless you have on-call penalties, a good alert system and an extremely organized operation).
+* What strategy for failover andfailback?
+** in a so-called "N + 1" cluster, we switch to a passive node which becomes active and will remain so (the broken down node once repaired can become the new backup server). If a target server would not hold the load alone, several passive servers are planned (so-called "N + M" cluster);
+** in an "N-to-1" cluster, we will failback on the server which had broken down once repaired and the failed server will become the backup server again;
+** in an N-to-N cluster (an architecture in the process of democratization with the PaaS type cloud like App-Engine or CaaS like Kubernetes or Rancher): the applications of the failed node are distributed to other active nodes (the cluster having been sized in anticipation of this possible overload).
+* Transparent through to the caller or not? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Certain FT systems or architectures (fault tolerance) ensure that the customer is not aware of it;
+* Which fault detection solution?
+** load balancers use a wide variety of health checks (plugged requests, CPU analysis, logs, etc.) to the nodes they control;
+** Active / passive clusters failure detections work most of the time by listening to the heartbeat of the active server by the passive server, for example via UDP multicast requests in the VRRP protocol used by keepalived.
+* How long does it take to detect the failure? failure detection solutions should be configured correctly (as short as possible without degradation of performance) to limit the duration of failover.
+* What relevance of the detection? is the down server * really * down? a bad setting can cause a total unavailability of a cluster while the nodes are healthy.
+====
+[TIP]
+====
+A few words about load balancers:
+
+* A load balancer (Load Balancer = LB) is a mandatory brick for an active / active cluster.
+* In the case of clusters, a classic error is to create an SPOF at the level of the load balancer. We will then reduce the total availability of the system instead of improving it. In most of the clusters with vocation of availability (and not only of performance), it is necessary to redundant the distributor itself in active / passive mode (and obviously not active / active otherwise, it would require a "distributor of distributors"). The passive dispatcher must monitor the active dispatcher at high frequency and replace it as soon as it falls (requests arriving at the failed LB before the switchover are in error).
+* It is crucial to configure correctly and at a sufficient frequency the life tests (heathcheck) of the nodes to which the dispatcher distributes the load because otherwise the dispatcher will continue to send requests to fallen or overloaded nodes.
+* Some advanced LBs (example: redispatch option of HAProxy) allow transparency towards the caller by configuring replay to other nodes in the event of an error or timeout and therefore improve fault tolerance since we avoids returning an error to the caller during the fault pre-detection period.
+* Smooth out the load between the nodes and do not necessarily settle for round robin. A simple algorithm is the LC (Least Connection) allowing the dispatcher to favor the least loaded nodes, but there are many other more or less complex algorithms (weight systems per node or combination load + weight for example).
+* In the Open Source world, see for example LVS + keepalived or HAProxy + keepalived.
+
+====
+
+[TIP]
+====
+Fault tolerance:
+
+Fault Tolerance (FT = Fault Tolerance) should not be confused with availability; it is about a system's ability to overcome failures without losing data.
+
+For example, a RAID 1 drive provides transparent fault tolerance; in case of failure, the process writes or reads without error after the automatic failover to the healthy disk.
+
+To allow fault tolerance of a cluster, it is essential to have an active / active cluster with strong coupling in which the context data is replicated at all times. Another (much better) solution is to simply avoid context data (by keeping session data in the browser via a JavaScript client for example) or to store it in database (SQL / NoSQL) or in distributed cache ( but pay attention to performance).
+
+To have transparent fault tolerance (the highest level of availability), it is also necessary to provide a load balancer ensuring the replay.
+
+Be careful to properly qualify the requirements before building an FT architecture because in general these solutions:
+
+* Complexify the architecture and therefore make it less robust and moreexpensive to build, test, operate.
+* Can degrade performance: Availability and performance solutions generally go in the same direction (for example, a cluster of stateless machines will divide the load by the number of nodes and at the same time, the availability increases), but sometimes, availability and performance can be antagonistic: in the case of a stateful architecture, typically managing HTTP sessions with a distributed cache (type Infinispan replicated in synchronous mode or REDIS with persistence on the master), any transactional update of the session adds an additional cost linked to updating and replicating caches, to ensure failover. If one of the nodes crashes, the user keeps his session at the next request and does not have to reconnect, but at what cost?
+* Can even degrade availability because all nodes are strongly coupled. A software update for example can force the shutdown of the entire cluster.
+====
+
+.Some availability solutions (excluding datacenter availability)
+| ====
+| Solution | Cost | Indicative implementation complexity | Improvement of indicative availability
+
+| Disks in RAID 1 | XXX | X | XXX
+| Disks in RAID 5 | X | X | XX
+| Redundancy of power supplies and other components | XX | X | XX
+| Ethernet card bonding | XX | X | X
+| Active / passive cluster | XX | XX | XX
+| Active / active cluster (therefore with LB) | XXX | XXX | XXX
+| Servers / spare hardware | XX | X | XX
+| Good system supervision | X | X | XX
+| Good application supervision | XX | XX | XX
+| Remote site life test systems | X | X | XX
+| On call dedicated to the application, 24/7/365 | XXX | XX | XXX
+| Copy of the backup of the last business database dump on SAN bay (for express restoration) | XX | X | XX
+| ====
+
+====
+Example 1: To achieve the required 98% availability, the envisaged availability mechanisms are as follows:
+
+* All servers in RAID 5 + redundant power supplies.
+* HAProxy + keepalived active / passive distributor shared with other applications.
+* Active / active cluster of two Apache + mod_php servers.
+* Spare server that can be used to reassemble the MariaDB database from the backup of the day before in less than 2 hours.
+====
+====
+Example 2: To achieve the required availability of 99.97%, the availability mechanisms considered are as follows (as a reminder, the application will be hosted in a third-party level III data center):
+
+* All servers in RAID 1 + redundant power supplies + bonding interfaces.
+* HAProxy + keepalived active / passive distributor dedicated to the application.
+* Active / active cluster of 4 servers (i.e. 2N redundancy) Apache + mod_php.
+* Oracle instance in RAC on two machines (with dedicated FC interconnection).
+
+====
+
+=== Deployment in production
+
+[TIP]
+====
+Provide here the component deployment model in the target environment on the various middleware and physical nodes (servers).
+Represent network equipment (firewalls, appliances, routers, etc.) only if they help understanding.
+
+Naturally, it will be preferably documented with a UML2 deployment diagram or a C4 deployment diagram.
+
+For clusters, give the instantiation factor of each node.
+
+Comment out if necessary the affinity constraints (two components must run on the same node or the same middleware) or anti-affinity (two components must not run on the same node or in the same middleware ).
+
+Clearly identify the hardware dedicated to the application (and possibly to buy).
+====
+
+====
+Example:
+
+image :: diagrams / archi-infra.svg [MIEL deployment diagram]
+====
+
+=== Versions of infrastructure components
+
+[TIP]
+====
+List here OS, databases, MOM, application servers, etc ...
+====
+Example of infrastructure components
+[cols = "1st, 2nd, 1st, 2nd"]
+| ====
+| Component | Role | Version | Technical environment
+
+| CFT
+| Secure file transfer
+| X.Y.Z
+| RHEL 6
+| Wildfly
+| JEE application server
+| 9
+| Debian 8, OpenJDK 1.8.0_144
+| Tomcat
+| Web container for UIs
+| 7.0.3
+| CentOS 7, Sun JDK 1.8.0_144
+| Nginx
+| Web server
+| 1.11.4
+| Debian 8
+| PHP + php5-fpm
+| Dynamic pages of the XYZ GUI
+| 5.6.29
+| nginx
+| PostgreSQL
+| RDBMS
+| 9.3.15
+| CentOS 7
+| ====
+
+=== Matrix of technical flows
+
+[TIP]
+====
+List here all the technical flows used by the application. Listening ports are specified. We also detail the operating protocols (JMX or SNMP for example).
+
+In some organizations, this matrix will be too detailed for an architecture file and will be kept in a document managed by the integrators or the operators.
+
+It is not necessary to refer to application flows because readers are not looking for the same information. Here, operators or integrators seek completeness of flows at the end of the installation and configuration of firewalls, for example.
+
+Types of networks include useful information about the network being used in order toto assess the performance (TR, latency) and security: LAN, VLAN, Internet, LS, WAN, ...)
+====
+
+Partial example of technical flow matrix
+[cols = "1st, 2nd, 2nd, 2nd, 1st, 1st"]
+| ====
+| ID | Source | Destination | Network type | Protocol | Listening port
+
+| 1 | lb2 | IP multicast 224.0.0.18 | LAN | VRRP over UDP | 3222
+| 2 | lb1 | host1, host2 | LAN | HTTP | 80
+| 3 | host3, host4, host5 | bdd1 | LAN | PG | 5432
+| 4 | sup1 | host [1-6] | LAN | SNMP | 199
+| ====
+
+=== Environments
+
+[TIP]
+====
+Give here a general vision of the environments used by the application. The most common environments are: development, acceptance, pre-production / benchmarks, production, training.
+
+'Corridors' are 'sub-environments' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
+
+.Environments
+[cols = '1,2,2,2']
+| ====
+| Environment | Role | Content | Corridor
+
+| Development
+| Continuous deployment (CD) for developers
+| `Develop` branch deployed on each commit
+| One
+
+| Recipe
+| Functional recipe by testers
+| Tag deployed at the end of each Sprint
+| UAT1 and UAT2
+====
+
+=== Ecodesign
+
+[TIP]
+====
+List here the infrastructure measures to meet the "Ecodesign Requirements".
+
+The answers to its problems are often the same as those to performance requirements (response time in particular) and costs (purchase of equipment). In this case, just refer to it.
+
+However, ecodesign analyzes and solutions can be specific to this theme. Some avenues for improving energy performance:
+
+* Measure the electrical consumption of the systems with the http://www.powerapi.org/ouvernPowerAPI] probes (developed by INRIA and the University of Lille 1).
+* Use caches (opcode cache, memory caches, HTTP caches ...).
+* For large projects or as part of the use of a CaaS cloud, the use of a cluster of containers (Swarm, Mesos or Kubernete type solution) makes it possible to optimize the use of VMs or physical machines by starting them / resiliently stopping on the fly.
+* Host its servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). OVH, for example, offers data centers with a PUE of 1.2 in 2017 against 2.5 on average.
+* However :
+** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org [the use of energy from coal and nuclear] by Amazon for its AWS cloud );
+** keep in mind that the energy consumed by the application on the client and network side is much greater than that used on the server side (for example, we can estimate that a server consuming barely more than one workstation is enough for several thousands or even tens of thousands of users). Energy reduction also involves extending the lifespan of terminals and the use of more economical equipment.
+====
+====
+Example 1: setting up a Varnish cache in front of our CMS will reduce the number of PHP dynamic page construction by 50% and will save two servers.
+====
+====
+Example 2: The application will be hosted on a cloud with a PUE of 1.2 and an 80% renewable source of electrical energy.
+====
+
+=== Load regulation
+
+==== Circuit breakers
+
+[TIP]
+====
+In some cases, extreme and unpredictable peaks are possible (Slashdot effect).
+
+If this risk is identified, provide a fuse system with offset of all or part of the load on a static website with an error message for example.
+
+This device can also be used in the event of a DDOS-type attack and makes it possible to manage the problem and not to suffer it because it ensures a good acceptable operation to the users already connected.
+====
+
+==== Quality of Service
+
+[TIP]
+====
+It is also useful to provide dynamic application regulation systems, for example:
+
+* Via throttling (clipping of the number of requests by origin and unit of time). To put upstream of the link chain.
+* Token systems (which also make it possible to favor this or that customer by granting them a quota of different tokens).
+====
+====
+Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make replay to be progressively spaced out in time).
+
+Example: distribution of tokens will be as follows bydefault
+| ====
+| Operation on `DetailArticle` | Proportion of tokens
+
+| GET | 80%
+| POST | 5%
+| PUT | 15%
+| ====
+====
+====
+Example 2: a throttling of 100 requests per source and per minute will be set up at the level of the reverse proxy.
+====
+
+=== Timeout management
+
+[TIP]
+====
+Describe here the different timeouts implemented on the link chains. Keep in mind that in a link chain from client to persistence, timeouts should decrease as you go through
+the link chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database).
+
+In fact, in the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
+
+Also avoid using the same value in all the technical components to avoid unexpected effects linked to the concomitant timeouts.
+
+====
+
+====
+Example:
+
+| ===
+| Component | Timeout (ms)
+
+| Rest JavaScript Client | 5000
+| API Gateway | 4000
+| API Rest Node.js | 3500
+| PG database | 3000
+
+| ===
+
+====
+
+=== Operation
+
+[TIP]
+====
+List here the main operating principles of the solution. The details (saved filesystems, production plan, processing planning ...) will be recorded in a separate DEX (Operating File).
+
+If this application remains in the organization's standard, simply refer to a common file.
+====
+
+==== Stop / start order
+
+[TIP]
+====
+Specify here the starting order of machines and components among themselves as well as the stopping order. Depending on the situation, you can include the external components or not.
+
+The DEX will contain a more precise version of this chapter (in particular with a SystemV order number or a precise SystemD "Wants"), it is above all the general principles of stop and start orders that must be described here.
+
+Starting is generally done in the reverse direction of the link chains and stopping in the direction of the link chain.
+
+Specify any issues in the event of a partial start (for example, will the application server connection pool retry to connect to the database if it is not started? How many times? What how robust is the link chain?)
+====
+====
+Example of a start-up order:
+
+. pg1 on bdd1 server
+. mq1 on bdd1
+. services1 on host3, host4 and host5 servers
+. services2 on host3, host4 and host5 servers
+. batches on servers host1, host2
+. ihm on servers host1, host2
+
+Example of stop order:
+
+Exact reverse of starting
+====
+
+==== Scheduled operations
+
+[TIP]
+====
+List macroscopically (the DEX will detail the precise production plan):
+
+* The batches or family of batches and their possible inter-dependencies. Specify if a scheduler will be used.
+* Internal processing (cleaning tasks / good health) of the system which only fulfill technical roles (purges, rebuilding indexes, deleting temporary data, etc.)
+====
+====
+Example 1: the `process-demand` batch will work as it goes. It will be launched every 5 mins from the JobScheduler scheduler.
+====
+====
+Example 2: the internal `ti_index` process is a Java class calling` REINDEX` commands in JDBC launched from a Quartz scheduler once a month.
+====
+
+==== Start of maintenance
+
+[TIP]
+====
+Explain (if necessary) the devices and procedures allowing to put the application 'offline' explicitly for the users.
+====
+====
+Example: We will use the F5 BigIp LTM to display an unavailability page.
+====
+
+==== Backups and restores
+
+[TIP]
+====
+Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration devices must be compatible with the "Availability Requirements":
+
+* What are the hot backups? Cold ?
+* What do we save? (carefully select the data to be backed up because the total volume of the backup set can easily reach ten times the backed up volume).
+** system images / snapshots for server or VM recovery?
+** filesystems or directories?
+** databases in dump form? in binary form?
+** the content of files?
+** the logs? traces ?
+* Are the backups encrypted? if so, specify the symmetric encryption algorithm used and how the key will be managed.
+* Are the backups compressed? if so, with which algorithm? (gzip, bz2, lzma? xv? ...) which setting (compression index)? be careful to find the compromise between compression / decompression time and storage gain.
+* What tools are used? (simple cron? "backup-manager" tool? IBM TSM?).
+* What technology is used for backups? (magnetic tapesAre you LTO or DLT type? external drives? RDX cartridges? cloud storage like Amazon S3? optical support? NAS? ...)
+* What is the frequency of each type of backup? (do not go into too much detail here, this will be in the DEX)
+* What is the backup strategy?
+** complete? incremental? differential? (Take into account availability requirements. Restoring an incremental backup will take longer than a differential backup restore, itself longer than a full backup restore);
+** which bearing? (if backup media are overwritten periodically).
+* How are the results of the backup made? by email ? where are the logs?
+* Where are the backups stored? (ideally as far as possible from the backed up system while allowing restoration in a time compatible with availability requirements).
+* Who has physical access to the backups and their logs? to the encryption key? (think about confidentiality requirements).
+* Are there backup control and restore test procedures planned? (plan a restoration test once a year minimum).
+
+We recommend :
+
+* use a medium separate from the source data (do not save data from this same disc on an HD1 disc).
+* have at least two separate storage media if data is critical to the organization.
+* make sure that the backups are not modifiable by the machine which was backed up (for example, a backup on NAS may be deleted by mistake at the same time as the backed up data)
+====
+====
+Rollover example: set of 21 backups over one year:
+
+* 6 daily incremental backups;
+* 1 full backup on Sunday which serves as a weekly backup;
+* 3 weekly backups corresponding to the 3 other Sundays. The support of the last Sunday of the month becomes the monthly backup;
+* 11 monthly backups corresponding to the last 11 months.
+====
+
+==== Archiving
+
+[TIP]
+====
+Describe here the devices making it possible to meet <<archiving- requirements>> with the following storage methods:
+
+* Technology: ideally, the archive will be duplicated for security on several media of different technologies (tape + hard disk for example).
+* A specific storage location separate from traditional backups (bank safe for example).
+====
+====
+Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. The two media will be stored in a safe in two different banks.
+====
+
+==== Purges
+
+[TIP]
+====
+List here the technical devices that meet the <<purge-exigences>>.
+====
+====
+Example: the history of consultations will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM matable WHERE ...) TO '/ tmp / dump.tsv'` then purged by an SQL request` DELETE` after validation by the operator of the completeness of the dump.
+====
+
+==== Logs
+
+[TIP]
+====
+Without being exhaustive on the log files (to be provided in the DEX), present the general policy for the production and management of logs:
+
+* What are the log turnover policies? is the rollover application (via a `DailyRollingFileAppender` log4j for example) or system (typically via the logrotate daemon)?
+* Is a centralization of logs planned? (essential for SOA or micro-services architectures). See for example the ELK stack.
+* What is the level of verbosity expected by type of component? the debate in production is generally between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
+* Are anti-log injection measures planned (XSS exhaust)?
+* Think about saving logs in chapter 12.3.
+====
+====
+Example 1: the application logs of the service-honey component will be in production at INFO level with daily rotation and two-month conservation.
+====
+====
+Example 2: the logs will be escaped when they are created via the `StringEscapeUtils.escapeHtml ()` method of Jakarta commons-lang.
+====
+
+==== Supervision
+
+[TIP]
+====
+Supervision is a central pillar of availability by drastically reducing MTTD (average failure detection time).
+
+Ideally, it will not only be reactive but also proactive (detection of the beginnings).
+
+Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system, middleware or application probes.
+
+The indicators are logical combinations of several metrics with thresholds (eg critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes).
+====
+
+===== Technical supervision
+
+[TIP]
+====
+List the metrics:
+
+* System (% of file system usage, load, swap in / out volume, number of threads total ...)
+* Middleware (% of HEAP used on a JVM, number of threads on the JVM,% use of a pool of threads or JDBC connections ..)
+====
+====
+Example: we measure the% of wait io and the server load.
+====
+
+===== Application supervision
+
+[TIP]
+====
+List the application metrics (developed internally). They can be technical or functional:
+* Number of requests to access a screen.
+* Number of contracts processed per hour.
+* ...
+
+It is also possible to set up BAM (Business Activity Monitoring) tools based on these metrics to monitor process-oriented indicators.
+====
+====
+Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
+====
+
+===== Supervision piloting tool
+
+[TIP]
+====
+Such a tool (like Nagios, Hyperic HQ in the Open Source world):
+
+* Collect metrics (in SNMP, JMX, HTTP ...) periodically.
+* Persist metrics in some type of time series database (like RRD).
+* Consolidates indicators from metrics.
+* Displays trends over time for these indicators.
+* Allows setting alert thresholds based on indicators and notifying operators in the event of exceeding.
+====
+====
+Example: the management of the supervision will be based on the Nagios platform.
+====
+
+===== Alerting
+
+[TIP]
+====
+Specify here the alert conditions and the channel used
+====
+====
+Example: SMS if no request for the last 4 hours or if the number of technical errors of a component exceeds 10 / h.
+====
+
+===== Monitoring of scheduled operations
+
+[TIP]
+====
+Indicate the scheduler or planner used to manage the batches and consolidate the production plan (example: VTOM, JobScheduler, Dollar Universe, Control-M, ...). Detail any specificities of the application:
+
+* Degree of parallelism of batches
+* Mandatory time slots
+* Rejeux in case of error
+* ...
+
+Do the batches have to produce an execution report? in what form and with what content?
+====
+====
+Example 1: the batches will be scheduled by the JobScheduler instance of the organization.
+
+* The batches should never run on public holidays.
+* Their execution will be limited to the periods 23h00 - 06h00. Their schedule must therefore be in this range or they will not be launched.
+* We will not launch more than five instances of batch B1 in parallel.
+
+Example 2: The batches will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
+====
+
+===== Black box supervision
+
+[TIP]
+====
+It is also highly desirable and inexpensive to provide a black box supervision test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox supervision for which specific components are supervised with expected behavior).
+
+In general, these tests are simple (HTTP requests from a croned curl for example). They must be launched from one or more remote sites to detect network cuts.
+
+It is seldom necessary for them to perform update actions. If this is the case, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems.
+====
+====
+Example for a website: black box supervision tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
+====
+
+===== Metrology
+
+[TIP]
+====
+Are we monitoring the performance of the application in production? This allows:
+
+* To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
+* To proactively detect failures (following a sudden drop in the number of requests for example).
+* Perform statistical analysis on the use of components or services in order to promote decision-making (for the decommissioning of an application, for example).
+
+There are three main families of solutions:
+
+* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete link chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in OpenSource ...). Check that the overhead of these solutions is negligible or limited and that the stability of the application is not jeopardized.
+* "In-house" metrology by logs if the need is modeste.
+* External query sites (see also life tests in 12.7.6) which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with life tests (see below).
+====
+====
+Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
+====
+
+=== Migration
+
+[TIP]
+====
+This chapter describes a possible migration from an old system.
+
+Macroscopically describe the planned procedure as well as the planned backtracking.
+
+Describe, if necessary, a 'dry' operation in parallel with the old system before activation.
+====
+====
+Example 1: The X component will be replaced by the Y services. Then the Oracle Z silo data will be migrated in one-shot via a PL / SQL + DBLink script to the XX instance with the new basic format of the T component.
+====
+====
+Example 2: in the event of a problem with the new component, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
+====
+
+=== Decommissioning
+
+[TIP]
+====
+This chapter will be read when the application reaches the end of its life and must be removed or replaced. Among other things, he describes:
+
+* Data to be archived or on the contrary destroyed with a high level of confidence.
+* The physical components to be removed or destroyed.
+* Server and / or client side uninstallation procedures (it is common to see obsolete components still running on servers and causing performance and security issues that go under the radar).
+* Security constraints associated with decommissioning (this is a sensitive step that is often overlooked, for example hard drives can be found filled with very sensitive data following a donation of equipment).
+====
+
+====
+Example: The X, Y, and Z servers will be transferred to the social service for charitable donation after completely erasing the hard drives using the shred command, 3 pass.
