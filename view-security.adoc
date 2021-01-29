@@ -1,4 +1,4 @@
-= Security architecture component
+= Security view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -19,14 +19,14 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 [TIP]
 Availability is dealt with in the infrastructure section.
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
 
 
 === Reference Documentation
 
 [TIP]
 ====
-Mention here the reference architecture documents (shared). This document must in no case include their content under penalty of quickly becoming obsolete and not maintainable.
+Mention here the reference architecture documents (shared). This document should never include their content under penalty of quickly becoming obsolete and not maintainable.
 ====
 
 Safety documentary references
@@ -63,7 +63,7 @@ Points subject to further study
 | ID | Detail
 
 | HS1
-| The SAML solution currently in place in the organization does not meet the authentication needs expressed for this web application. An OpenID Connect solution will be offered.
+| The SAML solution currently in place in the organization does not meet the authentication needs expressed for this web application. An OpenID Connect solution will be implemented.
 |====
 
 == Constraints
@@ -74,7 +74,7 @@ List here the constraints relating to security, this includes for example but no
 
 * Isolation of components within sealed network areas (DMZ, firewalls, reverse-proxy, etc.)
 * Applicable standards (such as password policies)
-* Legal constraints (RGPD for example)
+* Legal constraints (GDPR for example)
 
 ====
 ====
@@ -283,7 +283,7 @@ Authentication requirement per use case
 ====
 Identity federation is the use of the same identity managed by an identity provider (IdP) from several different entities.
 
-For example, France Connect, widely used by administrations and based on OpenId Connect, makes it possible to reuse the account of one administration to log on to the account of another (DGFiP and CNAM for example).
+For example, France Connect, widely used by administrations and based on OpenId Connect, makes it possible to reuse the account of one administration to log on to the account of another (the French Tax Administration or the French Social Services for example).
 
 See also the “Connect with[Google | Twitter | ...]” in OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login / password).
 ====
