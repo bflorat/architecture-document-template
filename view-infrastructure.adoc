@@ -1,4 +1,4 @@
-= Infrastructure component
+= Infrastructure view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -17,17 +17,17 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 
 [TIP]
 ====
-This point of view is also often called "technical point of view" and concerns the infrastructure: servers, networks, operating systems, databases, middleware, ...
+This point of view is also often called "technical point of view" and concerns the infrastructure: servers, networks, operating systems, databases, middleware, etc.
 
 In short, it covers everything that is external to the application and necessary for its execution.
 ====
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
 
 
 === Reference Documentation
 [TIP]
-Mention here the reference architecture documents (shared). This document must in no case include their content under penalty of quickly becoming obsolete and not maintainable.
+Mention here the reference architecture documents (shared). This document should never include their content under penalty of quickly becoming obsolete and not maintainable.
 
 Documentary references
 [cols="1e, 2e, 5e, 4e"]
@@ -62,7 +62,7 @@ Points subject to further study
 | ID | Detail
 
 | HI1
-| We assume that by the time of the project PEM, PostgreSQL 11 will be validated internally.
+| We assume that by the time of the project Production Launch, PostgreSQL 11 will be validated internally.
 |====
 
 == Constraints
@@ -81,14 +81,14 @@ It is interesting to explain them in order to obtain realistic requirements. For
 ====
 The elements provided here can serve as a basis for the SLO (Service Level Objective). Ideally, this file should simply point to such an SLO without further clarification.
 
-This chapter has an educational vocation because it recalls the possible maximum availability: the final availability of the application can only be lower.
+This chapter has a padagogical vocation because it refers to the possible maximum availability: the final availability of the application can only be lower.
 ====
 
 ==== MTTD
 
 [TIP]
 ====
-Provide the elements making it possible to estimate the average incident detection time.
+Provide the elements which make it possible to estimate the average incident detection time.
 ====
 ====
 Example 1: hypervision is done 24/7/365
@@ -100,11 +100,11 @@ Example 2: the production support service is available during office hours but a
 
 [TIP]
 ====
-Provide the elements making it possible to estimate the guaranteed recovery time. Note that it is important to distinguish MTTD from GTR (or MTTR in English) because it is not because a failure is detected that the skills or resources necessary for its correction are available.
+Provide the elements which make it possible to estimate the guaranteed recovery time. Note that it is important to distinguish MTTD from GTR (or MTTR in English) because it is not because a failure is detected that the skills or resources necessary for its correction are available.
 
 Specify the hours of presence of operators during the day and the possibilities of on-call duty.
 
-List here the intervention times of hardware, software, electricity, telecom providers ...
+List here the intervention times of hardware, software, electricity, telecom providers, etc.
 ====
 ====
 Example 1: Five physical spare servers are available at any time.
@@ -204,22 +204,22 @@ Example: <datacenter availability> x <effective operating range> x <system avail
 
 [TIP]
 ====
-PRA (Business Recovery Plan) like PCA (Business Continuity Plan) respond to a disaster risk on the IS (natural disaster, industrial accident, fire ...). An PRA allows activity to be resumed following a disaster after a certain period of restoration. It requires at least a doubling of the data center.
+BRP (Business Recovery Planning) like BCP (Business Continuity Planning) respond to a disaster risk on the IS (natural disaster, industrial accident, fire ...). An BRP allows activity to be resumed following a disaster after a certain period of restoration. It requires at least a doubling of the data center.
 
-A PCA makes it possible to continue the critical activities of the organization (generally in a degraded mode) without notable interruption, see standard ISO 22301. This principle is reserved for very mature organizations because it requires expensive and complex technical devices (distributed filesystems and competitors for example).
+A BCP makes it possible to continue the critical activities of the organization (generally in a degraded mode) without notable interruption, see standard ISO 22301. This principle is reserved for very mature organizations because it requires expensive and complex technical devices (distributed filesystems and competitors for example).
 
-The PRI (what interests the architect) is Plan de Reprise Informatique. It defines the technical means and procedures for restoring data and services within the framework of a PRA or a PCA. The PRI does not use the same technologies depending on whether it is aimed at a PRA or a PCA. For example, if we are targeting a PCA, we must plan for multi-zone active-active clusters (located in geographically distant data centers) while for a PRA, the important thing is the quality and speed of data backup / restore in the backup data center.
+What interests the architect is the Informatition system Recovery Planning. It defines the technical means and procedures for restoring data and services within the framework of a BRP or a BCP. The PRI does not use the same technologies depending on whether it is aimed at a BRP or a BCP. For example, if we are targeting a BCP, we must plan for multi-zone active-active clusters (located in geographically distant data centers) while for a BRP, the important thing is the quality and speed of data backup / restore in the backup data center.
 
-Note: in most large accounts, both PRA and PCA involve replication by optical link of SAN arrays to limit RPO to a minimum and ensure that all data in the datacenter is well replicated. Traditional backup / restore systems are rarely sufficient to cover this need. The difference is that in the case of a PRA, it is necessary to plan a switchover and a consequent preparation of the backup data center whereas in the case of a PCA, two (or more) data centers operate in parallel in active / active mode. nominally.
+Note: in most large accounts, both BRP and BCP involve replication by optical link of SAN arrays to limit RPO to a minimum and ensure that all data in the datacenter is well replicated. Traditional backup / restore systems are rarely sufficient to cover this need. The difference is that in the case of a PRA, it is necessary to plan a switchover and a consequent preparation of the backup data center whereas in the case of a BCP, two (or more) data centers operate in parallel in active / active mode. nominally.
 
 Note 2: Disaster management is a very complex subject. It is one of the strengths of public clouds (OVH, GCP, Azure, AWS ...) to manage this complexity for you.
 
 Describe among others:
 
 * Redundant equipment in the second data center, number of spare servers, capacity of the standby data center compared to the nominal data center.
-* For a PRA, the recovery devices (OS, data, applications) provided.
-* For a PRA, give the organization's Recovery Time Objective (maximum allowable recovery time in hours) and Recovery Point Objective (maximum allowable time of lost data in hours).
-* For a PCA the data replication devices (synchronous? Flow of water? How many transactions can be lost?).
+* For a BRP, the recovery devices (OS, data, applications) provided.
+* For a BRP, give the organization's Recovery Time Objective (maximum allowable recovery time in hours) and Recovery Point Objective (maximum allowable time of lost data in hours).
+* For a BCP the data replication devices (synchronous? Flow of water? How many transactions can be lost?).
 * Present the failback policy (reversibility): should we switch back to the first datacenter? How? 'Or' What ?
 * How are the blank scale tests organized? How often?
 ====
@@ -240,7 +240,7 @@ Example 1: This application will be hosted internally in the Nantes data center 
 ====
 
 ====
-Example 2: Given the very high level of security of the application, the solution should only be operated internally by sworn agents. For the same reason, cloud solutions are excluded.
+Example 2: Given the very high level of security required to run the application, the solution should only be operated internally by sworn officials. For the same reason, cloud solutions are excluded.
 ====
 
 ====
@@ -267,7 +267,7 @@ Example 2: The application components of intranet applications must be located i
 List the constraints related to the deployment of applications and technical components.
 ====
 ====
-Example 1: A VM should only host a single Postgresql instance
+Example 1: A Virtual Machine should only host a single Postgresql instance
 
 Example 2: Java applications must be deployed as an executable jar and not as a war.
 
@@ -315,9 +315,9 @@ Example 1: AWS Cloud service charges should not exceed € 5K / year for this pr
 
 [TIP]
 ====
-Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements are given by the project leaders (MOA in general).
+Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements are given by the project leaders (i.e. usually the Gerneral Contractor).
 
-Schedule interviews to collect them.
+Schedule interviews to collect requirements.
 
 If certain requirements are not realistic, mention it in the document of unresolved points.
 
@@ -1193,7 +1193,7 @@ Example: site performance will be continuously monitored by `pingdom.com`. More 
 ====
 This chapter describes a possible migration from an old system.
 
-Macroscopically describe the planned procedure as well as the planned backtracking.
+Describe on a macroscopic scale the planned procedure as well as the planned backtracking.
 
 Describe, if necessary, a 'dry' operation in parallel with the old system before activation.
 ====
