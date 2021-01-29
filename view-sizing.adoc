@@ -1,4 +1,4 @@
-= Sizing pane
+= Sizing view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -16,7 +16,7 @@ The other parts of the file are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
 
 
 === Reference Documentation
@@ -125,7 +125,7 @@ Example 2: The Ethernet network of the Datacenter has a bandwidth of 40 Gbps.
 
 [TIP]
 ====
-It is crucial to collect as much information as possible from production rather than estimates because the latter often turn out to be far from reality. It is all the more difficult if it is a new project. Allow for a significant margin. The information given here can be used as input to the SLO (Service Objective set by the operators).
+It is crucial to collect as much information as possible from production rather than estimates because the latter often turn out to be far from reality. However, this may not be possible in the conception of new projects. The architects should size the application with a significant margin. The information given here can be used as input to the SLO (Service Level Objective set by the operators).
 ====
 
 [TIP]
@@ -422,7 +422,7 @@ See the link:./component-architecture-infrastructure.adoc # _déployer_en_produc
 
 This section provides the final sizing of the machines required.res
 
-* For VMs, be careful to check that a VCPU = 1 physical core (and not a thread if hyperthreading enabled)
+* For Virtual Machines, be careful to check that a VCPU = 1 physical core (and not a thread if hyperthreading enabled)
 * The internal disk concerns the disk necessary for the OS and the binaries. For a physical machine, this is local storage (local SDD, NMVe or HDD disks). For a VM, it can be a local disk on the physical machine running the VM or a SAN.
 * The external disk concerns storage on a disk bay (SAN) or on a distributed file system (NFS, CIFS, WebDav ...)
 ====
