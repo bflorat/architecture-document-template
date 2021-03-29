@@ -1,4 +1,4 @@
-= Development component
+= Development view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -10,19 +10,19 @@ Last modified: {docdate}
 
 == Introduction
 
-This is the development point of view of the application. It describes the code to be produced and how to write it.
+This view describes the development aspects of the application. It describes the code to be produced and how to write it.
 
 The other parts of the file are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help appreciated.*
+IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
 
 
 === Reference Documentation
 
 [TIP]
-Mention here the reference architecture documents (shared). This document must in no case include their content, otherwise it will quickly become obsolete and unmaintainable.
+Mention here the reference architecture documents (shared). This document should never include their content, otherwise it will quickly become obsolete and unmaintainable.
 
 . Development documentary references
 [cols="1e, 1e, 4e, 4e"]
@@ -44,7 +44,7 @@ Points subject to further study
 | ID | Detail | Status | Subject holder | Deadline
 
 | ED1
-| The choice of Angular or React.JS for the frontend is still under study. This does not impact the back part of REST services
+| The choice of Angular or React.JS for the frontend is still under study. This does not impact the back part of REST services.
 | IN_CURRENT
 | Methods and tools team
 | BEFORE 2040
@@ -69,14 +69,14 @@ Points subject to further study
 === Network constraints
 [TIP]
 ====
-List here the constraints relating to the software architecture, this includes for example but not only:
+List here the constraints related to the software architecture, this includes for example but not only:
 
-* The obligation to use a framework or a specific technological sector
+* The obligation to use a framework or a specific technology
 * Maximum license or development budgets
 * Tooling (IDE, ...)
 * Continuous integration
 * The applicable code quality standards and thresholds
-* Tests (coverage rate, breakdown by type of test, etc.)
+* Test methods and ovjectives (coverage rate, breakdown by type of test, etc.)
 
 ====
 ====
@@ -93,7 +93,7 @@ Example 3: the application will be built, tested and deployed continuously with 
 
 [TIP]
 ====
-Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements are given by the project leaders (MOA in general). Schedule interviews to determine them. If certain requirements are not realistic, mention this in the reference points to be decided.
+Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements were given by the project leaders (i.e. the General Contractor in general). Schedule interviews to determine them. If some requirements are not realistic, mention this in the reference points to be decided.
 ====
 
 === Accessibility
@@ -103,12 +103,12 @@ Contrary to the constraints which fixed the framework to which any application h
 Should this application be accessible to the blind / visually impaired? hard of hearing?
 
 If so, what level of accessibility?
-Preferably refer to the General Accessibility Repository (https://references.modernisation.gouv.fr/rgaa-accessibilite/#menu→RGAA]) which recommends a WCAG 2.0 AA level:
+Preferably refer to the Web Content Accessibility Guidelines (WCAG) 2.0 (https://www.w3.org/TR/WCAG20/), and especially the AA level.
 
-There are other accessibility standards (WCAG, AccessiWeb…). Be careful to correctly assess the target level (neither over-quality nor under-quality):
+There are other accessibility standards. Be careful to correctly assess the target level (neither over-quality nor under-quality):
 
 * Achieving a very high level of accessibility can be costly and technologically demanding. It also requires good skills (accessibility, HTML5 / CSS3 in particular) and rare profiles.
-* The law is increasingly strict for administrations which must respect a sufficient level of accessibility (law n ° 2005-102 of February 11, 2005 for equal rights and opportunities, participation and citizenship of people with disabilities ). "All European public sites must achieve the double A (AA) of W3C / WAI".
+* The law is increasingly strict for administrations which must respect  Web Content Accessibility Guidelines (WCAG) 2.0a sufficient level of accessibility (law n ° 2005-102 of February 11, 2005 for equal rights and opportunities, participation and citizenship of people with disabilities ). "All European public sites must achieve the double A (AA) of W3C / WAI".
 ====
 
 === Ergonomics
@@ -117,14 +117,14 @@ There are other accessibility standards (WCAG, AccessiWeb…). Be careful to cor
 
 [TIP]
 ====
-In general, we refer here to the body's ergonomic charter. List any specificities, however. Do not use the accessibility constraints listed above.
+In general, we refer here to the body's ergonomic charter. List any specificities. Do not use the accessibility constraints listed above.
 ====
  
 ==== Specificities on widgets
 
 [TIP]
 ====
-Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a library of graphic components or another. It is strongly advised not to customize existing libraries (very high maintenance cost, great complexity). Choosing the right bookstore or restricting your needs.
+Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a library of graphic components or another. It is strongly advised not to customize existing libraries (very high maintenance cost, high complexity). Choosing the right bookstore or restricting your needs.
 ====
 ====
 Example 1: the tables must be sortable according to several columns.
@@ -139,7 +139,7 @@ Example 2: many screens will be fitted with accordions
 ====
 Describe here the fonts to use for web pages, applications, or compound documents.
 
-The choice of fonts follows licensing constraints. In order to ensure legal security for the project, pay attention to commercial policies subject to royalties (in particular policies apartment to Microsoft such as Times New Roman, Courier, Verdana, Arial) and which do not allow free production.documents without going through their editors (Word, ...).
+The choice of fonts follows licensing constraints. In order to ensure legal security aspects of the project, pay attention to commercial policies subject to royalties (in particular policies of Microsoft such as Times New Roman, Courier, Verdana, Arial) and which do not allow free production.documents without going through their editors (Word, ...).
 
 See, for example, the police https://www.gouvernement.fr/charte/charte-graphique-les-fondamentaux/la-typographie postaleMarianne] recommended by the government as a variable-range police.
 
@@ -226,7 +226,7 @@ Example 2: The mobile application will be in PWA mode, entirely written in HTML5
 
 [TIP]
 ====
-SEO (Search engine optimization) concerns the visibility of a website through search engines (like Google or Quant).
+SEO (Search engine optimization) concerns the visibility of a website through search engines (like Google or Qwant).
 ====
 ====
 Example 1: No indexing necessary or desired (internal site)
@@ -256,7 +256,7 @@ Example: Using Reacts.js on an experimental basis within the organization. Valid
 
 [TIP]
 ====
-List here for each component the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. No need to go into too much detail, give only the structuring components.
+List here for each component the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to provide detailed explainations, the advice is to focus on the structuring components.
 ====
 ====
 Example:
@@ -298,8 +298,8 @@ Backend side:
 
 * Make sure that the server paging goes up to the database (`LIMIT`,` OFFSET`).
 * Do not put in place unnecessary constraints in the database.
-* Limit the number of joins and many-to-many relationships.
-* In cases of large volumes, study the solutions for partitioning tables.
+* Limit the number of joints and many-to-many relationships.
+* In cases of large volumes, study the solutions which consist in partitioning tables.
 * Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify that there are no full scans.
 * Beware of SQL functions that 'break' indexes (like `UPPER ()`). Give priority to processing on the backend code side if possible.
 * Activate the query logs (Hibernate example: `org.hibernate.SQL = DEBUG`,` -Dhibernate.generate_statistics = true`) and check the SQL queries and their number (to detect in particular the problem of https: // stackoverflow .com / questions / 97197 / what-is-the-n1-selects-problem-in-orm-object-relational-mapping[SELECT N + 1], very common).
@@ -312,7 +312,7 @@ Backend side:
 
 Frontend and backend:
 
-* Any resource (chain size, number of calls over a period, ...) must always be limited by a limit (no open bar).
+* Any resource (chain size, number of calls over a period, ...) must always be limited to a threshold (no "open bar" behaviour).
 * Check that the size of HTTP requests remains below a few tens of KiB (excluding GET on files). Use "Sorting and Pagination, client and server pagination".
 * Track network chatter: group requests when possible (you have to find a compromise with the previous rule). Use the SOLID (Segregation Interface) rule 'S'.
 * Provide multivalued endpoints (example: `GET / people? List = id1, id2, ...`) to retrieve several elements at the same time

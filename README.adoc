@@ -1,7 +1,7 @@
 # Project architecture document template
 
-This architecture template is applicable to most management IT projects, regardless of the general architecture chosen (monolith, SOA, micro-service, n-tier, ...).
-It has already been used on several important projects including within large organizations. It is maintained in a regular basis.
+This architecture template is applicable to most management IT projects, regardless of the general architecture chosen (monolithic, SOA, micro-service, n-tier, ...).
+It has already been used on several important projects including large organizations. It is maintained on a regular basis.
 
 Others languages : https://github.com/bflorat/modele-da[French].
 
@@ -14,7 +14,7 @@ For example, an infrastructure architect or a DevOps engineer rarely needs to kn
 
 image:blank-template/resources/views.png[read this first]
 
-A file following this model will thus be constituted by :
+A project documentation following this model will thus be constituted by :
 
 * an link:view-application.adoc[application view] presenting the general context and the application architecture;
 * a link:view-development.adoc[development view] presenting the software architecture and its environment;
@@ -35,19 +35,19 @@ The file also includes an example of a glossary which can be used as support for
 * This template is written using https://www.methods.co.nz/asciidoc/index.html[asciidoc]. You can convert it to the format of your choice even if we recommend a *textual and readable format* (Markdown type) easy to follow and to modify by merge requests in a version management tool. This helps to make  your document a living documentation ;
 * This model can be improved, which is why all feedback, (constructive) criticism, contributions and suggestions are appreciated (please make a https://github.com/bflorat/architecture-document-template/pulls[pull request]
 or create an https://github.com/bflorat/architecture-document-template/issues[issue]);
-* In addition, it is voluntarily *rich in explanations and examples* because it also has a (modest) educational claim aimed at students and young architects.
+* In addition, it is voluntarily *rich in explanations and examples* because it also has a (modest) learning claim aimed at students and young architects.
 * Text in italics contains examples;
-* Each chapter has notes to help fill it out;
+* Each chapter contains notes to help fill it out;
 * link:blank-template[Blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
 
 ### Advice on writing your architecture document
-* *Keep it short*, each word must have its purpose. No typical 'this is the introduction' boat explanation, no repetition of other documents, company history or vague concepts;
+* *Keep it short*, each word must make sense. No typical 'this is the introduction' useless explanation, no repetition of other documents, company history or vague concepts;
 * A reader should understand the operation and constraints of the application without being flooded with details. The *document must remain maintainable and up to date*;
 * If the application follows an architecture standardized by the organization, never repeat it *(https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[DRY] principle*) and refer to a common document;
 * If a chapter is not applicable, do not leave it blank but simply mention 'N/A' so the reader will know that the subject has been covered and 'TODO' or 'WIP' if it remains to be completed;
 * This model is intended to be *comprehensive enough to cover most management information system applications*. It can therefore normal that some chapters are not applicable in your context;
 * List the *architectural assumptions* and studies in progress in the chapter "Unresolved points" of each section (they must be exceptional, otherwise the document is written too early);
-* *Isolate in appendices* at the end of the document important architectural information but concerning specific points of interest only a few readers;
+* *Isolate in appendices* at the end of the document important architectural information but concerning specific points of interest only a few readers.
 
 
 ### What is * NOT * in this document?
