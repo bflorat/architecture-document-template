@@ -21,7 +21,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 === Reference Documentation
 
 .Documentary references
-[cols="1e, 1e, 4e, 4e"]
+[cols="1,1,4,4"]
 |===
 | N ° | Version | Document title / URL | Detail
 
@@ -32,7 +32,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 === Points subject to further study
 
 .Points subject to further study
-[cols="1e, 6e, 1e, 1e, 1e"]
+[cols="1,6,1,1,1"]
 |===
 | Subject | Detail | Status | Subject bearer | Deadline
 
@@ -41,7 +41,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 === Assumptions
 
 .Assumptions
-[cols="1e, 6e"]
+[cols="1,6"]
 |====
 | ID | Detail
 
@@ -62,7 +62,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 
 
 List of internal actors
-[cols="1e, 1e, 4e, 4e"]
+[cols="1,1,4,4"]
 |===
 | Actor | Description | Population | Location
 
@@ -71,7 +71,7 @@ List of internal actors
 ==== External actors
 
 List of external actors
-[cols="e, e, e, e"]
+[cols="1,1,1,1"]
 |===
 | Actor | Description | Population | Location
 
@@ -101,7 +101,7 @@ List of external actors
 
 === Matrix of application flows
 
-[cols = '1e, 3e, 1e, 1e, 1e']
+[cols = '1,3,1,1,1']
 |====
 | Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
 

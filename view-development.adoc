@@ -10,27 +10,25 @@ Last modified: {docdate}
 
 == Introduction
 
-This view describes the development aspects of the application. It describes the code to be produced and how to write it.
+This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
 
 The other parts of the file are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
-
 
 === Reference Documentation
 
 [TIP]
-Mention here the reference architecture documents (shared). This document should never include their content, otherwise it will quickly become obsolete and unmaintainable.
+Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
 . Development documentary references
-[cols="1e, 1e, 4e, 4e"]
+[cols="1e,1e,4e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
-| 1 | 1.0 | https: //references.modernisation.gouv.fr/rgaa-accessibilite/#menu
-| RGAA
+| 1 | 1.0 | https://www.w3.org/WAI/fundamentals/accessibility-intro/
+| WAI
 
 |====
 
@@ -39,15 +37,15 @@ Mention here the reference architecture documents (shared). This document should
 === Points subject to further study
 
 Points subject to further study
-[cols="e, e, e, e, e"]
+[cols="e,e,e,e,e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
 
 | ED1
 | The choice of Angular or React.JS for the frontend is still under study. This does not impact the back part of REST services.
-| IN_CURRENT
-| Methods and tools team
-| BEFORE 2040
+| WIP
+| Dev team
+| Before 2040
 
 |====
 
@@ -55,7 +53,7 @@ Points subject to further study
 === Assumptions
 
 .Hypotheses
-[cols="1e, 4e"]
+[cols="1e,4e"]
 |====
 | ID | Detail
 
@@ -65,8 +63,6 @@ Points subject to further study
 
 == Constraints
 
-=== Network constraints
-=== Network constraints
 [TIP]
 ====
 List here the constraints related to the software architecture, this includes for example but not only:
@@ -83,7 +79,7 @@ List here the constraints related to the software architecture, this includes fo
 Example 1: Code coverage should be at least 60%
 ====
 ====
-Example 2: The module should be based on the Hibernate framework for persistence and CDI for dependency injection
+Example 2: The module should be based on the JPA framework for persistence
 ====
 ====
 Example 3: the application will be built, tested and deployed continuously with each push via the Gitlab platform
@@ -100,15 +96,13 @@ Contrary to the constraints which fixed the framework to which any application h
 
 [TIP]
 ====
-Should this application be accessible to the blind / visually impaired? hard of hearing?
+Should this application be accessible to the blind / visually impaired? deaf person?
 
 If so, what level of accessibility?
 Preferably refer to the Web Content Accessibility Guidelines (WCAG) 2.0 (https://www.w3.org/TR/WCAG20/), and especially the AA level.
 
 There are other accessibility standards. Be careful to correctly assess the target level (neither over-quality nor under-quality):
 
-* Achieving a very high level of accessibility can be costly and technologically demanding. It also requires good skills (accessibility, HTML5 / CSS3 in particular) and rare profiles.
-* The law is increasingly strict for administrations which must respect  Web Content Accessibility Guidelines (WCAG) 2.0a sufficient level of accessibility (law n ° 2005-102 of February 11, 2005 for equal rights and opportunities, participation and citizenship of people with disabilities ). "All European public sites must achieve the double A (AA) of W3C / WAI".
 ====
 
 === Ergonomics
@@ -117,33 +111,31 @@ There are other accessibility standards. Be careful to correctly assess the targ
 
 [TIP]
 ====
-In general, we refer here to the body's ergonomic charter. List any specificities. Do not use the accessibility constraints listed above.
+In general, we refer here to the body's ergonomic charter. List any specificities. Do not duplicate here the accessibility constraints listed above.
 ====
  
 ==== Specificities on widgets
 
 [TIP]
 ====
-Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a library of graphic components or another. It is strongly advised not to customize existing libraries (very high maintenance cost, high complexity). Choosing the right bookstore or restricting your needs.
+Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a library of graphic components or another. It is strongly advised not to customize existing libraries (very high maintenance cost, high complexity).
 ====
 ====
 Example 1: the tables must be sortable according to several columns.
 ====
 ====
-Example 2: many screens will be fitted with accordions
+Example 2: Most screens will be fitted with accordions
 ====
 
 ==== Fonts
 
 [TIP]
 ====
-Describe here the fonts to use for web pages, applications, or compound documents.
+Describe here the fonts to use for web pages, applications, or generated documents.
 
 The choice of fonts follows licensing constraints. In order to ensure legal security aspects of the project, pay attention to commercial policies subject to royalties (in particular policies of Microsoft such as Times New Roman, Courier, Verdana, Arial) and which do not allow free production.documents without going through their editors (Word, ...).
 
-See, for example, the police https://www.gouvernement.fr/charte/charte-graphique-les-fondamentaux/la-typographie postaleMarianne] recommended by the government as a variable-range police.
-
-Redhat offers four families of fonts https://fr.wikipedia.org/wiki/Liberation_(police_d%27%C3%A9criture)(Liberation Mono] under an Open Source license that is legally secure and compatible with the Monotype, the Mail New, Arial and Times New Roman.
+Redhat provides four families of fonts https://fr.wikipedia.org/wiki/Liberation_(police_d%27%C3%A9criture)(Liberation Mono] under an Open Source license that is legally secure and compatible with the Monotype, the Mail New, Arial and Times New Roman.
 ====
 
 ==== Responsive website
@@ -157,35 +149,31 @@ List the multi-media display constraints. When possible, use modern frameworks (
 * Adaptive (distances are expressed in units, the size of which depends on the support).
 * Responsive (the content and its layout depend on the medium).
 
-Attention, a responsive design comes with its constraints (code duplication, increase in the volume of the site to be downloaded by the customer, complexity, no more end-to-end tests to be expected…).
+WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of the site to be downloaded by the customer, complexity, no more end-to-end tests to be expected…).
 ====
 
 ==== Progressive Web Apps (PWA)
 
 [TIP]
 ====
-Specify whether the application is progressive. PWA applications are HTML5 web applications having all the attributes of native applications (offline, fast, adaptive, accessible from the OS, ...)
+Specify whether the application is progressive. PWA applications are HTML5 web applications having all the attributes of native applications (offline-first, fast, adaptive, accessible from the OS, ...)
 ====
 ====
-Example: Application X will be totally PWA. Tests will have to demonstrate that the site will continue to operate without a network and that the pages load in less than 5 seconds in 4G.
+Example: Application X will be fully PWA. Tests will have to demonstrate that the site will continue to operate with the network shutdown and that the pages load in less than 5 seconds using 4G Mobile Internet access.
 ====
 
 ==== Supported browsers
 
 [TIP]
 ====
-Specify which browsers are supported if it is a Web GUI.
+Specify which browsers are supported if your project comes with a Web GUI.
 
 When addressing an audience whose fleet of browsers you do not manage (such as a website on the Internet), the best option to make things intelligible and clarify the issues is to negotiate with the stakeholders of the project a percentage audience supported based on https://gs.statcounter.com/ouvernstatistics]. For example: "Support 95% of browsers".
 
-Warning: supporting old browsers (IE in particular) can generate prohibitive additional costs (except when using a library that masks this complexity and hoping that it works correctly).
-
-In all cases, the additional costs of testing on multiple platforms should be assessed. There are good (paid) tools like Litmus or EmailOnAcid to render websites and HTML emails on a combination of OS / player type (PC / tablet / mobile) / browser very large (in the order of of 50).
-
-This type of site is essential for a general public application.
+WARNING: Supporting old browsers (IE in particular) can generate prohibitive additional costs. In all cases, the additional costs of testing on multiple platforms should be assessed. There are good (paid) tools like Litmus or EmailOnAcid to render websites and HTML emails on a combination of OS / player type (PC / tablet / mobile) / browser very large (in the order of of 50). This type of site is essential for a general public application.
 ====
 ====
-Example 1: The intranet application X must work on internally qualified browsers (see xyz standard)
+Example 1: The intranet application X must work on internally qualified browsers (see [Ref xyz])
 ====
 ====
 Example 2: Application Y being an internet application targeting the widest possible audience, including terminals in developing countries. It will have to support Firefox 3+, IE 8+, Opera 6+.
@@ -226,7 +214,7 @@ Example 2: The mobile application will be in PWA mode, entirely written in HTML5
 
 [TIP]
 ====
-SEO (Search engine optimization) concerns the visibility of a website through search engines (like Google or Qwant).
+SEO (Search engine optimization) concerns the visibility of a website through search engines (like Google or Baidu).
 ====
 ====
 Example 1: No indexing necessary or desired (internal site)
@@ -243,7 +231,7 @@ Example 2: The static pages of the site must follow good SEO practices to optimi
 
 [TIP]
 ====
-Donate the technologies chosen from the technologies in the organization's catalog. If there are any discrepancies with the catalog, specify and justify it.
+Detail the technologies chosen from the technologies in the organization's catalog. If there are any discrepancies with the catalog, specify and justify it.
 ====
 ====
 Example: this application has profile P3: "Spring Web Application" with exceptional use of the JasperReport library.
@@ -256,22 +244,22 @@ Example: Using Reacts.js on an experimental basis within the organization. Valid
 
 [TIP]
 ====
-List here for each component the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to provide detailed explainations, the advice is to focus on the structuring components.
+List here for each component the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to provide detailed explanations, the advice is to focus on the structuring software components.
 ====
 ====
 Example:
 
 Software stack example
-[cols="1e, 4e, 1e"]
+[cols="1e,4e,1e"]
 |====
 | Library | Role | Version
 
 | Angular2 Framework
-| Presentation JS Framework
+| GUI JS Framework
 | 2.1.1
 
 | JasperReport
-| Transactional editing, composition of invoices in PDF format
+| Document generator of invoices in PDF format
 | 6.3.0
 |====
 ====
@@ -283,8 +271,8 @@ IMPORTANT: See the MOA requirements in the link:./component-architecture-sizing.
 
 [TIP]
 ====
-Even though performance campaigns are planned and performance analyzes will be integrated into the CI / CD, experience shows that 50% of performance problems could have been detected during development.
-It is therefore important that developers profile their code from their workstation (to be provided in the Definition Of Done of the project). It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time problems. We present here some very basic ideas and accessible to any developer.
+Even though performance campaigns are planned and performance analyzes will be integrated into the CI / CD, experience shows that most of performance problems could have been detected during development.
+It is therefore important that developers profile their code from their workstation (to be provided in the Definition Of Done of the project). It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time problems. It are many ways to simulate concurrency and load.  We present here some very basic ideas and accessible to any developer.
 
 
 Frontend side:

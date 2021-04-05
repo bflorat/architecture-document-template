@@ -27,10 +27,10 @@ IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-
 
 === Reference Documentation
 [TIP]
-Mention here the reference architecture documents (shared). This document should never include their content under penalty of quickly becoming obsolete and not maintainable.
+Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
 Documentary references
-[cols="1e, 2e, 5e, 4e"]
+[cols="1e,2e,5e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
@@ -42,7 +42,7 @@ Documentary references
 == Not ruled
 === Points subject to further study
 Points subject to further study
-[cols="1e, 5e, 2e, 2e, 2e"]
+[cols="1e,5e,2e,2e,2e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
 
@@ -57,7 +57,7 @@ Points subject to further study
 === Assumptions
 
 .Hypotheses
-[cols="1e, 5e"]
+[cols="1e,5e"]
 |====
 | ID | Detail
 
@@ -338,7 +338,7 @@ The information given here will be used as input to the application SLA.
 
 ====
 Example of operating ranges
-[cols="1e, 5e, 2e"]
+[cols="1e,5e,2e"]
 |====
 | No beach | Hours | Detail
 
@@ -382,7 +382,7 @@ The availability required here must be consistent with the “Constraints on ava
 ====
 
 .Maximum allowable downtime per range
-[cols="1e, 5e"]
+[cols="1e,5e"]
 |====
 | No Beach | Maximum downtime
 
@@ -749,7 +749,7 @@ image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 List here OS, databases, MOM, application servers, etc ...
 ====
 Example of infrastructure components
-[cols="1e, 2e, 1e, 2e"]
+[cols="1e,2e,1e,2e"]
 |====
 | Component | Role | Version | Technical environment
 
@@ -793,7 +793,7 @@ Types of networks include useful information about the network being used in ord
 ====
 
 Partial example of technical flow matrix
-[cols="1e, 2e, 2e, 2e, 1e, 1e"]
+[cols="1e,2e,2e,2e,1e,1e"]
 |====
 | ID | Source | Destination | Network type | Protocol | Listening port
 

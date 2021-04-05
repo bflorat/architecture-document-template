@@ -26,11 +26,11 @@ IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-
 
 [TIP]
 ====
-Mention here the reference architecture documents (shared). This document should never include their content under penalty of quickly becoming obsolete and not maintainable.
+Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 ====
 
 Safety documentary references
-[cols="1e, 1e, 3e, 3e"]
+[cols="1e,1e,3e,3e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
@@ -43,7 +43,7 @@ Safety documentary references
 === Points subject to further study
 
 Points subject to further study
-[cols="1e, 3e, 1e, 1e, 2e"]
+[cols="1e,3e,1e,1e,2e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
 
@@ -58,7 +58,7 @@ Points subject to further study
 === Assumptions
 
 .Hypotheses
-[cols="e, e"]
+[cols="e,e"]
 |====
 | ID | Detail
 
@@ -165,7 +165,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 ====
 
 Level of confidentiality required by data class
-[cols="e, e, e, e, e"]
+[cols="e,e,e,e,e"]
 |====
 | Data class | “Public” level ([small] # Anyone can access the data) #
 | Limited Level "([small] #Data is only accessible to authorized persons) #
@@ -246,7 +246,7 @@ It is of course possible to add authentication factors specific to your organiza
 The authentication factors required depending on the situation are (you can require several occurrences of the same factor, use as many crosses):
 
 Authentication requirement per use case
-[cols="e, e, e, e, e, e, e, e"]
+[cols="e,e,e,e,e,e,e,e"]
 |====
 | Authentication case
 | Password respecting the P password policy
@@ -328,7 +328,7 @@ List here the business actions with a non-repudiation requirement, i.e. a device
 ====
 
 .Non-repudiation needs
-[cols="e, e, e"]
+[cols="e,e,e"]
 |===
 | Signed data | Origin of the client certificate | Origin of the server certificate
 
@@ -398,7 +398,7 @@ Example 2: the application will rely on a matrix authorization management of the
 
 ====
 Example role matrix
-[cols="e, e, e, e"]
+[cols="e,e,e,e"]
 |===
 | _Group or user_ | _Role_ `deletion` | _Role_` administration` | _Role `_ basic data consultation`
 
@@ -461,7 +461,7 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 ====
 
 .Data to be kept for proof
-[cols="e, e, e"]
+[cols="e,e,e"]
 |===
 | Data | Objective | Retention period
 
@@ -489,7 +489,7 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 Devices meeting the "integrity requirements, integrity requirements":
 
 Measures to ensure the required level of integrity
-[cols="e, e, e"]
+[cols="e,e,e"]
 |===
 | Data class | Required level | Measures
 
@@ -526,7 +526,7 @@ The resulting signature will be integrated a posteriori in hexadecimal format at
 Devices meeting the "Confidentiality Requirements":
 
 Measures to ensure the requested level of confidentiality
-[cols="e, e, e"]
+[cols="e,e,e"]
 |===
 | Data class | Required level | Measures
 
@@ -699,7 +699,7 @@ Of course, there are many other control points depending on the context of the a
 ====
 
 Self-checking checklist to take into account common vulnerabilities
-[cols="e, e, e"]
+[cols="e,e,e"]
 |===
 | Vulnerability
 | Taken into account?

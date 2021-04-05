@@ -22,7 +22,7 @@ IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-
 === Reference Documentation
 
 Sizing documentary references
-[cols="1e, 1e, 4e, 4e"]
+[cols="1e,1e,4e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
@@ -38,7 +38,7 @@ Sizing documentary references
 === Points subject to further study
 
 Points subject to further study
-[cols="1e, 1e, 1e, 2e, 2e"]
+[cols="1e,1e,1e,2e,2e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
 
@@ -58,7 +58,7 @@ Give here the structuring assumptions taken for the design
 Example:
 
 .Hypotheses
-[cols="1e, 4e"]
+[cols="1e,4e"]
 |====
 | ID | Detail
 
@@ -142,7 +142,7 @@ TIP: These are the metrics used to determine the * cumulative * storage volume o
 
 TIP: These are measured or estimated business data that will be used as inputs to the calculation of technical storage needs.
 
-[cols="e, e, e, e, e, e, e"]
+[cols="e,e,e,e,e,e,e"]
 |====
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail / assumptions
 
@@ -215,7 +215,7 @@ TIP: These are metrics by duration (year, month, hour, ...) and allowing to dete
 
 TIP: These are the measured or estimated business data that will be used as inputs for the calculation of the load.
 
-[cols="e, e, e, e, e, e, e, e"]
+[cols="e,e,e,e,e,e,e,e"]
 |====
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail / assumptions
 
@@ -390,7 +390,7 @@ Give here RAM, disk and CPU per instance of technical component deployed (to be 
 ====
 Example:
 .Estimation of resource requirements by technical component
-[cols="2e, 1e, 1e, 3e, 2e"]
+[cols="2e,1e,1e,3e,2e"]
 |====
 | Deployable unit | (V) CPU requirement per instance | Memory requirement per instance (Mio) | Periods of activity | Comments
 

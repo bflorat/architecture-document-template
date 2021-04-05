@@ -23,7 +23,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
 .Documentary references
-[cols="1e, 1e, 4e, 4e"]
+[cols="1e,1e,4e,4e"]
 |===
 | N ° | Version | Document title / URL | Detail
 
@@ -35,7 +35,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 === Points subject to further study
 
 .Points subject to further study
-[cols="1e, 6e, 1e, 1e, 1e"]
+[cols="1e,6e,1e,1e,1e"]
 |===
 | Subject | Detail | Status | Subject bearer | Deadline
 
@@ -49,7 +49,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 === Assumptions
 
 .Assumptions
-[cols="1e, 6e"]
+[cols="1e,6e"]
 |====
 | ID | Detail
 
@@ -98,7 +98,7 @@ If the IS is urbanized, identify the block concerned by the project.
 By the term "internal", the IT team project refers to actors belonging to the organization. These actors can be humans or application components.
 
 List of internal actors
-[cols="1e, 1e, 4e, 4e"]
+[cols="1e,1e,4e,4e"]
 |===
 | Actor | Description | Population | Location
 
@@ -117,7 +117,7 @@ List of internal actors
 ==== External actors
 
 List of external actors
-[cols="e, e, e, e"]
+[cols="e,e,e,e"]
 |===
 | Actor | Description | Population | Location
 
@@ -251,7 +251,6 @@ The flows are logical and not technical (for example, we can represent a direct 
 
 For each stream, give the protocol, a synchronous / asynchronous attribute, a read / write / execute attribute and a description so that the scheme is self-supporting.
 ====
-
 
 NOTE: This is only a suggestion because writing the detailed application architecture largely depends on the project and its complexity. For a relatively complex project, it may be useful to subdivide it into the following subsections:
 
