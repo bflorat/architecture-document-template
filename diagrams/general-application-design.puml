@@ -1,7 +1,7 @@
 @startuml
 !include C4/C4_Container.puml
 title general-application-design
-header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+header System context diagram \nGeneral application point of view \n of the AllMyData project
 LAYOUT_WITH_LEGEND()
 Person_Ext(company, "Company", "[Person]")
 

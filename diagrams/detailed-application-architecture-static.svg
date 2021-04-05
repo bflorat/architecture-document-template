@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1170px" preserveAspectRatio="none" style="width:749px;height:1170px;" version="1.1" viewBox="0 0 749 1170" width="749px" zoomAndPan="magnify"><defs/><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="642" y="9.2822">Container diagram</text><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="188" x="545" y="20.9229">Static detailed application point of view</text><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="168" x="568" y="32.5635">My Online Info Project (AllMyData)</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="340" x="198" y="51.6299">detailed-application-architecture-static</text><!--MD5=[e99ca9b13c2b777bb8efeefc4b66ab37]
+cluster company_system--><rect fill="#FFFFFF" height="308" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="512.5" x="17" y="721.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="141" x="202.75" y="738.7266">Any company IS</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="242.25" y="753.6387">[System]</text><!--MD5=[0b1e1d5afbe222e194d3592c757a343c]
+cluster administration--><rect fill="#FFFFFF" height="121" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="232" x="24.5" y="62.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="216" x="32.5" y="79.7266">System administration B</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="109.5" y="94.6387">[System]</text><!--MD5=[62fb3842b33c0a138932b21a359a9115]
+cluster si--><rect fill="#FFFFFF" height="490" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="736" x="7" y="207.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="175" x="287.5" y="224.7266">Information System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="344" y="239.6387">[System]</text><!--MD5=[3f67c52585c4dc562efcf4859a544515]
+entity company--><rect fill="#686868" height="103.8125" style="stroke:#8A8A8A;stroke-width:1.5;" width="175" x="53" y="909.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="81" x="100" y="934.7266">Company</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="142.5" y="951.4951"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="111" y="967.792">[person]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="63" y="984.0889">Web client (PC, tablet,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="115" y="1000.3857">mobile)</text><!--MD5=[33573e971ff506c0f246109ca3fd77bd]
+entity spa--><rect fill="#438DD5" height="101.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="215" x="33" y="773.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="157" x="62" y="798.2266">SPA gui-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="195" x="43" y="813.1387">[Container: javascript, React.js]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="142.5" y="828.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="65.5" y="845.2607">Graphical interface for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="62.5" y="861.5576">requesting information</text><!--MD5=[870e13a82a9bc0252b17e3ad6e742bb1]
+entity mobile--><rect fill="#438DD5" height="120.1094" style="stroke:#3C7FC0;stroke-width:1.5;" width="176" x="337.5" y="893.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="150" x="347.5" y="918.7266">AllMyData mobile</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="94" x="378.5" y="937.3516">application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="127" x="362" y="952.2637">[Container: Android]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="427.5" y="968.0889"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="352.5" y="984.3857">Graphical interface to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="358" y="1000.6826">request information</text><!--MD5=[1cf0bab96cde2dfe8ffc5dec0b758635]
+entity scompta--><rect fill="#438DD5" height="52.5938" style="stroke:#3C7FC0;stroke-width:1.5;" width="190" x="45.5" y="114.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="55.5" y="139.2266">Accounting system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="96.5" y="154.1387">[REST service]</text><!--MD5=[2932d97d9db0b825879b51fec21a89b9]
+entity static_resources--><rect fill="#438DD5" height="136.4063" style="stroke:#3C7FC0;stroke-width:1.5;" width="217" x="32" y="545.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="162" x="56.5" y="570.7266">gui-allmydata Web</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="96" x="92.5" y="589.3516">Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="113" x="84" y="604.2637">[Container: nginx]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="142.5" y="620.0889"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="46" y="636.3857">Deliver the static resources</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="50" y="652.6826">(js, html, images ...) of the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="93.5" y="668.9795">AllMyData GUI</text><!--MD5=[31b50539c062e48f418cd0b43b66a14f]
+entity sm--><rect fill="#438DD5" height="115.4531" style="stroke:#3C7FC0;stroke-width:1.5;" width="195" x="43" y="395.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="154" x="63.5" y="420.2266">service-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="168" x="54.5" y="435.1387">[Container: Tomcat, Spring</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34" x="123.5" y="449.1074">Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="142.5" y="464.9326"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="57" y="481.2295">REST service allowing to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="73" y="497.5264">request information</text><!--MD5=[81eb248ad19e595af57658e74548f0fb]
+entity batch--><rect fill="#438DD5" height="101.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="235" x="23" y="259.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="215" x="33" y="284.2266">batch-process-requests</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="121" x="80" y="299.1387">[Container: groovy]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="142.5" y="314.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="45.5" y="331.2607">Process requests, launched</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="68.5" y="347.5576">by cron every minute</text><!--MD5=[7edcefaa406c65155265f04249a95b70]
+entity file--><path d="M347,576.875 C347,566.875 425.5,566.875 425.5,566.875 C425.5,566.875 504,566.875 504,576.875 L504,651.0625 C504,661.0625 425.5,661.0625 425.5,661.0625 C425.5,661.0625 347,661.0625 347,651.0625 L347,576.875 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M347,576.875 C347,586.875 425.5,586.875 425.5,586.875 C425.5,586.875 504,586.875 504,576.875 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="113" x="369" y="605.7266">file-requests</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="137" x="357" y="620.6387">[Container: RabbitMQ]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="427.5" y="636.4639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="372" y="652.7607">Stores requests</text><!--MD5=[603ca9136f074a8ec06a33b8559706d8]
+entity bdd--><path d="M341,447.875 C341,437.875 425.5,437.875 425.5,437.875 C425.5,437.875 510,437.875 510,447.875 L510,522.0625 C510,532.0625 425.5,532.0625 425.5,532.0625 C425.5,532.0625 341,532.0625 341,522.0625 L341,447.875 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M341,447.875 C341,457.875 425.5,457.875 425.5,457.875 C425.5,457.875 510,457.875 510,447.875 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="123" x="364" y="476.7266">bdd-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="149" x="351" y="491.6387">[Container: PostgreSQL]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="427.5" y="507.4639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="368" y="523.7607">Internal database</text><!--MD5=[1d51138b063b4ea7af95f6dcbfdcef50]
+entity compo--><rect fill="#438DD5" height="99.1563" style="stroke:#3C7FC0;stroke-width:1.5;" width="205" x="323" y="303.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="166" x="342.5" y="328.2266">service-compo-pdf</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="118" x="364.5" y="343.1387">[Container: Wildfly,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="86" x="382.5" y="357.1074">JasperReport]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="427.5" y="372.9326"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="337" y="389.2295">Composition REST service</text><!--MD5=[22dcd1ec1e070222742b64049a14c569]
+entity smails--><rect fill="#438DD5" height="85.1875" style="stroke:#3C7FC0;stroke-width:1.5;" width="139" x="588" y="571.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="98" x="608.5" y="596.2266">mail server</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="119" x="598" y="611.1387">[Container: Postfix]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="659.5" y="626.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="617.5" y="643.2607">Send emails</text><!--MD5=[7bda8a3d1a0942b3be0be0947166e929]
+link company to spa--><!--MD5=[2724b114cb2ba8fdfd34f7d061d21992]
+link company to mobile--><!--MD5=[9ae1397059e9caf429efd078abbfad08]
+link static_resources to sm--><!--MD5=[b0d796f7c10cbc95a92b6ae6bc9e4307]
+link sm to batch--><!--MD5=[32088c04ce541703f84fe515b8b98071]
+link static_resources to file--><!--MD5=[278347df3f4ebd2a7e7d0c172b86bfeb]
+link file to bdd--><!--MD5=[a8e122e2a16921c52fa23118167528f1]
+link bdd to compo--><!--MD5=[9eb4a027fa5ae1f8a060e9e7c3a856ca]
+link file to smails--><rect fill="#DDDDDD" height="111.7813" rx="5" ry="5" style="stroke:#000000;stroke-width:1.0;" width="199" x="528" y="1042.875"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="0" x="604" y="1062.8701"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="39" x="609" y="1062.8701">Type</text><rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="534" y="1066.1719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="558" y="1079.167"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="608" y="1079.167">person</text><rect fill="#686868" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="534" y="1082.4688"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="558" y="1095.4639"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="608" y="1095.4639">external person</text><rect fill="#1168BD" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="534" y="1098.7656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="546" y="1111.7607"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="608" y="1111.7607">system</text><rect fill="#999999" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="534" y="1115.0625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="558" y="1128.0576"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="608" y="1128.0576">external system</text><rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="534" y="1131.3594"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="546" y="1144.3545"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="608" y="1144.3545">container</text><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1049.875" y2="1049.875"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1066.1719" y2="1066.1719"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1082.4688" y2="1082.4688"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1098.7656" y2="1098.7656"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1115.0625" y2="1115.0625"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1131.3594" y2="1131.3594"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="721" y1="1147.6563" y2="1147.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="534" x2="534" y1="1049.875" y2="1147.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="604" x2="604" y1="1049.875" y2="1147.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="721" x2="721" y1="1049.875" y2="1147.6563"/><!--MD5=[012356834393bc9894f8f226db1ab492]
+@startuml
+!include C4/C4_Container.puml
+LAYOUT_LEFT_RIGHT
+skinparam linetype poyline
+title detailed-application-architecture-static
+header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
+LAYOUT_WITH_LEGEND()
+
+System_Boundary(company_system, "Any company IS") {
+    Person_Ext(company, "Company", "[person] \nWeb client (PC, tablet, mobile)")
+    Container(spa, "SPA gui-allmydata", "Container: javascript, React.js", "Graphical interface for requesting information")
+    Container(mobile, "AllMyData mobile application", "Container: Android", "Graphical interface to request information")
+}    
+
+System_Boundary(administration, "System administration B") {
+    Container(scompta, "Accounting system", "REST service")
+}
+
+System_Boundary(si, "Information System") {
+    Container(static_resources, "gui-allmydata Web Application", "Container: nginx", "Deliver the static resources (js, html, images ...) of the AllMyData GUI")
+    Container(sm, "service-allmydata", "Container: Tomcat, Spring Boot", "REST service allowing to request information")
+    Container(batch, "batch-process-requests", "Container: groovy", "Process requests, launched by cron every minute")
+    ContainerDb(file, "file-requests", "Container: RabbitMQ", "Stores requests")
+    ContainerDb(bdd, "bdd-allmydata", "Container: PostgreSQL", "Internal database")
+    Container(compo, "service-compo-pdf", "Container: Wildfly, JasperReport", "Composition REST service")
+    Container(smails, "mail server", "Container: Postfix", "Send emails")
+}
+
+@enduml
+
+@startuml
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 14
+    Thickness 2
+}
+
+skinparam rectangle<<zone>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+left to right direction
+skinparam linetype poyline
+title detailed-application-architecture-static
+header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
+hide stereotype
+legend right
+|=              |= Type |
+|<#08427B>      | person |
+|<#686868>      | external person |
+|<#1168BD>   | system |
+|<#999999>      | external system |
+|<#438DD5>   | container |
+endlegend
+
+rectangle "==Any company IS\n<size:12>[System]</size>" <<zone>> as company_system {
+    rectangle "==Company\n\n [person] \nWeb client (PC, tablet, mobile)" <<external_person>> as company
+    rectangle "==SPA gui-allmydata\n//<size:12>[Container: javascript, React.js]</size>//\n\n Graphical interface for requesting information" <<unité déployable>> as spa
+    rectangle "==AllMyData mobile application\n//<size:12>[Container: Android]</size>//\n\n Graphical interface to request information" <<unité déployable>> as mobile
+}    
+
+rectangle "==System administration B\n<size:12>[System]</size>" <<zone>> as administration {
+    rectangle "==Accounting system\n//<size:12>[REST service]</size>//" <<unité déployable>> as scompta
+}
+
+rectangle "==Information System\n<size:12>[System]</size>" <<zone>> as si {
+    rectangle "==gui-allmydata Web Application\n//<size:12>[Container: nginx]</size>//\n\n Deliver the static resources (js, html, images ...) of the AllMyData GUI" <<unité déployable>> as static_resources
+    rectangle "==service-allmydata\n//<size:12>[Container: Tomcat, Spring Boot]</size>//\n\n REST service allowing to request information" <<unité déployable>> as sm
+    rectangle "==batch-process-requests\n//<size:12>[Container: groovy]</size>//\n\n Process requests, launched by cron every minute" <<unité déployable>> as batch
+    database "==file-requests\n//<size:12>[Container: RabbitMQ]</size>//\n\n Stores requests" <<unité déployable>> as file
+    database "==bdd-allmydata\n//<size:12>[Container: PostgreSQL]</size>//\n\n Internal database" <<unité déployable>> as bdd
+    rectangle "==service-compo-pdf\n//<size:12>[Container: Wildfly, JasperReport]</size>//\n\n Composition REST service" <<unité déployable>> as compo
+    rectangle "==mail server\n//<size:12>[Container: Postfix]</size>//\n\n Send emails" <<unité déployable>> as smails
+}
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

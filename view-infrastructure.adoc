@@ -605,7 +605,7 @@ Reminders on the principles of availability:
 
 * The availability of a set of serial components: `D = D1 * D2 * ... * Dn`. ExExample: the availability of an application using a 98% Tomcat server and a 99% Oracle database will be 97.02%.
 * The availability of a set of components in parallel: `D = 1 - (1-D1) * (1- D2) * .. * (1-Dn)`. Example: the availability of three clustered Nginx servers each of which has an availability of 98% is 99.999%.
-* It is important to be consistent on the availability of each link in the link chain: there is no point in having an active / active cluster of JEE application servers if all these servers attack a database located on a single server physical with disks without RAID.
+* It is important to be consistent on the availability of each link in the linking chain: there is no point in having an active / active cluster of JEE application servers if all these servers attack a database located on a single server physical with disks without RAID.
 * A system is estimated to be highly available (HA) from 99% availability.
 * The term “spare” denotes a spare device (server, disk, electronic card, etc.) which is dedicated to the need for availability but which is not activated outside of failures. Depending on the level of availability sought, it can be dedicated to the application or shared at the IS level.
 * The level of redundancy of a device can be expressed with the following concept (with N, the number of devices ensuring correct operation under load):
@@ -871,7 +871,7 @@ This device can also be used in the event of a DDOS-type attack and makes it pos
 ====
 It is also useful to provide dynamic application regulation systems, for example:
 
-* Via throttling (clipping of the number of requests by origin and unit of time). To put upstream of the link chain.
+* Via throttling (clipping of the number of requests by origin and unit of time). To put upstream of the linking chain.
 * Token systems (which also make it possible to favor this or that customer by granting them a quota of different tokens).
 ====
 ====
@@ -894,8 +894,8 @@ Example 2: a throttling of 100 requests per source and per minute will be set up
 
 [TIP]
 ====
-Describe here the different timeouts implemented on the link chains. Keep in mind that in a link chain from client to persistence, timeouts should decrease as you go through
-the link chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database).
+Describe here the different timeouts implemented on the linking chains. Keep in mind that in a linking chain from client to persistence, timeouts should decrease as you go through
+the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database).
 
 In fact, in the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
 
@@ -935,9 +935,9 @@ Specify here the starting order of machines and components among themselves as w
 
 The DEX will contain a more precise version of this chapter (in particular with a SystemV order number or a precise SystemD "Wants"), it is above all the general principles of stop and start orders that must be described here.
 
-Starting is generally done in the reverse direction of the link chains and stopping in the direction of the link chain.
+Starting is generally done in the reverse direction of the linking chains and stopping in the direction of the linking chain.
 
-Specify any issues in the event of a partial start (for example, will the application server connection pool retry to connect to the database if it is not started? How many times? What how robust is the link chain?)
+Specify any issues in the event of a partial start (for example, will the application server connection pool retry to connect to the database if it is not started? How many times? What how robust is the linking chain?)
 ====
 ====
 Example of a start-up order:
@@ -1179,7 +1179,7 @@ Are we monitoring the performance of the application in production? This allows:
 
 There are three main families of solutions:
 
-* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete link chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in OpenSource ...). Check that the overhead of these solutions is negligible or limited and that the stability of the application is not jeopardized.
+* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in OpenSource ...). Check that the overhead of these solutions is negligible or limited and that the stability of the application is not jeopardized.
 * "In-house" metrology by logs if the need is modeste.
 * External query sites (see also life tests in 12.7.6) which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with life tests (see below).
 ====

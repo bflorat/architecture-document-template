@@ -426,7 +426,7 @@ Types of tests
 | Automated
 | UI
 | 30%, nominal cases (happy path)
-| Written in CodeceptJS, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be corked but will be carried out on an end-to-end instantiated link chain. To avoid unnecessary work, these tests will be done at the level of entire features, not necessarily at each sprint. These tests will also serve as system tests since they will require a maximum of uncapped modules.
+| Written in CodeceptJS, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be corked but will be carried out on an end-to-end instantiated linking chain. To avoid unnecessary work, these tests will be done at the level of entire features, not necessarily at each sprint. These tests will also serve as system tests since they will require a maximum of uncapped modules.
 
 | Performance tests
 | Low (excluding dedicated performance campaigns)

@@ -82,3 +82,4 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 * _Design Patterns: Elements of Reusable Object-Oriented Software by Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides_ (GOF)
 * _Le projet d’Urbanisation du SI_ - Christophe Longépé 
 * _Sécurité de la dématérialisation_ - Dimitri Mouton
+

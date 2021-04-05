@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="770px" preserveAspectRatio="none" style="width:677px;height:770px;" version="1.1" viewBox="0 0 677 770" width="677px" zoomAndPan="magnify"><defs/><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="429" x="235" y="9.2822">System context diagram \ nGeneral application point of view \ n of the AllMyData project</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="233" x="215.5" y="28.3486">general-application-design</text><!--MD5=[0b1e1d5afbe222e194d3592c757a343c]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="770px" preserveAspectRatio="none" style="width:677px;height:770px;" version="1.1" viewBox="0 0 677 770" width="677px" zoomAndPan="magnify"><defs/><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="429" x="235" y="9.2822">System context diagram \nGeneral application point of view \n of the AllMyData project</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="233" x="215.5" y="28.3486">general-application-design</text><!--MD5=[0b1e1d5afbe222e194d3592c757a343c]
 cluster administration--><rect fill="#FFFFFF" height="90" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="232" x="439" y="407.5938"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="216" x="447" y="424.4453">System administration B</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="524" y="439.3574">[System]</text><!--MD5=[3aaaa60f6cdac4d9080e986fddba613d]
 cluster si,--><rect fill="#FFFFFF" height="445" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="418" x="7" y="184.5938"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="175" x="128.5" y="201.4453">Information System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="185" y="216.3574">[System]</text><!--MD5=[c3dd7293d4e74cc67bec6d68663a773e]
 entity p1--><rect fill="#1168BD" height="38.625" style="stroke:#3C7FC0;stroke-width:1.5;" width="190" x="452" y="450.5938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="462" y="475.4453">Accounting system</text><!--MD5=[99c5416311fbf9d118be657efd773f39]
@@ -275,7 +275,7 @@ endlegend
 
 !define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
 title general-application-design
-header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+header System context diagram \nGeneral application point of view \n of the AllMyData project
 LAYOUT_WITH_LEGEND()
 Person_Ext(company, "Company", "[Person]")
 
@@ -430,7 +430,7 @@ skinparam database<<unité déployable>> {
 
 
 title general-application-design
-header System context diagram \ nGeneral application point of view \ n of the AllMyData project
+header System context diagram \nGeneral application point of view \n of the AllMyData project
 hide stereotype
 legend right
 |=              |= Type |

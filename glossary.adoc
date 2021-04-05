@@ -17,7 +17,7 @@ WARNING: Please respect the alphabetical order when editing the document
 |==================================================
 | Term | Meaning | Comment
 
-| CA | Court of Appeal | "While first instance courts deliver 'judgment', appellate court renders 'judgment'" [Wikipedia]
+| CA | Court of Appeal | "The court has two divisions, Criminal and Civil" [Wikipedia]
 
 
 |==================================================

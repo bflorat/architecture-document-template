@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1141px" preserveAspectRatio="none" style="width:1121px;height:1141px;" version="1.1" viewBox="0 0 1121 1141" width="1121px" zoomAndPan="magnify"><defs/><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="1014" y="9.2822">Container diagram</text><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="203" x="902" y="20.9229">Dynamic detailed application point of view</text><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="168" x="940" y="32.5635">My Online Info Project (AllMyData)</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="368" x="370" y="51.6299">detailed-application-architecture-dynamic</text><!--MD5=[e99ca9b13c2b777bb8efeefc4b66ab37]
+cluster company_system--><rect fill="#FFFFFF" height="324" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="681" x="7" y="62.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="141" x="277" y="79.7266">Any company IS</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="316.5" y="94.6387">[System]</text><!--MD5=[0b1e1d5afbe222e194d3592c757a343c]
+cluster administration--><rect fill="#FFFFFF" height="121" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="232" x="880.5" y="272.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="216" x="888.5" y="289.7266">System administration B</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="965.5" y="304.6387">[System]</text><!--MD5=[62fb3842b33c0a138932b21a359a9115]
+cluster si--><rect fill="#FFFFFF" height="583" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="684" x="431" y="417.875"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="175" x="685.5" y="434.7266">Information System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="742" y="449.6387">[System]</text><!--MD5=[3f67c52585c4dc562efcf4859a544515]
+entity company--><rect fill="#686868" height="103.8125" style="stroke:#8A8A8A;stroke-width:1.5;" width="175" x="23" y="262.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="81" x="70" y="287.7266">Company</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="112.5" y="304.4951"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="81" y="320.792">[person]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="33" y="337.0889">Web client (PC, tablet,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="85" y="353.3857">mobile)</text><!--MD5=[33573e971ff506c0f246109ca3fd77bd]
+entity spa--><rect fill="#438DD5" height="101.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="215" x="457" y="269.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="157" x="486" y="294.2266">SPA gui-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="195" x="467" y="309.1387">[Container: javascript, React.js]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="566.5" y="324.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="489.5" y="341.2607">Graphical interface for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="486.5" y="357.5576">requesting information</text><!--MD5=[870e13a82a9bc0252b17e3ad6e742bb1]
+entity mobile--><rect fill="#438DD5" height="120.1094" style="stroke:#3C7FC0;stroke-width:1.5;" width="176" x="476.5" y="113.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="150" x="486.5" y="138.7266">AllMyData mobile</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="94" x="517.5" y="157.3516">application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="127" x="501" y="172.2637">[Container: Android]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="566.5" y="188.0889"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="491.5" y="204.3857">Graphical interface to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="497" y="220.6826">request information</text><!--MD5=[1cf0bab96cde2dfe8ffc5dec0b758635]
+entity scompta--><rect fill="#438DD5" height="52.5938" style="stroke:#3C7FC0;stroke-width:1.5;" width="190" x="901.5" y="324.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="911.5" y="349.2266">Accounting system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="952.5" y="364.1387">[REST service]</text><!--MD5=[2932d97d9db0b825879b51fec21a89b9]
+entity static_resources--><rect fill="#438DD5" height="136.4063" style="stroke:#3C7FC0;stroke-width:1.5;" width="217" x="456" y="468.875"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="162" x="480.5" y="493.7266">gui-allmydata Web</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="96" x="516.5" y="512.3516">Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="113" x="508" y="527.2637">[Container: nginx]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="566.5" y="543.0889"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="470" y="559.3857">Deliver the static resources</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="474" y="575.6826">(js, html, images ...) of the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="517.5" y="591.9795">AllMyData GUI</text><!--MD5=[31b50539c062e48f418cd0b43b66a14f]
+entity sm--><rect fill="#438DD5" height="115.4531" style="stroke:#3C7FC0;stroke-width:1.5;" width="195" x="467" y="640.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="154" x="487.5" y="665.2266">service-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="168" x="478.5" y="680.1387">[Container: Tomcat, Spring</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34" x="547.5" y="694.1074">Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="566.5" y="709.9326"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="481" y="726.2295">REST service allowing to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="497" y="742.5264">request information</text><!--MD5=[81eb248ad19e595af57658e74548f0fb]
+entity batch--><rect fill="#438DD5" height="101.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="235" x="447" y="790.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="215" x="457" y="815.2266">batch-process-requests</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="121" x="504" y="830.1387">[Container: groovy]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="566.5" y="845.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="469.5" y="862.2607">Process requests, launched</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="492.5" y="878.5576">by cron every minute</text><!--MD5=[7edcefaa406c65155265f04249a95b70]
+entity file--><path d="M918,634.875 C918,624.875 996.5,624.875 996.5,624.875 C996.5,624.875 1075,624.875 1075,634.875 L1075,709.0625 C1075,719.0625 996.5,719.0625 996.5,719.0625 C996.5,719.0625 918,719.0625 918,709.0625 L918,634.875 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M918,634.875 C918,644.875 996.5,644.875 996.5,644.875 C996.5,644.875 1075,644.875 1075,634.875 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="113" x="940" y="663.7266">file-requests</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="137" x="928" y="678.6387">[Container: RabbitMQ]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="998.5" y="694.4639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="943" y="710.7607">Stores requests</text><!--MD5=[603ca9136f074a8ec06a33b8559706d8]
+entity bdd--><path d="M912,495.875 C912,485.875 996.5,485.875 996.5,485.875 C996.5,485.875 1081,485.875 1081,495.875 L1081,570.0625 C1081,580.0625 996.5,580.0625 996.5,580.0625 C996.5,580.0625 912,580.0625 912,570.0625 L912,495.875 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M912,495.875 C912,505.875 996.5,505.875 996.5,505.875 C996.5,505.875 1081,505.875 1081,495.875 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="123" x="935" y="524.7266">bdd-allmydata</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="149" x="922" y="539.6387">[Container: PostgreSQL]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="998.5" y="555.4639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="939" y="571.7607">Internal database</text><!--MD5=[1d51138b063b4ea7af95f6dcbfdcef50]
+entity compo--><rect fill="#438DD5" height="99.1563" style="stroke:#3C7FC0;stroke-width:1.5;" width="205" x="894" y="765.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="166" x="913.5" y="790.2266">service-compo-pdf</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="118" x="935.5" y="805.1387">[Container: Wildfly,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="86" x="953.5" y="819.1074">JasperReport]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="998.5" y="834.9326"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="908" y="851.2295">Composition REST service</text><!--MD5=[22dcd1ec1e070222742b64049a14c569]
+entity smails--><rect fill="#438DD5" height="85.1875" style="stroke:#3C7FC0;stroke-width:1.5;" width="139" x="927" y="899.375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="98" x="947.5" y="924.2266">mail server</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="119" x="937" y="939.1387">[Container: Postfix]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="998.5" y="954.9639"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="956.5" y="971.2607">Send emails</text><!--MD5=[d6214fe45677362bd02b65bdf5c033ac]
+link company to static_resources--><path d="M138.23,366.955 C172.62,433.975 228,541.875 228,541.875 C228,541.875 415,541.875 415,541.875 C415,541.875 430.21,541.365 450.9,540.665 " fill="none" id="company-to-static_resources" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="455.97,540.495,446.8488,536.7797,450.9725,540.6521,447.1001,544.7757,455.97,540.495" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="36" x="301" y="492.7983">Visit</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="185" x="229" y="510.2593">https://allmydata.gouv</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="134" x="252.5" y="524.9355">[HTTPS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="64" x="289.5" y="538.9043">read only]</text><!--MD5=[7bda8a3d1a0942b3be0be0947166e929]
+link company to spa--><path d="M198.12,315.835 C270.23,316.635 373.41,317.775 451.74,318.635 " fill="none" id="company-to-spa" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="456.86,318.695,447.8947,314.6178,451.8602,318.652,447.8259,322.6175,456.86,318.695" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="77" x="280.5" y="295.7983">Retrieves</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="123" x="260" y="313.2593">information via</text><!--MD5=[2724b114cb2ba8fdfd34f7d061d21992]
+link company to mobile--><path d="M198.3,283.585 C215.31,277.455 228,272.875 228,272.875 C228,272.875 371.92,230.405 471.24,201.105 " fill="none" id="company-to-mobile" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="476.23,199.625,466.4664,198.3318,471.4339,201.0381,468.7275,206.0056,476.23,199.625" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="77" x="280.5" y="199.7983">Retrieves</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="123" x="260" y="217.2593">information via</text><!--MD5=[2bd1df18e5ad84e334d77af3808af277]
+link static_resources to spa--><path d="M564.5,468.815 C564.5,438.855 564.5,404.105 564.5,375.705 " fill="none" id="static_resources-to-spa" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="564.5,370.475,560.5,379.475,564.5,375.475,568.5,379.475,564.5,370.475" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="146" x="456.5" y="402.5483">Provide to client's</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="106" x="476.5" y="420.0093">web browser</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="134" x="460.5" y="434.6855">[HTTPS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="64" x="497.5" y="448.6543">read-only]</text><!--MD5=[51f10525928d26d969720f56dab3cbdb]
+link spa to sm--><path d="M457,359.945 C379.87,388.695 289.5,422.375 289.5,422.375 C289.5,422.375 289.5,469.375 289.5,469.375 C289.5,469.375 423,622.875 423,622.875 C423,622.875 440.13,631.955 462.46,643.795 " fill="none" id="spa-to-sm" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="467,646.195,460.9255,638.4425,462.5835,643.851,457.1751,645.5089,467,646.195" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="146" x="248.5" y="437.2983">[1.1] Info request</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="134" x="252.5" y="451.9746">[HTTPS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="64" x="289.5" y="465.9434">read only]</text><!--MD5=[4d4e51ad28c3b1d3829418ccf63938ce]
+link mobile to sm--><path d="M476.5,222.385 C447.72,238.245 423,251.875 423,251.875 C423,251.875 289,352.875 289,352.875 C289,352.875 289,416.875 289,416.875 C289,416.875 423,622.875 423,622.875 C423,622.875 440.13,631.955 462.46,643.795 " fill="none" id="mobile-to-sm" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="467,646.195,460.9255,638.4425,462.5835,643.851,457.1751,645.5089,467,646.195" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="142" x="248" y="367.7983">[1.1] Information</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="63" x="290" y="385.2593">request</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="134" x="252.5" y="399.9355">[HTTPS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="64" x="289.5" y="413.9043">read only]</text><!--MD5=[e3894eb214d4b9c2246af59a1a5733d7]
+link sm to bdd--><path d="M662.05,642.385 C681.44,631.245 696,622.875 696,622.875 C696,622.875 712,600.875 712,600.875 C712,600.875 823.85,574.045 907.04,554.095 " fill="none" id="sm-to-bdd" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="911.97,552.905,902.283,551.1266,907.1094,554.0773,904.1587,558.9036,911.97,552.905" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="148" x="714" y="514.7983">[1.2] Historization</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="117" x="729.5" y="532.2593">of the request</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="125" x="723.5" y="546.9355">[JDBC, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="36" x="770" y="560.9043">write]</text><!--MD5=[a5948cf7f25e2a8d21066f6adcc7c959]
+link sm to file--><path d="M662.4,683.325 C689.65,679.235 712,675.875 712,675.875 C712,675.875 828.79,674.225 912.45,673.045 " fill="none" id="sm-to-file" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="917.66,672.975,908.6038,669.104,912.6605,673.0464,908.7181,677.1032,917.66,672.975" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="112" x="729.5" y="623.7983">[1.3] Request</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="63" x="756.5" y="641.2593">storage</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="118" x="727" y="655.9355">[JMS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="36" x="770" y="669.9043">write]</text><!--MD5=[9d6d2a40b7c8fff5f50dc87e6a05f1e3]
+link batch to file--><path d="M682,792.365 C699.59,785.045 712,779.875 712,779.875 C712,779.875 864,747.875 864,747.875 C864,747.875 886.69,734.755 913.23,719.425 " fill="none" id="batch-to-file" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="917.87,716.745,908.0759,717.7824,913.5403,719.2457,912.077,724.71,917.87,716.745" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="76" x="747.5" y="698.7983">[2.1] Pop</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="72" x="752" y="716.2593">requests</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="723" y="730.9355">[JMS, asynchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="111" x="732.5" y="744.9043">read then delete]</text><!--MD5=[be00085091a1bc3d162589b5e3176d1b]
+link batch to scompta--><path d="M662.73,790.215 C681.78,780.285 696,772.875 696,772.875 C696,772.875 712,491.875 712,491.875 C712,491.875 854.33,421.085 937.29,379.825 " fill="none" id="batch-to-scompta" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="942.18,377.395,932.3407,377.8296,937.705,379.6253,935.9093,384.9896,942.18,377.395" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="127" x="722" y="350.7983">[2.2] Retrieving</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="89" x="741" y="368.2593">accounting</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="95" x="740.5" y="385.7202">information</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="134" x="719" y="400.3965">[HTTPS, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="64" x="756" y="414.3652">read only]</text><!--MD5=[cd9a58046204cef197a2f3a62a4a6dee]
+link batch to compo--><path d="M682.19,836.965 C765.91,834.165 864,830.875 864,830.875 C864,830.875 874.11,829.645 888.72,827.865 " fill="none" id="batch-to-compo" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="893.84,827.245,884.4164,824.3822,888.878,827.8599,885.4002,832.3214,893.84,827.245" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="150" x="713" y="798.7983">[2.3] PDF creation</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="723" y="813.4746">[HTTP, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34" x="771" y="827.4434">read]</text><!--MD5=[eaaeaa2406bfbada0033e97717f8f7df]
+link batch to smails--><path d="M652.84,891.545 C684.21,909.755 712,925.875 712,925.875 C712,925.875 837.65,932.965 921.65,937.705 " fill="none" id="batch-to-smails" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="926.87,938.005,918.1136,933.4966,921.8782,937.7189,917.6559,941.4835,926.87,938.005" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="134" x="718.5" y="858.7983">[2.4] Request to</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="118" x="726.5" y="876.2593">send mail with</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="33" x="771.5" y="893.7202">PDF</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="128" x="722" y="908.3965">[SMTP, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="67" x="754.5" y="922.3652">execution]</text><!--MD5=[6b957a4ade014f30a0cd769ada585026]
+link smails to company--><path d="M926.79,948.985 C838.37,958.135 696,972.875 696,972.875 C696,972.875 423,972.875 423,972.875 C423,972.875 214.02,531.435 138.4,371.705 " fill="none" id="smails-to-company" style="stroke:#666666;stroke-width:2.0;"/><polygon fill="#666666" points="136.2,367.055,136.4459,376.9008,138.3441,371.5719,143.673,373.4702,136.2,367.055" style="stroke:#666666;stroke-width:2.0;"/><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="149" x="490" y="923.7983">[2.5] Sending mail</text><text fill="#666666" font-family="sans-serif" font-size="15" font-weight="bold" lengthAdjust="spacing" textLength="73" x="528" y="941.2593">with PDF</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="128" x="498.5" y="955.9355">[SMTP, synchronous,</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="67" x="531" y="969.9043">execution]</text><rect fill="#DDDDDD" height="111.7813" rx="5" ry="5" style="stroke:#000000;stroke-width:1.0;" width="199" x="900" y="1013.875"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="0" x="976" y="1033.8701"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="39" x="981" y="1033.8701">Type</text><rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="906" y="1037.1719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="930" y="1050.167"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="980" y="1050.167">person</text><rect fill="#686868" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="906" y="1053.4688"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="930" y="1066.4639"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="980" y="1066.4639">external person</text><rect fill="#1168BD" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="906" y="1069.7656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="918" y="1082.7607"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="980" y="1082.7607">system</text><rect fill="#999999" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="906" y="1086.0625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="930" y="1099.0576"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="980" y="1099.0576">external system</text><rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="70" x="906" y="1102.3594"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="918" y="1115.3545"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="980" y="1115.3545">container</text><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1020.875" y2="1020.875"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1037.1719" y2="1037.1719"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1053.4688" y2="1053.4688"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1069.7656" y2="1069.7656"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1086.0625" y2="1086.0625"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1102.3594" y2="1102.3594"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="1093" y1="1118.6563" y2="1118.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="906" x2="906" y1="1020.875" y2="1118.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="976" x2="976" y1="1020.875" y2="1118.6563"/><line style="stroke:#000000;stroke-width:1.0;" x1="1093" x2="1093" y1="1020.875" y2="1118.6563"/><!--MD5=[c6beea862afdeb5aae022d12fc354cf4]
+@startuml
+!include detailled-application-design-static.puml
+title detailed-application-architecture-dynamic
+header Container diagram \nDynamic detailed application point of view \n My Online Info Project (AllMyData)
+
+Rel(company, static_resources, "Visit https://allmydata.gouv", "HTTPS, synchronous, read only")
+Rel(company, spa, "Retrieves information via")
+Rel(company, mobile, "Retrieves information via")
+Rel(static_resources, spa, "Provide to client's web browser", "HTTPS, synchronous, read-only")
+Rel(spa, sm, "[1.1] Info request", "HTTPS, synchronous, read only")
+Rel(mobile, sm, "[1.1] Information request", "HTTPS, synchronous, read only")
+Rel(sm, bdd, "[1.2] Historization of the request", "JDBC, synchronous, write")
+Rel(sm, file, "[1.3] Request storage", "JMS, synchronous, write")
+Rel(batch, file, "[2.1] Pop requests", "JMS, asynchronous, read then delete")
+Rel(batch, scompta, "[2.2] Retrieving accounting information", "HTTPS, synchronous, read only")
+Rel(batch, compo, "[2.3] PDF creation", "HTTP, synchronous, read")
+Rel(batch, smails, "[2.4] Request to send mail with PDF", "SMTP, synchronous, execution")
+Rel(smails, company, "[2.5] Sending mail with PDF", "SMTP, synchronous, execution")
+
+@enduml
+
+@startuml
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 14
+    Thickness 2
+}
+
+skinparam rectangle<<zone>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<unité déployable>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+left to right direction
+skinparam linetype polyline
+title detailed-application-architecture-static
+header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
+hide stereotype
+legend right
+|=              |= Type |
+|<#08427B>      | person |
+|<#686868>      | external person |
+|<#1168BD>   | system |
+|<#999999>      | external system |
+|<#438DD5>   | container |
+endlegend
+
+rectangle "==Any company IS\n<size:12>[System]</size>" <<zone>> as company_system {
+    rectangle "==Company\n\n [person] \nWeb client (PC, tablet, mobile)" <<external_person>> as company
+    rectangle "==SPA gui-allmydata\n//<size:12>[Container: javascript, React.js]</size>//\n\n Graphical interface for requesting information" <<unité déployable>> as spa
+    rectangle "==AllMyData mobile application\n//<size:12>[Container: Android]</size>//\n\n Graphical interface to request information" <<unité déployable>> as mobile
+}    
+
+rectangle "==System administration B\n<size:12>[System]</size>" <<zone>> as administration {
+    rectangle "==Accounting system\n//<size:12>[REST service]</size>//" <<unité déployable>> as scompta
+}
+
+rectangle "==Information System\n<size:12>[System]</size>" <<zone>> as si {
+    rectangle "==gui-allmydata Web Application\n//<size:12>[Container: nginx]</size>//\n\n Deliver the static resources (js, html, images ...) of the AllMyData GUI" <<unité déployable>> as static_resources
+    rectangle "==service-allmydata\n//<size:12>[Container: Tomcat, Spring Boot]</size>//\n\n REST service allowing to request information" <<unité déployable>> as sm
+    rectangle "==batch-process-requests\n//<size:12>[Container: groovy]</size>//\n\n Process requests, launched by cron every minute" <<unité déployable>> as batch
+    database "==file-requests\n//<size:12>[Container: RabbitMQ]</size>//\n\n Stores requests" <<unité déployable>> as file
+    database "==bdd-allmydata\n//<size:12>[Container: PostgreSQL]</size>//\n\n Internal database" <<unité déployable>> as bdd
+    rectangle "==service-compo-pdf\n//<size:12>[Container: Wildfly, JasperReport]</size>//\n\n Composition REST service" <<unité déployable>> as compo
+    rectangle "==mail server\n//<size:12>[Container: Postfix]</size>//\n\n Send emails" <<unité déployable>> as smails
+}
+
+title detailed-application-architecture-dynamic
+header Container diagram \nDynamic detailed application point of view \n My Online Info Project (AllMyData)
+
+company - -> static_resources : "===Visit https://allmydata.gouv\n//<size:12>[HTTPS, synchronous, read only]</size>//"
+company - -> spa : "===Retrieves information via"
+company - -> mobile : "===Retrieves information via"
+static_resources - -> spa : "===Provide to client's web browser\n//<size:12>[HTTPS, synchronous, read-only]</size>//"
+spa - -> sm : "===[1.1] Info request\n//<size:12>[HTTPS, synchronous, read only]</size>//"
+mobile - -> sm : "===[1.1] Information request\n//<size:12>[HTTPS, synchronous, read only]</size>//"
+sm - -> bdd : "===[1.2] Historization of the request\n//<size:12>[JDBC, synchronous, write]</size>//"
+sm - -> file : "===[1.3] Request storage\n//<size:12>[JMS, synchronous, write]</size>//"
+batch - -> file : "===[2.1] Pop requests\n//<size:12>[JMS, asynchronous, read then delete]</size>//"
+batch - -> scompta : "===[2.2] Retrieving accounting information\n//<size:12>[HTTPS, synchronous, read only]</size>//"
+batch - -> compo : "===[2.3] PDF creation\n//<size:12>[HTTP, synchronous, read]</size>//"
+batch - -> smails : "===[2.4] Request to send mail with PDF\n//<size:12>[SMTP, synchronous, execution]</size>//"
+smails - -> company : "===[2.5] Sending mail with PDF\n//<size:12>[SMTP, synchronous, execution]</size>//"
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

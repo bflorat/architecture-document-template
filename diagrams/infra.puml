@@ -58,8 +58,8 @@ r2 --> lb1 : HTTPS
 lb2 -> lb1 : Heartbeat VRRP
 lb1 -> ha1
 ha1 --> guis1 : HTTP
-api1 -> mq1 : product \ n JMS / RabbitMQ
-batch1 --> mq1 : consume \ n JMS / RabbitMQ
+api1 -> mq1 : product \n JMS / RabbitMQ
+batch1 --> mq1 : consume \n JMS / RabbitMQ
 api1 --> pg1: JDBC / PG
 batch1 --> mail1 : SMTP / sending mails
 api1 --> gw1 : SOAP / HTTPS

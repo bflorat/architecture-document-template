@@ -18,18 +18,16 @@ The other parts of the file are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
-
 === Reference Documentation
 
-Mention here the reference architecture documents (shared). This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
+Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
 .Documentary references
 [cols="1e, 1e, 4e, 4e"]
 |===
 | N ° | Version | Document title / URL | Detail
 
-| 1 | 2.0.4 | XX_Urba_POS.pdf | IS POS |
+| 1 | 2.0.4 | XX_Urba_POS.pdf | IS mapping |
 |=== 
 
 == Not ruled
@@ -42,9 +40,9 @@ Mention here the reference architecture documents (shared). This file should nev
 | Subject | Detail | Status | Subject bearer | Deadline
 
 | Use of Y services
-| Depending on the progress of project Y, this component could call the services of the latter or those of the old component Z
+| Depending on the progress of project Y, this component could call the services of the latter or those of the former component Z
 | PENDING
-| Project Y
+| Project Y team
 | BEFORE 2040
 |===
 
@@ -67,13 +65,13 @@ Mention here the reference architecture documents (shared). This file should nev
 Briefly describe the project and recall its objectives. Highlight those which are structuring for the architecture.
 
 ====
-Example 1: This application must allow the dematerialization of invoices received from our suppliers and easy consultation of these documents by the accounting services.
+Example 1: This application allows suppliers invoices dematerialization and easy consultation of these documents by the accounting services.
 ====
 ====
-Example 2: This project is the rewrite in web technologies of the Cobol X application.
+Example 2: This project is the rewrite in web technologies of the X legacy application.
 ====
 ====
-Example 3: The X application is one of the main components of the Y program. It leans on the Person and Billing repositories to enrich the CMS with real-time customer data.
+Example 3: The X application is one of the main components of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
 === Existing
@@ -81,10 +79,10 @@ Example 3: The X application is one of the main components of the Y program. It 
 [TIP]
 If this document presents a redesign or migration project, describe briefly the existing application. Do not repeat the documentation, simply refer to it and point to its architecture file if available. Beware of mentioning any information with a strong impact on the new project.
 ====
-Example 1: The VENIR2 application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in[REFxyz].
+Example 1: The GOLD application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in [REFxyz].
 ====
 ====
-Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the old one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
+Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
 ====
 
 === Positioning in the IS
@@ -112,7 +110,7 @@ List of internal actors
 | Agent
 | Back-office agent
 | 100
-| Paris site
+| London site
 
 |===
 
@@ -158,24 +156,23 @@ Example 1: Application Launch before February 2034, prerequisite for the HEAVY p
 ====
 List here the constraints relating to urbanization, this includes for example but not only:
 
-* The rules applicable in calls between components (SOA)
+* The rules applicable for calls between components (SOA)
 * Call rules between network zones
 * The rules concerning the localization of data (MDM)
 * The rules concerning the propagation of updates by events (EDA)
 
 ====
 ====
-Example 1: inter-service calls are prohibited except service calls to a nomenclature service.
+Example 1: Calls between two services are prohibited except service calls to a nomenclature service.
 ====
 ====
 Example 2: to ensure freshness, it is forbidden to replicate data from the PERSON repository. The latter must be interrogated synchronously if necessary.
 ====
 ====
-Example 3: When modifying an order, the accounting and invoicing areas will be updated asynchronously via a
-event.
+Example 3: When modifying an order, the accounting and invoicing areas will be updated asynchronously via an event.
 ====
 ====
-Example 4: all the batches must be able to operate in competition with the UIs without locking the resources.
+Example 4: All the batches must be able to operate in competition with the UIs without locking the resources.
 ====
 ====
 Example 5: Services cannot be called directly. The calls must be made via an exposed route at the level of the company bus which will in turn call the service. It is then possible to control, prioritize, orchestrate or manage the calls.
@@ -192,7 +189,7 @@ Example 7: Components in an Internet zone cannot call components in an Intranet 
 TIP: Give here the application architecture requirements that can be applied to the project.
 
 ====
-Example 1 (migration project): The legacy devron modulest be subject to as few adaptations as possible.
+Example 1 (migration project): The legacy system being rewrote should be subject to as few adaptations as possible.
 ====
 
 ====
@@ -222,7 +219,7 @@ The choice of representation is free but a C4 diagram from System Landscape or a
 
 Numbering the steps in chronological order ensures a better understanding of the diagram. Group the sub-steps by the notation x, x.y, x.y.z, ...
 
-Do not include specific infrastructure system (SMTP server, security device, reverse proxy, LDAP directories, etc.) which are in the domain of technical architecture. On the opposite, mention any business buses that have an application role (service orchestration for example).
+Do not include specific infrastructure system (SMTP server, security device, reverse proxy, LDAP directories, etc.) which are in the domain of technical architecture. On the contrary, mention Enterprise Service Buses, API Gateway or similar components if they play an application role (service orchestration for example).
 ====
 
 ====
@@ -241,16 +238,16 @@ image::diagrams/general-application-design.svg[General application architecture 
 
 [TIP]
 ====
-Detail here all the components of the application, their flows between themselves and with the other applications of the IS.
+Detail here all the components of the application, the flows between them and with the other applications of the IS.
 
 Provide one or more diagrams (preferably C4 diagrams of the container type or UML2 component diagram).
 
-Ideally, the diagram will fit on an A4 page, be self-supporting and understandable by a non-technician. It should become one of the most important documentary artifacts and be in the war room of an agile project or be printed by every developer.
+Ideally, the diagram will fit on an A4 page and be self-supporting and understandable by non-ICT staff. It should become one of the most important documentary artifacts and be in the war room or be printed by every developer.
 
-If the application is particularly complex, draw a diagram for each link chain.
+If the application is particularly complex, draw a diagram for each linking chain.
 
 Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
-The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer). This level of detail will be given in the infrastructure section.
+The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer : this level of detail will be given in the infrastructure section).
 
 For each stream, give the protocol, a synchronous / asynchronous attribute, a read / write / execute attribute and a description so that the scheme is self-supporting.
 ====
@@ -276,8 +273,9 @@ Example: we will use a monolithic and non-micro-service approach due to a lack o
 Expose the application modules in their different zones or domains.
 ====
 ====
-Example: module X, Y and Z in the EDM domain. Modules A, B in the PERSON area.
+Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON domain.
 ====
+image::diagrams/detailed-application-architecture-static.svg[Detailed application architecture diagram (static view)] 
 
 === Dynamic vision
 
@@ -287,13 +285,13 @@ Expose the application modules in their different areas or domains with their ma
 
 Do not detail technical flows (such as flows related to supervision or clustering).
 
-If the application is complex, propose a global exponent diagram
- all the application flows then a diagram for each main link chain by numbering the exchanges (use a sequence diagram or (better) a C4 Dynamic Diagram). It is also possible to detail the link chains by main functionality.
+If the application is complex, propose a global diagram listing
+ all the application flows and then a diagram for each main linking chain by numbering the exchanges (use a sequence diagram or (better) a C4 Dynamic Diagram). It is also possible to detail the linking chains by main functionality.
 ====
 ====
 Example:
 
-image::diagrams/detailed-application-architecture.svg[Detailed application architecture diagram]
+image::diagrams/detailed-application-architecture-dynamic.svg[Detailed application architecture diagram (dynamic view)] 
 
 ====
 
