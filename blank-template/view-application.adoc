@@ -1,0 +1,108 @@
+= Application view
+
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
+
+Last modified: {docdate}
+
+
+== Introduction
+
+This is the application point of view of the project. It describes the application modules in play and their exchanges.
+
+The other parts of the file are accessible at link:./README.adoc[from here].
+
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+=== Reference Documentation
+
+.Documentary references
+[cols="1e, 1e, 4e, 4e"]
+|===
+| N ° | Version | Document title / URL | Detail
+
+|=== 
+
+== Not ruled
+
+=== Points subject to further study
+
+.Points subject to further study
+[cols="1e, 6e, 1e, 1e, 1e"]
+|===
+| Subject | Detail | Status | Subject bearer | Deadline
+
+|===
+
+=== Assumptions
+
+.Assumptions
+[cols="1e, 6e"]
+|====
+| ID | Detail
+
+|====
+
+== General context
+
+=== Objectives
+
+=== Existing
+
+
+=== Positioning in the IS
+
+=== Actors
+
+==== Internal actors
+
+
+List of internal actors
+[cols="1e, 1e, 4e, 4e"]
+|===
+| Actor | Description | Population | Location
+
+|===
+
+==== External actors
+
+List of external actors
+[cols="e, e, e, e"]
+|===
+| Actor | Description | Population | Location
+
+|===
+
+== Constraints
+
+=== Budget
+
+=== Planning
+
+=== Urbanization
+
+== Requirements
+
+== Target architecture
+
+=== General application architecture
+
+=== Detailed application architecture
+
+=== Principles that dictated the choices
+
+=== Static view
+
+=== Dynamic view
+
+=== Matrix of application flows
+
+[cols = '1e, 3e, 1e, 1e, 1e']
+|====
+| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+
+|==== 

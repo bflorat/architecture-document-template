@@ -1,0 +1,28 @@
+: icons: font
+: lang: en
+
+# Architecture file
+Last modified: {localdate} {localtime}
+
+* Status *: _WIP_
+
+This file is made up of:
+
+* an link:view-application.adoc[application view] presenting the general context and the application architecture;
+* a link:view-development.adoc[development view] presenting the software architecture and its environment;
+* a link:view-sizing.adoc[sizing view] presenting aspects related to the performance and sizing of the infrastructure;
+* an link:view-infrastructure.adoc[infrastructure view] presenting the servers, middleware, operations, etc.;
+* a link:view-security.adoc[security view].
+
+Each section sets out the constraints, requirements and then solutions implemented.
+
+[TIP]
+====
+To be read first according to your role:
+
+image:./resources/views.png[Read this first]
+====
+
+
+## Architectural subjects TODO list
+

@@ -807,7 +807,7 @@ Partial example of technical flow matrix
 
 [TIP]
 ====
-Give here a general vision of the environments used by the application. The most common environments are: development, acceptance, pre-production / benchmarks, production, training.
+Give here an overall view of the environments used by the application. The most common environments are: development, acceptance, pre-production / benchmarks, production, training.
 
 'Corridors' are 'sub-environments' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 

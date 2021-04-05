@@ -266,7 +266,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-=== Static vision
+=== Static view
 
 [TIP]
 ====
@@ -277,7 +277,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-static.svg[Detailed application architecture diagram (static view)] 
 
-=== Dynamic vision
+=== Dynamic view
 
 [TIP]
 ====
