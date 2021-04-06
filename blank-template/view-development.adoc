@@ -1,0 +1,123 @@
+= Development view
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Summary
+
+Last modified: {docdate}
+
+== Introduction
+
+This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
+
+The other parts of the file are accessible at link:./README.adoc[from here].
+
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+
+=== Reference Documentation
+
+. Development documentary references
+[cols="1,1,4,4"]
+|====
+| N ° | Version | Document title / URL | Detail
+
+|====
+
+== Not ruled
+
+=== Points subject to further study
+
+Points subject to further study
+[cols="1,1,1,1,1"]
+|====
+| ID | Detail | Status | Subject holder | Deadline
+
+|====
+
+
+=== Assumptions
+
+.Hypotheses
+[cols="1,4"]
+|====
+| ID | Detail
+
+|====
+
+== Constraints
+
+== Non-functional requirements
+
+=== Accessibility
+
+=== Ergonomics
+
+==== Ergonomic charter
+
+==== Specificities on widgets
+
+==== Fonts
+
+==== Responsive website
+
+==== Progressive Web Apps (PWA)
+
+==== Supported browsers
+
+==== Internationalization (i18n)
+
+==== Offline mode
+
+=== SEO Requirements
+
+== Target architecture
+
+=== Software stack
+
+==== Technical stream selected
+
+==== Software components
+
+=== Performance
+
+=== Software factory specifics
+
+=== Development standards and automatic code review
+
+=== Notable patterns
+
+=== Specificities of the tests
+
+=== Eco-design
+
+=== Management of robustness
+
+==== Transaction management
+
+==== Session management
+
+==== Error handling
+
+=== Configuration management
+
+=== Branch management policy
+
+=== Versioning
+
+=== Concurrency
+
+=== Encoding
+ 
+=== Timezones
+
+=== Log management
+
+=== Administrative tools
+
+=== Sorting and Pagination
+
+=== Provisionning and data updates
+

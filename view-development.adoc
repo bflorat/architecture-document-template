@@ -96,7 +96,7 @@ Contrary to the constraints which fixed the framework to which any application h
 
 [TIP]
 ====
-Should this application be accessible to the blind / visually impaired? deaf person?
+Should this application be accessible to the blind/visually impaired? deaf person?
 
 If so, what level of accessibility?
 Preferably refer to the Web Content Accessibility Guidelines (WCAG) 2.0 (https://www.w3.org/TR/WCAG20/), and especially the AA level.
