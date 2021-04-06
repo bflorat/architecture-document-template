@@ -271,65 +271,57 @@ IMPORTANT: See the MOA requirements in the link:./component-architecture-sizing.
 
 [TIP]
 ====
-Even though performance campaigns are planned and performance analyzes will be integrated into the CI / CD, experience shows that most of performance problems could have been detected during development.
-It is therefore important that developers profile their code from their workstation (to be provided in the Definition Of Done of the project). It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time problems. It are many ways to simulate concurrency and load.  We present here some very basic ideas and accessible to any developer.
+Even though performance campaigns are planned and performance analyzes will be integrated into the CI/CD, experience shows that most of performance problems could have been detected early during development. It is therefore important that developers profile their code on their workstation. This has to be set in the Definition Of Done of the project. It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time or concurrency issues. There are many ways to simulate concurrency and load. You'll find bellow some basic means accessible to any developer.
 
+Backend side:
+
+* Make sure that the server paging goes from the service call until the database (use `LIMIT` and ` OFFSET`).
+* Do not put in place unnecessary constraints in the database.
+* In cases of very large volumes (from hundreds of millions), use database table partitioning.
+* Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify the absence of full scans.
+* Beware of SQL functions that 'break' indexes (like `UPPER ()`) or use function indexes. Give priority to processing on the backend code side if possible.
+* Activate the query logs (Hibernate example: `org.hibernate.SQL = DEBUG`,`-Dhibernate.generate_statistics = true`) and check the SQL queries and their number (to detect in particular the very common https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping[SELECT N + 1] issue).
+* Have a minimum data set (more than one hundred records) even on a workstation.
+* Check with a profiler (like VisualVM in Java) the memory consumption to detect leaks or over-consumption.
+* Detect threads leaks or deadlock by counting the number of active threads over a .
+* Stress the API _a minima_ (with injectors like Jmeter or K6) using a progressive ramp.
+* Track IOs (millions of times slower than memory accesses).
 
 Frontend side:
 
 * Limit the complexity of CSS (selectors or functions in particular)
 * Use a profiler (like the one in Chrome)
 * Favor asynchronous calls
-* ...
-
-Backend side:
-
-* Make sure that the server paging goes up to the database (`LIMIT`,` OFFSET`).
-* Do not put in place unnecessary constraints in the database.
-* Limit the number of joints and many-to-many relationships.
-* In cases of large volumes, study the solutions which consist in partitioning tables.
-* Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify that there are no full scans.
-* Beware of SQL functions that 'break' indexes (like `UPPER ()`). Give priority to processing on the backend code side if possible.
-* Activate the query logs (Hibernate example: `org.hibernate.SQL = DEBUG`,` -Dhibernate.generate_statistics = true`) and check the SQL queries and their number (to detect in particular the problem of https: // stackoverflow .com / questions / 97197 / what-is-the-n1-selects-problem-in-orm-object-relational-mapping[SELECT N + 1], very common).
-* Have a minimum data set (around a hundred records) even on a workstation.
-* Check with a profiler (like JVisualVM in Java) the memory consumption to detect leaks or overconsumption.
-* Check that there are no threads or deadlock leaks by counting the number of active threads.
-* Stress the API _a minima_ (with injectors like Jmeter or K6) and via a progressive ramp.
-* Track IOs (millions of times slower than memory accesses).
-* ...
 
 Frontend and backend:
 
-* Any resource (chain size, number of calls over a period, ...) must always be limited to a threshold (no "open bar" behaviour).
+* Any resource (chain size, number of calls over a period, ...) must always be limited to a threshold (no "open bar" behaviors).
 * Check that the size of HTTP requests remains below a few tens of KiB (excluding GET on files). Use "Sorting and Pagination, client and server pagination".
 * Track network chatter: group requests when possible (you have to find a compromise with the previous rule). Use the SOLID (Segregation Interface) rule 'S'.
-* Provide multivalued endpoints (example: `GET / people? List = id1, id2, ...`) to retrieve several elements at the same time
-(must result in a single `SELECT WHERE .. IN` in the final query, not a loop in the code!)
+* Provide multi-valued endpoints (example: `GET /people?List=id1,id2,...`) to retrieve several elements at once (must result in a single `SELECT WHERE .. IN` in the final query, not a loop in the code!)
 
 ====
 
-WARNING: Do not fall back into premature optimization "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards.
-Only optimize if it is worth the cost (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds or even nanoseconds.
-
+WARNING: Do not fall into the premature optimization trap : it is "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards. Only optimize if it worths the cost (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds or even nanoseconds.
 
 === Software factory specifics
 
 [TIP]
 ====
-Without resuming the functioning of the organization's PIC (Continuous Integration Platform), specify whether this project requires a particular configuration.
+Specify shortly whether this project requires a particular CI/CD configuration.
 ====
 ====
-Examplee: Jenkins jobs will produce the software as Docker containers if all TUs are on. The integration tests will then be run on this container. If all integration and BDD tests pass, the Docker image is released into Nexus.
+Example: Gitlab jobs will produce the software as Docker containers if all UTs pass. The integration tests will then be run against the container. If all integration and BDD tests pass, the Docker image is released into Nexus.
 ====
 
-=== Development standards and qualimetry
+=== Development standards and automatic code review
 
 [TIP]
 ====
-Make explicit the rules and the level of quality required for the code
+Make explicit the rules and the level of required code quality
 ====
 ====
-Example 1: The quality rules to be used for the code will be (https://rules.sonarsource.com/javaogène standard SonarQube for Java rules]).
+Example 1: The quality rules to be used will follow the https://rules.sonarsource.com/java[SonarQube for Java rules]).
 ====
 ====
 Example 2: The required quality level corresponds to the recommended https://docs.sonarqube.org/6.7/QualityGates.html[Quality Gate SonarQube]:
@@ -340,7 +332,7 @@ Example 2: The required quality level corresponds to the recommended https://doc
 ====
 
 ====
-Example 3: What language used for the code? French for functional terms (it is imperative to use business terms as recommended by the DDD) and English for generic technical terms.
+Example 3: Which language should be used for the code? Business terms in German (it is imperative to use business terms as recommended by the DDD) and English for generic technical terms.
 ====
 
 === Notable patterns
@@ -350,7 +342,7 @@ Example 3: What language used for the code? French for functional terms (it is i
 Specify whether this project has implemented structuring patterns (GoF, JEE or other). No need to use patterns already supported by languages ​​or application servers (for example, IoC with CDI in a JEE 6 server).
 ====
 ====
-Example 1: to deal with the combinatorial explosion of possible contracts and avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <diagram>.
+Example 1: to deal with the combinatorial explosion of possible contracts and to avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <provide a diagram>.
 ====
 
 === Specificities of the tests
@@ -360,7 +352,7 @@ Example 1: to deal with the combinatorial explosion of possible contracts and av
 Is there a particular methodology or technology involved in this project? What is the testing strategy?
 ====
 ====
-Example 1: this project will be covered in addition to the TUs and integration tests because BDD (Behavioral Driven Development) acceptance tests in JBehave + Serenity technology.
+Example 1: this project will be additionally covered by BDD (Behavioral Driven Development) acceptance tests written with Spock framework.
 ====
 ====
 Example 2: this project will be developed in TDD (test first)
@@ -374,7 +366,7 @@ Types of tests
 |====
 | Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
 
-| TU
+| UT (Unit Tests)
 | Very high
 | Automated
 | Backend and Frontend
@@ -386,12 +378,12 @@ Types of tests
 | Automated
 | API
 | approx. 100% for the domain classes
-| Corked mode.
+| Use mocks and doubles
 
 | Contract tests
-| Low
+| Medium
 | Automated
-| UI / API links
+| UI/API links
 | approx. 100% of the calling code on the UI side and Spring controllers on the API side
 | Tests non-regression of exchanges when calling REST API operations (CDC = Consumer-Driven Contract principle) via the Pact and pact-react-consumer tools.
 
@@ -399,22 +391,22 @@ Types of tests
 | Very low
 | Automated
 | API and batches
-| N / A, 100% of the code is validated by the tool
+| N/A, 100% of the code is validated by the tool
 | In particular, these easy-to-write tests will verify compliance with the rules of the hexagonal architecture. Use of the ArchUnit test framework.
 
-| TI (integration tests)
+| IT (Integration Tests)
 | Low
 | Automated
 | Components calling external systems (databases, API ...)
 | 50 to 60%
-| Each IT should only test one external system at a time
+| Only test one external system at a time
 
-| E2E (end-to-end testing)
+| E2E (End-to-End testing)
 | Low
 | Automated
 | UI
 | 30%, nominal cases (happy path)
-| Written in CodeceptJS, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be corked but will be carried out on an end-to-end instantiated linking chain. To avoid unnecessary work, these tests will be done at the level of entire features, not necessarily at each sprint. These tests will also serve as system tests since they will require a maximum of uncapped modules.
+| Written in CodeceptJS, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be mocked but will be run against an end-to-end instantiated linking chain. To avoid unnecessary work, these tests will be done at the level of entire features, not necessarily at each sprint. These tests will also serve as system tests since they will require a maximum of actual (non-mocked) modules.
 
 | Performance tests
 | Low (excluding dedicated performance campaigns)
@@ -428,7 +420,7 @@ Types of tests
 | Automated + manual
 | UI
 | 50%
-| Ax-Core tests launched in CI to complete with a manual audit
+| Axe-Core tests launched in CI to complete with a manual audit
 
 | Security tests
 | Average
@@ -447,7 +439,7 @@ is here to test the operation of all the modules (which cannot be automated) and
 detect as many bugs as possible before UAT tests.
 
 | UAT (acceptance) tests
-| Average
+| High
 | Manuals
 | UI, hand-launched batches
 | from 30% to 80% depending on the number of scenarios planned
@@ -455,14 +447,14 @@ detect as many bugs as possible before UAT tests.
 |====
 ====
 
-NOTE: For a large projecture, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
+NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
 === Eco-design
 
 [TIP]
 ====
 List here the software measures to meet the ecodesign requirements listed in the infrastructure section. The answers to its problems are often the same as those to the performance requirements (response time in particular). In this case, just refer to it. However, ecodesign analyzes and solutions can be specific to this theme.
-Some avenues for energy improvement of the project:
+Some proposals that can help to save energy:
 
 * Use profilers or development tools integrated in browsers (like Google Dev Tools) to analyze the consumption of resources (number, duration and size of requests).
 * For apps, use battery consumption monitoring tools like Battery Historian.
@@ -470,18 +462,18 @@ Some avenues for energy improvement of the project:
 * Measure the power consumption of systems with PowerAPI2 probes (developed by INRIA and Lille 1 University).
 * Measure the size of images and reduce them (lossless) with tools like pngcrush, OptiPNG, pngrewrite or ImageMagick.
 * Optimize memory and CPU consumption of applications, tuner GC for a Java application.
-* Lazy loading for occasional resource loading.
+* Use lazy loading for occasional resources.
 * Limit the results returned from the database (select) to the HTML pages returned via the data on the server side.
-* Group the mass treatments in batches which will be more efficient (batches).
+
 ====
 ====
 Example 1: The gulp application building process will apply an image size reduction via the imagemin-pngcrush plugin.
 ====
 ====
-Example 2: robustness tests running over several days will be performed on the mobile application after each optimization to assess the energy consumption of the application.
+Example 2: Robustness tests running over several days will be performed on the mobile application after each optimization to assess the energy consumption of the application.
 ====
 ====
-Example 3: The performance campaigns will integrate a detailed analysis of the consumption of bandwidth and CPU cycles even if the response time requirements are covered, this to identify optimizations allowing to meet the eco-design requirements if they do not. are not achieved.
+Example 3: The performance campaigns will integrate a detailed analysis of the consumption of bandwidth and CPU cycles even if the response time requirements are covered to help  identifying eco-design optimizations.
 ====
 
 === Management of robustness
@@ -493,14 +485,14 @@ Example 3: The performance campaigns will integrate a detailed analysis of the c
 List here the decisions taken regarding the management of transactions. This is especially useful for a distributed system. Some examples of issues:
 
 * Are updates allowed on multiple components during the same request?
-* If so, do we ensure the ACID character at all (via XA mode for example)?
+ - If so, do we ensure the ACID character at all (via XA mode for example)?
 * What transactional engine do we use?
 * What level of transactional isolation (read commited, uncommited, repeatable read, serializable)?
 * If no transactional monitor is used (call of several REST services in update for example), are there any compensatory transactions in the event of failure of one of the updates?
 
 ====
 ====
-Example: our resources are not transactional (REST services), and wanting to avoid making compensatory transactions, it is forbidden to call two update services synchronously. If necessary, we will use a queue to make updates as needed.
+Example: Our resources are not transactional (REST services), and wanting to avoid making compensatory transactions, it is forbidden to call two update services synchronously. If absolutely necessary, we will use an Event-Driven architecture using a queue.
 ====
 
 ==== Session management
@@ -511,7 +503,7 @@ How are HTTP sessions managed to provide an execution context to a user (example
 
 Note that this is primarily a problem for classic web applications whose presentation is generated on the server, not for Single Page Application (SPA) applications which manage all presentation and state locally in the browser.
 
-The choices made here will affect the links: component-architecture-infrastructure[choice of infrastructure]. For example, if a session is required and the infrastructure is clustered, it will either be necessary to set up session affinity on the servers to force each user to always arrive on the same server with their data, or to set up a distributed cache allowing servers to share sessions for all users (more complex).
+The choices made here will affect the link:view-infrastructure.adoc[infrastructure decisions]. For example, if a session is required and the infrastructure is clustered, it will either be necessary to set up session affinity on the servers to force each user to always arrive on the same server with their data, or to set up a distributed cache allowing servers to share sessions for all users (more complex).
 
 Examples of points to be addressed:
 
@@ -531,7 +523,7 @@ How do we deal with errors? Examples of points to be addressed:
 
 * Do we differentiate functional errors (expected functional errors) and technical? Provide a class diagram.
 * How do we log errors? what level of log?
-* Where are the exceptions caught? at the earliest ou at the start of a call centrally?
+* Where are the exceptions caught? near the faulty code or in a centralized point of code (like an Error handler) ?
 * Are we using the language's standard exceptions (`IOException`, ...) or our own set of exceptions?
 * Is the list of errors consolidated? documented?
 * Are error codes assigned?
@@ -541,9 +533,7 @@ How do we deal with errors? Examples of points to be addressed:
 
 ====
 ====
-Example (Spring):
-
-(unforeseen) technical errors such as the timeout to a REST service call are caught at the highest level of the application (via an ErrorHandler). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
+Example (Spring): technical (unforeseen) errors such as the timeout to a REST service call are caught at the highest level of the application (via an ErrorHandler). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
 ====
 
 === Configuration management
@@ -554,16 +544,16 @@ How do you configure the application? Examples of points to be addressed:
 
 * What are the variables included in the final package statically?
 * What parameters can be changed at runtime?
-* Can my application be configured via feature flags for canary testing reasons for example? if so, how do i handle it in code?
+* Can my application be configured via feature flags for canary testing reasons for example? if so, how to handle them?
 * In what form are the parameters injected into the application (environment variable? .Properties file, database, ...)?
-* Does the application accept a modification of the hot configuration?
-* Describe the configuration system
+* Does the application accept a live modification?
+* Describe the configuration system.
 
 ====
 ====
 Example (application deployed in Kubernetes):
 
-The configuration will be injected at launch (not hot modifiable) via environment variables provided in the Kubernetes Deployment Descriptor.
+The configuration will be injected at runtime via environment variables provided in the Kubernetes Deployment Descriptor. No live reloading.
 ====
 
 === Branch management policy
@@ -576,11 +566,11 @@ What are the branch workflows to plan? git-flow? TBD (Trunked-based Development)
 ====
 Example:
 
-* The general policy adopted is the https://trunkbaseddevelopment.com/inéaTBD] (Trunk-Based Development)
+* The general policy adopted is the https://trunkbaseddevelopment.com/[TBD] (Trunk-Based Development)
 * The main branch is `develop`. This is a protected branch to which commits cannot be pushed.
-* Any commit will have to be the object of a Merge Request before integration in `develop`. The quality criteria (automatically evaluated during continuous integration) must be met for the commit to be integrated.
+* Any commit will have to be the object of a Merge Request (MR) before integration into `develop`. The quality criteria (automatically evaluated during continuous integration) must be met for the commit to be integrated.
 * Each feature, significant refactoring or bugfix will therefore be carried out on a dedicated topic branch.
-* A maintenance branch will be pulled on each x.y version tag. Only bugfixes will be merged into maintenance branches from `develop` via` cherry-pick`.
+* A maintenance branch will be pulled on each x.y version tag. Only bugfixes will be merged into maintenance branches from `develop` via `cherry-pick`.
 ====
 
 
@@ -595,13 +585,13 @@ What do you version and what version system do you use?
 Example:
 
 * In general, any non-derived resource (source, tool, ci-cd script, template, database DDL, ...) must be versioned.
-* The modules will be versioned according to the numbering `x.y.z` (` <major). <Evolution>. <fix> `)
+* The modules will be versioned according to the numbering `x.y.z` (`<major). <Evolution>. <fix>`)
 * The libraries will be versioned according to the same numbering as the modules but the `x` value will be incremented during any version upgrade breaking upward compatibility (principle of Semantic Versioning).
-* The overall logical version of the project will be: `<lot>. <No sprint>. <Deployment>`
+* The overall logical version of the project will be: `<lot>. <No sprint>. <Deployment number>`
 
 ====
 
-=== Competition management
+=== Concurrency
 
 [TIP]
 ====
@@ -621,35 +611,25 @@ Example (Spring MVC): All controllers will be in singleton scope and therefore m
 
 [TIP]
 ====
-What are the rules for encoding strings? This is a recurring problem in SI (who has never observed corrupted accents in the form of squares?). This problem is, however, relatively simple to solve and requires only rigor. See the examples below for examples of actual devices.
+What are the rules for encoding strings? This is a recurring problem. This problem is, however, relatively simple to solve and requires only rigor. See the examples below for examples of actual devices.
 ====
 
 ====
-Example 1: The only encoding allowed in all modules and technical components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources, databases and files.
-
-Even `.properties` read in Java should be written in UTF-8. You must then specify the encoding during parsing:
-
-`` ``
-FileInputStream input = new FileInputStream (new File ("myfile.properties"));
-props.load (new InputStreamReader (input, Charset.forName ("UTF-8")));
-`` ``
-
-NOTE: In some cases, we do not have control over reading the .properties (from a framework for example), so it is not possible to force an encoding in UTF-8.
-
+Example 1: The only encoding allowed in all modules and technical components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources, configuration files, databases, and files.
 ====
 ====
-Example 2: If an external system requires sending orto receive character strings in an encoding other than UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible, from the call. In addition, we must never persist in our systems a data in a non-UTF-8 encoding.
+Example 2: If an external system requires sending or receiving character strings in an encoding different from UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible. In addition, never persist in our systems a data in a non-UTF-8 encoding.
 ====
  
-=== Time zones
+=== Timezones
 
 [TIP]
 ====
-How do we manage the storage of dates? This, as the management of encoding is a recurring problem (one day shift, bugs during summer / winter time changes, etc.) and yet simple to solve: follow the https: // standard. .wikipedia.org / wiki / ISO_8601[ISO 8601] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC."[Wikipedia]).
+How do we manage the storage of dates? This, as the management of encoding is a recurring problem (one day shift, bugs during summer / winter time changes, etc.) and yet simple to solve: follow the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 standard] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC."[Wikipedia]).
 ====
 
 ====
-Example 1: Hours will never be stored without a time zone. Basically, we will use timestamps with timezone (`timestamptz`) and in Java or JS, objects integrating the time zone explicitly (eg:` Instant` and not `LocalDateTime` in java) or epochs. The precision will be at least a millisecond.
+Example 1: Hours will never be stored without a time zone. Basically, we will use timestamps with timezone (`timestamptz`) and in Java or JS, objects integrating the time zone explicitly (eg: `Instant` and not `LocalDateTime` in java) or epochs. The precision will be at least a millisecond.
 ====
 ====
 Example 2: Dates and date-times will be stored in database as epoch millis in long integer format. In the case of dates, we will store the epoch millis at 12:00 UTC (and not 00:00, too close to the previous day, risk of bug).
@@ -657,7 +637,7 @@ Example 2: Dates and date-times will be stored in database as epoch millis in lo
 
 === Log management
 
-NOTE: The log infrastructure aspects are detailed in link:./pane-architecture-infrastructure.adoc # _logs[the infrastructure pane].
+NOTE: The log infrastructure aspects are detailed in the link:view-infrastructure.adoc[infrastructure view].
 
 [TIP]
 ====
@@ -671,15 +651,18 @@ Think about the use of logs, especially on the server side. Ask yourself if it w
 Example 1:
 
 * Do not leave development logs in the code (example: `console.out (" entry in method x ")` or `e.printStackTrace ()`)
-* Remember to use discriminating character strings (example: error code) to facilitate filtering in the log search tool.
-* Always provide entity identifiers allowing to find the concerned object
+* Remember to use discriminating character strings (example: error codes or tags like `[APP001]`  ) to facilitate filtering in the log search tool.
+* Always provide entity identifiers and a maximum of context allowing to find the concerned object
 * Use correlation identifier between third parties (example: processing id generated on the client side in JS, passed to the server)
+* Never split a logs into several lines
+* Allow live reloading of verbosity level (useful in production to enable temporary DEBUG logs)
 * Avoid expensive calculations (example: many concatenations) and use conditional blocks (example in Java:
-`` java
+
+```java
 if (isDebugEnabled ()) {
    logger.debug (a + b + c)
 }
-`` ``
+```
 ====
 
 ==== Levels and quantity of logs
@@ -697,13 +680,13 @@ Example:
 | Severity level | Context of use | Indicative volume | Surround
 
 | DEBUG
-| In a development environment, it allows you to display the values ​​of variables, method I / O, etc.
-| Max a few Mio / minute
+| In a development environment, it allows you to display the values ​​of variables, method I/O, etc.
+| Max a few Mio/ minute
 | DEV, Recipe. Prohibited in PROD unless expressly requested by the project
 
 | INFO
-| Start / end of a batch or a call, loading of a new property. Can be used in condensed form for service calls (logging of a call and its context). This is the level of verbosity used for metrology.
-| Max 10 logs / sec, a few KiB / minute
+| Start/end of a batch or a call, loading of a new property. Can be used in condensed form for service calls (logging of a call and its context). This is the level of verbosity used for metrology.
+| Max 10 logs/sec, a few KiB/minute
 | All
 
 | WARN
@@ -713,11 +696,11 @@ Example:
 
 | ERROR
 | All errors that do not prevent the application from working.
-| No limits. Position a maximum of context detail
+| No limits. Add a maximum of context detail
 | All
 
 | FATAL
-| All blocking errors for the application (BDD access problem, HTTP 404 or 500). Position a maximum of context detail. Remember to log these errors on an appender console in the event that writing to FS is impossible (disk full). Remember that during a fatal error, even writing the log is questionable (for example in the event of memory overflow).
+| All blocking errors for the application (BDD access problem, HTTP 404 or 500). Position a maximum of context detail. Remember to log these errors on an appender console in the event that writing to FS is impossible (disk full). Remember that during a fatal error, even writing the log can fail (for example in the event of a memory overflow).
 | No limits.
 | All
 |====
@@ -728,7 +711,7 @@ Example:
 
 [TIP]
 ====
-Should the app provide administration services? It is strongly recommended (this is the factor 12 of the Heroku https://12factor.net/ouvernTwelve factors]) to integrate the administration code directly with the business code.
+Should the app provide administration services? It is strongly recommended (this is the factor 12 of the https://12factor.net/[Heroku Twelve factors]) to integrate the administration code directly with the business code.
 
 Examples of points to be addressed:
 
@@ -739,14 +722,14 @@ Examples of points to be addressed:
 
 ====
 ====
-Example: The `/ internal / maj_2` service will perform a version upgrade of the data model to V2
+Example: The `/internal/maj_2` service will perform a version upgrade of the data model to V2
 ====
 
 === Sorting and Pagination
 
 [TIP]
 ====
-It is necessary to keepgood fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (GUI and batches) and the APIs. Describe here the paging devices implemented on the client side and on the server side.
+It is necessary to keep a good fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (GUI and batches) and the APIs. Describe here the paging devices implemented on the client side and on the server side.
 ====
 
 ====
@@ -767,9 +750,9 @@ Example 2 (Customer side)
 
 [TIP]
 ====
-Describe how the DDL (structures of tables in database) and the initial data (such as nomenclatures) will be managed and then updated.
+Describe how the DDL (Database tables definition) and the initial data (such as nomenclatures) will be managed and then updated.
 ====
 
 ====
-Example: We will use LiquiBase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
+Example: we will use LiquiBase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
 ====

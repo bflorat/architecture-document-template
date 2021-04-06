@@ -104,7 +104,7 @@ List of internal actors
 
 | Administration system B
 | provides company accounting data
-| N / A
+| N/A
 | Berlin site
 
 | Agent
