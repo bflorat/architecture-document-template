@@ -240,11 +240,11 @@ Example 2: Two spare servers are available in the London site. Business data is 
 
 === Hosting
 
-* Where will this application be hosted? "on premises" datacenter? Internal cloud? Cloud IaaS? PaaS? other?
-* Who will administer this application? internally? Outsourced? No administration (PaaS) ...?
+* Where will this application be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
+* Who will operate this application? internally? Outsourced? No administration at all (PaaS) ...?
 
 ====
-Example 1: This application will be hosted internally in the Nantes data center (the only one to ensure the required service availability) and it will be administered by the Lyon X team.
+Example 1: This application will be hosted internally in the NYC datacenter (the sole to ensure the required service availability) and will be operated by the Boston team.
 ====
 
 ====
@@ -252,17 +252,17 @@ Example 2: Given the very high level of security required to run the application
 ====
 
 ====
-Example 3: Given the very large number of calls from this application to the PERSON repository, it will be collocated with the PERSON component in the XYZ VLAN.
+Example 3: Given the very large number of calls from this application to the PERSON repository, both will be collocated in the XYZ VLAN.
 ====
 
 === Network constraints
 
 [TIP]
 ====
-List the constraints linked to the network, in particular the theoretical maximum speed and the divisions into security zones.
+List the constraints dealing with the network, in particular the theoretical maximum bandwith and the divisions into security zones.
 ====
 ====
-Example 1: the LAN has a maximum speed of 10 Gbps
+Example 1: the LAN has a maximum bandwith of 10 Gbps
 ====
 ====
 Example 2: The application components of intranet applications must be located in a trusted zone that cannot be accessed from the Internet.
@@ -275,7 +275,7 @@ Example 2: The application components of intranet applications must be located i
 List the constraints related to the deployment of applications and technical components.
 ====
 ====
-Example 1: A Virtual Machine should only host a single Postgresql instance
+Example 1: A Virtual Machine should only host a single Postgresql instance.
 
 Example 2: Java applications must be deployed as an executable jar and not as a war.
 
@@ -290,9 +290,9 @@ Example 3: Any application must be packaged as an OCI image and deployable on Ku
 List the constraints related to logs
 ====
 ====
-Example 1: an application must not produce more than 1Tio of logs / month.
+Example 1: an application must not produce more than 1 Tio of logs/month.
 
-Example 2: the maximum retention period for logs is 3 months
+Example 2: the maximum retention period for logs is 3 months.
 ====
 
 === Backup and restore constraints
@@ -302,7 +302,7 @@ Example 2: the maximum retention period for logs is 3 months
 List the constraints related to backups
 ====
 ====
-Example 1: The maximum disk space that can be provisioned by a project for backups is 100 TiB on HDD.
+Example 1: The maximum disk space that can be provisioned by a project for backups is 100 TiB.
 
 Example 2: the maximum retention period for backups is two years
 
@@ -316,20 +316,18 @@ Example 3: Count 1 min / GiB for a NetBackup restore.
 List the budget limits.
 ====
 ====
-Example 1: AWS Cloud service charges should not exceed € 5K / year for this project.
+Example 1: AWS Cloud service charges should not exceed $5K/year for this project.
 ====
 
 == Requirements
 
 [TIP]
 ====
-Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements are given by the project leaders (i.e. usually the Gerneral Contractor).
+Contrary to the constraints which fixed the boundaries to which any application had to conform, the non-functional requirements are given by the project stakeholders.
 
-Schedule interviews to collect requirements.
+Schedule interviews to collect requirements. To result into something useful, interviews must be educational, recall the constraints and highlight realistic costs.
 
-If certain requirements are not realistic, mention it in the document of unresolved points.
-
-The requirements related to availability should be specified via a risk study (EBIOS Risk Manager type)
+If certain requirements are still not realistic, mention it in the document of unresolved points.
 
 ====
 
@@ -351,20 +349,17 @@ Example of operating ranges
 | No beach | Hours | Detail
 
 | 1
-| From 8:00 a.m. to 7:30 p.m. Paris time, 5 days / 7 working days
-| Intranet opening to metropolitan employees
+| From 8:00 a.m. to 7:30 p.m. NYC time, 5 days/7 working days
+| Intranet users
 
 | 2
-| 9:00 p.m. to 5:00 a.m. Paris time
-| Batch range
+| 9:00 p.m. to 5:00 a.m. NYC time
+| Batches running
 
 | 3
 | 24/7/365
-| Internet openness to users
+| Internet users
 
-| 4
-| From 5:30 a.m. to 8:30 a.m. Paris time, 5 days / 7 working days
-| Intranet opening to employees of New Caledonia
 |====
 ====
 
@@ -374,13 +369,11 @@ Example of operating ranges
 ====
 We list the availability requirements here. The technical measures to achieve them will be given in the technical architecture of the solution.
 
-The information given here will be used as input to the application SLA.
+These information can be used as input to the application *SLA*.
 
 Be careful to frame these requirements because a project leader often tends to request very high availability without always realizing the implications. The cost and complexity of the solution increases exponentially with the level of availability required.
 
-The physical, technical or even software architecture changes completely depending on the need for availability (middleware or even database clusters, expensive hardware redundancies, asynchronous architecture, session caches, failover, etc.).
-
-Do not forget also the very high on-call costs if the requirements are very high. Education and an estimate generally make it possible to moderate the requirements.
+The physical, technical or even software architecture can be completely different depending on the availability requirements (middleware or even database clusters, expensive hardware redundancies, asynchronous architecture, session caches, failover, etc.).
 
 It is generally estimated that high availability (HA) starts at two new ones (99%), that is to say around 90 hours of downtime per year.
 
@@ -392,7 +385,7 @@ The availability required here must be consistent with the “Constraints on ava
 .Maximum allowable downtime per range
 [cols="1e,5e"]
 |====
-| No Beach | Maximum downtime
+| Operation range ID | Maximum downtime
 
 | 1
 | 24h, maximum 7 times a year
@@ -407,7 +400,7 @@ The availability required here must be consistent with the “Constraints on ava
 === Degraded modes
 [TIP]
 ====
-Specify the degraded application modes enviwise.
+Specify the degraded application modes.
 ====
 
 ====
@@ -431,29 +424,28 @@ Be careful not to be too demanding on this point because great robustness can im
 Example 1: no more than 0.001% of requests in error
 ====
 ====
-Example 2: the user must not lose his shopping cart even in the event of a breakdown
--> be careful, this type of requirement impacts the architecture in depth, see the <<Availability>> section.
+Example 2: the user must not lose his shopping cart even in the event of a breakdown (be careful, this type of requirement impacts the architecture in depth, see the <<Availability>> section).
 ====
 ====
-Example 3: the system should be able to withstand a load three times greater than the average load with a response time of less than 10 seconds at the 95th percentile.
+Example 3: the system should be able to withstand a load three times greater than the average with a response time of less than 10 seconds at the 95th percentile.
 ====
 
 === RPO requirements
 
 [TIP]
 ====
-The backup consists in recopying the data of a system on a dedicated medium with a view to restoration in the event of loss. This data is necessary for the system to function.
+Give here the Recovery Point Objective (RPO) of the application (i.e. how much data we agree to lose since last backup) in unit of times. 
 
-Give here the Recovery Point Objective (RPO) of the application. It may be useful to restore following:
+Data restoration occurs mainly in following cases:
 
 * Hardware data loss (unlikely with redundant systems).
-* A false manipulation of a power-user or an administrator (quite common).
+* A power-user or operator error (quite common).
 * An application bug.
-* A deliberate destruction of data (ransomware type attack such as wannacry for example) ...
+* A deliberate destruction of data (ransomware type attack) ...
 
 ====
 ====
-Example: we must not be able to lose more than a day of application data
+Example: we must not be able to lose more than one working day of application data.
 ====
 
 === Archiving requirements
