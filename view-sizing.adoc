@@ -12,7 +12,7 @@ Last modified: {docdate}
 
 This is the sizing point of view of the project. It determines the size of the infrastructure required for the project.
 
-The other parts of the file are accessible at link:./README.adoc[from here].
+The other views of the document are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 

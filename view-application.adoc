@@ -14,7 +14,7 @@ Last modified: {docdate}
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
 
-The other parts of the file are accessible at link:./README.adoc[from here].
+The other views of the document are accessible at link:./README.adoc[from here].
 
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
