@@ -225,7 +225,7 @@ Both options requires either an alternate site (at least ~10 km away from the ma
 Describe among others:
 
 * Redundant equipment in the second data center, number of spare servers, capacity of the standby data center compared to the main data center.
-* Recovery devices (OS, data, applications) provided.
+* Recovery measures (OS, data, applications).
 * Organization's RTO and RPO.
 * Data replication mode between DC.
 * Failback policy (reversibility): should we switch back to the first datacenter? How ?
@@ -456,7 +456,7 @@ Archiving is the process of moving important data onto a dedicated offline mediu
 
 Specify whether application data should be retained for the long term. Specify the reasons (legal or others) for this archiving.
 
-Specify whether specific integrity protection devices (mainly to prevent any modification) must be put in place.
+Specify whether specific integrity protection measures (mainly to prevent any modification) must be put in place.
 ====
 
 ====
@@ -475,7 +475,7 @@ It is crucial to plan for regular purges to avoid a continuous drift in performa
 
 Purges can also be required by law. Since 2018, the GDPR regulation has brought new constraints on the right to be forgotten that may affect the length of time personal information is retained.
 
-It is often wise to wait for the prodcution phase or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to plan purges as soon as the definition of the application. The existence of purges often has indeed important consequences on the architecture (example: some patterns based on linked lists are not possible if the full history will not always be available).
+It is often wise to wait for the production phase or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to plan purges as soon as the definition of the application. The existence of purges often has indeed important consequences on the architecture (example: some patterns based on linked lists are not possible if the full history will not always be available).
 ====
 
 ====
@@ -503,17 +503,11 @@ For example :
 ====
 Specify here how the application should be deployed on the client side:
 
-* If the application is large (a lot of JS or images for example), is there a risk of an impact on the network?
-* Uis local proxy caching to be expected?
-* Are firewall or QoS rules to be expected?
-
-Client side, for a Java application:
-
-* Which version of JRE is needed on clients?
-
-Client side, for a heavy client application:
-
-* Which version of the OS is supported?
+* If the application is large (large .js files or images for example), is there a risk of an impact on the network?
+* Local proxy caching to be expected?
+* Are firewall rules to be expected?
+* (For a Java application) : which version of JRE is needed on clients?
+* (For a standalone application) : which version of the OS is supported?
 * If the OS is Windows, does the installation go through a deployment tool (Novell ZENWorks for example)? Does the application come with a Nullsoft-style installer? Does it affect the system (environment variables, registry, etc.) or is it in portable mode (single zip)?
 * If the OS is Linux, should the application be provided as a package?
 * How are the updates applied?
@@ -523,26 +517,26 @@ Client side, for a heavy client application:
 
 [TIP]
 ====
-* Are we planning a blue / green deployment?
+* Are we planning a blue/green deployment?
 * Are we planning a canary testing type deployment? if so, on what criteria?
 * Are we using feature flags? if so, on which features?
 ====
 
 ====
-Example: The application will be deployed in blue / green mode, ie completely installed on machines initially inaccessible, then a DNS switch will point to machines with the latest version.
+Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the latest version.
 ====
 
 === Competition management requirements
 
 [TIP]
 ====
-Specify here the internal or external components that may interfere with the application.
+Specify the internal or external components that may interfere with the application.
 ====
 ====
-Example 1: All components of this application must be able to run concurrently. In particular, batch / GUI concurrency must always be possible because the batches must be able to run during the day if there is a need to catch up
+Example 1: All components of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
 ====
 ====
-Example 2: batch X should only be started if batch Y is completed correctly, otherwise data will be corrupted.
+Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data will be corrupted.
 ====
 
 === Ecodesign requirements
@@ -551,15 +545,15 @@ Example 2: batch X should only be started if batch Y is completed correctly, oth
 ====
 Ecodesign consists of limiting the environmental impact of the software and hardware used by the application. Requirements in this area are generally expressed in WH or CO2 equivalent.
 
-Also take into account impressions and letters.
+Also take into account impressions.
 
-According to ADEME (2014 estimate), the CO2 equivalent emissions of one KWH in mainland France for the tertiary sector is 50g / KWH1.
+The CO2 equivalent emissions of one KWH in France for the tertiary sector is 50g/KWH.
 ====
 ====
-Example 1: The average power consumption caused by the display of a Web page should not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 J per year: 50 g / KWH x 10mWH x 100 x 10K x 200 = 100 Kg of CO2 equivalent / year.
+Example 1: The average power consumption caused by the display of a Web page should not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 working days per year: 50g/KWH x 10mWH x 100 x 10K x 200 = 100 Kg of CO2 equivalent/year.
 ====
 ====
-Example 2: The WEA2 energy class of the site must be C or better.
+Example 2: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
 ====
 ====
 Example 3: Ink and paper consumption should be reduced by 10% compared to 2020.
@@ -567,36 +561,36 @@ Example 3: Ink and paper consumption should be reduced by 10% compared to 2020.
 
 == Target architecture
 
-=== Principles of technical architecture
+=== Principles
 
 [TIP]
 ====
-What are the main technical principles of our application?
+What are the main infrastructure principles of our application?
 ====
 ====
 Examples:
 
-* Application components exposed to the Internet in a DMZ protected behind a firewall then a reverse-proxy and on an isolated VLAN.
-* Regarding interactions between the DMZ and the intranet, a firewall only allows communications from the intranet to the DMZ
-* Active / active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
+* Application components exposed to the Internet are located in a DMZ protected behind a firewall then a reverse-proxy.
+* Regarding interactions between the DMZ and the intranet, a firewall only allows communications from the intranet to the DMZ.
+* Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
 
 === Availability
 
 [TIP]
 ====
-List here the arrangements for meeting the "Availability Requirements".
+List here the measures token to meet the availability requirements.
 
-The measures to achieve the required availability are very numerous and should be chosen by the architect according to their contribution and their cost (financial, complexity, etc.).
+The available measures are very varied and should be chosen by the architect according to their contribution and their cost (financial, complexity, etc.).
 
-We group availability devices into four main categories:
+We group availability measures into four main categories:
 
-* Supervisory devices (technical and application) allowing faults to be detected as early as possible and therefore to limit the MTDT (average detection time).
-* Organizational devices:
+* Supervisory measures allowing faults to be detected as early as possible, hence lowering the MTDT (average detection time).
+* Organizational measures:
 ** the human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which supervision is inefficient;
 ** The quality of incident management (see ITIL best practices), for example, is an incident resolution workflow planned? if so, what is its complexity? its duration of implementation? if for example it requires several hierarchical validations, the presence of many operators does not necessarily improve the MTTR.
-* Technical redundancy devices (clusters, RAID ...) that should not be overestimated if the previous devices are insufficient.
-* Data recovery devices: is the recovery procedure well defined? tested? of a duration compatible with the availability requirements? This is typically useful in the case of data loss caused by a false manipulation or bug in the code: it is then necessary to stop the application and in this situation, being able to quickly restore the last backup greatly improves the MTTR.
+* Technical redundancy measures (clusters, RAID ...) that should not be overestimated if the previous measures are insufficient.
+* Data recovery measures: is the recovery procedure well defined? tested? of a duration compatible with the availability requirements? This is typically useful in the case of data loss caused by a false manipulation or bug in the code: it is then necessary to stop the application and in this situation, being able to quickly restore the last backup greatly improves the MTTR.
 
 ====
 [TIP]
@@ -862,7 +856,7 @@ In some cases, extreme and unpredictable peaks are possible (Slashdot effect).
 
 If this risk is identified, provide a fuse system with offset of all or part of the load on a static website with an error message for example.
 
-This device can also be used in the event of a DDOS-type attack and makes it possible to manage the problem and not to suffer it because it ensures a good acceptable operation to the users already connected.
+This measure can also be used in the event of a DDOS-type attack and makes it possible to manage the problem and not to suffer it because it ensures a good acceptable operation to the users already connected.
 ====
 
 ==== Quality of Service
@@ -974,7 +968,7 @@ Example 2: the internal `ti_index` process is a Java class calling` REINDEX` com
 
 [TIP]
 ====
-Explain (if necessary) the devices and procedures allowing to put the application 'offline' explicitly for the users.
+Explain (if necessary) the measures and procedures allowing to put the application 'offline' explicitly for the users.
 ====
 ====
 Example: We will use the F5 BigIp LTM to display an unavailability page.
@@ -984,7 +978,7 @@ Example: We will use the F5 BigIp LTM to display an unavailability page.
 
 [TIP]
 ====
-Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration devices must be compatible with the "Availability Requirements":
+Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration measures must be compatible with the "Availability Requirements":
 
 * What are the hot backups? Cold ?
 * What do we save? (carefully select the data to be backed up because the total volume of the backup set can easily reach ten times the backed up volume).
@@ -1025,7 +1019,7 @@ Rollover example: set of 21 backups over one year:
 
 [TIP]
 ====
-Describe here the devices making it possible to meet <<archiving- requirements>> with the following storage methods:
+Describe here the measures making it possible to meet <<archiving- requirements>> with the following storage methods:
 
 * Technology: ideally, the archive will be duplicated for security on several media of different technologies (tape + hard disk for example).
 * A specific storage location separate from traditional backups (bank safe for example).
@@ -1038,7 +1032,7 @@ Example: Bank statements older than 10 years will be archived on LTO tape and ha
 
 [TIP]
 ====
-List here the technical devices that meet the <<purge-exigences>>.
+List here the technical measures that meet the <<purge-exigences>>.
 ====
 ====
 Example: the history of consultations will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM matable WHERE ...) TO '/ tmp / dump.tsv'` then purged by an SQL request` DELETE` after validation by the operator of the completeness of the dump.

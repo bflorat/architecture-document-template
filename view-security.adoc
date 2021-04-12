@@ -10,7 +10,7 @@ Last modified: {docdate}
 
 == Introduction
 
-This is the security point of view. It describes all the devices implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
+This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 
 The other views of the document are accessible at link:./README.adoc[from here].
 
@@ -34,7 +34,7 @@ Safety documentary references
 |====
 | N ° | Version | Document title / URL | Detail
 
-| 1 | 1.0 | Safety_devices.pdf | Catalog of authorized safety devices
+| 1 | 1.0 | Safety_measures.pdf | Catalog of authorized safety measures
 | 2 | latest | Company security standards | http: // masociete / monurl
 |====
 
@@ -48,7 +48,7 @@ Points subject to further study
 | ID | Detail | Status | Subject holder | Deadline
 
 | ES1
-| It will be necessary to validate that the anti-CSRF devices put in place also resolve the flaws linked to the TLS + compression coupling (CRIME or BREACH type).
+| It will be necessary to validate that the anti-CSRF measures put in place also resolve the flaws linked to the TLS + compression coupling (CRIME or BREACH type).
 | IN_CURRENT
 | Safety team
 | BEFORE 2040
@@ -91,7 +91,7 @@ Example 3: in application of the GDPR, user data must be encrypted
 
 [TIP]
 ====
-Present the requirements here, * not the devices meeting them *. These will be detailed in chapter 3.
+Present the requirements here, * not the measures meeting them *. These will be detailed in chapter 3.
 
 For particularly sensitive projects, provide a risk analysis file. To do this, for example, use the method https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/▪EBIOS Risk Manager] (Expression of Needs and Identification of Security).
 ====
@@ -208,7 +208,7 @@ Level of confidentiality required by data class
 
 [TIP]
 ====
-Identification is the set of devices used to differentiate one user from another (but without verifying that he is who he claims to be).
+Identification is the set of measuress used to differentiate one user from another (but without verifying that he is who he claims to be).
 ====
 
 ====
@@ -228,7 +228,7 @@ Example 3: an ID cannot be deleted, cannot be modified and cannot be reused
 ====
 Authentication makes it possible to verify the consistency between the identity of a user and a natural person connecting.
 
-Note that technical devices (such as batches) can also be identified and authenticated (batch which uses an access-token to call a service for example).
+Note that automatic non-human interactions (such as batches calling an API) can also be identified and authenticated (batch which uses an access-token to call a service for example).
 
 Authentication can be one or more factors (in the latter case, we speak of strong authentication). These factors can be:
 
@@ -324,7 +324,7 @@ Example 3: this business Web application must provide single authentication shar
 
 [TIP]
 ====
-List here the business actions with a non-repudiation requirement, i.e. a device making it impossible to challenge a contract by proving the identity of the two parties and the integrity of the document by digital signature as described in text n ° 2000-230 of March 13, 2000 of the Civil Code.
+List here the business actions with a non-repudiation requirement, i.e. a measure making it impossible to challenge a contract by proving the identity of the two parties and the integrity of the document by digital signature as described in text n ° 2000-230 of March 13, 2000 of the Civil Code.
 ====
 
 .Non-repudiation needs
@@ -486,7 +486,7 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 
 === Integrity
 
-Devices meeting the "integrity requirements, integrity requirements":
+Measures meeting the "integrity requirements, integrity requirements":
 
 Measures to ensure the required level of integrity
 [cols="e,e,e"]
@@ -523,7 +523,7 @@ The resulting signature will be integrated a posteriori in hexadecimal format at
 
 === Confidentiality
 
-Devices meeting the "Confidentiality Requirements":
+Measures meeting the "Confidentiality Requirements":
 
 Measures to ensure the requested level of confidentiality
 [cols="e,e,e"]
@@ -562,7 +562,7 @@ Also consider the confidentiality of derived data:
 
 === Identification
 
-Devices meeting the "requirements-identification, identification requirements":
+Measures meeting the "requirements-identification, identification requirements":
 
 _Example 1: The user ID of the application will be the uid attribute of the DNs `cn = XXX, ou = service1, dc = company, dc = com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou = my application, dc = company, dc = com`._
 
@@ -570,7 +570,7 @@ _Example 2: To ensure that the IDs of deleted accounts are not reused, a history
 
 === Authentication
 
-Devices meeting the `` authentication requirements, authentication requirements '':
+Measures meeting the `` authentication requirements, authentication requirements '':
 [TIP]
 ====
 For password authentication, describe how it is stored and verified. Also remember to describe the password change solutions.
@@ -607,7 +607,7 @@ Service accounts are used for authentication to a technical component from a bat
 
 === Identity federation
 
-Devices meeting the "federation-identity requirement, identity federation requirements":
+Measures meeting the "federation-identity requirement, identity federation requirements":
 
 [TIP]
 ====
@@ -622,7 +622,7 @@ Example: The general public GUI will allow France Connect identification and aut
 
 === SSO, SLO
 
-Devices meeting the "SSO and SLO Requirements":
+Measures meeting the "SSO and SLO Requirements":
 [TIP]
 ====
 Detail the chosen technology and its integration. Some common solutions: CAS, OpenAM, LemonLDAP :: NG. For Web applications, specify the browser constraints (activation of cookies in particular).
@@ -636,7 +636,7 @@ Example 2: Like all business portal applications, GUI X will have to manage disc
 
 === Non-repudiation
 
-Devices meeting the "Non-repudiation requirements":
+Measures meeting the "Non-repudiation requirements":
 
 ====
 Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component according to the following architecture: <diagram>.
@@ -644,7 +644,7 @@ Example: The tax return will be signed by the user's client certificate (X509, R
 
 === Anonymity and privacy
 
-Devices meeting the `` anonymity requirement, anonymity and privacy requirements '':
+Measures meeting the `` anonymity requirement, anonymity and privacy requirements '':
 
 ====
 Example 1: an internal audit will be carried out once a year on the content of the database data and the extractions intended for partners.
@@ -658,7 +658,7 @@ Example 3: the cookie acceptance banner will be implemented on all pages of the 
 
 === Authorizations
 
-Devices meeting the `` Authorization requirements '':
+Measures meeting the `` Authorization requirements '':
 ====
 Example 1: Authorization management will be managed by application and stored in the PostgreSQL application database. These tables will be described in the specification file.
 ====
@@ -668,7 +668,7 @@ Example 2: Obtaining the Facebook address book will be in OAuth2. We will use th
 
 === Traceability, auditability
 
-Devices meeting the `` traceability requirement, traceability and auditability requirements '':
+Measures meeting the `` traceability requirement, traceability and auditability requirements '':
 
 ====
 Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana. <diagram>
@@ -735,18 +735,18 @@ Self-checking checklist to take into account common vulnerabilities
 
 | Authentication and session management violation
 | X
-| Treated with the anti-CSRF device, see below. We log the IP at the end of the audit.
+| Treated with the anti-CSRF measures, see below. We log the IP at the end of the audit.
 
 | XSS
 | X
 a |
 * _Use of escapement library. For Java modules we will use StringEscapeUtils.escapeHtml4 () from commons-lang_
-* __Use of HTTP headers: X-Frame-Options SAMEORIGIN, X-XSS-Protection 1; mode = block, X-Content-Type-Options nosniff, Content-Security-Policy, X-XSS-PROTECTION (to prevent hijacking of browser anti-XSS devices) __
+* __Use of HTTP headers: X-Frame-Options SAMEORIGIN, X-XSS-Protection 1; mode = block, X-Content-Type-Options nosniff, Content-Security-Policy, X-XSS-PROTECTION (to prevent hijacking of browser anti-XSS measuress) __
 * __ Systematic specification of encoding in the Content-Type response header (eg: text / html; charset = UTF-8) to counter attacks based on special characters bypassing anti-XSS__
 
 | ReDOS
 | X
-| Checking that regular expressions used by anti-XSS devices are not eligible for this type of attack, see https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS
+| Checking that regular expressions used by anti-XSS measures are not eligible for this type of attack, see https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS
 
 | Direct reference to an object
 | X
@@ -786,7 +786,7 @@ a |
 | X
 a |
 * __Disabling HTTPS compression at Apache level: SSLCompression off __
-* __Anti-CSRF device__
+* __Anti-CSRF measures__
 
 | Upload malicious files
 | X

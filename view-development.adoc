@@ -611,7 +611,7 @@ Example (Spring MVC): All controllers will be in singleton scope and therefore m
 
 [TIP]
 ====
-What are the rules for encoding strings? This is a recurring problem. This problem is, however, relatively simple to solve and requires only rigor. See the examples below for examples of actual devices.
+What are the rules for encoding strings? This is a recurring problem. This problem is, however, relatively simple to solve and requires only rigor. See the examples below for examples of actual measures.
 ====
 
 ====
@@ -729,7 +729,7 @@ Example: The `/internal/maj_2` service will perform a version upgrade of the dat
 
 [TIP]
 ====
-It is necessary to keep a good fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (GUI and batches) and the APIs. Describe here the paging devices implemented on the client side and on the server side.
+It is necessary to keep a good fluidity of batch data recovery. The pagination allows to limit the chatter between the clients (GUI and batches) and the APIs. Describe here the paging measures implemented on the client side and on the server side.
 ====
 
 ====
