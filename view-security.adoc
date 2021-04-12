@@ -557,7 +557,7 @@ So this is client-only encryption. Loss of password renders data unrecoverable. 
 Also consider the confidentiality of derived data:
 
 * encryption of backups;
-* encryption of customer data for heavy applications. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (encfs, TrueCrypt, etc.)
+* encryption of client data for heavy applications. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (encfs, TrueCrypt, etc.)
 ====
 
 === Identification

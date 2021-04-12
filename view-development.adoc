@@ -149,7 +149,7 @@ List the multi-media display constraints. When possible, use modern frameworks (
 * Adaptive (distances are expressed in units, the size of which depends on the support).
 * Responsive (the content and its layout depend on the medium).
 
-WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of the site to be downloaded by the customer, complexity, no more end-to-end tests to be expected…).
+WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of the site to be downloaded by the client, complexity, no more end-to-end tests to be expected…).
 ====
 
 ==== Progressive Web Apps (PWA)
@@ -740,7 +740,7 @@ Example 1 (Server side)
 ====
 
 ====
-Example 2 (Customer side)
+Example 2 (Client side)
 
 * The sort must be applied to all the elements in the database, not only to the elements of the last query returned by the server.
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).

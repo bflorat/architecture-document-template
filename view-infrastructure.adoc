@@ -211,7 +211,7 @@ Disasters can be classified into three categories :
 * Incident in the datacenter (accidental like industrial accidents, fires, major electrical failures, major network/storage/compute hardware outages, major sysadmin errors or intensional: military, terroristic, sabotage...).
 * Cyber: DDOS, virus, Ransomware...
 
-Some BCP leverage High Availability (HA) architectures to allow continuity of critical IT activities of the organization during a disaster without notable interruption. Basically, a DRP focus on how to restore an IS after a disaster when HA architecture focus on making it work even when a disaster occurs.
+Some BCP leverage High Availability (HA) architectures to allow continuity of critical IT activities of the organization during a disaster without notable interruption. Basically, a DRP focus on how to restore an IS after a disaster while HA architecture focus on making it work even when a disaster occurs.
 
 The most important requirements to take into account when designing the architecture are the *RPO* (Recovery Point Objective, i.e. how much data we agree to lose since last backup) and the *RTO* (Recovery Time Objective, i.e. the maximum acceptable time to resume the operations). The lower the RTO and RPO, the more associated costs increase. It is therefore important to choose the right architecture for each IT service according to its importance and budget. An HA architecture targets a RTO and a RPO of zero or very near zero.
 
@@ -452,18 +452,18 @@ Example: we must not be able to lose more than one working day of application da
 
 [TIP]
 ====
-Archiving is the copying of important data onto a dedicated offline medium with a view not to restore such as backup but to occasional _consultation_. Archives are often required for legal reasons and kept for thirty years or more.
+Archiving is the process of moving important data onto a dedicated offline medium. It is not aimed at restoring like a backup but only to allow occasional _consulting_ of some files. Archives are often required for legal reasons and kept for thirty years or more. Backups and archives are very different beasts: archives should allow to recover a few files while a restoration aims to restore a full system. Moreover, most of the time, the archiving process includes data deletion from the source system to lighten it.
 
-Specify whether application data should be retained for the long term. Specify the reasons for this archiving (most often https://www.service-public.fr/professionnels-entreprises/vosdroits/F10029 margelégales]).
+Specify whether application data should be retained for the long term. Specify the reasons (legal or others) for this archiving.
 
 Specify whether specific integrity protection devices (mainly to prevent any modification) must be put in place.
 ====
 
 ====
-Example 1: as required by article L.123-22 of the Commercial Code, accounting data must be kept for at least ten years.
+Example 1: As required by Sec. 31 of the Accounting Act (Act No. 563/1991 Coll.), accounting data must be kept for at least five years.
 ====
 ====
-Example 2: The accounting documents must be kept online (in database) for at least two years then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at time of archiving and stored separately for document integrity verification if needed.
+Example 2: The accounting documents must be kept online (in database) for at least two years then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at the time of archiving and stored separately for document integrity verification if needed.
 ====
 
 === Purge requirements
@@ -473,13 +473,13 @@ Example 2: The accounting documents must be kept online (in database) for at lea
 
 It is crucial to plan for regular purges to avoid a continuous drift in performance and disk usage (for example due to too large a database volume).
 
-Purges can also be required by law. Since 2018, the GDPR has brought new constraints on the right to be forgotten that may affect the length of time personal information is retained.
+Purges can also be required by law. Since 2018, the GDPR regulation has brought new constraints on the right to be forgotten that may affect the length of time personal information is retained.
 
-It is often wise to wait for the MEP or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to provide for the very principle of the existence of purges as soon as the definition of the application architecture. Indeed, the existence of purges often has important consequences on the functional (example: if there is no _ad vitam aeternam_ retention of the history, some patterns based on linked lists are not possible).
+It is often wise to wait for the prodcution phase or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to plan purges as soon as the definition of the application. The existence of purges often has indeed important consequences on the architecture (example: some patterns based on linked lists are not possible if the full history will not always be available).
 ====
 
 ====
-Example 1: files older than six months will be purged (after archiving)
+Example 1: Files older than six months will be archived and purged.
 ====
 
 === Deployment and update requirements
@@ -493,15 +493,15 @@ Specify here how the application should be deployed on the server side.
 For example :
 
 * Is the installation manual? scripted with IT Automation tools like Ansible or SaltStack? via Docker images?
-* How are the components deployed? In the form of packages? Are we using a package repository (type yum or apt)? Do we use containers?
+* How are the components deployed? As packages? Are we using a package repository (type yum or apt)? Do we use containers?
 * How are the updates applied?
 ====
 
-==== Customer side
+==== Client side
 
 [TIP]
 ====
-Specify here how the application should be deployed on the customer side:
+Specify here how the application should be deployed on the client side:
 
 * If the application is large (a lot of JS or images for example), is there a risk of an impact on the network?
 * Uis local proxy caching to be expected?
@@ -636,7 +636,7 @@ Failover:
 
 Failover is the ability of a cluster to fail over a flow of requests from one node to another in the event of a failure.
 
-Without failover, it is up to the customer to detect the failure and replay its request on another node. In fact, this is rarely practicable and the clusters almost always have failover devices.
+Without failover, it is up to the client to detect the failure and replay its request on another node. In fact, this is rarely practicable and the clusters almost always have failover devices.
 
 A failover solution can be described by the following attributes:
 
@@ -645,7 +645,7 @@ A failover solution can be described by the following attributes:
 ** in a so-called "N + 1" cluster, we switch to a passive node which becomes active and will remain so (the broken down node once repaired can become the new backup server). If a target server would not hold the load alone, several passive servers are planned (so-called "N + M" cluster);
 ** in an "N-to-1" cluster, we will failback on the server which had broken down once repaired and the failed server will become the backup server again;
 ** in an N-to-N cluster (an architecture in the process of democratization with the PaaS type cloud like App-Engine or CaaS like Kubernetes or Rancher): the applications of the failed node are distributed to other active nodes (the cluster having been sized in anticipation of this possible overload).
-* Transparent through to the caller or not? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Certain FT systems or architectures (fault tolerance) ensure that the customer is not aware of it;
+* Transparent through to the caller or not? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Certain FT systems or architectures (fault tolerance) ensure that the client is not aware of it;
 * Which fault detection solution?
 ** load balancers use a wide variety of health checks (plugged requests, CPU analysis, logs, etc.) to the nodes they control;
 ** Active / passive clusters failure detections work most of the time by listening to the heartbeat of the active server by the passive server, for example via UDP multicast requests in the VRRP protocol used by keepalived.
@@ -872,7 +872,7 @@ This device can also be used in the event of a DDOS-type attack and makes it pos
 It is also useful to provide dynamic application regulation systems, for example:
 
 * Via throttling (clipping of the number of requests by origin and unit of time). To put upstream of the linking chain.
-* Token systems (which also make it possible to favor this or that customer by granting them a quota of different tokens).
+* Token systems (which also make it possible to favor this or that client by granting them a quota of different tokens).
 ====
 ====
 Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make replay to be progressively spaced out in time).
