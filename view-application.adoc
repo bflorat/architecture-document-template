@@ -282,7 +282,7 @@ image::diagrams/detailed-application-architecture-static.svg[Detailed applicatio
 ====
 Expose the application modules in their different areas or domains with their main application flows.
 
-Do not detail technical flows (such as flows related to supervision or clustering).
+Do not detail technical flows (such as flows related to monitoring or clustering).
 
 If the application is complex, propose a global diagram listing
  all the application flows and then a diagram for each main linking chain by numbering the exchanges (use a sequence diagram or (better) a C4 Dynamic Diagram). It is also possible to detail the linking chains by main functionality.
@@ -300,7 +300,7 @@ image::diagrams/detailed-application-architecture-dynamic.svg[Detailed applicati
 ====
 List here the main flows of the application.
 
-Do not detail the technical supervision or clustering flows for example. Indicate the type of network (LAN, WAN).
+Do not detail the monitoring or clustering streams for example. Indicate the type of network (LAN, WAN).
 ====
 
 Partial example of an application flow matrix

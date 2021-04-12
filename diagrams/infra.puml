@@ -41,8 +41,8 @@ Node("dc", "Datacenter", "Paris") {
       Container("mail1", "MTA", "Postfix")
     }
 
-    Node("sup1_server", "Supervision Server", "x1 Debian Stretch") {
-      Container("sup1", "Supervision tool", "Centreon")
+    Node("sup1_server", "Monitoring Server", "x1 Debian Stretch") {
+      Container("sup1", "Monitoring tool", "Centreon")
     }
 
     Node("ech1", "Exchange Server", "x1 Windows Server") {
@@ -50,7 +50,7 @@ Node("dc", "Datacenter", "Paris") {
     }
 
     ContainerDb("bay1", "SAN EMC", "bay 1")
-    Node("all_servers", "<all servers>", "Supervision")
+    Node("all_servers", "<all servers>", "Monitoring")
 }
 
 spa -> r2 : HTTPS on the Internet

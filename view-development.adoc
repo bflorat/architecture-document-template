@@ -717,7 +717,7 @@ Examples of points to be addressed:
 
 * Do I have to provide a way to purge data, logs, caches, ...?
 (this type of service is sometimes called an 'internal processing')
-* Do I have to provide application indicators for supervision? (number of files consulted, ...)?
+* Do I have to provide application indicators for monitoring? (number of files consulted, ...)?
 * Do I have to provide migration tools?
 
 ====

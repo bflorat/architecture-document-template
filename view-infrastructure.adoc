@@ -115,11 +115,11 @@ Example 4: Like any application hosted in the XYZ datacenter, the application wi
 Example 5: IBM hardware support replacement on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, business days only.
 ====
 
-==== Supervision tools and standards
+==== Monitoring tools and rules
 
 [TIP]
 ====
-Give here the tools and supervision standards imposed at the IS level and any related constraints.
+Give here the tools and monitoring rules imposed at the IS level and any related constraints.
 ====
 ====
 Example 1: The application will be supervised using Zabbix
@@ -581,13 +581,13 @@ Examples:
 ====
 List here the measures token to meet the availability requirements.
 
-The available measures are very varied and should be chosen by the architect according to their contribution and their cost (financial, complexity, etc.).
+The available measures are very varied and should be chosen by the architect according to their contribution and their cost.
 
-We group availability measures into four main categories:
+We can group availability measures into four main categories:
 
-* Supervisory measures allowing faults to be detected as early as possible, hence lowering the MTDT (average detection time).
+* Monitoring measures allowing to detect faults as early as possible, hence lowering the MTDT (average detection time).
 * Organizational measures:
-** the human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which supervision is inefficient;
+** the human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which monitoring is inefficient;
 ** The quality of incident management (see ITIL best practices), for example, is an incident resolution workflow planned? if so, what is its complexity? its duration of implementation? if for example it requires several hierarchical validations, the presence of many operators does not necessarily improve the MTTR.
 * Technical redundancy measures (clusters, RAID ...) that should not be overestimated if the previous measures are insufficient.
 * Data recovery measures: is the recovery procedure well defined? tested? of a duration compatible with the availability requirements? This is typically useful in the case of data loss caused by a false manipulation or bug in the code: it is then necessary to stop the application and in this situation, being able to quickly restore the last backup greatly improves the MTTR.
@@ -689,8 +689,8 @@ Be careful to properly qualify the requirements before building an FT architectu
 | Active / passive cluster | XX | XX | XX
 | Active / active cluster (therefore with LB) | XXX | XXX | XXX
 | Servers / spare hardware | XX | X | XX
-| Good system supervision | X | X | XX
-| Good application supervision | XX | XX | XX
+| Good system monitoring | X | X | XX
+| Good application monitoring | XX | XX | XX
 | Remote site life test systems | X | X | XX
 | On call dedicated to the application, 24/7/365 | XXX | XX | XXX
 | Copy of the backup of the last business database dump on SAN bay (for express restoration) | XX | X | XX
@@ -1057,11 +1057,11 @@ Example 1: the application logs of the service-allmydata component will be in pr
 Example 2: the logs will be escaped when they are created via the `StringEscapeUtils.escapeHtml ()` method of Jakarta commons-lang.
 ====
 
-==== Supervision
+==== Monitoring
 
 [TIP]
 ====
-Supervision is a central pillar of availability by drastically reducing MTTD (average failure detection time).
+Monitoring is a central pillar of availability by drastically reducing MTTD (average failure detection time).
 
 Ideally, it will not only be reactive but also proactive (detection of the beginnings).
 
@@ -1070,7 +1070,7 @@ Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system,
 The indicators are logical combinations of several metrics with thresholds (eg critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes).
 ====
 
-===== Technical supervision
+===== Technical monitoring
 
 [TIP]
 ====
@@ -1083,7 +1083,7 @@ List the metrics:
 Example: we measure the% of wait io and the server load.
 ====
 
-===== Application supervision
+===== Application monitoring
 
 [TIP]
 ====
@@ -1098,7 +1098,7 @@ It is also possible to set up BAM (Business Activity Monitoring) tools based on 
 Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
 ====
 
-===== Supervision piloting tool
+===== Monitoring piloting tool
 
 [TIP]
 ====
@@ -1111,7 +1111,7 @@ Such a tool (like Nagios, Hyperic HQ in the Open Source world):
 * Allows setting alert thresholds based on indicators and notifying operators in the event of exceeding.
 ====
 ====
-Example: the management of the supervision will be based on the Nagios platform.
+Example: the management of the monitoring will be based on the Nagios platform.
 ====
 
 ===== Alerting
@@ -1147,18 +1147,18 @@ Example 1: the batches will be scheduled by the JobScheduler instance of the org
 Example 2: The batches will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
 ====
 
-===== Black box supervision
+===== Black box monitoring
 
 [TIP]
 ====
-It is also highly desirable and inexpensive to provide a black box supervision test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox supervision for which specific components are supervised with expected behavior).
+It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised with expected behavior).
 
 In general, these tests are simple (HTTP requests from a croned curl for example). They must be launched from one or more remote sites to detect network cuts.
 
 It is seldom necessary for them to perform update actions. If this is the case, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems.
 ====
 ====
-Example for a website: black box supervision tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
+Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
 ====
 
 ===== Metrology
