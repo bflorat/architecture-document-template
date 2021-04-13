@@ -579,137 +579,139 @@ Examples:
 
 [TIP]
 ====
-List here the measures token to meet the availability requirements.
-
-The available measures are very varied and should be chosen by the architect according to their contribution and their cost.
+List here the measures taken to meet the availability requirements. The available measures are very varied and should be chosen by the architect according to their respective contribution and cost.
 
 We can group availability measures into four main categories:
 
-* Monitoring measures allowing to detect faults as early as possible, hence lowering the MTDT (average detection time).
-* Organizational measures:
-** the human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which monitoring is inefficient;
-** The quality of incident management (see ITIL best practices), for example, is an incident resolution workflow planned? if so, what is its complexity? its duration of implementation? if for example it requires several hierarchical validations, the presence of many operators does not necessarily improve the MTTR.
-* Technical redundancy measures (clusters, RAID ...) that should not be overestimated if the previous measures are insufficient.
-* Data recovery measures: is the recovery procedure well defined? tested? of a duration compatible with the availability requirements? This is typically useful in the case of data loss caused by a false manipulation or bug in the code: it is then necessary to stop the application and in this situation, being able to quickly restore the last backup greatly improves the MTTR.
+* *Monitoring measures* allowing to detect faults as early as possible, hence lowering the MTDT (average detection time).
+* *Organizational measures*:
+** Human presence (on-call, extended support hours, etc.) which improves the MTTR (average resolution time) and without which monitoring is inefficient;
+** Quality of incident management (see ITIL best practices), for example, is an Incident Management Procedure written? Direct enough (for instance several hierarchical validations  decreases the MTTR)?
+* *High Availability (HA)* measures like clusters or RAID.
+* *Data Recovery measures*: is the recovery procedure well defined? Tested? Being able to quickly restore the last backup greatly improves the MTTR.
 
 ====
 [TIP]
 ====
-Reminders on the principles of availability:
+*Availability and redundancy*:
 
-* The availability of a set of serial components: `D = D1 * D2 * ... * Dn`. ExExample: the availability of an application using a 98% Tomcat server and a 99% Oracle database will be 97.02%.
-* The availability of a set of components in parallel: `D = 1 - (1-D1) * (1- D2) * .. * (1-Dn)`. Example: the availability of three clustered Nginx servers each of which has an availability of 98% is 99.999%.
-* It is important to be consistent on the availability of each link in the linking chain: there is no point in having an active / active cluster of JEE application servers if all these servers attack a database located on a single server physical with disks without RAID.
-* A system is estimated to be highly available (HA) from 99% availability.
-* The term “spare” denotes a spare device (server, disk, electronic card, etc.) which is dedicated to the need for availability but which is not activated outside of failures. Depending on the level of availability sought, it can be dedicated to the application or shared at the IS level.
-* The level of redundancy of a device can be expressed with the following concept (with N, the number of devices ensuring correct operation under load):
+* The *availability of a set of serial components* can be computed by this formula : `A = A1 * A2 * ... * An`. Example: the availability of an application using a Tomcat server available at 98% and an Oracle database available at 99% would be 97.02%.
+* The *availability of a set of components in parallel* can be computed by this formula: `A = 1 - (1-A1) * (1-A2) * .. * (1-An)`. Example: the availability of three clustered Nginx servers each available at 98% is 99.999%.
+* It is important to be consistent on the *availability of each link* in the linking chain: there is no point in having an expensive active/active cluster of JEE application servers if all these servers call a database located on a single server physical with disks without RAID.
+* A system is estimated to be *highly available (HA) from 99%* availability.
+* The term *“spare”* designates a spare device (server, disk, electronic card, etc.) which is dedicated to the need for availability but which is not activated outside of failures. Depending on the level of availability requirement, it can be dedicated to the application or shared at the IS level.
+* The main *redundancy models* (NMR = N-Modular Redundancy) are listed bellow (with N, the number of devices ensuring correct operation under load and that we can replicate):
+** *N*: no redundancy (example: when a server single power supply fails, the server is down)
+** *N+1*: a spare component is available (but not yet active), we can support the failure of a piece of equipment (example: we have a spare power supply available).
+** *N+M*: a single spare component cannot handle the load, at least M spare devices are required.
+** *2N*: the system is fully redundant and active and can withstand the loss of half of the components (example: we have two power supplies, if one fails, the server keeps running). This system is considered Fault-Tolerant.
+** *2N+1*: In addition to a fully mirrored system, a backup system is available (for maintenance operations for instance).
 
-** N: no redundancy (example: two power supplies are needed for the server, if one falls, the server stops)
-** N + 1: a spare component is available (but not necessarily active), we can support the failure of a piece of equipment (example: we have a spare power supply available).
-** 2N: the system is fully redundant (but the replacement components are not necessarily active) and can withstand the loss of half of the components (example: we have four power supplies)
+
 ====
 [TIP]
 ====
-Clustering:
+*Clustering*:
 
-* A cluster is a set of nodes (machines) hosting the same application.
-* Failover is the ability of a cluster to ensure that in the event of a failure, requests are no longer sent to the failed node but to an operational node.
+* A cluster is a *set of nodes (servers) hosting the same application module*.
 * Depending on the level of availability sought, each node can be:
-
-** active: the node processes the requests (example: one Apache server among ten and behind a load balancer). Failover time: zero;
-** passive in “hot standby” mode: the node is installed and started but does not process requests (example: a MySql slave database which becomes master in the event of failure of the latter via the mysqlfailover tool). Failover time: of the order of a few seconds (failure detection time);
-** passive in “warm standby” mode: the node is started and the application is installed but not started (example: a server with a turned off Tomcat instance hosting our application). In case of failure, our application is started automatically. Failover time: of the order of a minute (time for detection of the failure and activation of the application);
-** passive in "cold standby" mode: the node is a simple spare. To use it, you must install the application and start it. Failover time: around tens of minutes with virtualization solutions (eg: KVM live migration) and / or containers (Docker) to one day when it is necessary to install / restore and start the application.
-* There are two active / active cluster architectures:
-** Loosely coupled active / active clusters in which one node is completely independent from the others, either because the application is stateless (the best case), or because the context data (typically an HTTP session) is managed in isolation by each node. In the latter case, the load balancer must ensure session affinity, i.e. always route requests from a client to the same node and in the event of failure of this node, the users routed there lose their session data and need to reconnect. Note: of course, the nodes all share the same data persisted in the database, the context data is only transient data in memory.
-** Strongly coupled active / active clusters (fault tolerant clusters) in which all nodes form a sort of logical super machine sharing the same data. In this architecture, all context data must be replicated in all nodes (eg distributed cache of HTTP sessions replicated with JGroups).
+** *active*: the node processes the requests (example: one Apache web server among ten and behind a load balancer). Failover time: zero;
+** *passive in “hot standby” mode*: the node is installed and started but does not process requests (example: a MySql slave database which becomes master). MTTR: a few seconds (failure detection time);
+** *passive in “warm standby” mode*: the node is started and the application is installed but not started (example: a server with a turned off Tomcat instance hosting our application). In case of failure, the application is started automatically. MTTR: of the order of a minute (time for detection of the failure and activation of the application);
+** *passive in "cold standby" mode*: the node is a simple spare. To use it, we have to install the application, configure and start it. MTTR: from tens of minutes with virtualization solutions (eg: KVM live migration) and/or containers (Docker) to several hours on systems where none automatic deployment features are available.
+* There are two active/active cluster architectures:
+** *Loosely coupled active/active clusters* in which one node is completely independent from the others, either because the application is stateless (the best case), or because the context data (typically an HTTP session) is managed in isolation by each node. In the latter case, the load balancer must ensure session affinity, i.e. always route requests from a client to the same node and in the event of failure of this node, the users routed there lose their session data and need to reconnect (Note: the nodes all share the same data persisted in the database, the context data is only transient data in memory).
+** *Strongly coupled active/active clusters* in which all nodes share the same data. In this architecture, all context data must be replicated in all nodes (eg distributed cache of HTTP sessions replicated with JGroups).
 ====
+
 [TIP]
 ====
-Failover:
+*Failover*:
 
-Failover is the ability of a cluster to fail over a flow of requests from one node to another in the event of a failure.
+Failover is the ability of a cluster to ensure that in the event of a failure, requests are no longer sent to the failed node but to an running node. This process is *automatic*.
 
-Without failover, it is up to the client to detect the failure and replay its request on another node. In fact, this is rarely practicable and the clusters almost always have failover devices.
+Without failover, it is up to the client to detect the failure and reconfigure itself to only call the running nodes. In fact, this is rarely practicable and the *clusters almost always have failover capacities*.
 
 A failover solution can be described by the following attributes:
 
-* Automatic or manual? (In an HA solution, failover is generally automatic unless you have on-call penalties, a good alert system and an extremely organized operation).
-* What strategy for failover andfailback?
-** in a so-called "N + 1" cluster, we switch to a passive node which becomes active and will remain so (the broken down node once repaired can become the new backup server). If a target server would not hold the load alone, several passive servers are planned (so-called "N + M" cluster);
-** in an "N-to-1" cluster, we will failback on the server which had broken down once repaired and the failed server will become the backup server again;
-** in an N-to-N cluster (an architecture in the process of democratization with the PaaS type cloud like App-Engine or CaaS like Kubernetes or Rancher): the applications of the failed node are distributed to other active nodes (the cluster having been sized in anticipation of this possible overload).
-* Transparent through to the caller or not? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Certain FT systems or architectures (fault tolerance) ensure that the client is not aware of it;
-* Which fault detection solution?
-** load balancers use a wide variety of health checks (plugged requests, CPU analysis, logs, etc.) to the nodes they control;
-** Active / passive clusters failure detections work most of the time by listening to the heartbeat of the active server by the passive server, for example via UDP multicast requests in the VRRP protocol used by keepalived.
-* How long does it take to detect the failure? failure detection solutions should be configured correctly (as short as possible without degradation of performance) to limit the duration of failover.
-* What relevance of the detection? is the down server * really * down? a bad setting can cause a total unavailability of a cluster while the nodes are healthy.
+* Which *Failover strategy* ? For instance: "Fail fast" (a target node is seen as down at the first failure detected), "On fail, try next one", "On fail, try all".
+* Which *fault detection solution*?
+** Load balancers can use a wide variety of health checks (mock requests, CPU analysis, logs, etc.) to check the nodes they control;
+** Active/passive clusters failure detections work most of the time by listening to the heartbeat of the active server by the passive server, for example via UDP multicast requests in the VRRP protocol used by keepalived.
+* How long does it take to detect the failure? failure detection solutions should be configured correctly (as short as possible without degradation of performance) to limit the duration of the failover.
+* What *relevance of the detection*? is the down server * really * down? a bad setting or a network micro-cut can cause a total unavailability of a cluster while the nodes are still healthy.
+* What strategy for *failback*?
+** in a so-called "N+1" cluster, we switch to a passive node which becomes active and will remain so (the broken down node once repaired can become the new backup server).
+** in an *N-to-1* cluster, we will failback on the server which had broken down once repaired and the failed server will become the backup server again;
+** in an *N-to-N* cluster (an architecture in the process of democratization with the PaaS type cloud like AWS Lambda or CaaS like Kubernetes): the services previously running on the failed node are distributed to the remaining nodes (the cluster having been sized in anticipation of this possible overload).
+* *Transparent for the caller or not*? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Some Fault Tolerant systems or architectures can make it transparent for the client.
+
 ====
 [TIP]
 ====
-A few words about load balancers:
+A few words about *load balancers*:
 
-* A load balancer (Load Balancer = LB) is a mandatory brick for an active / active cluster.
-* In the case of clusters, a classic error is to create an SPOF at the level of the load balancer. We will then reduce the total availability of the system instead of improving it. In most of the clusters with vocation of availability (and not only of performance), it is necessary to redundant the distributor itself in active / passive mode (and obviously not active / active otherwise, it would require a "distributor of distributors"). The passive dispatcher must monitor the active dispatcher at high frequency and replace it as soon as it falls (requests arriving at the failed LB before the switchover are in error).
-* It is crucial to configure correctly and at a sufficient frequency the life tests (heathcheck) of the nodes to which the dispatcher distributes the load because otherwise the dispatcher will continue to send requests to fallen or overloaded nodes.
-* Some advanced LBs (example: redispatch option of HAProxy) allow transparency towards the caller by configuring replay to other nodes in the event of an error or timeout and therefore improve fault tolerance since we avoids returning an error to the caller during the fault pre-detection period.
-* Smooth out the load between the nodes and do not necessarily settle for round robin. A simple algorithm is the LC (Least Connection) allowing the dispatcher to favor the least loaded nodes, but there are many other more or less complex algorithms (weight systems per node or combination load + weight for example).
+* A load balancer (LB) is a *mandatory brick* for an active/active cluster.
+* In the case of clusters, a classic error is to make LB a *SPOF*. We would then reduce the total availability of the system instead of improving it. In most of the clusters with a availability vocation (i.e. not only performance-oriented), it is necessary to redundant the LB itself in active/passive mode (obviously not in active/active mode otherwise, we would only shift the problem). The passive LB must monitor the active LB at high frequency and replace it automatically as soon as it falls.
+* It is crucial to configure correctly and at a sufficient frequency the *heath checks* to the destination nodes because otherwise the LB will continue to send requests to failed or overloaded nodes.
+* Some advanced LBs (example: `redispatch` option of HAProxy) allow the failover process to be transparent seen from the client by retrying to other nodes in the event of a failure or timeout and therefore improve fault tolerance since we avoids returning an error to the caller during the fault pre-detection period.
+* *Don't always use Round Robin load repartition algorithm*. A simple algorithm is the LC (Least Connection) allowing the LB to favor the least loaded nodes. Other clever algorithms exist and can be taken into consideration (weight systems per node or combination load + weight for example). However, make sure to carefully test and understand the chosen algorithm implications to avoid overall failures.
 * In the Open Source world, see for example LVS + keepalived or HAProxy + keepalived.
 
 ====
 
 [TIP]
 ====
-Fault tolerance:
+*Fault tolerance*:
 
-Fault Tolerance (FT = Fault Tolerance) should not be confused with availability; it is about a system's ability to overcome failures without losing data.
+Fault Tolerance (FT = Fault Tolerance) should not be confused with HA; It is *stricter version of HA where availability is 100% and no data can be lost* (Wikipedia: "Fault tolerance is the property that enables a system to continue operating properly in the event of the failure of (or one or more faults within) some of its components"). Historically, it meant a full hardware redundancy. In a micro-services world, it can also be achieved at a software level with active-active clusters. Moreover, a true fault-tolerance systems should avoid significant performance degradation seen by the end-users.
 
-For example, a RAID 1 drive provides transparent fault tolerance; in case of failure, the process writes or reads without error after the automatic failover to the healthy disk.
+For example, a RAID 1 drive provides transparent fault tolerance: in case of failure, the process writes or reads without error after the automatic failover to the healthy disk. A Kubernetes cluster can achieve fault tolerance as well by starting new PODs. Or a clustered in-memory distributed cache can avoid losing any HTTP session.
 
-To allow fault tolerance of a cluster, it is essential to have an active / active cluster with strong coupling in which the context data is replicated at all times. Another (much better) solution is to simply avoid context data (by keeping session data in the browser via a JavaScript client for example) or to store it in database (SQL / NoSQL) or in distributed cache ( but pay attention to performance).
+To allow fault tolerance of a cluster, it is essential to have an active/active cluster with strong coupling in which the *context data is replicated at all times*. Another (much better) solution is to simply avoid context data (by keeping session data in the browser via a JavaScript client for example) or to store it in database (SQL/NoSQL) or in distributed ans synchronously replicated cache (at a cost on performances).
 
-To have transparent fault tolerance (the highest level of availability), it is also necessary to provide a load balancer ensuring the replay.
+To get transparent fault tolerance (the highest level of availability), it is also necessary to use a *load balancer making reties by itself*.
 
-Be careful to properly qualify the requirements before building an FT architecture because in general these solutions:
+Do not take lightly a FT requirement because in general these solutions:
 
-* Complexify the architecture and therefore make it less robust and moreexpensive to build, test, operate.
-* Can degrade performance: Availability and performance solutions generally go in the same direction (for example, a cluster of stateless machines will divide the load by the number of nodes and at the same time, the availability increases), but sometimes, availability and performance can be antagonistic: in the case of a stateful architecture, typically managing HTTP sessions with a distributed cache (type Infinispan replicated in synchronous mode or REDIS with persistence on the master), any transactional update of the session adds an additional cost linked to updating and replicating caches, to ensure failover. If one of the nodes crashes, the user keeps his session at the next request and does not have to reconnect, but at what cost?
-* Can even degrade availability because all nodes are strongly coupled. A software update for example can force the shutdown of the entire cluster.
+* Makes the *architecture not only more expensive but also more complex* and therefore can make it less robust and more expensive to build, test, operate. Only mission or life-critical softwares usually need it.
+* *Can degrade performance*: Availability and performance solutions are generally linked (for example, a cluster of stateless machines will divide the load by the number of nodes and at the same time, the availability increases), but sometimes, availability and performance can be antagonistic: in the case of a stateful architecture, typically managing HTTP sessions with a distributed cache (like Infinispan replicated in synchronous mode or REDIS with persistence on the master), any transactional update of the session adds an additional cost linked to updating and replicating caches. If one of the nodes crashes, the user keeps his session at the next request and does not have to reconnect, but the cost is high.
+* *Can even degrade the global availability* because all nodes are strongly coupled and synchronized. A software update for example can force the shutdown of the entire cluster.
 ====
 
-.Some availability solutions (excluding datacenter availability)
+.Some availability solutions
 |====
-| Solution | Cost | Indicative implementation complexity | Improvement of indicative availability
+| Solution | Cost | Implementation complexity (indicative) | Availability level gain (indicative)
 
 | Disks in RAID 1 | XXX | X | XXX
 | Disks in RAID 5 | X | X | XX
 | Redundancy of power supplies and other components | XX | X | XX
 | Ethernet card bonding | XX | X | X
 | Active / passive cluster | XX | XX | XX
-| Active / active cluster (therefore with LB) | XXX | XXX | XXX
+| Active / active cluster with LB | XXX | XXX | XXX
 | Servers / spare hardware | XX | X | XX
 | Good system monitoring | X | X | XX
 | Good application monitoring | XX | XX | XX
-| Remote site life test systems | X | X | XX
-| On call dedicated to the application, 24/7/365 | XXX | XX | XXX
-| Copy of the backup of the last business database dump on SAN bay (for express restoration) | XX | X | XX
+| Remote uptime checks | X | X | XX
+| On call staff dedicated to the application, 24/7/365 | XXX | XX | XXX
+| Copy of the backup of the last working-day database dump on SAN bay (for express restoration) | XX | X | XX
 |====
 
 ====
-Example 1: To achieve the required 98% availability, the envisaged availability mechanisms are as follows:
+Example 1: To achieve the required 98% availability, the envisaged availability measures are as follows:
 
 * All servers in RAID 5 + redundant power supplies.
-* HAProxy + keepalived active / passive distributor shared with other applications.
+* HAProxy + keepalived active/passive LB shared with other applications.
 * Active / active cluster of two Apache + mod_php servers.
-* Spare server that can be used to reassemble the MariaDB database from the backup of the day before in less than 2 hours.
+* Spare server that can be used to rebuild the MariaDB database from the backup of the day before in less than 2 hours.
 ====
 ====
-Example 2: To achieve the required availability of 99.97%, the availability mechanisms considered are as follows (as a reminder, the application will be hosted in a third-party level III data center):
+Example 2: To achieve the required availability of 99.97%, the availability mechanisms considered are as follows :
 
+* Application hosted in a Tier 3 DC.
 * All servers in RAID 1 + redundant power supplies + bonding interfaces.
-* HAProxy + keepalived active / passive distributor dedicated to the application.
-* Active / active cluster of 4 servers (i.e. 2N redundancy) Apache + mod_php.
+* HAProxy + keepalived active/passive LB dedicated to the application.
+* Active/active cluster of four servers (i.e. 2N redundancy) Apache + mod_php.
 * Oracle instance in RAC on two machines (with dedicated FC interconnection).
 
 ====
