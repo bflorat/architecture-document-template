@@ -719,16 +719,15 @@ Example 2: To achieve the required availability of 99.97%, the availability mech
 
 [TIP]
 ====
-Provide here the component deployment model in the target environment on the various middleware and physical nodes (servers).
-Represent network equipment (firewalls, appliances, routers, etc.) only if they help understanding.
+Provide here the deployment model in the target environment on the various middleware and physical nodes (servers). Represent network equipment (firewalls, appliances, routers, etc.) only if they help understanding.
 
 Naturally, it will be preferably documented with a UML2 deployment diagram or a C4 deployment diagram.
 
 For clusters, give the instantiation factor of each node.
 
-Comment out if necessary the affinity constraints (two components must run on the same node or the same middleware) or anti-affinity (two components must not run on the same node or in the same middleware ).
+Comment out if necessary the affinity constraints (two components must run on the same node or the same middleware) or anti-affinity (if two components must not run on the same node or in the same middleware).
 
-Clearly identify the hardware dedicated to the application (and possibly to buy).
+Clearly identify the hardware dedicated to the application.
 ====
 
 ====
@@ -774,20 +773,20 @@ Example of infrastructure components
 | CentOS 7
 |====
 
-=== Matrix of technical flows
+=== Matrix of network flows
 
 [TIP]
 ====
-List here all the technical flows used by the application. Listening ports are specified. We also detail the operating protocols (JMX or SNMP for example).
+List here all the network flows used by the application. Listening ports should be specified. We also detail here the protocols (JMX or SNMP for example).
 
-In some organizations, this matrix will be too detailed for an architecture file and will be kept in a document managed by the integrators or the operators.
+In some organizations, this matrix will be too detailed for an architecture document and will be kept in a document managed by the integrators or the operators.
 
-It is not necessary to refer to application flows because readers are not looking for the same information. Here, operators or integrators seek completeness of flows at the end of the installation and configuration of firewalls, for example.
+It is not necessary to refer to application flows here because readers are not looking for the same information. Operators or integrators seek completeness of network flows to configure infrastructure (like firewalls).
 
-Types of networks include useful information about the network being used in order toto assess the performance (TR, latency) and security: LAN, VLAN, Internet, LS, WAN, ...)
+Include useful information about the network being used in order to assess the performance (TR, latency) and security: LAN, VLAN, Internet, LS, WAN, ...)
 ====
 
-Partial example of technical flow matrix
+.Partial example of a network flows matrix
 [cols="1e,2e,2e,2e,1e,1e"]
 |====
 | ID | Source | Destination | Network type | Protocol | Listening port
@@ -802,9 +801,9 @@ Partial example of technical flow matrix
 
 [TIP]
 ====
-Give here an overall view of the environments used by the application. The most common environments are: development, acceptance, pre-production / benchmarks, production, training.
+Give here an overall view of the environments used by the application. The most common environments are: development, acceptance, pre-production/benchmarks, production, training.
 
-'Corridors' are 'sub-environments' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
+It is often useful to subdivide environnements into 'platforms' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 
 .Environments
 [cols = '1,2,2,2']
@@ -828,17 +827,17 @@ Give here an overall view of the environments used by the application. The most 
 ====
 List here the infrastructure measures to meet the "Ecodesign Requirements".
 
-The answers to its problems are often the same as those to performance requirements (response time in particular) and costs (purchase of equipment). In this case, just refer to it.
+The solutions are often the same as those to performance requirements. In this case, just refer to it.
 
 However, ecodesign analyzes and solutions can be specific to this theme. Some avenues for improving energy performance:
 
-* Measure the electrical consumption of the systems with the http://www.powerapi.org/ouvernPowerAPI] probes (developed by INRIA and the University of Lille 1).
+* Measure the electrical consumption of the systems with the http://www.powerapi.org/[PowerAPI] probes (developed by INRIA and the University of Lille 1).
 * Use caches (opcode cache, memory caches, HTTP caches ...).
-* For large projects or as part of the use of a CaaS cloud, the use of a cluster of containers (Swarm, Mesos or Kubernete type solution) makes it possible to optimize the use of VMs or physical machines by starting them / resiliently stopping on the fly.
-* Host its servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). OVH, for example, offers data centers with a PUE of 1.2 in 2017 against 2.5 on average.
+* For large projects or as part of the use of a CaaS cloud, using containers makes it possible to greatly optimize VMs or physical machines (especially when dealing with RAM consumption).
+* Host servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises ones. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). Some DC can achieve PUE as low as 1.2 against 2.5 on average (2017).
 * However :
-** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org[the use of energy from coal and nuclear] by Amazon for its AWS cloud );
-** keep in mind that the energy consumed by the application on the client and network side is much greater than that used on the server side (for example, we can estimate that a server consuming barely more than one workstation is enough for several thousands or even tens of thousands of users). Energy reduction also involves extending the lifespan of terminals and the use of more economical equipment.
+** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org[the use of energy from coal and nuclear] by Amazon);
+** keep in mind that the energy consumed by the application on the client and network side is much greater than that used on the server side (for example, we can estimate that a server consuming barely more than one workstation is enough for several thousands or even tens of thousands of users). Energy reduction also involves extending the lifespan of terminals and the use of soberer devices.
 ====
 ====
 Example 1: setting up a Varnish cache in front of our CMS will reduce the number of PHP dynamic page construction by 50% and will save two servers.
@@ -853,11 +852,11 @@ Example 2: The application will be hosted on a cloud with a PUE of 1.2 and an 80
 
 [TIP]
 ====
-In some cases, extreme and unpredictable peaks are possible (Slashdot effect).
+In some cases, extreme and unpredictable peaks are possible (flash crowd).
 
 If this risk is identified, provide a fuse system with offset of all or part of the load on a static website with an error message for example.
 
-This measure can also be used in the event of a DDOS-type attack and makes it possible to manage the problem and not to suffer it because it ensures a good acceptable operation to the users already connected.
+This measure can also be used in the event of a DDOS-type attack because it allows already connected users to finish their transactions properly.
 ====
 
 ==== Quality of Service
@@ -866,13 +865,13 @@ This measure can also be used in the event of a DDOS-type attack and makes it po
 ====
 It is also useful to provide dynamic application regulation systems, for example:
 
-* Via throttling (clipping of the number of requests by origin and unit of time). To put upstream of the linking chain.
-* Token systems (which also make it possible to favor this or that client by granting them a quota of different tokens).
+* Via throttling (set a maximum number of requests by origin and unit of time). 
+* Token systems (which also make it possible to favor some clients over others by granting them a greater number of tokens).
 ====
 ====
-Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make replay to be progressively spaced out in time).
+Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make retries in exponential backoff mode).
 
-Example: distribution of tokens will be as follows bydefault
+Example 1: distribution of tokens will be as follows by default:
 |====
 | Operation on `DetailArticle` | Proportion of tokens
 
@@ -882,19 +881,16 @@ Example: distribution of tokens will be as follows bydefault
 |====
 ====
 ====
-Example 2: a throttling of 100 requests per source and per minute will be set up at the level of the reverse proxy.
+Example 2: a throttling of 100 requests per source and per minute will be set up in the reverse proxy.
 ====
 
 === Timeout management
 
 [TIP]
 ====
-Describe here the different timeouts implemented on the linking chains. Keep in mind that in a linking chain from client to persistence, timeouts should decrease as you go through
-the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database).
+Describe here the different timeouts implemented on the linking chains. Keep in mind that from client to persistence, timeouts should decrease as you go through the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database). In the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
 
-In fact, in the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
-
-Also avoid using the same value in all the technical components to avoid unexpected effects linked to the concomitant timeouts.
+Also avoid using exactly the same value in all the technical components to avoid unexpected effects linked to the concomitant timeouts.
 
 ====
 
@@ -913,29 +909,29 @@ Example:
 
 ====
 
-=== Operation
+=== Operations
 
 [TIP]
 ====
-List here the main operating principles of the solution. The details (saved filesystems, production plan, processing planning ...) will be recorded in a separate DEX (Operating File).
+List here the main operating principles of the solution. The details (saved filesystems, production plan, processing planning ...) will be recorded in separate documents.
 
-If this application remains in the organization's standard, simply refer to a common file.
+If this application remains in the organization's standard, simply refer to any common document.
 ====
 
-==== Stop / start order
+==== Stop/start-up sequence
 
 [TIP]
 ====
-Specify here the starting order of machines and components among themselves as well as the stopping order. Depending on the situation, you can include the external components or not.
+Specify the starting and the stopping sequence of devices and components required to run the application modules. Depending on the situation, you can include some external components or not.
 
-The DEX will contain a more precise version of this chapter (in particular with a SystemV order number or a precise SystemD "Wants"), it is above all the general principles of stop and start orders that must be described here.
+Some others operations documents will contain a more precise version of this chapter (for instance using detailed SystemD "Wants"), we only describe here the general principles.
 
-Starting is generally done in the reverse direction of the linking chains and stopping in the direction of the linking chain.
+Starting sequence is generally done in the reverse direction of the linking chains and stopping in the direction of the linking chain. Most of the time, the stopping sequence is simply the reversed sequence version of the starting sequence.
 
-Specify any issues in the event of a partial start (for example, will the application server connection pool retry to connect to the database if it is not started? How many times? What how robust is the linking chain?)
+Specify any issues in the event of a partial start-up sequence (for example, will the application server connection pool retry to connect to the database if it is not yet started? How many times?)
 ====
 ====
-Example of a start-up order:
+Example of a start-up sequence:
 
 . pg1 on bdd1 server
 . mq1 on bdd1
@@ -944,9 +940,9 @@ Example of a start-up order:
 . batches on servers host1, host2
 . gui on servers host1, host2
 
-Example of stop order:
+Example of stopping sequence:
 
-Exact reverse of starting
+'Exact reverse of the starting sequence'
 ====
 
 ==== Scheduled operations

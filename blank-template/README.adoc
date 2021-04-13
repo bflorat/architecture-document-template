@@ -1,12 +1,12 @@
 : icons: font
 : lang: en
 
-# Architecture file
+# Architecture document
 Last modified: {localdate} {localtime}
 
 * Status *: _WIP_
 
-This file is made up of:
+This document is made up of:
 
 * an link:view-application.adoc[application view] presenting the general context and the application architecture;
 * a link:view-development.adoc[development view] presenting the software architecture and its environment;

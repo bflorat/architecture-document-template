@@ -77,9 +77,9 @@ Example 3: The X application is one of the main components of the Y program. It 
 === Existing
 
 [TIP]
-If this document presents a redesign or migration project, describe briefly the existing application. Do not repeat the documentation, simply refer to it and point to its architecture file if available. Beware of mentioning any information with a strong impact on the new project.
+If this document presents a redesign or migration project, describe briefly the existing application. Do not repeat the documentation, simply refer to it and point to its architecture document if available. Beware of mentioning any information with a strong impact on the new project.
 ====
-Example 1: The GOLD application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture file is given in [REFxyz].
+Example 1: The GOLD application is a Client-Server application in FORMS 4 pointing to an Oracle 9i database. Its architecture document is given in [REFxyz].
 ====
 ====
 Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.

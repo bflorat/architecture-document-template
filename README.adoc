@@ -66,7 +66,7 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 ** The name of the creator (Bertrand Florat);
 ** A link to https://creativecommons.org/licenses/by-sa/4.0/;
 ** A disclaimer and a link to https://github.com/bflorat/architecture-document-template.
-* The architecture files resulting from this model do not have to apply this license. It is nevertheless recommended to include a link to https://github.com/bflorat/architecture-document-template.
+* The architecture documents resulting from this model do not have to apply this license. It is nevertheless recommended to include a link to https://github.com/bflorat/architecture-document-template.
 
 ## Thanks
 * Proofreading: Dr. Christophe Gaie
