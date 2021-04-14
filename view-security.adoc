@@ -358,7 +358,7 @@ Example 6: Pursuant to the GDPR, explicit consent from users to store their pers
 ====
 
 [[authorization-requirements]]
-=== Requirements on authorizations
+=== Authorizations requirements
 
 [TIP]
 ====
@@ -591,9 +591,9 @@ Service accounts should only be used for authentication to a technical component
 ====
 
 .Service accounts
-[cols = '1,2,2']
+[cols = '1e,2e,2e']
 |====
-| Account | Resource requiring authentication | how credentials are stored
+| Account | Resource requiring authentication | How credentials are stored?
 
 | JDBC accounts (one account per database) | PG and SqlServer instances.
 | Clear storage in the configuration of data sources. Valued from a vault.
@@ -691,8 +691,8 @@ Example 5: The logs containing the `[PROOF]`` tag  nd from any component will be
 Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. For the TOP 10 mobile applications, adapt this list with the TOP 10 mobile. Of course, there are many other control points depending on the context of the application.
 ====
 
-Self-checking checklist to take into account common vulnerabilities
-[cols="e,e,e"]
+.Self-checking checklist to take into account common vulnerabilities
+[cols="e,e,3e"]
 |===
 | Vulnerability
 | Taken into account?

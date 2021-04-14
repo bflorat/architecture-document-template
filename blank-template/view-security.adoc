@@ -1,0 +1,263 @@
+= Security view
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Table of contents
+
+Last modified: {docdate}
+
+== Introduction
+
+This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
+
+The other views of the document are accessible at link:./README.adoc[from here].
+
+The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+
+=== Reference Documentation
+
+.Safety documentary references
+[cols="1,1,3,3"]
+|====
+| N ° | Version | Document title / URL | Detail
+
+|  |  |  | 
+
+|====
+
+== Not ruled
+
+=== Points subject to further study
+
+.Points subject to further study
+[cols="1,3,1,1,2"]
+|====
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|====
+
+=== Assumptions
+
+.Assumptions
+[cols="1,1"]
+|====
+| ID | Detail
+
+| 
+| 
+|====
+
+== Constraints
+
+== Requirements
+
+
+[[integrity-requirements]]
+=== Integrity requirements
+
+.Integrity level required by data class
+[cols = '2, 1, 1, 1, 1']
+|====
+| Data class
+| "Alterable" level ([small]#The data may be altered)#
+| "Detectable" level ([small]#The data may be altered if the alteration is identified within a reasonable time)#
+| "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered)#
+| "Integral" level ([small]#The data must always be rigorously intact)#
+
+| 
+|
+|
+|
+| 
+
+|====
+
+[[confidentiality-requirements]]
+=== Confidentiality requirements
+
+.Level of confidentiality required by data class
+[cols="1,1,1,1,1"]
+|====
+| Data class 
+| “Public” level ([small]#Anyone can access the data)#
+| Limited Level "([small]#Data is only accessible to authorized persons)#
+| "Reserved" level ([small]#Data can only be accessed by authorized internal staff)#
+| Level "Private "([small]#The data is visible only to the interested party)#
+
+| 
+| 
+|
+|
+|
+
+|====
+
+[[identification-requirements]]
+=== Identification requirements
+
+
+[[authentication-requirements]]
+=== Authentication requirements
+
+.Authentication requirement per use case
+[cols="1,1,1,1,1,1,1,1"]
+|====
+| Authentication case
+| Password respecting the P password policy
+| Known ssh public key
+| OTP by Token
+| Biometrics
+| Knowledge of business data
+| Activation email
+| Delegation of authentication
+
+|||||||| 
+
+|====
+
+[[identity-federation-requirements]]
+=== Identity Federation Requirements
+
+
+[[sso-requirements]]
+=== SSO and SLO requirements
+
+[[non-repudiation-requirements]]
+=== Non-repudiation requirements
+
+.Non-repudiation needs
+[cols="e,e,e"]
+|===
+| Signed data | Origin of the client certificate | Origin of the server certificate
+
+| 
+| 
+| 
+|===
+
+[[privacy-requirements]]
+=== Anonymity and privacy requirements
+
+[[authorization-requirements]]
+=== Authorizations requirements
+
+
+[[traceability-requirements]]
+=== Traceability and auditability requirements
+
+.Data to be kept for proof
+[cols="1,1,1"]
+|===
+| Data | Objective | Retention period
+
+| 
+| 
+| 
+
+|===
+
+== Security measures
+
+=== Integrity
+
+Measures meeting the <<integrity-requirements>> :
+
+.Measures to ensure the required level of integrity
+[cols="1,1,1"]
+|===
+| Data class | Required level | Measures
+
+| 
+| 
+|
+
+|===
+
+=== Confidentiality
+
+Measures meeting the <<confidentiality-requirements>>:
+
+.Measures to ensure the requested level of confidentiality
+[cols="1,1,1"]
+|===
+| Data class | Required level | Measures
+
+| 
+| 
+| 
+|===
+
+=== Identification
+
+Measures meeting the <<identification-requirements>> :
+
+
+=== Authentication
+
+Measures meeting the <<authentication-requirements>>:
+
+==== Service accounts
+
+.Service accounts
+[cols = '1,2,2']
+|====
+| Account | Resource requiring authentication | How credentials are stored?
+
+| 
+|
+|
+|====
+
+
+=== Identity federation
+
+Measures meeting the <<identity-federation-requirements>>:
+
+
+=== SSO, SLO
+
+Measures meeting the <<sso-requirements>>:
+
+=== Non-repudiation
+
+Measures meeting the <<non-repudiation-requirements>>:
+
+
+=== Anonymity and privacy
+
+Measures meeting the <<privacy-requirements>>:
+
+
+=== Authorizations
+
+Measures meeting the <<authorization-requirements>>:
+
+=== Traceability, auditability
+
+Measures meeting the <<traceability-requirements>>:
+
+
+== Self-checks
+
+=== Self-check for vulnerabilities
+
+.Self-checking checklist to take into account common vulnerabilities
+[cols="e,e,3e"]
+|===
+| Vulnerability
+| Taken into account?
+| Technical measures undertaken
+
+| 
+| 
+| 
+|===
+
