@@ -23,7 +23,9 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 .Documentary references
 [cols="1,1,4,4"]
 |===
-| N ° | Version | Document title / URL | Detail
+| N° | Version | Document title / URL | Detail
+
+|  |  |   | 
 
 |=== 
 
@@ -36,6 +38,8 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 |===
 | Subject | Detail | Status | Subject bearer | Deadline
 
+|  |  |  |   | 
+
 |===
 
 === Assumptions
@@ -44,6 +48,8 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 [cols="1,6"]
 |====
 | ID | Detail
+
+|  | 
 
 |====
 
@@ -66,6 +72,8 @@ List of internal actors
 |===
 | Actor | Description | Population | Location
 
+|  |  |  | 
+
 |===
 
 ==== External actors
@@ -74,6 +82,8 @@ List of external actors
 [cols="1,1,1,1"]
 |===
 | Actor | Description | Population | Location
+
+|  |  |  | 
 
 |===
 
@@ -104,5 +114,7 @@ List of external actors
 [cols = '1,3,1,1,1']
 |====
 | Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+
+|  |  |   |  | 
 
 |==== 

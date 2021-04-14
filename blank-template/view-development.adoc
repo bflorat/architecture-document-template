@@ -24,6 +24,8 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 |====
 | N ° | Version | Document title / URL | Detail
 
+||||
+
 |====
 
 == Not ruled
@@ -35,6 +37,8 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 |====
 | ID | Detail | Status | Subject holder | Deadline
 
+|||||
+
 |====
 
 
@@ -44,6 +48,8 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 [cols="1,4"]
 |====
 | ID | Detail
+
+||
 
 |====
 

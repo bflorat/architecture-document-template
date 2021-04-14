@@ -1,10 +1,10 @@
-: icons: font
-: lang: en
+:icons: font
+:lang: en
 
 # Architecture document
 Last modified: {localdate} {localtime}
 
-* Status *: _WIP_
+*Status*: 
 
 This document is made up of:
 
@@ -24,5 +24,6 @@ image:./resources/views.png[Read this first]
 ====
 
 
-## Architectural subjects TODO list
+## Architectural subjects remaining
 
+* ...
