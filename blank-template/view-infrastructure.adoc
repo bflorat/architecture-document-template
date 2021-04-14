@@ -1,0 +1,209 @@
+= Infrastructure view
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Table of contents
+
+Last modified: {docdate}
+
+== Introduction
+This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all the devices ensuring their proper functioning.
+
+The other parts of the file are accessible at link: ./ README.adoc [from here].
+
+The project glossary is available at link: glossaire.adoc [here]. We will not redefine the functional or technical terms used here.
+
+=== Reference Documentation
+
+. Development documentary references
+[cols = "1,2,5,4"]
+| ====
+| N ° | Version | Document title / URL | Detail
+
+|
+|
+|
+|
+
+| ====
+
+== Not ruled
+=== Points subject to further study
+Points subject to further study
+[cols = "1,5,2,2,2"]
+| ====
+| ID | Detail | Status | Subject holder | Deadline
+
+|
+|
+|
+|
+|
+
+| ====
+
+
+=== Assumptions
+.Hypotheses
+[cols = "1st, 5th"]
+| ====
+| ID | Detail
+
+|
+|
+
+| ====
+
+
+== Constraints
+
+=== Constraints on availability
+
+==== MTTD
+
+==== MTTR
+
+==== Monitoring tools and rules
+
+==== Scheduled interruptions
+
+==== Level of service of the datacenter
+
+==== Summary of floor availability
+
+==== Disaster management (DRP/BCP)
+
+=== Hosting
+
+=== Network constraints
+
+=== Deployment constraints
+
+=== Log constraints
+
+=== Backup and restore constraints
+
+=== Costs
+
+== Requirements
+
+[[beaches]]
+=== Operating ranges
+
+.Operating ranges
+[cols = "1,2,4"]
+| ====
+| No beach | Hours | Detail
+
+| ====
+
+=== Availability requirements
+
+==== Availability by operating range
+
+.Maximum allowable downtime per range
+[cols = "1.5"]
+| ====
+| No Beach | Maximum downtime
+
+| ====
+
+=== Degraded modes
+
+=== Robustness requirements
+
+=== RPO requirements
+
+=== Archiving requirements
+
+=== Purge requirements
+
+=== Deployment and update requirements
+
+==== Server side
+
+==== Customer side
+
+==== Specific deployment strategy
+
+=== Concurrency management requirements
+
+=== Ecodesign requirements
+
+== Target architecture
+
+=== Principles
+
+=== Availability
+
+=== Deployment in production
+
+=== Versions of infrastructure components
+
+Infrastructure components
+[cols = "1,2,1,2"]
+| ====
+| Component | Role | Version | Technical environment
+
+| ====
+
+=== Matrix of network flows
+
+.Technical flow matrix
+[cols = "1,2,2,2,1,1"]
+| ====
+| ID | Source | Destination | Network type | Protocol | Listening port
+
+| ====
+
+=== Environments
+
+=== Ecodesign
+
+=== Load regulation
+
+==== Circuit breakers
+
+==== Quality of Service
+
+=== Timeout management
+
+=== Operation
+
+==== SStop/start-up sequence
+
+==== Scheduled operations
+
+==== Maintenance procedure
+
+==== Backups and restores
+
+==== Archiving
+
+==== Purges
+
+==== Logs
+
+==== Monitoring
+
+===== Technical monitoring
+
+===== Application monitoring
+
+===== Monitoring tool
+
+===== Alerting
+
+===== Monitoring of scheduled operations
+
+===== Batch execution reports
+
+===== Black box monitoring
+
+===== Metrology
+
+=== Migration
+
+=== Decommissioning 

@@ -4,7 +4,7 @@
 :sectnums: 4
 :toc: left
 :icons: font
-:toc-title: Summary
+:toc-title: Table of contents
 
 Last modified: {docdate}
 

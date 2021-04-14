@@ -4,7 +4,7 @@
 :sectnums: 4
 :toc: left
 :icons: font
-:toc-title: Summary
+:toc-title: Table of contents
 
 Last modified: {docdate}
 
@@ -526,7 +526,7 @@ Specify here how the application should be deployed on the client side:
 Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the latest version.
 ====
 
-=== Competition management requirements
+=== Concurrency management requirements
 
 [TIP]
 ====
