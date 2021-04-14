@@ -579,6 +579,9 @@ Examples:
 
 [TIP]
 ====
+
+Availability represents the minimum proportion of time a system over a year during which it works in acceptable conditions. It is expressed as a percentage (example: 99.9%). 
+
 List here the measures taken to meet the availability requirements. The available measures are very varied and should be chosen by the architect according to their respective contribution and cost.
 
 We can group availability measures into four main categories:
@@ -938,30 +941,36 @@ Example of a start-up sequence:
 . services1 on host3, host4 and host5 servers
 . services2 on host3, host4 and host5 servers
 . batches on servers host1, host2
-. gui on servers host1, host2
+. GUI on servers host1, host2
 
 Example of stopping sequence:
 
-'Exact reverse of the starting sequence'
+. GUI on servers host1, host2
+. batches on servers host1, host2
+. services2 on host3, host4 and host5 servers
+. services1 on host3, host4 and host5 servers
+. mq1 on bdd1
+. pg1 on bdd1 server
+
 ====
 
 ==== Scheduled operations
 
 [TIP]
 ====
-List macroscopically (the DEX will detail the precise production plan):
+List macroscopically (don't try to make it exhaustive, we just need jobs streams principles applying):
 
-* The batches or family of batches and their possible inter-dependencies. Specify if a scheduler will be used.
-* Internal processing (cleaning tasks / good health) of the system which only fulfill technical roles (purges, rebuilding indexes, deleting temporary data, etc.)
+* The jobs or family of jobs and their possible inter-dependencies. Specify if a scheduler will be used.
+* Internal tasks (cleaning/checking tasks) of the system which only fulfill technical roles (purges, rebuilding indexes, deleting temporary data, etc.)
 ====
 ====
-Example 1: the `process-demand` batch will work as it goes. It will be launched every 5 mins from the JobScheduler scheduler.
+Example 1: the `process-demand` job will be launched every 5 mins by JobScheduler.
 ====
 ====
-Example 2: the internal `ti_index` process is a Java class calling` REINDEX` commands in JDBC launched from a Quartz scheduler once a month.
+Example 2: the internal `ti_index` process is a Java class calling` REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
 ====
 
-==== Start of maintenance
+==== Maintenance procedure
 
 [TIP]
 ====
@@ -977,31 +986,31 @@ Example: We will use the F5 BigIp LTM to display an unavailability page.
 ====
 Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration measures must be compatible with the "Availability Requirements":
 
-* What are the hot backups? Cold ?
-* What do we save? (carefully select the data to be backed up because the total volume of the backup set can easily reach ten times the backed up volume).
+* Are backups hot ? Cold ?
+* Which data should be saved? (carefully select the data to be backed up because the total volume of the backup set can easily reach ten times the backed up volume).
 ** system images / snapshots for server or VM recovery?
-** filesystems or directories?
-** databases in dump form? in binary form?
-** the content of files?
+** full filesystems or directories?
+** databases in dump format? binary format?
 ** the logs? traces ?
-* Are the backups encrypted? if so, specify the symmetric encryption algorithm used and how the key will be managed.
-* Are the backups compressed? if so, with which algorithm? (gzip, bz2, lzma? xv? ...) which setting (compression index)? be careful to find the compromise between compression / decompression time and storage gain.
-* What tools are used? (simple cron? "backup-manager" tool? IBM TSM?).
-* What technology is used for backups? (magnetic tapesAre you LTO or DLT type? external drives? RDX cartridges? cloud storage like Amazon S3? optical support? NAS? ...)
-* What is the frequency of each type of backup? (do not go into too much detail here, this will be in the DEX)
+* Are the backups encrypted? if so, specify the encryption algorithm used and how the key will be managed.
+* Are the backups compressed? if so, with which algorithm? (lzw, deflate, lzma ...)? using which compression level ? be careful to find the compromise between compression/decompression time and storage gain.
+* What tools are used? (simple cron?, Quartz, "backup-manager" tool? IBM TSM?).
+* What technology is used for backups? (LTO or DLT magnetic tapes? external drives? RDX cartridges? cloud storage like Amazon S3? optical support? NAS? ...)
+* What is the frequency of each type of backup? (do not go into too much detail here)
 * What is the backup strategy?
 ** complete? incremental? differential? (Take into account availability requirements. Restoring an incremental backup will take longer than a differential backup restore, itself longer than a full backup restore);
-** which bearing? (if backup media are overwritten periodically).
-* How are the results of the backup made? by email ? where are the logs?
+** which rollover strategy? 
+* Backup execution report: content, how is it sent? where are the logs?
 * Where are the backups stored? (ideally as far as possible from the backed up system while allowing restoration in a time compatible with availability requirements).
 * Who has physical access to the backups and their logs? to the encryption key? (think about confidentiality requirements).
-* Are there backup control and restore test procedures planned? (plan a restoration test once a year minimum).
+* Are there backup control and restore test procedures? (plan a restoration test once a year minimum).
 
 We recommend :
 
-* use a medium separate from the source data (do not save data from this same disc on an HD1 disc).
-* have at least two separate storage media if data is critical to the organization.
-* make sure that the backups are not modifiable by the machine which was backed up (for example, a backup on NAS may be deleted by mistake at the same time as the backed up data)
+* to use a medium separate from the source data;
+* to have at least two separate storage media if data is critical to the organization (e.g. hard disk + magnetic tape);
+* to make sure that the backups are not modifiable by the machine which was backed up (for example, a backup on NAS may be deleted by mistake at the same time as the backed up data);
+* to use read-only features with online backups systems to deal with ransomwares (some online backups systems have a temporary read-only attribute feature).
 ====
 ====
 Rollover example: set of 21 backups over one year:
@@ -1016,10 +1025,10 @@ Rollover example: set of 21 backups over one year:
 
 [TIP]
 ====
-Describe here the measures making it possible to meet <<archiving- requirements>> with the following storage methods:
+Describe the measures making it possible to meet <<archiving- requirements>> with the following storage methods:
 
 * Technology: ideally, the archive will be duplicated for security on several media of different technologies (tape + hard disk for example).
-* A specific storage location separate from traditional backups (bank safe for example).
+* Specific storage location separated from the backups (in a bank safe for example).
 ====
 ====
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. The two media will be stored in a safe in two different banks.
@@ -1032,26 +1041,26 @@ Example: Bank statements older than 10 years will be archived on LTO tape and ha
 List here the technical measures that meet the <<purge-exigences>>.
 ====
 ====
-Example: the history of consultations will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM matable WHERE ...) TO '/ tmp / dump.tsv'` then purged by an SQL request` DELETE` after validation by the operator of the completeness of the dump.
+Example: the history of accesses will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM mytable WHERE ...) TO '/tmp/dump.tsv'` then purged by an SQL request `DELETE` after validation by the operator of the completeness of the dump.
 ====
 
 ==== Logs
 
 [TIP]
 ====
-Without being exhaustive on the log files (to be provided in the DEX), present the general policy for the production and management of logs:
+Without being exhaustive on the log files, present the general policy for the production and management of logs:
 
-* What are the log turnover policies? is the rollover application (via a `DailyRollingFileAppender` log4j for example) or system (typically via the logrotate daemon)?
+* What are the log turnover policies? is the rollover managed by the application (via a `DailyRollingFileAppender` log4j for example) or by the system (typically via the logrotate daemon)?
 * Is a centralization of logs planned? (essential for SOA or micro-services architectures). See for example the ELK stack.
-* What is the level of verbosity expected by type of component? the debate in production is generally between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
-* Are anti-log injection measures planned (XSS exhaust)?
-* Think about saving logs in chapter 12.3.
+* What is the level of verbosity expected by type of component? we have often to choose between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
+* Are anti-log injection (XSS) measures taken?
+
 ====
 ====
-Example 1: the application logs of the service-allmydata component will be in production at INFO level with daily rotation and two-month conservation.
+Example 1: the application logs of the service-allmydata component will be in production at INFO level with daily rotation and kept two-month.
 ====
 ====
-Example 2: the logs will be escaped when they are created via the `StringEscapeUtils.escapeHtml ()` method of Jakarta commons-lang.
+Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
 ====
 
 ==== Monitoring
@@ -1060,11 +1069,11 @@ Example 2: the logs will be escaped when they are created via the `StringEscapeU
 ====
 Monitoring is a central pillar of availability by drastically reducing MTTD (average failure detection time).
 
-Ideally, it will not only be reactive but also proactive (detection of the beginnings).
+Ideally, it will not only be reactive but also proactive (weak signals detection).
 
 Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system, middleware or application probes.
 
-The indicators are logical combinations of several metrics with thresholds (e.g. critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes).
+Indicators are logical combinations of several metrics with thresholds (e.g. 'critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes').
 ====
 
 ===== Technical monitoring
@@ -1073,11 +1082,11 @@ The indicators are logical combinations of several metrics with thresholds (e.g.
 ====
 List the metrics:
 
-* System (% of file system usage, load, swap in / out volume, number of threads total ...)
+* System (% of file system usage, load, swap in/out volume, number of threads...)
 * Middleware (% of HEAP used on a JVM, number of threads on the JVM,% use of a pool of threads or JDBC connections ..)
 ====
 ====
-Example: we measure the% of wait io and the server load.
+Example: we measure the percentage of wait-io and the server load.
 ====
 
 ===== Application monitoring
@@ -1095,11 +1104,11 @@ It is also possible to set up BAM (Business Activity Monitoring) tools based on 
 Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
 ====
 
-===== Monitoring piloting tool
+===== Monitoring tool
 
 [TIP]
 ====
-Such a tool (like Nagios, Hyperic HQ in the Open Source world):
+Such a tool (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
 
 * Collect metrics (in SNMP, JMX, HTTP ...) periodically.
 * Persist metrics in some type of time series database (like RRD).
@@ -1118,41 +1127,41 @@ Example: the management of the monitoring will be based on the Nagios platform.
 Specify here the alert conditions and the channel used
 ====
 ====
-Example: SMS if no request for the last 4 hours or if the number of technical errors of a component exceeds 10 / h.
+Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a component exceeds 10/h.
 ====
 
 ===== Monitoring of scheduled operations
 
 [TIP]
 ====
-Indicate the scheduler or planner used to manage the batches and consolidate the production plan (example: VTOM, JobScheduler, Dollar Universe, Control-M, ...). Detail any specificities of the application:
+Indicate the scheduler or planner used to manage the jobs and consolidate the production plan (example: VTOM, JobScheduler, Dollar Universe, Control-M, ...). Detail any specificities of the application:
 
-* Degree of parallelism of batches
+* Degree of parallelism of jobs
 * Mandatory time slots
-* Rejeux in case of error
+* Retries in case of error
 * ...
 
-Do the batches have to produce an execution report? in what form and with what content?
+Do the jobs have to produce an execution report? in what form and with what content?
 ====
 ====
-Example 1: the batches will be scheduled by the JobScheduler instance of the organization.
+Example 1: the jobs will be scheduled by the JobScheduler instance of the organization.
 
-* The batches should never run on public holidays.
-* Their execution will be limited to the periods 23h00 - 06h00. Their schedule must therefore be in this range or they will not be launched.
-* We will not launch more than five instances of batch B1 in parallel.
+* The jobs should never run on public holidays.
+* Their execution will be limited to the periods 23h00-06h00. Their schedule must therefore be in this range or they will not be launched.
+* We will not launch more than five instances of the job J1 in parallel.
 
-Example 2: The batches will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
+Example 2: The jobs will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
 ====
 
 ===== Black box monitoring
 
 [TIP]
 ====
-It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised with expected behavior).
+It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised).
 
-In general, these tests are simple (HTTP requests from a croned curl for example). They must be launched from one or more remote sites to detect network cuts.
+In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
 
-It is seldom necessary for them to perform update actions. If this is the case, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems.
+In general, they don't perform update actions but only read-only ones. If this is the case, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
 ====
 ====
 Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
@@ -1162,17 +1171,19 @@ Example for a website: black box monitoring tests will be implemented via HTTP r
 
 [TIP]
 ====
-Are we monitoring the performance of the application in production? This allows:
+Are we monitoring the performance of the application in production? 
+
+This allows:
 
 * To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
 * To proactively detect failures (following a sudden drop in the number of requests for example).
 * Perform statistical analysis on the use of components or services in order to promote decision-making (for the decommissioning of an application, for example).
 
-There are three main families of solutions:
+There are three main groups of solutions:
 
-* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in OpenSource ...). Check that the overhead of these solutions is negligible or limited and that the stability of the application is not jeopardized.
-* "In-house" metrology by logs if the need is modeste.
-* External query sites (see also life tests in 12.7.6) which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with life tests (see below).
+* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in Open-Source ...). Check that the overhead of these solutions is still negligible or limited and that the stability of the application is not jeopardized.
+* "In-house" metrology by logs if the requirements are low.
+* External query sites which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with black-box monitoring (see above).
 ====
 ====
 Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
@@ -1186,26 +1197,29 @@ This chapter describes a possible migration from an old system.
 
 Describe on a macroscopic scale the planned procedure as well as the planned backtracking.
 
-Describe, if necessary, a 'dry' operation in parallel with the old system before activation.
+Describe, if necessary, a dry-run operation in parallel with the old system.
 ====
 ====
-Example 1: The X component will be replaced by the Y services. Then the Oracle Z silo data will be migrated in one-shot via a PL / SQL + DBLink script to the XX instance with the new basic format of the T component.
+Example 1: The X component will be replaced by the Y services. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T component.
 ====
 ====
-Example 2: in the event of a problem with the new component, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
+Example 2: In the event of a problem with the new component, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
 ====
 
 === Decommissioning
 
 [TIP]
 ====
-This chapter will be read when the application reaches the end of its life and must be removed or replaced. Among other things, he describes:
+This chapter will be read when the application reaches the end of its life and must be removed or replaced. 
+
+Among other things, he describes:
 
 * Data to be archived or on the contrary destroyed with a high level of confidence.
 * The physical components to be removed or destroyed.
-* Server and / or client side uninstallation procedures (it is common to see obsolete components still running on servers and causing performance and security issues that go under the radar).
+* Server and/or client side uninstallation procedures (it is common to see obsolete components still running on servers and causing performance and security issues that go under the radar).
 * Security constraints associated with decommissioning (this is a sensitive step that is often overlooked, for example hard drives can be found filled with very sensitive data following a donation of equipment).
 ====
 
 ====
-Example: The X, Y, and Z servers will be transferred to the social service for charitable donation after completely erasing the hard drives using the shred command, 3 pass.
+Example: The X, Y, and Z servers will be transferred to the social service for charitable donation after completely erasing the hard drives using the shred command, three passes.
+====
