@@ -21,7 +21,7 @@ IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-
 
 === Reference Documentation
 
-Sizing documentary references
+.Sizing documentary references
 [cols="1e,1e,4e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
@@ -37,7 +37,7 @@ Sizing documentary references
 
 === Points subject to further study
 
-Points subject to further study
+.Points subject to further study
 [cols="1e,1e,1e,2e,2e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
@@ -57,7 +57,7 @@ Give here the structuring assumptions taken for the design
 ====
 Example:
 
-.Hypotheses
+.Assumptions
 [cols="1e,4e"]
 |====
 | ID | Detail
@@ -130,7 +130,7 @@ It is crucial to collect as much information as possible from production rather 
 
 [TIP]
 ====
-The following sections dealing with static and dynamic volumetry calculations give examples of calculations and elements to consider. Formally, it may be better to replace the text with spreadsheets in a spreadsheet. For a complex project or one with changing hypotheses, this is essential.
+The following sections dealing with static and dynamic volumetry calculations give examples of calculations and elements to consider. Formally, it may be better to replace the text with spreadsheets in a spreadsheet. For a complex project or one with changing Assumptions, this is essential.
 
 ====
 

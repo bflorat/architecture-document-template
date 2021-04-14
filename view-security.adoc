@@ -17,9 +17,7 @@ The other views of the document are accessible at link:./README.adoc[from here].
 The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
 
 [TIP]
-Availability is dealt with in the infrastructure section.
-
-IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-da[this project]. Suggestions and help will be appreciated.*
+Availability is dealt with in the infrastructure section. Even if availability concept is often handled with Integrity and Confidentiality (that's what we call the "CIA triad"), this model is role-oriented and we feel that availability is more often managed by infrastructure architects than by the security experts.
 
 
 === Reference Documentation
@@ -29,20 +27,20 @@ IMPORTANT: *This a WIP English translation of https://github.com/bflorat/modele-
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 ====
 
-Safety documentary references
+.Safety documentary references
 [cols="1e,1e,3e,3e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
-| 1 | 1.0 | Safety_measures.pdf | Catalog of authorized safety measures
-| 2 | latest | Company security standards | http: // masociete / monurl
+| 1 | 1.0 | Safety_measures.pdf | Catalog of qualified safety measures
+| 2 | latest | Company security standards | http://acme.com/myurl
 |====
 
 == Not ruled
 
 === Points subject to further study
 
-Points subject to further study
+.Points subject to further study
 [cols="1e,3e,1e,1e,2e"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
@@ -50,20 +48,20 @@ Points subject to further study
 | ES1
 | It will be necessary to validate that the anti-CSRF measures put in place also resolve the flaws linked to the TLS + compression coupling (CRIME or BREACH type).
 | IN_CURRENT
-| Safety team
+| SOC team
 | BEFORE 2040
 
 |====
 
 === Assumptions
 
-.Hypotheses
+.Assumptions
 [cols="e,e"]
 |====
 | ID | Detail
 
 | HS1
-| The SAML solution currently in place in the organization does not meet the authentication needs expressed for this web application. An OpenID Connect solution will be implemented.
+| The SAML solution currently in place in the organization does not meet the authentication requirements. An OpenID Connect solution will be implemented.
 |====
 
 == Constraints
@@ -72,28 +70,28 @@ Points subject to further study
 ====
 List here the constraints relating to security, this includes for example but not only:
 
-* Isolation of components within sealed network areas (DMZ, firewalls, reverse-proxy, etc.)
+* Isolation of components within network areas (DMZ, firewalls, reverse-proxy, etc.)
 * Applicable standards (such as password policies)
 * Legal constraints (GDPR for example)
 
 ====
 ====
-Example 1: the password policy will have to conform to the xyz standard
+Example 1: the password policy will have to conform to the xyz standard.
 ====
 ====
-Example 2: a component of the internet zone is formally prohibited from accessing the intranet zone
+Example 2: a component in the internet zone is formally prohibited from accessing the intranet zone.
 ====
 ====
-Example 3: in application of the GDPR, user data must be encrypted
+Example 3: in application of the GDPR, user data must be encrypted.
 ====
 
 == Requirements
 
 [TIP]
 ====
-Present the requirements here, * not the measures meeting them *. These will be detailed in chapter 3.
+Present the requirements here, *not the measures meeting them*. These will be detailed in chapter 3.
 
-For particularly sensitive projects, provide a risk analysis file. To do this, for example, use the method https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/▪EBIOS Risk Manager] (Expression of Needs and Identification of Security).
+For particularly sensitive projects, provide a risk analysis file. To do this, for example, use the https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/[EBIOS Risk Manager] framework.
 ====
 
 [[integrity-requirements]]
@@ -108,14 +106,14 @@ Managing data integrity consists in verifying that it cannot be altered or delet
 Be careful not to multiply the data classes. It is possible to define only one data class for the entire application (common case).
 ====
 
-Integrity level required by data class
+.Integrity level required by data class
 [cols = '2e, 1e, 1e, 1e, 1e']
 |====
 | Data class
-| "Not Integral" level ([small] #The data may not be complete) #
-| "Detectable" level ([small] #The data may not be intact if the alteration is identified within a reasonable time) #
-| "Controlled" level ([small] #The data may not be intact, if the alteration is identified and the integrity of the essential good found) #
-| "Integral" level ([small] #The data must always be rigorously intact) #
+| "Alterable" level ([small]#The data may be altered)#
+| "Detectable" level ([small]#The data may be altered if the alteration is identified within a reasonable time)#
+| "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered)#
+| "Integral" level ([small]#The data must always be rigorously intact)#
 
 | Business database data
 |
@@ -135,7 +133,7 @@ Integrity level required by data class
 | X
 |
 
-| Big Data NoSQL silo before consolidation
+| Big Data datalake before consolidation
 | X
 |
 |
@@ -154,6 +152,7 @@ Integrity level required by data class
 | X
 |====
 
+[[confidentiality-requirements]]
 === Confidentiality requirements
 
 [TIP]
@@ -164,13 +163,13 @@ Confidentiality is ensuring that information is accessible only to those whose a
 Be careful not to multiply the data classes. It is possible to define only one data class for the entire application (common case).
 ====
 
-Level of confidentiality required by data class
+.Level of confidentiality required by data class
 [cols="e,e,e,e,e"]
 |====
-| Data class | “Public” level ([small] # Anyone can access the data) #
-| Limited Level "([small] #Data is only accessible to authorized persons) #
-| "Reserved" level ([small] #Data can only be accessed by authorized internal staff) #
-| Level "Private "([small] #The data is visible only to the interested party) #
+| Data class | “Public” level ([small]#Anyone can access the data)#
+| Limited Level "([small]#Data is only accessible to authorized persons)#
+| "Reserved" level ([small]#Data can only be accessed by authorized internal staff)#
+| Level "Private "([small]#The data is visible only to the interested party)#
 
 | Editorial content
 | X
@@ -196,29 +195,29 @@ Level of confidentiality required by data class
 | X
 |
 
-| HR data of the "social assistance to employees" type
+| HR data of the "social assistance to employees"
 |
 |
 |
 | X
 |====
 
-[[requirements-identification]]
+[[identification-requirements]]
 === Identification requirements
 
 [TIP]
 ====
-Identification is the set of measuress used to differentiate one user from another (but without verifying that he is who he claims to be).
+Identification is the set of measures used to differentiate one user from another (but without verifying that he is who he claims to be).
 ====
 
 ====
-Example 1: A user can only have one username and one username cannot be shared by multiple users. The personal e-mail address is therefore a good identifier.
+Example 1: a user can only have one username and a username cannot be shared by multiple users. The personal e-mail address is therefore a good identifier.
 ====
 ====
-Example 2: the identity of an Internet user will be subject to an existence test before any service call.
+Example 2: the identity of an Internet user will be checked before any API call.
 ====
 ====
-Example 3: an ID cannot be deleted, cannot be modified and cannot be reused
+Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 ====
 
 [[authentication-requirements]]
@@ -232,20 +231,20 @@ Note that automatic non-human interactions (such as batches calling an API) can 
 
 Authentication can be one or more factors (in the latter case, we speak of strong authentication). These factors can be:
 
-* Something that we * know * (typically a password).
-* Something that * is * (biometrics).
-* Something we * own * (token, unique password generator, photo ID ...).
+* Something that we *know* (typically a password).
+* Something that *is* (biometrics).
+* Something we *own* (token, unique password generator, ID document ...).
 
-Remember to describe the authentication system once registered but also during registration (initial authentication).
+Remember to describe the authentication system once registered but also during registration (i.e., the initial authentication).
 
 A possible delegation of authentication relies on identity federation technology to authenticate the user.
 
-It is of course possible to add authentication factors specific to your organization to the table below as needed.
+It is possible to add authentication factors specific to your organization to the table below as needed.
 ====
 
-The authentication factors required depending on the situation are (you can require several occurrences of the same factor, use as many crosses):
+It is possible to require several occurrences of the same factor, use as many crosses:
 
-Authentication requirement per use case
+.Authentication requirement per use case
 [cols="e,e,e,e,e,e,e,e"]
 |====
 | Authentication case
@@ -276,22 +275,21 @@ Authentication requirement per use case
 ||||||| X
 |====
 
-[[requirement-federation-identity]]
+[[identity-federation-requirements]]
 === Identity Federation Requirements
 
 [TIP]
 ====
 Identity federation is the use of the same identity managed by an identity provider (IdP) from several different entities.
 
-For example, France Connect, widely used by administrations and based on OpenId Connect, makes it possible to reuse the account of one administration to log on to the account of another (the French Tax Administration or the French Social Services for example).
-
-See also the “Connect with[Google | Twitter | ...]” in OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login / password).
+For example see the “Connect with[Google | Twitter | ...]” OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login/password).
 ====
 
 ====
 Example: Identification and authentication will be outsourced to the Auth0 identity provider to simplify security management and reduce development and operating costs.
 ====
 
+[[sso-requirements]]
 === SSO and SLO requirements
 
 [TIP]
@@ -300,13 +298,9 @@ Describe the needs in terms of Single Sign On and Single Log Out.
 
 Here we mean SSO in its fullest sense: automatic authentication to an application of a user already authenticated from another application in the same trusted domain.
 
-Please note, setting up SSO can be complex, especially if the infrastructure (ID provider, etc.) does not yet exist.
+Please note that setting up SSO can be complex, especially if the infrastructure (ID provider, etc.) does not yet exist and often requires adaptation of applications.
 
-It often requires adaptation of applications.
-
-The SSO is often requested by the trades but this requirement must be justified.
-
-An infrequently used peripheral application or tool usually does not need SSO (a simple centralized authentication within an LDAP directory is often sufficient).
+The SSO can be requested by the end-users but this requirement must be justified. An infrequently used peripheral application or tool usually does not need SSO (a simple centralized authentication within an LDAP directory is often sufficient).
 
 Also, be careful to assess the impact that weak authentication (bad password for example) would have on the security of the entire IS.
 ====
@@ -317,14 +311,15 @@ Example 1: No SSO is required since all application GUIs are exposed within a JS
 Example 2: no need for SSO or SLO is identified
 ====
 ====
-Example 3: this business Web application must provide single authentication shared with that of other intranet applications: one faiths authenticated on one of the applications, the agent must not have to reconnect (until his session expires). Likewise, a disconnection from one of the applications must ensure the disconnection of all applications from the intranet.
+Example 3: this Web application must provide single authentication shared with that of other intranet applications. Once authenticated on one of the applications, the agent must not have to reconnect (until his session expires). Likewise, a disconnection from one of the applications must ensure the disconnection of all intranet applications.
 ====
 
+[[non-repudiation-requirements]]
 === Non-repudiation requirements
 
 [TIP]
 ====
-List here the business actions with a non-repudiation requirement, i.e. a measure making it impossible to challenge a contract by proving the identity of the two parties and the integrity of the document by digital signature as described in text n ° 2000-230 of March 13, 2000 of the Civil Code.
+List here the business actions with a non-repudiation requirement, i.e. a measure making it impossible to deny a contract by proving the identity of the two parties and the integrity of the document by digital signature.
 ====
 
 .Non-repudiation needs
@@ -337,14 +332,14 @@ List here the business actions with a non-repudiation requirement, i.e. a measur
 | Verisign
 |===
 
-[[requirement-anonymity]]
+[[privacy-requirements]]
 === Anonymity and privacy requirements
 
 [TIP]
-List the constraints of anonymity and legal privacy (required by the GDPR). See https://www.cnil.fr/fr/rgpd-par-ou-commencer.
+List the constraints of anonymity and legal privacy.
 
 ====
-Example 1: No data consolidation can be made between data in the PERSON domain and in the HEALTH domain.
+Example 1: No data consolidation should be possible between data in the PERSON domain and in the HEALTH domain.
 ====
 ====
 Example 2: For the sake of confidentiality in the event of a computer intrusion, some personal data will be redacted before replication to the public area: cholesterol level and weight.
@@ -362,6 +357,7 @@ Example 5: In application of the European "telecom package" directive, a banner 
 Example 6: Pursuant to the GDPR, explicit consent from users to store their personal health data will be offered.
 ====
 
+[[authorization-requirements]]
 === Requirements on authorizations
 
 [TIP]
@@ -374,17 +370,17 @@ Be careful not to multiply the number of functions and roles to avoid a combinat
 
 To simplify the management of authorizations by factorization, one can:
 
-* Group users into groups (like `G_chef_service`).
-* Associate a list of functions with a role (such as `R_Administrator`,` R_banquier_niv1`, `R_chef_service`) that can be assigned to a person or to a group.
+* Group users into groups (like `G_chief`).
+* Associate a list of functions with a role (such as `R_administrator`,` R_banker_level_1`, `R_president`) that can be assigned to a person or to a group.
 
 Example of a classic authorization management model:
 
 image::diagrams/roles.svg[Classic role management]
 
-Remember to specify the possible pseudos-users and their roles as:
+Remember to specify the possible pseudos-users and their roles like:
 
-* `@ anonymous`: people who are not connected
-* `@ connected`: people connected
+* `@anonymous`: non-authenticated people
+* `@connected`: authenticated people
 
 Specify whether the application should use authorization delegation (OAuth2 type) and if so, is the application an authorization provider or consumer? What authorizations are concerned?
 ====
@@ -393,7 +389,7 @@ Specify whether the application should use authorization delegation (OAuth2 type
 Example 1: people who are not logged in will have access to all read-only privileges
 ====
 ====
-Example 2: the application will rely on a matrix authorization management of the type[roles] ->[groups or users] as described below. The details of the authorizations will be given in the SFDs.
+Example 2: the application will rely on a matrix authorization management of the type[roles] ->[groups or users] as described below. The details of the authorizations will be given in the specifications.
 ====
 
 ====
@@ -402,12 +398,12 @@ Example role matrix
 |===
 | _Group or user_ | _Role_ `deletion` | _Role_` administration` | _Role `_ basic data consultation`
 
-| Group `g_usagers`
+| Group `g_users`
 |
 |
 | X
 
-| `@ Anonymous` group
+| `@anonymous` group
 |
 |
 |
@@ -425,7 +421,7 @@ Example role matrix
 
 ====
 
-[[requirements-traceability]]
+[[traceability-requirements]]
 === Traceability and auditability requirements
 
 [TIP]
@@ -436,22 +432,22 @@ List here the trace requirements for detecting, for example:
 * Computer intrusions
 * Data modifications
 
-The traces are nominative and complete data to allow the audit. They are therefore themselves sensitive and often require a good level of confidentiality (see 2.2).
+The traces are nominative and complete data to allow the audit. They are therefore themselves sensitive and often require a good level of confidentiality.
 
 Differentiate:
 
-* Business traces (assessment of a complete management act such as `` Agent X consulted Ms. Y's file ');
-* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level.
+* Application traces (assessment of a complete management act such as `` Agent X consulted Ms. Y's file ') in a database;
+* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level and mush more volatile.
 
 For the most sensitive data, it is possible to provide traceability at two levels (tracing the consultation of traces) to avoid abusive hierarchical traceability.
 
-The traceability of the data of the repositories (base of people typically) requires a complete historization, ce which is in any case a good urbanization practice (see for example Longépé "The Urbanization Project of the IS", application rules 1, 2 and 3).
+The traceability of the data of the repositories (base of people typically) requires a complete historization, which is in any case a good practice.
 
 To do this, provide an MCD allowing a record to be added for each change in data with a modification date and an effective date.
 ====
 
 ====
-Example 1: for module X, any business action (in update as in consultation) must be the subject of a business trace containing at least the agent, the date and in case of modification the old and the new value.
+Example 1: for module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the old and the new value.
 ====
 ====
 Example 2: Any intrusion into the IS must be detected (as far as possible).
@@ -486,16 +482,16 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 
 === Integrity
 
-Measures meeting the "integrity requirements, integrity requirements":
+Measures meeting the <<integrity-requirements>> :
 
-Measures to ensure the required level of integrity
+.Measures to ensure the required level of integrity
 [cols="e,e,e"]
 |===
 | Data class | Required level | Measures
 
 | Business database data
-| Integrates
-a |
+| No alteration
+a|
 * Use of PostgreSQL RDBMS with a SERIALIZABLE transactional isolation level
 * Entities will be referenced only by technical IDs from PostgreSQL sequences
 
@@ -504,28 +500,27 @@ a |
 | Generation of SHA-256 checksums of backups
 
 | Calculated data D1
-| Mastered
+| Controlled
 | Storage of a SHA1 checksum, restart of the calculation automatically by batch within 24 hours.
 
-| Big Data NoSQL silo before consolidation
-| No integrity
+| Big Data datalake before consolidation
+| Alterable
 | No special measure, no backup
 
 | Sources
-| Integrates
+| No alteration
 | Using the Git SCM
 
 | Tax notice PDF
-| Integrates
-| Digital signature by the private key of the data administration D of the notice in PKCS # 7 (RSA, SHA256) format with time stamp. D = base64 (net amount + date + name). +
-The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF
+| No alteration
+| Digital signature by the private key of the data administration D of the notice in PKCS#7 (RSA, SHA256) format with time stamp. D=base64 (net amount + date + name). The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF
 |===
 
 === Confidentiality
 
-Measures meeting the "Confidentiality Requirements":
+Measures meeting the <<confidentiality-requirements>>:
 
-Measures to ensure the requested level of confidentiality
+.Measures to ensure the requested level of confidentiality
 [cols="e,e,e"]
 |===
 | Data class | Required level | Measures
@@ -536,11 +531,11 @@ Measures to ensure the requested level of confidentiality
 
 | Website Account Profile
 | Limited
-| Access to this content requires successful authentication by login / password
+| Access to this content requires successful authentication by login/password
 
 | Account history
 | Reserved
-| Access to this content is reserved for authorized operators, only via PL / SQL queries from the database
+| Access to this content is reserved for authorized operators, only via PL/SQL queries from the database
 
 | Logs of user activities
 | Reserved
@@ -557,12 +552,12 @@ So this is client-only encryption. Loss of password renders data unrecoverable. 
 Also consider the confidentiality of derived data:
 
 * encryption of backups;
-* encryption of client data for heavy applications. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (encfs, TrueCrypt, etc.)
+* encryption of client data for heavy applications. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
 ====
 
 === Identification
 
-Measures meeting the "requirements-identification, identification requirements":
+Measures meeting the <<identification-requirements>> :
 
 _Example 1: The user ID of the application will be the uid attribute of the DNs `cn = XXX, ou = service1, dc = company, dc = com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou = my application, dc = company, dc = com`._
 
@@ -570,13 +565,13 @@ _Example 2: To ensure that the IDs of deleted accounts are not reused, a history
 
 === Authentication
 
-Measures meeting the `` authentication requirements, authentication requirements '':
+Measures meeting the <<authentication-requirements>>:
 [TIP]
 ====
 For password authentication, describe how it is stored and verified. Also remember to describe the password change solutions.
 ====
 ====
-Example 1: The authentication of registered Internet users will be done by login / password (respecting the P password policy)
+Example 1: The authentication of registered Internet users will be done by login/password (respecting the company password policy)
 ====
 ====
 Example 2: The authentication of Internet users upon registration will be done by entering the Internet user code appearing on the invoices + the value of the last invoice and then by activating the account via a link appearing in a verification email.
@@ -585,14 +580,14 @@ Example 2: The authentication of Internet users upon registration will be done b
 Example 3: when creating a new transfer beneficiary in the internet space, the user will have to provide a unique password from their OTP token in addition to being authenticated.
 ====
 ====
-Example 4: Passwords will in no case be kept but stored in the form of digest bcrypt.
+Example 4: Passwords will in no case be kept but stored in the form of bcrypt digest.
 ====
 
 ==== Service accounts
 
 [TIP]
 ====
-Service accounts are used for authentication to a technical component from a batch or an API.
+Service accounts should only be used for authentication to a technical component from a batch or an API.
 ====
 
 .Service accounts
@@ -601,13 +596,13 @@ Service accounts are used for authentication to a technical component from a bat
 | Account | Resource requiring authentication | how credentials are stored
 
 | JDBC accounts (one account per database) | PG and SqlServer instances.
-| Clear storage in the configuration of data sources. Valued from API Salt pilars.
+| Clear storage in the configuration of data sources. Valued from a vault.
 |====
 
 
 === Identity federation
 
-Measures meeting the "federation-identity requirement, identity federation requirements":
+Measures meeting the <<identity-federation-requirements>>:
 
 [TIP]
 ====
@@ -617,26 +612,26 @@ For Web applications, specify the browser constraints (activation of cookies in 
 ====
 
 ====
-Example: The general public GUI will allow France Connect identification and authentication (based on OIDC) so that users can use their DGFiP or CNAM account to identify and authenticate themselves. The authentication kinematics will be as follows: <draw a diagram>
+Example: The end-user website leverages Google https://developers.google.com/identity/protocols/oauth2/openid-connect[OIDC API] to handle authentication. 
 ====
 
 === SSO, SLO
 
-Measures meeting the "SSO and SLO Requirements":
+Measures meeting the <<sso-requirements>>:
 [TIP]
 ====
-Detail the chosen technology and its integration. Some common solutions: CAS, OpenAM, LemonLDAP :: NG. For Web applications, specify the browser constraints (activation of cookies in particular).
+Detail the chosen technology and its integration. Some common solutions: Keycloak, Shibboleth, CAS, OpenAM. For Web applications, specify the browser constraints (activation of cookies in particular).
 ====
 ====
-Example 1: The GUI X will integrate a CAS spring-security client for SSO. The CAS server used will be YYY. Its authentication realm will be the AD Y directory.
+Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Shibboleth server used will be YYY. Its authentication realm will be the AD Y directory.
 ====
 ====
-Example 2: Like all business portal applications, GUI X will have to manage disconnection callbacks from the CAS server following an SLO request.
+Example 2: Like every business portal applications, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
 === Non-repudiation
 
-Measures meeting the "Non-repudiation requirements":
+Measures meeting the <<non-repudiation-requirements>>:
 
 ====
 Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component according to the following architecture: <diagram>.
@@ -644,7 +639,7 @@ Example: The tax return will be signed by the user's client certificate (X509, R
 
 === Anonymity and privacy
 
-Measures meeting the `` anonymity requirement, anonymity and privacy requirements '':
+Measures meeting the <<privacy-requirements>>:
 
 ====
 Example 1: an internal audit will be carried out once a year on the content of the database data and the extractions intended for partners.
@@ -658,17 +653,17 @@ Example 3: the cookie acceptance banner will be implemented on all pages of the 
 
 === Authorizations
 
-Measures meeting the `` Authorization requirements '':
+Measures meeting the <<authorization-requirements>>:
 ====
 Example 1: Authorization management will be managed by application and stored in the PostgreSQL application database. These tables will be described in the specification file.
 ====
 ====
-Example 2: Obtaining the Facebook address book will be in OAuth2. We will use the Google Oauth2 Java API.
+Example 2: Obtaining the Facebook address book will be in OAuth2. We will use the Google OAuth2 Java API.
 ====
 
 === Traceability, auditability
 
-Measures meeting the `` traceability requirement, traceability and auditability requirements '':
+Measures meeting the <<traceability-requirements>>:
 
 ====
 Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana. <diagram>
@@ -677,13 +672,13 @@ Example 1: At the end of each business action, the ReactJS application will invo
 Example 2: the hybrid IDS tool (network + host) OSSEC will be installed on all the machines used by the application.
 ====
 ====
-Example 3: The tables X, Y, .. will be historized according to the following principle:… <class diagram>
+Example 3: The tables X, Y, .. will store data in a historical way according to the following principle:… <class diagram>
 ====
 ====
-Example 4: all the documents used as proof will be archived in the EDM.
+Example 4: all the documents used as proof will be archived.
 ====
 ====
-Example 5: The logs containing the term[PROOF] and from all the components will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the MongoDB "evidence" database.
+Example 5: The logs containing the `[PROOF]`` tag  nd from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
 
@@ -693,9 +688,7 @@ Example 5: The logs containing the term[PROOF] and from all the components will 
 
 [TIP]
 ====
-Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly baon the TOP 10 OWASP. For the TOP 10 mobile applications, adapt this list with the TOP 10 mobile.
-
-Of course, there are many other control points depending on the context of the application
+Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. For the TOP 10 mobile applications, adapt this list with the TOP 10 mobile. Of course, there are many other control points depending on the context of the application.
 ====
 
 Self-checking checklist to take into account common vulnerabilities
@@ -719,7 +712,7 @@ Self-checking checklist to take into account common vulnerabilities
 
 | Bypassing access control
 | X
-| Use of SSO CAS, see chapter 3
+| Use of SSO CAS
 
 | SQL injection
 | X
@@ -739,28 +732,28 @@ Self-checking checklist to take into account common vulnerabilities
 
 | XSS
 | X
-a |
-* _Use of escapement library. For Java modules we will use StringEscapeUtils.escapeHtml4 () from commons-lang_
-* __Use of HTTP headers: X-Frame-Options SAMEORIGIN, X-XSS-Protection 1; mode = block, X-Content-Type-Options nosniff, Content-Security-Policy, X-XSS-PROTECTION (to prevent hijacking of browser anti-XSS measuress) __
-* __ Systematic specification of encoding in the Content-Type response header (eg: text / html; charset = UTF-8) to counter attacks based on special characters bypassing anti-XSS__
+a|
+* _Use of escapement library. For Java modules we will use StringEscapeUtils.escapeHtml4() from commons-lang_
+* __Use of HTTP headers: X-Frame-Options SAMEORIGIN, X-Content-Type-Options nosniff, Content-Security-Policy__
+* __ Systematic specification of encoding in the Content-Type response header (eg: text/html; charset=UTF-8) to counter attacks based on special characters bypassing anti-XSS__
 
 | ReDOS
 | X
-| Checking that regular expressions used by anti-XSS measures are not eligible for this type of attack, see https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS
+| Checking that regular expressions used by anti-XSS measures are not eligible for this type of https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS[attack]
 
 | Direct reference to an object
 | X
-| Checking with each request that the arguments passed correspond to the identified person. For example, any request contains its ID and a request verifies that the file it is trying to consult belongs to it well before continuing with the initial request.
+| Checking with each request that the arguments passed correspond to the identified person. For example, any request contains its ID and a request verifies that the file she is trying to consult belongs to her well before continuing with the initial request.
 
 | Planning for security updates
 | X
-a |
+a|
 * __Centos updates will be scheduled every first Wednesday of the month__
 * __Wildfly updates are applied no more than two weeks after release__
 
 | Sensitive data exposure
 | X
-a |
+a|
 * __All security algorithms are up to date: at least SHA-256, AES 256__
 * __The SSL V2 and V3 is disabled on the Apache side following the DROWN flaw (SSLProtocol all -SSLv2 -SSLv3) __
 * __The application only works in HTTPS__
@@ -772,25 +765,25 @@ a |
 
 | Lack of access control at the functional level
 | X
-a |
-* __ Implementation of the authorization policy described in chapter 2__
+a|
+* __ Implementation of the authorization policy__
 * __Functional testing campaign__
 
 | Log injection
 | X
-a |
+a|
 * __Escaping logs before sending them to log4j__
 * __Verification of log consultation tools__
 
 | HTTPS attacks + CRIME / BREACH compression
 | X
-a |
+a|
 * __Disabling HTTPS compression at Apache level: SSLCompression off __
 * __Anti-CSRF measures__
 
 | Upload malicious files
 | X
-| Validation of attachments by the anti-virus clamav
+| Validation of attachments by the anti-virus ClamAV
 
 |===
 

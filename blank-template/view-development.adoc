@@ -19,7 +19,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 
 === Reference Documentation
 
-. Development documentary references
+.Development documentary references
 [cols="1,1,4,4"]
 |====
 | N ° | Version | Document title / URL | Detail
@@ -30,7 +30,7 @@ The project glossary is available at link:glossaire.adoc[here]. We will not rede
 
 === Points subject to further study
 
-Points subject to further study
+.Points subject to further study
 [cols="1,1,1,1,1"]
 |====
 | ID | Detail | Status | Subject holder | Deadline
@@ -40,7 +40,7 @@ Points subject to further study
 
 === Assumptions
 
-.Hypotheses
+.Assumptions
 [cols="1,4"]
 |====
 | ID | Detail
