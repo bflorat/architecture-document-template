@@ -20,7 +20,7 @@ System_Boundary(si, "Information System") {
     Container(static_resources, "gui-allmydata Web Application", "Container: nginx", "Deliver the static resources (js, html, images ...) of the AllMyData GUI")
     Container(sm, "service-allmydata", "Container: Tomcat, Spring Boot", "REST service allowing to request information")
     Container(batch, "batch-process-requests", "Container: groovy", "Process requests, launched by cron every minute")
-    ContainerDb(file, "file-requests", "Container: RabbitMQ", "Stores requests")
+    ContainerDb(queue, "requests-queue", "Container: RabbitMQ", "Stores requests")
     ContainerDb(bdd, "bdd-allmydata", "Container: PostgreSQL", "Internal database")
     Container(compo, "service-compo-pdf", "Container: Wildfly, JasperReport", "Composition REST service")
     Container(smails, "mail server", "Container: Postfix", "Send emails")
