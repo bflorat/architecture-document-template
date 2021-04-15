@@ -68,7 +68,7 @@ Briefly describe the project and recall its objectives. Highlight those which ar
 Example 1: This application allows suppliers invoices dematerialization and easy consultation of these documents by the accounting services.
 ====
 ====
-Example 2: This project is the rewrite in web technologies of the X legacy application.
+Example 2: This project is the rewrite in web technologies of the X legacy application. It should ease the maintenance.
 ====
 ====
 Example 3: The X application is one of the main components of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
@@ -103,7 +103,7 @@ List of internal actors
 | Actor | Description | Population | Location
 
 | Administration system B
-| provides company accounting data
+| Provides company accounting data
 | N/A
 | Berlin site
 
@@ -122,11 +122,11 @@ List of external actors
 | Actor | Description | Population | Location
 
 | Web client
-| Business from a PC
+| A company from a PC
 | Max 1M
 | 10 calls to the GUI per session, one session per day and per actor
 | Mobile client
-| A business from a mobile
+| A company from a mobile
 | Max 2M
 | Worldwide
 |===
@@ -211,9 +211,9 @@ Present here the application as a whole (without detailing its sub-components) i
 
 Summarize :
 
- * The type of architecture (client-server, monolithic Web, SOA, micro-service ...).
- * Large flows between components or between applications in the case of monoliths.
- * Any exceptions.
+ * The kind of architecture (client-server, monolithic Web, SOA, micro-service...).
+ * Large network flows between components or between applications in the case of monoliths.
+ * Any derogation to applicable architectural rules.
 
 The choice of representation is free but a C4 diagram from System Landscape or a UML2 component diagram seems the most suitable.
 
@@ -226,10 +226,10 @@ Do not include specific infrastructure system (SMTP server, security device, rev
 Example 1: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration.
 ====
 ====
-Example 2: AllMyData is made up of several independent microservices (GUI components, batches or REST services)
+Example 2: AllMyData is made up of several independent microservices (GUI components, batches or REST services).
 ====
 ====
-Example 3: Following the exemption from the DSI on August 03, 20xx, the GUI will be in SPA (Single Page Application) architecture
+Example 3: Thanks to the August 03, 20xx derogation, the GUI will be written using an SPA (Single Page Application) technology.
 ====
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
@@ -249,11 +249,8 @@ If the application is particularly complex, draw a diagram for each linking chai
 Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
 The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer : this level of detail will be given in the infrastructure section).
 
-For each stream, give the protocol, a synchronous / asynchronous attribute, a read / write / execute attribute and a description so that the scheme is self-supporting.
+For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
 ====
-
-NOTE: This is only a suggestion because writing the detailed application architecture largely depends on the project and its complexity. For a relatively complex project, it may be useful to subdivide it into the following subsections:
-
 
 === Principles that dictated the choices
 
@@ -298,7 +295,7 @@ image::diagrams/detailed-application-architecture-dynamic.svg[Detailed applicati
 
 [TIP]
 ====
-List here the main flows of the application.
+List here the main network flows of the application.
 
 Do not detail the monitoring or clustering streams for example. Indicate the type of network (LAN, WAN).
 ====
