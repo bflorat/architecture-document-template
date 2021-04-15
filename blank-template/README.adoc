@@ -4,7 +4,7 @@
 # Architecture document
 Last modified: {localdate} {localtime}
 
-*Status*: 
+*Status*: ...
 
 This document is made up of:
 
