@@ -227,11 +227,11 @@ Example 2: The static pages of the site must follow good SEO practices to optimi
 
 === Software stack
 
-==== Technical stream selected
+==== Stack profile
 
 [TIP]
 ====
-Detail the technologies chosen from the technologies in the organization's catalog. If there are any discrepancies with the catalog, specify and justify it.
+Detail the technologies chosen from the technologies profiles in the organization's catalog. If there are any discrepancies with the catalog, specify and justify it.
 ====
 ====
 Example: this application has profile P3: "Spring Web Application" with exceptional use of the JasperReport library.
@@ -240,7 +240,7 @@ Example: this application has profile P3: "Spring Web Application" with exceptio
 Example: Using Reacts.js on an experimental basis within the organization. Validated in architecture committee on ...
 ====
 
-==== Software components
+==== Software stack
 
 [TIP]
 ====
@@ -530,6 +530,7 @@ How do we deal with errors? Examples of points to be addressed:
 * Do we display full stack-traces? if so, server side and client side?
 * Do we manage replay? if so, do we space the replay?
 * How do we manage timeouts?
+* How do we manage functional discards ? (i.e. what to do with partial or erroneous requests?)
 
 ====
 ====
@@ -746,7 +747,7 @@ Example 2 (Client side)
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).
 ====
 
-=== Provisionning and data updates
+=== Provisioning and DDL updates
 
 [TIP]
 ====
@@ -754,5 +755,5 @@ Describe how the DDL (Database tables definition) and the initial data (such as 
 ====
 
 ====
-Example: we will use LiquiBase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
+Example: we will use Liquibase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
 ====
