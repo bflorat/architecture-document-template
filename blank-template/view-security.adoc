@@ -14,7 +14,7 @@ This is the security point of view. It describes all the measures implemented to
 
 The other views of the document are accessible at link:./README.adoc[from here].
 
-The project glossary is available at link:glossaire.adoc[here]. We will not redefine the functional or technical terms used here.
+The project glossary is available at link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 === Reference Documentation
 
