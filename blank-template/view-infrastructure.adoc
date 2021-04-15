@@ -11,7 +11,7 @@ Last modified: {docdate}
 == Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all the devices ensuring their proper functioning.
 
-The other parts of the file are accessible at link: ./ README.adoc [from here].
+The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link: glossary.adoc [here]. We will not redefine the functional or technical terms used here.
 

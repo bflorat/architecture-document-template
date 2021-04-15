@@ -12,7 +12,7 @@ Last modified: {docdate}
 
 This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 
-The other views of the document are accessible at link:./README.adoc[from here].
+The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 

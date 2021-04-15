@@ -11,8 +11,7 @@ Last modified: {docdate}
 == Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all technical components involved.
 
-The other views of the document are accessible at link:./README.adoc[from here].
-
+The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 [TIP]
