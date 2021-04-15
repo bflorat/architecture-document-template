@@ -97,6 +97,8 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 | ID beach | Hours | Detail
 
+| | |
+
 |====
 
 === Availability requirements
@@ -107,6 +109,8 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 [cols = "1.5"]
 |====
 | ID Beach | Maximum downtime
+
+||
 
 |====
 
@@ -175,11 +179,11 @@ Infrastructure components
 
 === Operation
 
-==== SStop/start-up sequence
+==== Stop/start-up sequence
 
 ==== Scheduled operations
 
-==== Maintenance procedure
+==== Switch to maintenance mode procedure
 
 ==== Backups and restores
 

@@ -803,7 +803,7 @@ Include useful information about the network being used in order to assess the p
 
 [TIP]
 ====
-Give here an overall view of the environments used by the application. The most common environments are: development, acceptance, pre-production/benchmarks, production, training.
+Give here an overall view of the environments used by the application. The most common environments are: development, testing, acceptance, pre-production/benchmarks, production, training.
 
 It is often useful to subdivide environnements into 'platforms' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 
@@ -969,7 +969,7 @@ Example 1: the `process-demand` job will be launched every 5 mins by JobSchedule
 Example 2: the internal `ti_index` process is a Java class calling` REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
 ====
 
-==== Maintenance procedure
+==== Switch to maintenance mode procedure
 
 [TIP]
 ====

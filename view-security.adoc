@@ -248,7 +248,7 @@ It is possible to require several occurrences of the same factor, use as many cr
 [cols="e,e,e,e,e,e,e,e"]
 |====
 | Authentication case
-| Password respecting the P password policy
+| Password respecting the company password policy
 | Known ssh public key
 | OTP by Token
 | Biometrics

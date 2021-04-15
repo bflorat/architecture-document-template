@@ -111,7 +111,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 [cols="1,1,1,1,1,1,1,1"]
 |====
 | Authentication case
-| Password respecting the P password policy
+| Password respecting the company password policy
 | Known ssh public key
 | OTP by Token
 | Biometrics
