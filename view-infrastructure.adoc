@@ -207,7 +207,7 @@ Disasters can be classified into three categories :
 
 * Natural (earthquakes, floods, hurricanes, hot weather...).
 * Incident in the datacenter (accidental like industrial accidents, fires, major electrical failures, major network/storage/compute hardware outages, major sysadmin errors or intensional: military, terroristic, sabotage...).
-* Cyber: DDOS, virus, Ransomware...
+* Cyber: DDOS, virus, ransomware...
 
 Some BCP leverage High Availability (HA) architectures to allow continuity of critical IT activities of the organization during a disaster without notable interruption. Basically, a DRP focus on how to restore an IS after a disaster while HA architecture focus on making it work even when a disaster occurs.
 
@@ -238,8 +238,8 @@ Example 2: Two spare servers are available in the London site. Business data is 
 
 === Hosting
 
-* Where will this application be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
-* Who will operate this application? internally? Outsourced? No administration at all (PaaS) ...?
+* Where will this application modules be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
+* Who will operate this application modules? internally? Outsourced? No administration at all (PaaS) ...?
 
 ====
 Example 1: This application will be hosted internally in the NYC datacenter (the sole to ensure the required service availability) and will be operated by the Boston team.
@@ -304,7 +304,7 @@ Example 1: The maximum disk space that can be provisioned by a project for backu
 
 Example 2: the maximum retention period for backups is two years
 
-Example 3: Count 1 min / GiB for a NetBackup restore.
+Example 3: Count 1 min/GiB for a NetBackup restore.
 ====
 
 === Costs
@@ -321,11 +321,11 @@ Example 1: AWS Cloud service charges should not exceed $5K/year for this project
 
 [TIP]
 ====
-Contrary to the constraints which fixed the boundaries to which any application had to conform, the non-functional requirements are given by the project stakeholders.
+Contrary to the constraints which fixed the boundaries to which any application had to conform, the non-functional requirements are given by the project decision-makers.
 
 Schedule interviews to collect requirements. To result into something useful, interviews must be educational, recall the constraints and highlight realistic costs.
 
-If certain requirements are still not realistic, mention it in the document of unresolved points.
+If certain requirements are still not realistic, mention it in the "Points subject to further study" section.
 
 ====
 
@@ -369,7 +369,7 @@ We list the availability requirements here. The technical measures to achieve th
 
 These information can be used as input to the application *SLA*.
 
-Be careful to frame these requirements because a project leader often tends to request very high availability without always realizing the implications. The cost and complexity of the solution increases exponentially with the level of availability required.
+Be careful to frame these requirements because decision-makers often tends to request very high availability without always realizing the implications. The cost and complexity of the solution increases exponentially with the level of availability required.
 
 The physical, technical or even software architecture can be completely different depending on the availability requirements (middleware or even database clusters, expensive hardware redundancies, asynchronous architecture, session caches, failover, etc.).
 
@@ -439,11 +439,11 @@ Data restoration occurs mainly in following cases:
 * Hardware data loss (unlikely with redundant systems).
 * A power-user or operator error (quite common).
 * An application bug.
-* A deliberate destruction of data (ransomware type attack) ...
+* A deliberate destruction of data (ransomware-type attack) ...
 
 ====
 ====
-Example: we must not be able to lose more than one working day of application data.
+Example: we shouldn't loose more than one working day of application data.
 ====
 
 === Archiving requirements
@@ -461,7 +461,7 @@ Specify whether specific integrity protection measures (mainly to prevent any mo
 Example 1: As required by Sec. 31 of the Accounting Act (Act No. 563/1991 Coll.), accounting data must be kept for at least five years.
 ====
 ====
-Example 2: The accounting documents must be kept online (in database) for at least two years then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at the time of archiving and stored separately for document integrity verification if needed.
+Example 2: The accounting documents must be kept online (in database) for at least two years, then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at the time of archiving and stored separately for document integrity verification if needed.
 ====
 
 === Purge requirements
@@ -504,8 +504,8 @@ Specify here how the application should be deployed on the client side:
 * If the application is large (large .js files or images for example), is there a risk of an impact on the network?
 * Local proxy caching to be expected?
 * Are firewall rules to be expected?
-* (For a Java application) : which version of JRE is needed on clients?
-* (For a standalone application) : which version of the OS is supported?
+* (For a Java application): which version of JRE is needed on clients?
+* (For a standalone application): which version of the OS is supported?
 * If the OS is Windows, does the installation go through a deployment tool (Novell ZENWorks for example)? Does the application come with a Nullsoft-style installer? Does it affect the system (environment variables, registry, etc.) or is it in portable mode (single zip)?
 * If the OS is Linux, should the application be provided as a package?
 * How are the updates applied?
@@ -521,7 +521,7 @@ Specify here how the application should be deployed on the client side:
 ====
 
 ====
-Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the latest version.
+Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the new version.
 ====
 
 === Concurrency management requirements
@@ -534,7 +534,7 @@ Specify the internal or external components that may interfere with the applicat
 Example 1: All components of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
 ====
 ====
-Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data will be corrupted.
+Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
 ====
 
 === Ecodesign requirements
@@ -545,7 +545,7 @@ Ecodesign consists of limiting the environmental impact of the software and hard
 
 Also take into account impressions.
 
-The CO2 equivalent emissions of one KWH in France for the tertiary sector is 50g/KWH.
+Check out the EPA's Greenhouse Gas Equivalencies Calculator for CO2/KWH equivalency.
 ====
 ====
 Example 1: The average power consumption caused by the display of a Web page should not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 working days per year: 50g/KWH x 10mWH x 100 x 10K x 200 = 100 Kg of CO2 equivalent/year.
@@ -621,8 +621,8 @@ We can group availability measures into four main categories:
 ** *passive in “warm standby” mode*: the node is started and the application is installed but not started (example: a server with a turned off Tomcat instance hosting our application). In case of failure, the application is started automatically. MTTR: of the order of a minute (time for detection of the failure and activation of the application);
 ** *passive in "cold standby" mode*: the node is a simple spare. To use it, we have to install the application, configure and start it. MTTR: from tens of minutes with virtualization solutions (eg: KVM live migration) and/or containers (Docker) to several hours on systems where none automatic deployment features are available.
 * There are two active/active cluster architectures:
-** *Loosely coupled active/active clusters* in which one node is completely independent from the others, either because the application is stateless (the best case), or because the context data (typically an HTTP session) is managed in isolation by each node. In the latter case, the load balancer must ensure session affinity, i.e., always route requests from a client to the same node and in the event of failure of this node, the users routed there lose their session data and need to reconnect (Note: the nodes all share the same data persisted in the database, the context data is only transient data in memory).
-** *Strongly coupled active/active clusters* in which all nodes share the same data. In this architecture, all context data must be replicated in all nodes (e.g. distributed cache of HTTP sessions replicated with JGroups).
+** *Loosely coupled active/active clusters* in which one node is completely independent from the others, either because the application is stateless (the best case), or because the context data (typically an HTTP session) is managed in isolation by each node. In the latter case, the load balancer must ensure session affinity, i.e., always route requests from a client to the same node and in the event of failure of this node, the users routed there lose their session data and need to reconnect (Note: the nodes all share the same data persisted in the database, the context data on each node is only transient data in memory).
+** *Strongly coupled active/active clusters* in which all nodes share the same data. In this architecture, all context data must be replicated in every node (e.g. distributed cache of HTTP sessions replicated with JGroups).
 ====
 
 [TIP]
@@ -644,7 +644,7 @@ A failover solution can be described by the following attributes:
 * What strategy for *failback*?
 ** in an *N-to-1* cluster, we will failback on the server which had broken down once repaired and the failed server will become the backup server again;
 ** in an *N-to-N* cluster (an architecture in the process of democratization with the PaaS type cloud like AWS Lambda or CaaS like Kubernetes): the services previously running on the failed node are distributed to the remaining nodes (the cluster having been sized in anticipation of this possible overload).
-* *Transparent for the caller or not*? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Some Fault Tolerant systems or architectures can make it transparent for the client.
+* *Transparent for the caller or not*? In general, the requests pointing to a server whose failure has not yet been detected fall in error (in timeout most of the time). Some advanced Fault Tolerant systems or architectures can make it transparent for the client.
 
 ====
 [TIP]
@@ -652,10 +652,10 @@ A failover solution can be described by the following attributes:
 A few words about *load balancers*:
 
 * A load balancer (LB) is a *mandatory brick* for an active/active cluster.
-* In the case of clusters, a classic error is to make LB a *SPOF*. We would then reduce the total availability of the system instead of improving it. In most of the clusters with a availability vocation (i.e. not only performance-oriented), it is necessary to redundant the LB itself in active/passive mode (obviously not in active/active mode otherwise, we would only shift the problem). The passive LB must monitor the active LB at high frequency and replace it automatically as soon as it falls.
+* In the case of clusters, a classic error is to make LB a *SPOF*. We would then reduce the total availability of the system instead of improving it. When dealing with the clusters with a availability vocation (i.e. not only performance-oriented), it is necessary to redundant the LB itself in active/passive mode (obviously not in active/active mode otherwise, we would only shift the problem). The passive LB must monitor the active LB at high frequency and replace it automatically as soon as it falls.
 * It is crucial to configure correctly and at a sufficient frequency the *heath checks* to the destination nodes because otherwise the LB will continue to send requests to failed or overloaded nodes.
 * Some advanced LBs (example: `redispatch` option of HAProxy) allow the failover process to be transparent seen from the client by retrying to other nodes in the event of a failure or timeout and therefore improve fault tolerance since we avoid to return an error to the caller during the fault pre-detection period.
-* *Don't always use Round Robin load repartition algorithm*. A simple algorithm is the LC (Least Connection) allowing the LB to favor the least loaded nodes. Other clever algorithms exist and can be taken into consideration (weight systems per node or combination load + weight for example). However, make sure to carefully test and understand the chosen algorithm implications to avoid overall failures.
+* *Round Robin load repartition algorithm is not always the best choice*. A simple algorithm is the LC (Least Connection) allowing the LB to favor the least loaded nodes. Other clever algorithms exist and can be taken into consideration (weight systems per node or combination load + weight for example). However, make sure to carefully test and understand the chosen algorithm implications to avoid overall failures.
 * In the Open-Source world, see for example LVS + keepalived or HAProxy + keepalived.
 
 ====
@@ -804,22 +804,22 @@ Include useful information about the network being used in order to assess the p
 ====
 Give here an overall view of the environments used by the application. The most common environments are: development, testing, acceptance, pre-production/benchmarks, production, training.
 
-It is often useful to subdivide environnements into 'platforms' made up of a set of technical components isolated from each other (although they may share common resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
+It is often useful to subdivide environnements into 'platforms' made up of a set of technical components isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 
 .Environments
 [cols = '1,2,2,2']
 |====
-| Environment | Role | Content | Corridor
+| Environment | Role | Content | Nb of platforms
 
 | Development
 | Continuous deployment (CD) for developers
 | `Develop` branch deployed on each commit
-| One
+| 1
 
-| Recipe
-| Functional recipe by testers
+| Acceptance
+| UAT
 | Tag deployed at the end of each Sprint
-| UAT1 and UAT2
+| 2 (UAT1 and UAT2)
 ====
 
 === Ecodesign
@@ -830,11 +830,11 @@ List here the infrastructure measures to meet the "Ecodesign Requirements".
 
 The solutions are often the same as those to performance requirements. In this case, just refer to it.
 
-However, ecodesign analyzes and solutions can be specific to this theme. Some avenues for improving energy performance:
+However, ecodesign analyzes and solutions can be specific to this theme. Some tips for improving energy performance:
 
 * Measure the electrical consumption of the systems with the http://www.powerapi.org/[PowerAPI] probes (developed by INRIA and the University of Lille 1).
 * Use caches (opcode cache, memory caches, HTTP caches ...).
-* For large projects or as part of the use of a CaaS cloud, using containers makes it possible to greatly optimize VMs or physical machines (especially when dealing with RAM consumption).
+* Use containers to greatly optimize VMs or physical machines usage (especially when dealing with RAM consumption).
 * Host servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises ones. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). Some DC can achieve PUE as low as 1.2 against 2.5 on average (2017).
 * However :
 ** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org[the use of energy from coal and nuclear] by Amazon);
@@ -925,7 +925,7 @@ If this application remains in the organization's standard, simply refer to any 
 ====
 Specify the starting and the stopping sequence of devices and components required to run the application modules. Depending on the situation, you can include some external components or not.
 
-Some others operations documents will contain a more precise version of this chapter (for instance using detailed SystemD "Wants"), we only describe here the general principles.
+Some others operations documents will contain a more precise version of this chapter (for instance using detailed SystemD "Wants"), only describe here the general principles.
 
 Starting sequence is generally done in the reverse direction of the linking chains and stopping in the direction of the linking chain. Most of the time, the stopping sequence is simply the reversed sequence version of the starting sequence.
 
@@ -965,14 +965,14 @@ List macroscopically (don't try to make it exhaustive, we just need jobs streams
 Example 1: the `process-demand` job will be launched every 5 mins by JobScheduler.
 ====
 ====
-Example 2: the internal `ti_index` process is a Java class calling` REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
+Example 2: the internal `ti_index` process is a Java class calling `REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
 ====
 
 ==== Switch to maintenance mode procedure
 
 [TIP]
 ====
-Explain (if necessary) the measures and procedures allowing to put the application 'offline' explicitly for the users.
+Explain (if necessary) the measures and procedures allowing to put the application offline explicitly for the users.
 ====
 ====
 Example: We will use the F5 BigIp LTM to display an unavailability page.
@@ -985,7 +985,7 @@ Example: We will use the F5 BigIp LTM to display an unavailability page.
 Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration measures must be compatible with the "Availability Requirements":
 
 * Are backups hot ? Cold ?
-* Which data should be saved? (carefully select the data to be backed up because the total volume of the backup set can easily reach ten times the backed up volume).
+* Which data should be saved? (carefully select the data to be backed up because the cumulative volume of the backups set can easily reach ten times the backed up volume).
 ** system images / snapshots for server or VM recovery?
 ** full filesystems or directories?
 ** databases in dump format? binary format?
@@ -1014,8 +1014,8 @@ We recommend :
 Rollover example: set of 21 backups over one year:
 
 * 6 daily incremental backups;
-* 1 full backup on Sunday which serves as a weekly backup;
-* 3 weekly backups corresponding to the 3 other Sundays. The support of the last Sunday of the month becomes the monthly backup;
+* 1 full backup on sunday which serves as a weekly backup;
+* 3 weekly backups corresponding to the 3 other sundays. The support of the last sunday of the month becomes the monthly backup;
 * 11 monthly backups corresponding to the last 11 months.
 ====
 
@@ -1023,7 +1023,7 @@ Rollover example: set of 21 backups over one year:
 
 [TIP]
 ====
-Describe the measures making it possible to meet <<archiving- requirements>> with the following storage methods:
+Describe the measures making it possible to meet <<Archiving requirements>> with the following storage methods:
 
 * Technology: ideally, the archive will be duplicated for security on several media of different technologies (tape + hard disk for example).
 * Specific storage location separated from the backups (in a bank safe for example).
@@ -1036,7 +1036,7 @@ Example: Bank statements older than 10 years will be archived on LTO tape and ha
 
 [TIP]
 ====
-List here the technical measures that meet the <<purge-exigences>>.
+List here the technical measures that meet the <<Purge requirements>>.
 ====
 ====
 Example: the history of accesses will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM mytable WHERE ...) TO '/tmp/dump.tsv'` then purged by an SQL request `DELETE` after validation by the operator of the completeness of the dump.
@@ -1092,6 +1092,7 @@ Example: we measure the percentage of wait-io and the server load.
 [TIP]
 ====
 List the application metrics (developed internally). They can be technical or functional:
+
 * Number of requests to access a screen.
 * Number of contracts processed per hour.
 * ...
@@ -1115,7 +1116,7 @@ Such a tool (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
 * Allows setting alert thresholds based on indicators and notifying operators in the event of exceeding.
 ====
 ====
-Example: the management of the monitoring will be based on the Nagios platform.
+Example: the management of the monitoring will be based on the Grafana platform.
 ====
 
 ===== Alerting
@@ -1145,7 +1146,7 @@ Do the jobs have to produce an execution report? in what form and with what cont
 Example 1: the jobs will be scheduled by the JobScheduler instance of the organization.
 
 * The jobs should never run on public holidays.
-* Their execution will be limited to the periods 23h00-06h00. Their schedule must therefore be in this range or they will not be launched.
+* Their execution will be limited to the periods 11h00pm-06h00am. Their schedule must therefore be in this range or they will not be launched.
 * We will not launch more than five instances of the job J1 in parallel.
 
 Example 2: The jobs will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
@@ -1159,7 +1160,7 @@ It is also highly desirable and inexpensive to provide a black box monitoring te
 
 In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
 
-In general, they don't perform update actions but only read-only ones. If this is the case, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
+In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
 ====
 ====
 Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
@@ -1180,7 +1181,7 @@ This allows:
 There are three main groups of solutions:
 
 * APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in Open-Source ...). Check that the overhead of these solutions is still negligible or limited and that the stability of the application is not jeopardized.
-* "In-house" metrology by logs if the requirements are low.
+* In-house metrology by logs if the requirements are low.
 * External query sites which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with black-box monitoring (see above).
 ====
 ====
@@ -1193,7 +1194,7 @@ Example: site performance will be continuously monitored by `pingdom.com`. More 
 ====
 This chapter describes a possible migration from an old system.
 
-Describe on a macroscopic scale the planned procedure as well as the planned backtracking.
+Describe on a macroscopic scale the planned procedure as well as the rollback strategy in case of problem.
 
 Describe, if necessary, a dry-run operation in parallel with the old system.
 ====
