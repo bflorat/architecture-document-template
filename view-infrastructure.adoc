@@ -18,7 +18,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 ====
 This point of view deals with the infrastructure: servers, networks, operating systems, databases, middlewares, etc.
 
-In short, it covers everything that is external to the application but necessary for its execution.
+In short, it covers everything that is external to the application modules but necessary for their execution.
 ====
 
 === Reference Documentation
@@ -125,18 +125,18 @@ Example 1: The application will be supervised using Zabbix
 
 Example 2: The batches must be able to be launch using a REST endpoint
 
-Example 3: a batch in error must not be able to restart without a human acknowledgment
+Example 3: A failed batch must not be scheduled again without a human acknowledgment
 ====
 
 ==== Scheduled interruptions
 
 [TIP]
 ====
-Give here the list and the duration of the standard programmed interruptions in the IS.
+Give here the list and the duration of the standard programmed interruptions.
 ====
 
 ====
-Example 1: We estimate the interruption of each server at 5 mins per month. The effective server availability rate, taking into account scheduled system interruptions, is therefore 99.99%.
+Example 1: We estimate the interruption for maintenance of each server at 5 mins per month. The base effective server availability rate is therefore 99.99%.
 
 Example 2: following security updates to certain RPM packages (kernel, libc, etc.), the RHEL servers are restarted automatically the night of the Wednesday following the update. This will result in an downtime of 5 mins on average 4 times a year.
 
@@ -146,33 +146,32 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 [TIP]
 ====
-Give here the security level of the data center according to the Uptime Institute scale (Tier from I to IV).
-Most data centers are level I or II.
+Give here the security level of the data center according to the Uptime Institute scale (Tier from 1 to 4).
 
 .Tier levels of data centers (source: Wikipedia)
 [cols="1,1,1,1,1,1"]
 |====
 |Tier level | Features | Availability rate | Annual statistical unavailability | Hot maintenance possible? | Fault-tolerance?
 
-| Tier I
+| Tier 1
 | Not redundant
 | 99.671%
 | 28.8 h
 | No
 | No
-| Tier II
+| Tier 2
 | Partial redundancy
 | 99.749%
 | 10 p.m.
 | No
 | No
-| Tier III
+| Tier 3
 | Maintainability
 | 99.982%
 | 1.6 hrs
 | Yes
 | No
-| Tier IV
+| Tier 4
 | Fault tolerance
 | 99.995%
 | 0.4 h
@@ -182,14 +181,14 @@ Most data centers are level I or II.
 ====
 
 ====
-Example: the Madrid DC has a Tier III level and Toulouse DC has a Tier II one.
+Example: the Madrid DC is Tier 3
 ====
 
 ==== Summary of floor availability
 
 [TIP]
 ====
-Taking into account the previous elements, estimate the floor availability (maximum) of an application (excluding disaster). Any requirement should be lower than this. In the case of a cloud, use the supplier's SLA as a basis. In the case of an internally hosted application, take into account the availability of the datacenter and scheduled downtimes.
+Taking into account the previous elements, estimate the maximum floor availability of an application module (excluding disaster). Any requirement should be lower than this. In the case of a cloud, use the supplier's SLA as a basis. In the case of an internally hosted application, take into account the availability of the datacenter and scheduled downtimes.
 ====
 
 ====
@@ -202,7 +201,7 @@ Example: <datacenter availability> * <% of time not in scheduled maintenance> * 
 ====
 A Disaster Recovery Plan (DRP) contains IT procedures and systems allowing IT services to be resumed ASAP after a disaster. DRP is a subset of a Business Continuity Plan (BCP). BCP provides an holistic perspective of the business procedures and systems required for an organization to continue in case of a disaster. A DRP focus on the IT part of it.
 
-TIP: Disaster Management is a complex subject. In most cases, it is managed at an IS level. It is one of the strengths of public clouds (GCP, AWS, Azure...) to handle a part of this complexity for you. Specific offers exist: see Disaster Recovery as a Service (DRaaS).
+Disaster Management is a complex subject. In most cases, it is managed at an IS level. It is one of the strengths of public clouds (GCP, AWS, Azure...) to handle a part of this complexity for you. Specific offers exist: see Disaster Recovery as a Service (DRaaS).
 
 Disasters can be classified into three categories : 
 
