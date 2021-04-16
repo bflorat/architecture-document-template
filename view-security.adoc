@@ -17,14 +17,14 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 [TIP]
-Availability is dealt with in the infrastructure section. Even if availability concept is often handled with Integrity and Confidentiality (that's what we call the "CIA triad"), this model is role-oriented and we feel that availability is more often managed by infrastructure architects than by the security experts.
+Availability is dealt with in the infrastructure section. Even if availability concept is often handled with Integrity and Confidentiality (the "CIA triad"), this model is role-oriented and we feel that availability is more often managed by infrastructure architects than by the security experts.
 
 
 === Reference Documentation
 
 [TIP]
 ====
-Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
+Mention here the reference (defined at IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 ====
 
 .Safety documentary references
@@ -47,7 +47,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 | ES1
 | It will be necessary to validate that the anti-CSRF measures put in place also resolve the flaws linked to the TLS + compression coupling (CRIME or BREACH type).
-| IN_CURRENT
+| WIP
 | SOC team
 | BEFORE 2040
 
@@ -103,7 +103,7 @@ Integrity is about the durability, accuracy, and level of confidence in applicat
 
 Managing data integrity consists in verifying that it cannot be altered or deleted (involuntarily, following a disk crash for example) or voluntarily, for example in the context of a "man in the middle" attack or by a person who has granted himself undue rights.
 
-Be careful not to multiply the data classes. It is possible to define only one data class for the entire application (common case).
+Be careful not to multiply the data classes. It is possible to define only one data class for the entire application.
 ====
 
 .Integrity level required by data class
@@ -112,7 +112,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 | Data class
 | "Alterable" level ([small]#The data may be altered)#
 | "Detectable" level ([small]#The data may be altered if the alteration is identified within a reasonable time)#
-| "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered)#
+| "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered within a reasonable time)#
 | "Integral" level ([small]#The data must always be rigorously intact)#
 
 | Business database data
@@ -133,7 +133,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 | X
 |
 
-| Big Data datalake before consolidation
+| Big Data data lake before consolidation
 | X
 |
 |
@@ -225,14 +225,14 @@ Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 
 [TIP]
 ====
-Authentication makes it possible to verify the consistency between the identity of a user and a natural person connecting.
+Authentication makes it possible to verify the consistency between the identity of a user and a real person.
 
 Note that automatic non-human interactions (such as batches calling an API) can also be identified and authenticated (batch which uses an access-token to call a service for example).
 
 Authentication can be one or more factors (in the latter case, we speak of strong authentication). These factors can be:
 
 * Something that we *know* (typically a password).
-* Something that *is* (biometrics).
+* Something that we *are* (biometrics).
 * Something we *own* (token, unique password generator, ID document ...).
 
 Remember to describe the authentication system once registered but also during registration (i.e., the initial authentication).
@@ -282,7 +282,7 @@ It is possible to require several occurrences of the same factor, use as many cr
 ====
 Identity federation is the use of the same identity managed by an identity provider (IdP) from several different entities.
 
-For example see the “Connect with[Google | Twitter | ...]” OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login/password).
+For example, see the “Connect with[Google | Twitter | ...]” OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login/password).
 ====
 
 ====
@@ -300,12 +300,12 @@ Here we mean SSO in its fullest sense: automatic authentication to an applicatio
 
 Please note that setting up SSO can be complex, especially if the infrastructure (ID provider, etc.) does not yet exist and often requires adaptation of applications.
 
-The SSO can be requested by the end-users but this requirement must be justified. An infrequently used peripheral application or tool usually does not need SSO (a simple centralized authentication within an LDAP directory is often sufficient).
+The SSO can be requested by the end-users but this requirement must be justified. An infrequently used peripheral application or tool usually does not need SSO (a simple centralized authentication is often sufficient).
 
 Also, be careful to assess the impact that weak authentication (bad password for example) would have on the security of the entire IS.
 ====
 ====
-Example 1: No SSO is required since all application GUIs are exposed within a JSR352 portal which already manages authentication.
+Example 1: No SSO is required since all application GUIs are exposed within a JSR 352 portal which already manages authentication.
 ====
 ====
 Example 2: no need for SSO or SLO is identified
@@ -319,7 +319,7 @@ Example 3: this Web application must provide single authentication shared with t
 
 [TIP]
 ====
-List here the business actions with a non-repudiation requirement, i.e. a measure making it impossible to deny a contract by proving the identity of the two parties and the integrity of the document by digital signature.
+List here the business actions with a non-repudiation requirement, i.e., a measure making it impossible to deny a contract by proving the identity of the two parties and the integrity of the document by digital signature.
 ====
 
 .Non-repudiation needs
@@ -342,7 +342,7 @@ List the constraints of anonymity and legal privacy.
 Example 1: No data consolidation should be possible between data in the PERSON domain and in the HEALTH domain.
 ====
 ====
-Example 2: For the sake of confidentiality in the event of a computer intrusion, some personal data will be redacted before replication to the public area: cholesterol level and weight.
+Example 2: For the sake of confidentiality in the event of a computer intrusion, some personal data will be redacted before replication into the public area: cholesterol level and weight.
 ====
 ====
 Example 3: No racial, political, union, religious or sexual orientation data can be stored in any form whatsoever in the IS.
@@ -351,7 +351,7 @@ Example 3: No racial, political, union, religious or sexual orientation data can
 Example 4: The OpenData data from the “housing” domain will only contain consolidated data at the common level, not more precise.
 ====
 ====
-Example 5: In application of the European "telecom package" directive, a banner must inform the user of the presence of cookies.
+Example 5: In application of a European directive, a banner must inform the user of the presence of cookies.
 ====
 ====
 Example 6: Pursuant to the GDPR, explicit consent from users to store their personal health data will be offered.
@@ -371,13 +371,13 @@ Be careful not to multiply the number of functions and roles to avoid a combinat
 To simplify the management of authorizations by factorization, one can:
 
 * Group users into groups (like `G_chief`).
-* Associate a list of functions with a role (such as `R_administrator`,` R_banker_level_1`, `R_president`) that can be assigned to a person or to a group.
+* Associate a list of functions with a role (such as `R_administrator`,`R_banker_level_1`, `R_president`) that can be assigned to a person or to a group.
 
 Example of a classic authorization management model:
 
 image::diagrams/roles.svg[Classic role management]
 
-Remember to specify the possible pseudos-users and their roles like:
+Remember to specify the possible pseudo-users and their roles, for example:
 
 * `@anonymous`: non-authenticated people
 * `@connected`: authenticated people
@@ -396,9 +396,9 @@ Example 2: the application will rely on a matrix authorization management of the
 Example role matrix
 [cols="e,e,e,e"]
 |===
-| _Group or user_ | _Role_ `deletion` | _Role_` administration` | _Role `_ basic data consultation`
+| _Group or user_ | _Role_ `deletion` | _Role_`administration` | _Role_ `basic data consultation`
 
-| Group `g_users`
+| `g_users` group
 |
 |
 | X
@@ -413,7 +413,7 @@ Example role matrix
 | X
 | X
 
-| User `xyz`
+| `xyz` user
 | X
 |
 | X
@@ -428,26 +428,24 @@ Example role matrix
 ====
 List here the trace requirements for detecting, for example:
 
-* Misuse of Back Office applications by employees
+* Misuse of back-office applications by employees
 * Computer intrusions
-* Data modifications
+* Data alteration
 
-The traces are nominative and complete data to allow the audit. They are therefore themselves sensitive and often require a good level of confidentiality.
+The traces are nominative and complete to allow auditing. They are therefore themselves sensitive and often require a good level of confidentiality.
 
 Differentiate:
 
-* Application traces (assessment of a complete management act such as `` Agent X consulted Ms. Y's file ') in a database;
-* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level and mush more volatile.
+* Application traces, i.e., assessments of a complete use case such as 'Agent X consulted Ms. Y's file' and that are stored in databases;
+* ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level and much more volatile.
 
 For the most sensitive data, it is possible to provide traceability at two levels (tracing the consultation of traces) to avoid abusive hierarchical traceability.
 
-The traceability of the data of the repositories (base of people typically) requires a complete historization, which is in any case a good practice.
-
-To do this, provide an MCD allowing a record to be added for each change in data with a modification date and an effective date.
+The traceability of the data of the repositories (base of people typically) requires a complete historization, which is in any case a good practice. To do this, provide an MCD allowing a record to be added for each change with a modification date and an effective date.
 ====
 
 ====
-Example 1: for module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the old and the new value.
+Example 1: for module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the previous and the new value.
 ====
 ====
 Example 2: Any intrusion into the IS must be detected (as far as possible).
@@ -501,9 +499,9 @@ a|
 
 | Calculated data D1
 | Controlled
-| Storage of a SHA1 checksum, restart of the calculation automatically by batch within 24 hours.
+| Storage of a SHA1 checksum, calculation automatical control within 24 hours.
 
-| Big Data datalake before consolidation
+| Big Data data lake before consolidation
 | Alterable
 | No special measure, no backup
 
@@ -513,7 +511,7 @@ a|
 
 | Tax notice PDF
 | No alteration
-| Digital signature by the private key of the data administration D of the notice in PKCS#7 (RSA, SHA256) format with time stamp. D=base64 (net amount + date + name). The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF
+| Digital signature of the net amount + date + name in PKCS#7 (RSA, SHA256) format with timestamp. The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF.
 |===
 
 === Confidentiality
@@ -527,7 +525,7 @@ Measures meeting the <<confidentiality-requirements>>:
 
 | Editorial content
 | Public
-| None, content in HTTP and HTTPS, no authentication
+| Network flows in HTTPS, no authentication
 
 | Website Account Profile
 | Limited
@@ -544,7 +542,7 @@ Measures meeting the <<confidentiality-requirements>>:
 | HR data social assistance to employees
 | Private
 | This data is encrypted in AES 256 in the form of a BLOB in the database, sent to the Web client via the REST Y service then decrypted in the browser in the Angular application (forge.js library) via an additional password of the user (not stored on the server side). +
-So this is client-only encryption. Loss of password renders data unrecoverable. Data changed on the client is encrypted and saved back to the BLOB through the REST X service.
+This is client-side only encryption. Loss of password makes data unrecoverable. Data changed on the client is encrypted and saved back to the BLOB through the REST X service.
 |===
 
 [TIP]
@@ -552,14 +550,14 @@ So this is client-only encryption. Loss of password renders data unrecoverable. 
 Also consider the confidentiality of derived data:
 
 * encryption of backups;
-* encryption of client data for heavy applications. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
+* encryption of desktops. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
 ====
 
 === Identification
 
 Measures meeting the <<identification-requirements>> :
 
-_Example 1: The user ID of the application will be the uid attribute of the DNs `cn = XXX, ou = service1, dc = company, dc = com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou = my application, dc = company, dc = com`._
+_Example 1: The user ID of the application will be the uid attribute of the DNs `cn=XXX, ou=service1, dc=company, dc=com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou=my application, dc=company, dc= com`._
 
 _Example 2: To ensure that the IDs of deleted accounts are not reused, a history table will be added to the application and requested before any new account is created._
 
@@ -568,7 +566,7 @@ _Example 2: To ensure that the IDs of deleted accounts are not reused, a history
 Measures meeting the <<authentication-requirements>>:
 [TIP]
 ====
-For password authentication, describe how it is stored and verified. Also remember to describe the password change solutions.
+For password authentication, describe how it is stored and verified. Also remember to describe the password updating solutions.
 ====
 ====
 Example 1: The authentication of registered Internet users will be done by login/password (respecting the company password policy)
@@ -577,10 +575,10 @@ Example 1: The authentication of registered Internet users will be done by login
 Example 2: The authentication of Internet users upon registration will be done by entering the Internet user code appearing on the invoices + the value of the last invoice and then by activating the account via a link appearing in a verification email.
 ====
 ====
-Example 3: when creating a new transfer beneficiary in the internet space, the user will have to provide a unique password from their OTP token in addition to being authenticated.
+Example 3: when creating a new beneficiary in the online bank app, the user will have to provide a unique password from their OTP token in addition to being authenticated.
 ====
 ====
-Example 4: Passwords will in no case be kept but stored in the form of bcrypt digest.
+Example 4: Passwords will in no case be kept plaintext but stored in the form of bcrypt digest.
 ====
 
 ==== Service accounts
@@ -606,7 +604,7 @@ Measures meeting the <<identity-federation-requirements>>:
 
 [TIP]
 ====
-The most common solutions are currently: OpenId Connect (OIDC), SAML or Oauth 2.0 (pseudo-authentication only for the latter).
+The most common solutions are currently: OpenId Connect (OIDC), SAML or OAuth 2.0 (pseudo-authentication only for the latter).
 
 For Web applications, specify the browser constraints (activation of cookies in particular).
 ====
@@ -626,7 +624,7 @@ Detail the chosen technology and its integration. Some common solutions: Keycloa
 Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Shibboleth server used will be YYY. Its authentication realm will be the AD Y directory.
 ====
 ====
-Example 2: Like every business portal applications, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
+Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
 === Non-repudiation
@@ -634,7 +632,7 @@ Example 2: Like every business portal applications, GUI X will have to manage di
 Measures meeting the <<non-repudiation-requirements>>:
 
 ====
-Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component according to the following architecture: <diagram>.
+Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component.
 ====
 
 === Anonymity and privacy
@@ -666,7 +664,7 @@ Example 2: Obtaining the Facebook address book will be in OAuth2. We will use th
 Measures meeting the <<traceability-requirements>>:
 
 ====
-Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana. <diagram>
+Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana.
 ====
 ====
 Example 2: the hybrid IDS tool (network + host) OSSEC will be installed on all the machines used by the application.
@@ -678,7 +676,7 @@ Example 3: The tables X, Y, .. will store data in a historical way according to 
 Example 4: all the documents used as proof will be archived.
 ====
 ====
-Example 5: The logs containing the `[PROOF]`` tag  nd from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
+Example 5: The logs containing the `[PROOF]` tag from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
 
@@ -688,7 +686,7 @@ Example 5: The logs containing the `[PROOF]`` tag  nd from any component will be
 
 [TIP]
 ====
-Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. For the TOP 10 mobile applications, adapt this list with the TOP 10 mobile. Of course, there are many other control points depending on the context of the application.
+Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. Of course, there are many other control points depending on the context of the application.
 ====
 
 .Self-checking checklist to take into account common vulnerabilities
