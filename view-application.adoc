@@ -209,7 +209,7 @@ Example 2: Development should be able to take place within distributed teams, ea
 ====
 Present here the application as a whole (without detailing its sub-components) in relation to the other applications of the IS. Also present the macro-data exchanged or stored.
 
-Summarize :
+Summarize:
 
  * The kind of architecture (client-server, monolithic Web, SOA, micro-service...).
  * Large network flows between components or between applications in the case of monoliths.
@@ -247,7 +247,7 @@ Ideally, the diagram will fit on an A4 page and be self-supporting and understan
 If the application is particularly complex, draw a diagram for each linking chain.
 
 Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
-The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer : this level of detail will be given in the infrastructure section).
+The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer: this level of detail will be given in the infrastructure section).
 
 For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
 ====
