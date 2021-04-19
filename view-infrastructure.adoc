@@ -132,7 +132,7 @@ Example 3: A failed batch must not be scheduled again without a human acknowledg
 
 [TIP]
 ====
-Give here the list and the duration of the standard programmed interruptions.
+Give here the list and the duration of the standard programmed interruptions (maintenance windows).
 ====
 
 ====
@@ -341,10 +341,10 @@ The information given here will be used as input to the application SLA.
 ====
 
 ====
-Example of operating ranges
+Example of operating windows
 [cols="1e,5e,2e"]
 |====
-| No beach | Hours | Detail
+| No window | Hours | Detail
 
 | 1
 | From 8:00 a.m. to 7:30 p.m. NYC time, 5 days/7 working days
@@ -651,11 +651,11 @@ A failover solution can be described by the following attributes:
 ====
 A few words about *load balancers*:
 
-* A load balancer (LB) is a *mandatory brick* for an active/active cluster.
+* A load balancer (*) is a *mandatory brick* for an active/active cluster.
 * In the case of clusters, a classic error is to make LB a *SPOF*. We would then reduce the total availability of the system instead of improving it. When dealing with the clusters with a availability vocation (i.e. not only performance-oriented), it is necessary to redundant the LB itself in active/passive mode (obviously not in active/active mode otherwise, we would only shift the problem). The passive LB must monitor the active LB at high frequency and replace it automatically as soon as it falls.
 * It is crucial to configure correctly and at a sufficient frequency the *heath checks* to the destination nodes because otherwise the LB will continue to send requests to failed or overloaded nodes.
 * Some advanced LBs (example: `redispatch` option of HAProxy) allow the failover process to be transparent seen from the client by retrying to other nodes in the event of a failure or timeout and therefore improve fault tolerance since we avoid to return an error to the caller during the fault pre-detection period.
-* *Round Robin load repartition algorithm is not always the best choice*. A simple algorithm is the LC (Least Connection) allowing the LB to favor the least loaded nodes. Other clever algorithms exist and can be taken into consideration (weight systems per node or combination load + weight for example). However, make sure to carefully test and understand the chosen algorithm implications to avoid overall failures.
+* *Round Robin load repartition algorithm is not always the best choice*. A simple algorithm is the LC (Least Connection) allowing the LB to favor the least loaded nodes. Other clever algorithms exist and can be taken into consideration (weight systems per node or combination load + weight for example). However, make sure to carefully test and understand the chosen algorithm implications to avoid any catastrophic outage.
 * In the Open-Source world, see for example LVS + keepalived or HAProxy + keepalived.
 
 ====
