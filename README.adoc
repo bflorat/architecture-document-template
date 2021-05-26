@@ -30,6 +30,8 @@ Each section is divided according the following pattern  :
 
 The file also includes an example of a glossary which can be used as support for the https://martinfowler.com/bliki/UbiquitousLanguage.html[Ubiquitous Language], a fundamental element of your architecture.
 
+For more details, check out https://www.emerald.com/insight/content/doi/10.1108/ACI-12-2020-0159/full/html?utm_source=rss&utm_medium=feed&utm_campaign=rss_journalLatest[this paper] published on Applied Computing and Informatics.
+
 ## Using this template
 ### General presentation
 * This template is written using https://www.methods.co.nz/asciidoc/index.html[asciidoc]. You can convert it to the format of your choice even if we recommend a *textual and readable format* (Markdown type) easy to follow and to modify by merge requests in a version management tool. This helps to make  your document a living documentation;
@@ -40,8 +42,6 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 * Each chapter contains notes and tips to help fill it out;
 * link:blank-template[Blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
 
-For more details, check out https://www.emerald.com/insight/content/doi/10.1108/ACI-12-2020-0159/full/html?utm_source=rss&utm_medium=feed&utm_campaign=rss_journalLatest[this paper] published on Applied Computing and Informatics.
-
 ### Advice on writing your architecture document
 * *Keep it short*, each word must make sense. No typical 'this is the introduction' useless explanation, no repetition of other documents, company history or vague concepts;
 * A reader should understand the operation and constraints of the application without being flooded with details. The *document must remain maintainable and up to date*;
@@ -50,7 +50,6 @@ For more details, check out https://www.emerald.com/insight/content/doi/10.1108/
 * This model is intended to be *comprehensive enough to cover most management information system applications*. It can therefore normal that some chapters are not applicable in your context;
 * List the *architectural assumptions* and studies in progress in the chapter "Unresolved points" of each section (they must be exceptional, otherwise the document is written too early);
 * *Isolate in appendices* at the end of the document important architectural information but concerning specific points of interest only a few readers.
-
 
 ### What is * NOT * in this document?
 ** the *detailed design* of the project (UML diagrams of classes, sequences ...) except to present a general pattern specific to the application;
