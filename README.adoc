@@ -40,6 +40,8 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 * Each chapter contains notes and tips to help fill it out;
 * link:blank-template[Blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
 
+For more details, check out https://www.emerald.com/insight/content/doi/10.1108/ACI-12-2020-0159/full/html?utm_source=rss&utm_medium=feed&utm_campaign=rss_journalLatest[this paper] published on Applied Computing and Informatics.
+
 ### Advice on writing your architecture document
 * *Keep it short*, each word must make sense. No typical 'this is the introduction' useless explanation, no repetition of other documents, company history or vague concepts;
 * A reader should understand the operation and constraints of the application without being flooded with details. The *document must remain maintainable and up to date*;
