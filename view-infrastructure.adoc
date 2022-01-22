@@ -1001,7 +1001,7 @@ Give the general safeguard policy. It must meet the "RPO Requirements". Likewise
 * Backup execution report: content, how is it sent? where are the logs?
 * Where are the backups stored? (ideally as far as possible from the backed up system while allowing restoration in a time compatible with availability requirements).
 * Who has physical access to the backups and their logs? to the encryption key? (think about confidentiality requirements).
-* Are there backup control and restore test procedures? (plan a restoration test once a year minimum).
+
 
 We recommend :
 
@@ -1018,6 +1018,14 @@ Rollover example: set of 21 backups over one year:
 * 3 weekly backups corresponding to the 3 other sundays. The support of the last sunday of the month becomes the monthly backup;
 * 11 monthly backups corresponding to the last 11 months.
 ====
+
+Finally, it's important to keep in mind that what we _really_ want are restores, not backups. It is crucial to ensure that the restoration will be functional:
+
+* Are the backups valid and complete?
+* What restoration tests are planned? how often (once a year is a minimum)?
+* How long will a restoration (benchmarks) take? Is it compatible with the RTO?
+* Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
+* Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
 
 ==== Archiving
 
