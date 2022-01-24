@@ -279,7 +279,7 @@ Even though performance campaigns are planned, experience shows that most of per
 
 Backend side:
 
-* Make sure that the server paging goes from the service call until the database (use `LIMIT` and `OFFSET`).
+* Make sure that the server paging goes from the service call until the database (use `FETCH FIRST x ROWS ONLY` and https://www.postgresqltutorial.com/postgresql-fetch/[not `LIMIT` and `OFFSET`]).
 * Do not put in place unnecessary constraints in the database.
 * In cases of very large volumes (from hundreds of millions), use database table partitioning.
 * Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify the absence of full scans.
