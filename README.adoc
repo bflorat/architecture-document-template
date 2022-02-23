@@ -1,7 +1,7 @@
 # Project architecture document template
 
 This architecture template is applicable to most management IT projects, regardless of the general architecture chosen (monolithic, SOA, micro-service, n-tier, ...).
-It has already been used on several important projects including large organizations. It is maintained on a regular basis.
+It has already been used on several large projects in private or governmental organizations. It is maintained on a regular basis.
 
 Others languages : https://github.com/bflorat/modele-da[French].
 
@@ -60,6 +60,11 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 ** technical details (IP, logins) that could compromise security;
 ** *physical architecture* (details of servers and datacenters, network architecture, storage architecture, provisioning, etc.). These are very specific subjects and are generally dealt with by infrastructure architects at an IS level;
 ** details of *environments* other than production (acceptance, development, etc.). These are generally too fluctuating to appear in this file and will benefit from being documented by the integrator instead in other files, wikis or CMDB tools.
+
+## FAQ
+* **From what project size is this model eligible?** This model has been used successfully on a one-person project. It can be used for any size project. A large project will probably fill more sections but most relate to all projects. For example, questions of availability or internationalization are not related to the size of a project in our opinion.
+* **Can this model be used as a basis for an architecture repository?** Even if many ideas can be taken up, no, this is not the purpose of this model.
+* **Is this model suitable for a complete program?** For a complete program, we recommend a TOGAF-type approach with the associated deliverables. On the other hand, phases C and D can be documented by a DA within each project of this program.
 
 ## Licence
 * Copyright (c) 2017-2021 Bertrand Florat and contributors
