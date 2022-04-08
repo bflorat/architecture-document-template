@@ -418,13 +418,14 @@ This section provides the final sizing of the machines required.
 
 * For Virtual Machines, be careful to check that a VCPU = 1 physical core (and not a thread if hyperthreading is enabled)
 * The internal disk concerns the disk necessary for the OS and the binaries. For a physical machine, this is local storage (local SDD, NMVe or HDD disks). For a VM, it can be a local disk on the physical machine running the VM or a SAN.
-* The external disk concerns storage on a disk bay (SAN) or on a distributed file system (NFS, CIFS, WebDav ...)
+* The external disk concerns storage on a disk bay (SAN).
+* Others external storage deals with distributed file system (NFS, CIFS, WebDav ...) or object storage (Ceph, Swift, Scality, S3, ...)
 ====
 
 .Sizing of machines
 [cols = '1e, 3e, 1e, 1e, 1e, 1e, 1e ”]
 |====
-| Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External disk (GiB)
+| Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
 
 | Zone 1
 | VM application server
@@ -444,3 +445,17 @@ This section provides the final sizing of the machines required.
 
 |==== 
 
+.Non-SAN external storage
+[cols='1,3,3']
+|====
+|Nature|Size (Gio)|Type(s) of machine using this share
+
+|NFS (NAS mount)
+|248
+|Physical machine Database
+
+|OpenStack Object Storage ("Ceph")
+|2000
+|VM application server
+
+|====
