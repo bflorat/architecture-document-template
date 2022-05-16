@@ -41,7 +41,7 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 * Text in italics contains examples;
 * Each chapter contains notes and tips to help fill it out;
 * link:blank-template[Blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
-* The provided `export` script can be used to export your Asciidoc document into a PDF or HTML bundle so it can easilly exported from a Github or Gitlab repository for instance.
+* The provided `export` script along with the blank template files can be used to export your Asciidoc document into a PDF, HTML or ODT bundle so it can easily exported from a Github or Gitlab repository for instance.
 
 ### Advice on writing your architecture document
 * *Keep it short*, each word must make sense. No typical 'this is the introduction' useless explanation, no repetition of other documents, company history or vague concepts;

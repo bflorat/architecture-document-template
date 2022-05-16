@@ -1,16 +1,25 @@
 #!/bin/bash
 set -e
 
-# This script can be used to export an asciidoc directory into a HTML or PDF zip bundle.
-# Required : a running docker installation
-# It is not intented to be full featured, feel free to adapt it to your needs
+function usage(){
+  echo "Usage:
+    Export an architecture document written in Asciidoc into a package of PDF or HTML files 
+    Requirement : Linux machine with Docker installed.
+   
+    --pdf  : exports a PDF archive
+    --adoc : exports asciidoc sources only 
+    --odt  : exports HTML + Open Document Text 
+    --html : exports in static HTML 
+"
+}
 
-# [--pdf] to create a PDF + HTML bundle
-# [--adoc] to create a source bundle with only the .adoc files
-# [--html] to create an HTML-only bundle with embedded images
+if [[ $# != 1 ]]; then
+	usage
+	exit 1
+fi
 
 OUT=/tmp/architecture-document
-ARCHIVE=/tmp/architecture-document-$(date +%y%m%d).zip
+ARCHIVE=/tmp/architecture-document-$(date +%Y%m%d).zip
 rm -rf $OUT > /dev/null 2>&1 || true 
 mkdir $OUT
 rm $ARCHIVE > /dev/null 2>&1 || true 
@@ -21,15 +30,20 @@ for doc in $(find . -name '*.adoc' -print);  do
   if [[ $1 =~ '--adoc' ]]; then
     continue
   fi
-  # -a option allow offline reading (embedded images into HTML files)
+  # -a allow to read offline (embedded images)
   docker run --rm -v $OUT:/data asciidoctor/docker-asciidoctor asciidoctor -a data-uri -a allow-uri-read -b html5 /data/$doc
   doc_without_extension=${doc%.adoc}
   if [[ $1 =~ '--pdf' ]]; then
      docker run --rm -v $OUT:/data madnight/docker-alpine-wkhtmltopdf --footer-center [page]/[topage] /data/$doc_without_extension.html /data/$doc_without_extension.pdf
+  elif [[ $1 =~ '--odt' ]]; then
+     docker run --rm \
+       -v "$OUT:/data" \
+       --user $(id -u):$(id -g) \
+       pandoc/core /data/$doc_without_extension.html -o /data/$doc_without_extension.odt
   fi
 done
 
-# Fix links among documents
+# Fixes hyperlinks among documents
 find . -name '*.html' -exec sed -i 's/.adoc/.html/g' {} \;
 
 if [[ $1 =~ '--html' ]]; then
@@ -37,7 +51,10 @@ if [[ $1 =~ '--html' ]]; then
     rm -rf .git > /dev/null 2>&1 || true   
 fi
 
-# Final archive creation
+# Create final archive 
 cd /tmp
 zip -r $ARCHIVE $(basename $OUT)
-echo "Archive successfully produced in $ARCHIVE"
+echo "Export successful at : $ARCHIVE"
+
+
+
