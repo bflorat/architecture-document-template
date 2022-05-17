@@ -1,170 +1,146 @@
+' convert it with additional command line argument -DRELATIVE_INCLUDE="." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Component.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!endif
 
 ' Scope: Interactions in an enterprise, software system or container.
-' Primary and supporting elements: Depends on the diagram scope - 
-'     enterprise - people and software systems related to the enterprise in scope 
-'     software system - see system context or container diagrams, 
+' Primary and supporting elements: Depends on the diagram scope -
+'     enterprise - people and software systems Related to the enterprise in scope
+'     software system - see system context or container diagrams,
 '     container - see component diagram.
 ' Intended audience: Technical and non-technical people, inside and outside of the software development team.
 
-' Dynamic diagram introduces (automatically) numbered interactions: 
-'     Interact(): used automatic calculated index, 
-'     Interact2(): index can be explicit defined,
-'     SetIndex(): set the next index, 
-'     GetIndex(): get the index and automatically increase index
+' Dynamic diagram introduces (automatically) numbered interactions:
+'     (lowercase) increment($offset=1): increase current index (procedure which has no direct output)
+'     (lowercase) setIndex($new_index): set the new index (procedure which has no direct output)
+'
+'     (Uppercase) LastIndex(): return the last used index (function which can be used as argument)
+'     (Uppercase) Index($offset=1): returns current index and calculates next index (function which can be used as argument)
+'     (Uppercase) SetIndex($new_index): returns new set index and calculates next index (function which can be used as argument)
 
 ' Index
 ' ##################################
 
-!function $inc_($value, $step=1)
-  !return $value + $step
-!endfunction
+!$lastIndex = 0
+!$index = 1
 
-!$index=1
-
-!procedure  SetIndex($new_index)
-  !$index=$new_index
+!procedure increment($offset=1)
+  !$lastIndex = $index
+  !$index = $index + $offset
 !endprocedure
 
-!function GetIndex($auto_increase=1)
-  !$old = $index
-  !$index=$inc_($index, $auto_increase)
-  !return $old
+!procedure setIndex($new_index)
+  !$lastIndex = $index
+  !$index = $new_index
+!endprocedure
+
+!function Index($offset=1)
+  !$lastIndex = $index
+  !$index = $lastIndex + $offset
+  !return $lastIndex
 !endfunction
 
-' Interact
+!function LastIndex()
+  !return $lastIndex
+!endfunction
+
+!function SetIndex($new_index, $offset=1)
+  !$lastIndex = $new_index
+  !$index = $new_index + $offset
+  !return $lastIndex
+!endfunction
+
+' Relationship override
 ' ##################################
-!define Interact2(e_index, e_from, e_to, e_label) Rel(e_from, e_to, "e_index: e_label")
-!define Interact2(e_index, e_from, e_to, e_label, e_techn) Rel(e_from, e_to, "e_index: e_label", e_techn)
 
-!define Interact2_Back(e_index, e_from, e_to, e_label) Rel_Back(e_from, e_to, "e_index: e_label")
-!define Interact2_Back(e_index, e_from, e_to, e_label, e_techn) Rel_Back(e_from, e_to, "e_index: e_label", e_techn)
+' Relationship
+' ##################################
 
-!define Interact2_Neighbor(e_index, e_from, e_to, e_label) Rel_Neighbor(e_from, e_to, "e_index: e_label")
-!define Interact2_Neighbor(e_index, e_from, e_to, e_label, e_techn) Rel_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
-
-!define Interact2_Back_Neighbor(e_index, e_from, e_to, e_label) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label")
-!define Interact2_Back_Neighbor(e_index, e_from, e_to, e_label, e_techn) Rel_Back_Neighbor(e_from, e_to, "e_index: e_label", e_techn)
-
-!define Interact2_D(e_index, e_from, e_to, e_label) Rel_D(e_from, e_to, "e_index: e_label")
-!define Interact2_D(e_index, e_from, e_to, e_label, e_techn) Rel_D(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Down(e_index, e_from, e_to, e_label) Rel_Down(e_from, e_to, "e_index: e_label")
-!define Interact2_Down(e_index, e_from, e_to, e_label, e_techn) Rel_Down(e_from, e_to, "e_index: e_label", e_techn)
-
-!define Interact2_U(e_index, e_from, e_to, e_label) Rel_U(e_from, e_to, "e_index: e_label")
-!define Interact2_U(e_index, e_from, e_to, e_label, e_techn) Rel_U(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Up(e_index, e_from, e_to, e_label) Rel_Up(e_from, e_to, "e_index: e_label")
-!define Interact2_Up(e_index, e_from, e_to, e_label, e_techn) Rel_Up(e_from, e_to, "e_index: e_label", e_techn)
-
-!define Interact2_L(e_index, e_from, e_to, e_label) Rel_L(e_from, e_to, "e_index: e_label")
-!define Interact2_L(e_index, e_from, e_to, e_label, e_techn) Rel_L(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Left(e_index, e_from, e_to, e_label) Rel_Left(e_from, e_to, "e_index: e_label")
-!define Interact2_Left(e_index, e_from, e_to, e_label, e_techn) Rel_Left(e_from, e_to, "e_index: e_label", e_techn)
-
-!define Interact2_R(e_index, e_from, e_to, e_label) Rel_R(e_from, e_to, "e_index: e_label")
-!define Interact2_R(e_index, e_from, e_to, e_label, e_techn) Rel_R(e_from, e_to, "e_index: e_label", e_techn)
-!define Interact2_Right(e_index, e_from, e_to, e_label) Rel_Right(e_from, e_to, "e_index: e_label")
-!define Interact2_Right(e_index, e_from, e_to, e_label, e_techn) Rel_Right(e_from, e_to, "e_index: e_label", e_techn)
-
-!unquoted procedure Interact($e_from, $e_to, $e_label) 
-  Interact2($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $direction)
+$alias1 $direction $alias2 : **$e_index: $label**
 !endprocedure
-!unquoted procedure Interact($e_from, $e_to, $e_label, $e_techn) 
-  Interact2($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure Rel_($e_index, $alias1, $alias2, $label, $techn, $direction)
+$alias1 $direction $alias2 : **$e_index: $label**\n//<size:$TECHN_FONT_SIZE>[$techn]</size>//
 !endprocedure
 
-!unquoted procedure Interact_Back($e_from, $e_to, $e_label) 
-  Interact2_Back($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Back($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Back($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("-->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_Neighbor($e_from, $e_to, $e_label) 
-  Interact2_Neighbor($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_Back($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<--", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Neighbor($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Neighbor($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Back($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<--", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_Back_Neighbor($e_from, $e_to, $e_label) 
-  Interact2_Back_Neighbor($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->>", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Back_Neighbor($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Back_Neighbor($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Neighbor($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("->>", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_D($e_from, $e_to, $e_label) 
-  Interact2_D($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_Back_Neighbor($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-", $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_D($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_D($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
-!endprocedure
-!unquoted procedure Interact_Down($e_from, $e_to, $e_label) 
-  Interact2_Down($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
-!endprocedure
-!unquoted procedure Interact_Down($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Down($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Back_Neighbor($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel("<<-", $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_U($e_from, $e_to, $e_label) 
-  Interact2_U($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_D($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($down("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_U($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_U($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure Rel_Down($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($down("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Up($e_from, $e_to, $e_label) 
-  Interact2_Up($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_D($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($down("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Up($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Up($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Down($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($down("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_L($e_from, $e_to, $e_label) 
-  Interact2_L($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_U($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($up("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_L($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_L($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure Rel_Up($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($up("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Left($e_from, $e_to, $e_label) 
-  Interact2_Left($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_U($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($up("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Left($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Left($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Up($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($up("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
 
-!unquoted procedure Interact_R($e_from, $e_to, $e_label) 
-  Interact2_R($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure Rel_L($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($left("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_R($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_R($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure Rel_Left($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($left("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Right($e_from, $e_to, $e_label) 
-  Interact2_Right($index, "$e_from", "$e_to", "$e_label")
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_L($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($left("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure
-!unquoted procedure Interact_Right($e_from, $e_to, $e_label, $e_techn) 
-  Interact2_Right($index, "$e_from", "$e_to", "$e_label", $e_techn)
-  !$index=$inc_($index)
+!unquoted procedure RelIndex_Left($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($left("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+
+!unquoted procedure Rel_R($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($right("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure Rel_Right($from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($right("-","->>"), $from, $to, Index() + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure RelIndex_R($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($right("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
+!endprocedure
+!unquoted procedure RelIndex_Right($e_index, $from, $to, $label, $techn="", $descr="", $sprite="", $tags="", $link="")
+$getRel($right("-","->>"), $from, $to, $e_index + ": " + $label, $techn, $descr, $sprite, $tags, $link)
 !endprocedure

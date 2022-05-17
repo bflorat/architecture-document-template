@@ -1,7 +1,10 @@
-@startuml
+@startuml detailed-application-architecture-dynamic
 !include detailled-application-design-static.puml
-title detailed-application-architecture-dynamic
 header Container diagram \nDynamic detailed application point of view \n My Online Info Project (AllMyData)
+
+LAYOUT_WITH_LEGEND()
+HIDE_STEREOTYPE()
+SHOW_PERSON_PORTRAIT()
 
 Rel(company, static_resources, "Visit https://allmydata.gouv", "HTTPS, synchronous, read only")
 Rel(company, spa, "Retrieves information via")

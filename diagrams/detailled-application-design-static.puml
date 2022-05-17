@@ -1,10 +1,11 @@
-@startuml
+@startuml detailed-application-architecture-static
 !include C4/C4_Container.puml
-LAYOUT_LEFT_RIGHT
-skinparam linetype polyline
-title detailed-application-architecture-static
-header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
+LAYOUT_LEFT_RIGHT()
 LAYOUT_WITH_LEGEND()
+HIDE_STEREOTYPE()
+SHOW_PERSON_PORTRAIT()
+skinparam linetype polyline
+header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
 
 System_Boundary(company_system, "Any company IS") {
     Person_Ext(company, "Company", "[person] \nWeb client (PC, tablet, mobile)")
