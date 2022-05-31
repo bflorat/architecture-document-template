@@ -55,7 +55,7 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 ### What is * NOT * in this document?
 ** the *detailed design* of the project (UML diagrams of classes, sequences ...) except to present a general pattern specific to the application;
 ** *study elements* (SWOT, scenarios, etc.): the choices must have already been made (we nevertheless encourage providing https://adr.github.io/[ADRs] along with the architecture document);
-** the *urbanization* of an entire IS (we are positioning ourselves here at the level of a single application or a set of coherent modules);
+** the *urbanization* of an entire Information System (IS). We are positioning ourselves here at the level of a single application or a set of coherent modules;
 ** the *reference architecture rules* (common to all application modules of the IS);
 ** technical details (IP, logins) that could compromise security;
 ** *physical architecture* (details of servers and datacenters, network architecture, storage architecture, provisioning, etc.). These are very specific subjects and are generally dealt with by infrastructure architects at an IS level;
