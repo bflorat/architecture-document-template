@@ -1,4 +1,4 @@
-= Infrastructure view
+# Infrastructure view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -8,7 +8,7 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all technical components involved.
 
 The other views of the document are accessible link:./README.adoc[from here].
@@ -21,7 +21,7 @@ This point of view deals with the infrastructure: servers, networks, operating s
 In short, it covers everything that is external to the application modules but necessary for their execution.
 ====
 
-=== Reference Documentation
+### Reference Documentation
 [TIP]
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
@@ -35,8 +35,8 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-== Not ruled
-=== Points subject to further study
+## Not ruled
+### Points subject to further study
 .Points subject to further study
 [cols="1e,5e,2e,2e,2e"]
 |====
@@ -50,7 +50,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1e,5e"]
@@ -61,7 +61,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | We assume that by the time the project will be released, PostgreSQL 12 will be validated internally.
 |====
 
-== Constraints
+## Constraints
 
 [TIP]
 ====
@@ -71,7 +71,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 
 ====
 
-=== Constraints on availability
+### Constraints on availability
 
 [TIP]
 ====
@@ -80,7 +80,7 @@ The elements provided here can serve as a basis for the SLO (Service Level Objec
 This chapter has a pedagogical vocation because it highlights the maximum possible availability: the final availability of the application can only be lower.
 ====
 
-==== MTTD
+#### MTTD
 
 [TIP]
 ====
@@ -92,29 +92,7 @@ Example 1: hypervision is done 24/7/365
 Example 2: the production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
 ====
 
-==== MTTR
-
-[TIP]
-====
-Provide the elements which make it possible to estimate the Mean Time To Repair (time to make the system available after an incident). Note that it is important to distinguish MTTD from MTTR: it is not because a failure is detected that the skills or resources necessary to fix it are available.
-
-Specify the hours of presence of operators during the day and the possibilities of on-call duty.
-
-List here the intervention times of hardware, software, electricity, telecom providers, etc.
-====
-====
-Example 1: Five physical spare servers are available at any time.
-
-Example 2: The Hitashi support contract provides for intervention on SAN arrays in less than 24 hours.
-
-Example 3: At least one expert from each main domain (system and virtualization, storage, network) is present during office hours.
-
-Example 4: Like any application hosted in the XYZ datacenter, the application will benefit from the presence of operators from 7 am to 8 pm working days.
-
-Example 5: IBM hardware support replacement on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, business days only.
-====
-
-==== Monitoring tools and rules
+#### Monitoring tools
 
 [TIP]
 ====
@@ -128,7 +106,67 @@ Example 2: The batches must be able to be launch using a REST endpoint
 Example 3: A failed batch must not be scheduled again without a human acknowledgment
 ====
 
-==== Scheduled interruptions
+#### MTTR
+
+[TIP]
+====
+Provide the elements to estimate the average repair time (Mean Time To Repair). Note that it is important to distinguish MTTD from MTTR. Indeed, it is not because a fault is detected that the skills or resources necessary for its correction are available.
+
+Specify the time slots for operators to be present during the day and the possibilities of on-call duty.
+
+If you have statistics or post-mortems, mention the average effective durations already observed.
+
+List here the intervention times of the hardware, software, electricity, telecom service providers, etc.
+
+We tentatively divide this section into "Hardware", "System and Virtualization", "Network", and "Data Recovery" subsections. Other categories are possible.
+====
+
+##### Hardware
+
+TIP: Describe here the elements used to predict the MTTR of hardware elements (servers / racks / network equipment / electrical systems, etc.). List for example here the durations of intervention of the material service providers, electricity….
+
+====
+Example 1: Five spare physical servers are available at any given time.
+
+Example 2: The Hitashi support contract provides for an intervention on the SAN bays in less than 24 hours.
+
+Example 3: Replacement of IBM hardware support on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, working days only.
+====
+
+##### System and virtualization
+
+TIP: List here the elements allowing to estimate the correction time of a problem related to the OS or to a possible virtualization solution.
+
+====
+Example 1: At least one expert from each main domain (system and virtualization, storage, network) is present during office hours.
+
+Example 2: Like any application hosted at datacenter X, the application will have the presence of operators from 7 a.m. to 8 p.m. working days. No standby engineer is planned.
+
+Example 3: The observed restore time of a 40 GiB VM Veeam backup is 45 mins.
+
+====
+
+##### Network
+
+TIP: List here the elements related to the network allowing to estimate the durations of intervention of the service providers or Telecom suppliers...
+
+====
+Example 1: A network engineer is on call every weekend.
+
+Example 2: Orange's SLA provides for restoration of the Internet connection under nominal conditions in less than 24 hours.
+====
+
+##### Data Restore
+TIP: List here the elements allowing to evaluate the duration of data restoration (files / objects / database). The RTO requirements listed below should take this MTTR into account.
+
+====
+Example 1: The Barman restore time of a Postgresql database is approximately (in hours) `0.1*x + 0.2*y` with x, the size of the database in GiB and `y` the number of days of logs to replay.
+
+Example 2: Restoring an offline backup (on tape) requires at least 4 hours of additional preparation.
+====
+
+
+#### Scheduled interruptions
 
 [TIP]
 ====
@@ -142,7 +180,7 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 ====
 
-==== Level of service of the datacenter
+#### Level of service of the datacenter
 
 [TIP]
 ====
@@ -184,7 +222,7 @@ Give here the security level of the data center according to the Uptime Institut
 Example: the Madrid DC is Tier 3
 ====
 
-==== Summary of floor availability
+#### Summary of floor availability
 
 [TIP]
 ====
@@ -195,7 +233,7 @@ Taking into account the previous elements, estimate the maximum floor availabili
 Example: <datacenter availability> * <% of time not in scheduled maintenance> * <system availability> * <hardware availability> = 99.8 x 99.99 x 99.6 x 99.99 = ~ * 99.4% *.
 ====
 
-==== Disaster management (DRP/BCP)
+#### Disaster management (DRP/BCP)
 
 [TIP]
 ====
@@ -236,7 +274,7 @@ Example 2: Two spare servers are available in the London site. Business data is 
 ====
 
 
-=== Hosting
+### Hosting
 
 * Where will this application modules be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
 * Who will operate this application modules? internally? Outsourced? No administration at all (PaaS) ...?
@@ -253,7 +291,7 @@ Example 2: Given the very high level of security required to run the application
 Example 3: Given the very large number of calls from this application to the PERSON repository, both will be collocated in the XYZ VLAN.
 ====
 
-=== Network constraints
+### Network constraints
 
 [TIP]
 ====
@@ -266,7 +304,7 @@ Example 1: the LAN has a maximum bandwith of 10 Gbps
 Example 2: The application components of intranet applications must be located in a trusted zone that cannot be accessed from the Internet.
 ====
 
-=== Deployment constraints
+### Deployment constraints
 
 [TIP]
 ====
@@ -281,7 +319,7 @@ Example 3: Any application must be packaged as an OCI image and deployable on Ku
 
 ====
 
-=== Log constraints
+### Log constraints
 
 [TIP]
 ====
@@ -293,7 +331,7 @@ Example 1: an application must not produce more than 1 Tio of logs/month.
 Example 2: the maximum retention period for logs is 3 months.
 ====
 
-=== Backup and restore constraints
+### Backup and restore constraints
 
 [TIP]
 ====
@@ -307,7 +345,7 @@ Example 2: the maximum retention period for backups is two years
 Example 3: Count 1 min/GiB for a NetBackup restore.
 ====
 
-=== Costs
+### Costs
 
 [TIP]
 ====
@@ -317,7 +355,7 @@ List the budget limits.
 Example 1: AWS Cloud service charges should not exceed $5K/year for this project.
 ====
 
-== Requirements
+## Requirements
 
 [TIP]
 ====
@@ -329,7 +367,7 @@ If certain requirements are still not realistic, mention it in the "Points subje
 
 ====
 
-=== Operating ranges
+### Operating ranges
 
 [TIP]
 ====
@@ -361,7 +399,7 @@ Example of operating windows
 |====
 ====
 
-=== Availability requirements
+### Availability requirements
 
 [TIP]
 ====
@@ -395,7 +433,7 @@ The availability required here must be consistent with the “Constraints on ava
 | 4 hours, 8 times a year
 |====
 
-=== Degraded modes
+### Degraded modes
 [TIP]
 ====
 Specify the degraded application modes.
@@ -408,7 +446,7 @@ Example 1: The _mysite.com_ site must be able to continue to accept orders in th
 Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
 ====
 
-=== Robustness requirements
+### Robustness requirements
 
 [TIP]
 ====
@@ -428,7 +466,7 @@ Example 2: the user must not lose his shopping cart even in the event of a break
 Example 3: the system should be able to withstand a load three times greater than the average with a response time of less than 10 seconds at the 95th percentile.
 ====
 
-=== RPO requirements
+### RPO requirements
 
 [TIP]
 ====
@@ -443,10 +481,25 @@ Data restoration occurs mainly in following cases:
 
 ====
 ====
-Example: we shouldn't loose more than one working day of application data.
+Example: We shouldn't loose more than one working day of application data.
 ====
 
-=== Archiving requirements
+### RTO Requirements
+
+[TIP]
+====
+The Recovery Time Objective (in unit of times) is the maximum authorized time objective for reopening the service following an incident.
+
+This requirement must be compatible (less than or equal) to the MTTR given in constraint above. It is in fact useless to require an RTO of 1H if the operators have measured an effective MTTR of 2H. It must also be compatible with the availability requirement.
+
+Specify this value only to clarify a precise restoration objective, otherwise, do not complete this section and refer to the MTTR constraint above.
+====
+
+====
+Example: We must be able to restore and put back online the 3 TiB of the XYZ database in 1 hour maximum.
+====
+
+### Archiving requirements
 
 [TIP]
 ====
@@ -464,7 +517,7 @@ Example 1: As required by Sec. 31 of the Accounting Act (Act No. 563/1991 Coll.)
 Example 2: The accounting documents must be kept online (in database) for at least two years, then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at the time of archiving and stored separately for document integrity verification if needed.
 ====
 
-=== Purge requirements
+### Purge requirements
 
 [TIP]
 ====
@@ -480,9 +533,9 @@ It is often wise to wait for the production phase or even several months of oper
 Example 1: Files older than six months will be archived and purged.
 ====
 
-=== Deployment and update requirements
+### Deployment and update requirements
 
-==== Server side
+#### Server side
 
 [TIP]
 ====
@@ -495,7 +548,7 @@ For example :
 * How are the updates applied?
 ====
 
-==== Client side
+#### Client side
 
 [TIP]
 ====
@@ -511,7 +564,7 @@ Specify here how the application should be deployed on the client side:
 * How are the updates applied?
 ====
 
-==== Specific deployment strategy
+#### Specific deployment strategy
 
 [TIP]
 ====
@@ -524,7 +577,7 @@ Specify here how the application should be deployed on the client side:
 Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the new version.
 ====
 
-=== Concurrency management requirements
+### Concurrency management requirements
 
 [TIP]
 ====
@@ -537,7 +590,7 @@ Example 1: All components of this application must be able to run concurrently. 
 Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
 ====
 
-=== Ecodesign requirements
+### Ecodesign requirements
 
 [TIP]
 ====
@@ -557,9 +610,9 @@ Example 2: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
 Example 3: Ink and paper consumption should be reduced by 10% compared to 2020.
 ====
 
-== Target architecture
+## Target architecture
 
-=== Principles
+### Principles
 
 [TIP]
 ====
@@ -573,7 +626,7 @@ Examples:
 * Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
 
-=== Availability
+### Availability
 
 [TIP]
 ====
@@ -716,7 +769,7 @@ Example 2: To achieve the required availability of 99.97%, the availability mech
 
 ====
 
-=== Deployment in production
+### Deployment in production
 
 [TIP]
 ====
@@ -737,7 +790,7 @@ Example:
 image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 ====
 
-=== Versions of infrastructure components
+### Versions of infrastructure components
 
 [TIP]
 ====
@@ -774,7 +827,7 @@ Example of infrastructure components
 | CentOS 7
 |====
 
-=== Matrix of network flows
+### Matrix of network flows
 
 [TIP]
 ====
@@ -798,7 +851,7 @@ Include useful information about the network being used in order to assess the p
 | 4 | sup1 | host[1-6] | LAN | SNMP | 199
 |====
 
-=== Environments
+### Environments
 
 [TIP]
 ====
@@ -822,7 +875,7 @@ It is often useful to subdivide environnements into 'platforms' made up of a set
 | 2 (UAT1 and UAT2)
 ====
 
-=== Ecodesign
+### Ecodesign
 
 [TIP]
 ====
@@ -847,9 +900,9 @@ Example 1: setting up a Varnish cache in front of our CMS will reduce the number
 Example 2: The application will be hosted on a cloud with a PUE of 1.2 and an 80% renewable source of electrical energy.
 ====
 
-=== Load regulation
+### Load regulation
 
-==== Circuit breakers
+#### Circuit breakers
 
 [TIP]
 ====
@@ -860,7 +913,7 @@ If this risk is identified, provide a fuse system with offset of all or part of 
 This measure can also be used in the event of a DDOS-type attack because it allows already connected users to finish their transactions properly.
 ====
 
-==== Quality of Service
+#### Quality of Service
 
 [TIP]
 ====
@@ -885,7 +938,7 @@ Example 1: distribution of tokens will be as follows by default:
 Example 2: a throttling of 100 requests per source and per minute will be set up in the reverse proxy.
 ====
 
-=== Timeout management
+### Timeout management
 
 [TIP]
 ====
@@ -910,7 +963,7 @@ Example:
 
 ====
 
-=== Operations
+### Operations
 
 [TIP]
 ====
@@ -919,7 +972,7 @@ List here the main operating principles of the solution. The details (saved file
 If this application remains in the organization's standard, simply refer to any common document.
 ====
 
-==== Stop/start-up sequence
+#### Stop/start-up sequence
 
 [TIP]
 ====
@@ -952,7 +1005,7 @@ Example of stopping sequence:
 
 ====
 
-==== Scheduled operations
+#### Scheduled operations
 
 [TIP]
 ====
@@ -968,7 +1021,7 @@ Example 1: the `process-demand` job will be launched every 5 mins by JobSchedule
 Example 2: the internal `ti_index` process is a Java class calling `REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
 ====
 
-==== Switch to maintenance mode procedure
+#### Switch to maintenance mode procedure
 
 [TIP]
 ====
@@ -978,7 +1031,7 @@ Explain (if necessary) the measures and procedures allowing to put the applicati
 Example: We will use the F5 BigIp LTM to display an unavailability page.
 ====
 
-==== Backups and restores
+#### Backups and restores
 
 [TIP]
 ====
@@ -1027,7 +1080,7 @@ Finally, it's important to keep in mind that what we _really_ want are restores,
 * Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
 * Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
 
-==== Archiving
+#### Archiving
 
 [TIP]
 ====
@@ -1040,7 +1093,7 @@ Describe the measures making it possible to meet <<Archiving requirements>> with
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. The two media will be stored in a safe in two different banks.
 ====
 
-==== Purges
+#### Purges
 
 [TIP]
 ====
@@ -1050,7 +1103,7 @@ List here the technical measures that meet the <<Purge requirements>>.
 Example: the history of accesses will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM mytable WHERE ...) TO '/tmp/dump.tsv'` then purged by an SQL request `DELETE` after validation by the operator of the completeness of the dump.
 ====
 
-==== Logs
+#### Logs
 
 [TIP]
 ====
@@ -1069,7 +1122,7 @@ Example 1: the application logs of the service-allmydata component will be in pr
 Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
 ====
 
-==== Monitoring
+#### Monitoring
 
 [TIP]
 ====
@@ -1082,7 +1135,7 @@ Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system,
 Indicators are logical combinations of several metrics with thresholds (e.g. 'critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes').
 ====
 
-===== Technical monitoring
+##### Technical monitoring
 
 [TIP]
 ====
@@ -1095,7 +1148,7 @@ List the metrics:
 Example: we measure the percentage of wait-io and the server load.
 ====
 
-===== Application monitoring
+##### Application monitoring
 
 [TIP]
 ====
@@ -1111,7 +1164,7 @@ It is also possible to set up BAM (Business Activity Monitoring) tools based on 
 Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
 ====
 
-===== Monitoring tool
+##### Monitoring tool
 
 [TIP]
 ====
@@ -1127,7 +1180,7 @@ Such a tool (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
 Example: the management of the monitoring will be based on the Grafana platform.
 ====
 
-===== Alerting
+##### Alerting
 
 [TIP]
 ====
@@ -1137,7 +1190,43 @@ Specify here the alert conditions and the channel used
 Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a component exceeds 10/h.
 ====
 
-===== Monitoring of scheduled operations
+##### Black box monitoring
+
+[TIP]
+====
+It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised).
+
+In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
+
+In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
+====
+====
+Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
+====
+
+##### Metrology
+
+[TIP]
+====
+Are we monitoring the performance of the application in production? 
+
+This allows:
+
+* To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
+* To proactively detect failures (following a sudden drop in the number of requests for example).
+* Perform statistical analysis on the use of components or services in order to promote decision-making (for the decommissioning of an application, for example).
+
+There are three main groups of solutions:
+
+* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in Open-Source ...). Check that the overhead of these solutions is still negligible or limited and that the stability of the application is not jeopardized.
+* In-house metrology by logs if the requirements are low.
+* External query sites which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with black-box monitoring (see above).
+====
+====
+Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
+====
+
+### Jobs scheduling
 
 [TIP]
 ====
@@ -1160,43 +1249,8 @@ Example 1: the jobs will be scheduled by the JobScheduler instance of the organi
 Example 2: The jobs will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
 ====
 
-===== Black box monitoring
 
-[TIP]
-====
-It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised).
-
-In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
-
-In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
-====
-====
-Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
-====
-
-===== Metrology
-
-[TIP]
-====
-Are we monitoring the performance of the application in production? 
-
-This allows:
-
-* To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
-* To proactively detect failures (following a sudden drop in the number of requests for example).
-* Perform statistical analysis on the use of components or services in order to promote decision-making (for the decommissioning of an application, for example).
-
-There are three main groups of solutions:
-
-* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in Open-Source ...). Check that the overhead of these solutions is still negligible or limited and that the stability of the application is not jeopardized.
-* In-house metrology by logs if the requirements are low.
-* External query sites which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with black-box monitoring (see above).
-====
-====
-Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
-====
-
-=== Migration
+### Migration
 
 [TIP]
 ====
@@ -1213,7 +1267,7 @@ Example 1: The X component will be replaced by the Y services. Then the Z Oracle
 Example 2: In the event of a problem with the new component, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
 ====
 
-=== Decommissioning
+### Decommissioning
 
 [TIP]
 ====

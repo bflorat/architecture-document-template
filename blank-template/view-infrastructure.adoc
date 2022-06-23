@@ -8,14 +8,14 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all the devices ensuring their proper functioning.
 
 The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-=== Reference Documentation
+### Reference Documentation
 
 .Development documentary references
 [cols = "1,2,5,4"]
@@ -29,8 +29,8 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-== Not ruled
-=== Points subject to further study
+## Not ruled
+### Points subject to further study
 .Points subject to further study
 [cols = "1,5,2,2,2"]
 |====
@@ -45,7 +45,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 
-=== Assumptions
+### Assumptions
 .Assumptions
 [cols = "1st, 5th"]
 |====
@@ -57,40 +57,44 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 
-== Constraints
+## Constraints
 
-=== Constraints on availability
+### Constraints on availability
 
-==== MTTD
+#### MTTD
 
-==== MTTR
+#### Monitoring tools
 
-==== Monitoring tools and rules
+#### MTTR
+##### Hardware
+##### System and virtualization
+##### Network
+##### Data Restore
 
-==== Scheduled interruptions
+#### Scheduled interruptions
 
-==== Level of service of the datacenter
+#### Level of service of the datacenter
 
-==== Summary of floor availability
+#### Summary of floor availability
 
-==== Disaster management (DRP/BCP)
+#### Disaster management (DRP/BCP)
 
-=== Hosting
+### Hosting
 
-=== Network constraints
+### Network constraints
 
-=== Deployment constraints
+### Deployment constraints
 
-=== Log constraints
+### Log constraints
 
-=== Backup and restore constraints
+### Backup and restore constraints
 
-=== Costs
+### Costs
 
-== Requirements
+## Requirements
 
 [[beaches]]
-=== Operating ranges
+### Operating ranges
 
 .Operating ranges
 [cols = "1,2,4"]
@@ -101,9 +105,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-=== Availability requirements
+### Availability requirements
 
-==== Availability by operating range
+#### Availability by operating range
 
 .Maximum allowable downtime per range
 [cols = "1.5"]
@@ -114,37 +118,36 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-=== Degraded modes
+### Degraded modes
 
-=== Robustness requirements
+### Robustness requirements
 
-=== RPO requirements
+### RPO requirements
 
-=== Archiving requirements
+### RTO Requirements
 
-=== Purge requirements
+### Archiving requirements
 
-=== Deployment and update requirements
+### Purge requirements
 
-==== Server side
+### Deployment and update requirements
+#### Server side
+#### Customer side
+#### Specific deployment strategy
 
-==== Customer side
+### Concurrency management requirements
 
-==== Specific deployment strategy
+### Ecodesign requirements
 
-=== Concurrency management requirements
+## Target architecture
 
-=== Ecodesign requirements
+### Principles
 
-== Target architecture
+### Availability
 
-=== Principles
+### Deployment in production
 
-=== Availability
-
-=== Deployment in production
-
-=== Versions of infrastructure components
+### Versions of infrastructure components
 
 Infrastructure components
 [cols = "1,2,1,2"]
@@ -154,7 +157,7 @@ Infrastructure components
 | | | |
 |====
 
-=== Matrix of network flows
+### Matrix of network flows
 
 .Technical flow matrix
 [cols = "1,2,2,2,1,1"]
@@ -165,52 +168,52 @@ Infrastructure components
 
 |====
 
-=== Environments
+### Environments
 
-=== Ecodesign
+### Ecodesign
 
-=== Load regulation
+### Load regulation
 
-==== Circuit breakers
+#### Circuit breakers
 
-==== Quality of Service
+#### Quality of Service
 
-=== Timeout management
+### Timeout management
 
-=== Operation
+### Operations
 
-==== Stop/start-up sequence
+#### Stop/start-up sequence
 
-==== Scheduled operations
+#### Scheduled operations
 
-==== Switch to maintenance mode procedure
+#### Switch to maintenance mode procedure
 
-==== Backups and restores
+#### Backups and restores
 
-==== Archiving
+#### Archiving
 
-==== Purges
+#### Purges
 
-==== Logs
+#### Logs
 
-==== Monitoring
+#### Monitoring
 
-===== Technical monitoring
+##### Technical monitoring
 
-===== Application monitoring
+##### Application monitoring
 
-===== Monitoring tool
+##### Monitoring tool
 
-===== Alerting
+##### Alerting
 
-===== Monitoring of scheduled operations
+##### Batch execution reports
 
-===== Batch execution reports
+##### Black box monitoring
 
-===== Black box monitoring
+##### Metrology
 
-===== Metrology
+### Jobs scheduling
 
-=== Migration
+### Migration
 
-=== Decommissioning 
+### Decommissioning 
