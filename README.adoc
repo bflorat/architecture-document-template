@@ -5,6 +5,8 @@ It has already been used on several large projects in private or governmental or
 
 Others languages : https://github.com/bflorat/modele-da[French].
 
+*If you use and like this template, you can thank us by starring the project and/or allowing us to list your organization in the references (address https://florat.net/contact[here])*
+
 ## Principles of the template
 We have divided the architecture into five views (application, security, sizing, infrastructure and development), each view being mostly self-supporting.
 
