@@ -214,6 +214,13 @@ Summarize:
  * Large network flows between components or between applications in the case of monoliths.
  * Any derogation to applicable architectural rules.
 
+If the application is planned to be implemented in several stages, briefly describe the target trajectory.
+
+====
+
+[TIP]
+====
+
 The choice of representation is free but a C4 diagram from System Landscape or a UML2 component diagram seems the most suitable.
 
 Numbering the steps in chronological order ensures a better understanding of the diagram. Group the sub-steps by the notation x, x.y, x.y.z, ...
