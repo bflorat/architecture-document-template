@@ -946,6 +946,8 @@ Example 2: a throttling of 100 requests per source and per minute will be set up
 
 [TIP]
 ====
+In general, all distributed calls (in particular HTTP(S) to APIs or object storage and calls to databases) must be limited in connection time AND execution time. Without these timeouts, deadly module contentions can occur in the event of performance issues.
+
 Describe here the different timeouts implemented on the linking chains. Keep in mind that from client to persistence, timeouts should decrease as you go through the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database). In the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
 
 Also avoid using exactly the same value in all the technical components to avoid unexpected effects linked to the concomitant timeouts.
