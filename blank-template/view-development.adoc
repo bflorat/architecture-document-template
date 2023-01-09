@@ -81,7 +81,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 #### Offline mode
 
-### SEO Requirements
+### SEO requirements
+
+### Ecodesign requirements
 
 ## Target architecture
 

@@ -231,6 +231,18 @@ Example 1: No indexing necessary or desired (Intranet site).
 Example 2: The static pages of the site must follow good SEO practices to optimize its visibility.
 ====
 
+### Ecodesign requirements
+
+[TIP]
+====
+Ecodesign consists of limiting the environmental impact of the software and hardware used by the application. The requirements in this area are generally expressed in WH or CO2 equivalent.
+
+List the eco-design requirements relating to software here.
+====
+====
+Example: The average power consumption caused by the display of a Web page must not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 J per year: 50 g/KWH x 10mWH x 100 x 10K x 200 = 100 Kg CO2 equivalent / year.
+====
+
 ## Target architecture
 
 ### Software stack
@@ -461,7 +473,7 @@ NOTE: For a large project, the test strategy is usually the subject of a separat
 
 [TIP]
 ====
-List here the software measures to meet the ecodesign requirements listed in the infrastructure section. The answers to its problems are often the same as those to the performance requirements (response time in particular). In this case, just refer to it. However, ecodesign analyzes and solutions can be specific to this theme.
+List here the software measures to meet the ecodesign requirements previously listed. The answers to its problems are often the same as those to the performance requirements (response time in particular). In this case, just refer to it. However, ecodesign analyzes and solutions can be specific to this theme.
 Some proposals that can help to save energy:
 
 * Use profilers or development tools integrated in browsers (like Google Dev Tools) to analyze the consumption of resources (number, duration and size of requests).
