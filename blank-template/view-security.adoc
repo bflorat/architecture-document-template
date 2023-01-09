@@ -137,7 +137,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 [[non-repudiation-requirements]]
 ### Non-repudiation requirements
 
-.Non-repudiation needs
+.Non-repudiation requirements
 [cols="e,e,e"]
 |===
 | Signed data | Origin of the client certificate | Origin of the server certificate
@@ -230,7 +230,7 @@ Measures meeting the <<identity-federation-requirements>>:
 
 Measures meeting the <<sso-requirements>>:
 
-### Non-repudiation
+### Non-repudiation and timestamping
 
 Measures meeting the <<non-repudiation-requirements>>:
 

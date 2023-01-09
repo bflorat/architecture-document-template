@@ -298,7 +298,7 @@ Example: Identification and authentication will be outsourced to the Auth0 ident
 
 [TIP]
 ====
-Describe the needs in terms of Single Sign On and Single Log Out.
+Describe the requirements in terms of Single Sign On and Single Log Out.
 
 Here we mean SSO in its fullest sense: automatic authentication to an application of a user already authenticated from another application in the same trusted domain.
 
@@ -326,7 +326,7 @@ Example 3: this Web application must provide single authentication shared with t
 List here the business actions with a non-repudiation requirement, i.e., a measure making it impossible to deny a contract by proving the identity of the two parties and the integrity of the document by digital signature.
 ====
 
-.Non-repudiation needs
+.Non-repudiation requirements
 [cols="e,e,e"]
 |===
 | Signed data | Origin of the client certificate | Origin of the server certificate
@@ -631,12 +631,21 @@ Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Sh
 Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
-### Non-repudiation
+### Non-repudiation and timestamping
 
 Measures meeting the <<non-repudiation-requirements>>:
 
 ====
 Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component.
+====
+
+[TIP]
+====
+Cryptographic timestamping solutions do not meet a specific need but are often required to meet non-repudiation requirements (especially via timestamp tokens used in conjunction with an electronic signature to prevent backdating or postdating).
+
+====
+Example: Electronic signatures will be accompanied by a qualified eIDAS timestamp token issued by the trust service provider XYZ.
+====
 ====
 
 ### Anonymity and privacy
