@@ -469,7 +469,7 @@ detect as many bugs as possible before UAT tests.
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
-### Eco-design
+### Ecodesign
 
 [TIP]
 ====

@@ -605,13 +605,10 @@ Also take into account impressions.
 Check out the EPA's Greenhouse Gas Equivalencies Calculator for CO2/KWH equivalency.
 ====
 ====
-Example 1: The average power consumption caused by the display of a Web page should not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 working days per year: 50g/KWH x 10mWH x 100 x 10K x 200 = 100 Kg of CO2 equivalent/year.
+Example 1: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
 ====
 ====
-Example 2: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
-====
-====
-Example 3: Ink and paper consumption should be reduced by 10% compared to 2020.
+Example 2: Ink and paper consumption should be reduced by 10% compared to 2020.
 ====
 
 ## Target architecture

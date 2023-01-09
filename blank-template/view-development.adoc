@@ -103,7 +103,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ### Specificities of the tests
 
-### Eco-design
+### Ecodesign
 
 ### Management of robustness
 
