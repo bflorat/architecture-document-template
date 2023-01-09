@@ -571,7 +571,7 @@ Among others:
 * In order to avoid subtle problems (especially when using browser storage such as local/session storage), remember to prevent the same web application from opening in several browser windows or tabs. If attempted, display an error message in the supernumerary windows.
 
 * Always check browser compatibility, even in a controlled environment. If an attempt is made to open a page by an unsupported browser, display an explicit error message on the screen.
-===
+====
 
 ====
 Example 1: If the application is opened with IE, an error message should prompt the user to use a supported browser.
