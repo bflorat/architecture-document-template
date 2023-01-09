@@ -199,7 +199,11 @@ Example 2: The project code will be under the free and open source license GPL V
 ====
 
 ====
-Example 3: The EULA of the software package provides access to sources for users with shares in the company.
+Example 3: The data exposed by the project will be licensed under ODS-By.
+====
+
+====
+Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
 ## Requirements
