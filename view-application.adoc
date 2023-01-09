@@ -186,6 +186,22 @@ Example 6: The components of this application follow the SOA architecture as def
 Example 7: Components in an Internet zone cannot call components in an Intranet zone for security reasons.
 ====
 
+### Legals
+
+List here (without detailing too much) any legal constraints related to the project.
+
+====
+Example 1: The framework contract established with the ESN XYZ provides for the transfer to our company of the copyright on the source code.
+====
+
+====
+Example 2: The project code will be under the free and open source license GPL V3.
+====
+
+====
+Example 3: The EULA of the software package provides access to sources for users with shares in the company.
+====
+
 ## Requirements
 
 TIP: Give here the application architecture requirements that can be applied to the project.

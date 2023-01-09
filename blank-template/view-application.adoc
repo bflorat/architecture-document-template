@@ -99,6 +99,8 @@ List of external actors
 
 ### Urbanization
 
+## Legals
+
 ## Requirements
 
 ## Target architecture
