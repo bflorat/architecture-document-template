@@ -6,7 +6,11 @@
 :icons: font
 :toc-title: Table of contents
 
-Last modified: {docdate}
+*Last modified* : {docdate} 
+
+*Last global review* : _<perform regular global reviews of the view at least once a year while the project is active and mention the date here>_
+
+*Document status* :  _<'WIP', 'DRAFT', ...>_
 
 ## Introduction
 

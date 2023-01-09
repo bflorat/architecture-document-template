@@ -6,7 +6,11 @@
 :icons: font
 :toc-title: Table of contents
 
-Last modified: {docdate}
+*Last modified* : {docdate} 
+
+*Last global review* : 
+
+*Document status* :  
 
 ## Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in their target execution environment and all the devices ensuring their proper functioning.

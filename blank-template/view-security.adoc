@@ -6,7 +6,11 @@
 :icons: font
 :toc-title: Table of contents
 
-Last modified: {docdate}
+*Last modified* : {docdate} 
+
+*Last global review* : 
+
+*Document status* :  
 
 ## Introduction
 
