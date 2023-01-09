@@ -557,6 +557,30 @@ How do we deal with errors? Examples of points to be addressed:
 Example (Spring): technical (unforeseen) errors such as the timeout to a REST service call are caught at the highest level of the application (via an `ErrorHandler`). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
 ====
 
+#### Frontend robustness
+
+[TIP]
+====
+
+Like the backend, the frontend requires significant robustness, especially since it is in direct contact with the Chair-To-Keyboard interface.
+
+Among others:
+
+* Think about prohibiting double submissions (double call to the backend if you double-click on a button). This does not exclude carrying out hardening checks on the backend side.
+
+* In order to avoid subtle problems (especially when using browser storage such as local/session storage), remember to prevent the same web application from opening in several browser windows or tabs. If attempted, display an error message in the supernumerary windows.
+
+* Always check browser compatibility, even in a controlled environment. If an attempt is made to open a page by an unsupported browser, display an explicit error message on the screen.
+===
+
+====
+Example 1: If the application is opened with IE, an error message should prompt the user to use a supported browser.
+====
+
+====
+Example 2: All buttons in the application must prevent double submission by temporarily disabling buttons when an event occurs.
+====
+
 ### Configuration management
 
 [TIP]
