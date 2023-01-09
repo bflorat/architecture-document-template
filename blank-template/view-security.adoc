@@ -1,4 +1,4 @@
-= Security view
+# Security view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -8,7 +8,7 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 
 This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 
@@ -16,7 +16,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-=== Reference Documentation
+### Reference Documentation
 
 .Safety documentary references
 [cols="1,1,3,3"]
@@ -27,9 +27,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="1,3,1,1,2"]
@@ -44,7 +44,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1,1"]
@@ -55,13 +55,13 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 | 
 |====
 
-== Constraints
+## Constraints
 
-== Requirements
+## Requirements
 
 
 [[integrity-requirements]]
-=== Integrity requirements
+### Integrity requirements
 
 .Integrity level required by data class
 [cols = '2, 1, 1, 1, 1']
@@ -81,7 +81,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 [[confidentiality-requirements]]
-=== Confidentiality requirements
+### Confidentiality requirements
 
 .Level of confidentiality required by data class
 [cols="1,1,1,1,1"]
@@ -101,11 +101,11 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 [[identification-requirements]]
-=== Identification requirements
+### Identification requirements
 
 
 [[authentication-requirements]]
-=== Authentication requirements
+### Authentication requirements
 
 .Authentication requirement per use case
 [cols="1,1,1,1,1,1,1,1"]
@@ -124,14 +124,14 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 [[identity-federation-requirements]]
-=== Identity Federation Requirements
+### Identity Federation Requirements
 
 
 [[sso-requirements]]
-=== SSO and SLO requirements
+### SSO and SLO requirements
 
 [[non-repudiation-requirements]]
-=== Non-repudiation requirements
+### Non-repudiation requirements
 
 .Non-repudiation needs
 [cols="e,e,e"]
@@ -144,14 +144,14 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |===
 
 [[privacy-requirements]]
-=== Anonymity and privacy requirements
+### Anonymity and privacy requirements
 
 [[authorization-requirements]]
-=== Authorizations requirements
+### Authorizations requirements
 
 
 [[traceability-requirements]]
-=== Traceability and auditability requirements
+### Traceability and auditability requirements
 
 .Data to be kept for proof
 [cols="1,1,1"]
@@ -164,9 +164,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |===
 
-== Security measures
+## Security measures
 
-=== Integrity
+### Integrity
 
 Measures meeting the <<integrity-requirements>> :
 
@@ -181,7 +181,7 @@ Measures meeting the <<integrity-requirements>> :
 
 |===
 
-=== Confidentiality
+### Confidentiality
 
 Measures meeting the <<confidentiality-requirements>>:
 
@@ -195,16 +195,16 @@ Measures meeting the <<confidentiality-requirements>>:
 | 
 |===
 
-=== Identification
+### Identification
 
 Measures meeting the <<identification-requirements>> :
 
 
-=== Authentication
+### Authentication
 
 Measures meeting the <<authentication-requirements>>:
 
-==== Service accounts
+#### Service accounts
 
 .Service accounts
 [cols = '1,2,2']
@@ -217,37 +217,37 @@ Measures meeting the <<authentication-requirements>>:
 |====
 
 
-=== Identity federation
+### Identity federation
 
 Measures meeting the <<identity-federation-requirements>>:
 
 
-=== SSO, SLO
+### SSO, SLO
 
 Measures meeting the <<sso-requirements>>:
 
-=== Non-repudiation
+### Non-repudiation
 
 Measures meeting the <<non-repudiation-requirements>>:
 
 
-=== Anonymity and privacy
+### Anonymity and privacy
 
 Measures meeting the <<privacy-requirements>>:
 
 
-=== Authorizations
+### Authorizations
 
 Measures meeting the <<authorization-requirements>>:
 
-=== Traceability, auditability
+### Traceability, auditability
 
 Measures meeting the <<traceability-requirements>>:
 
 
-== Self-checks
+## Self-checks
 
-=== Self-check for vulnerabilities
+### Self-check for vulnerabilities
 
 .Self-checking checklist to take into account common vulnerabilities
 [cols="e,e,3e"]

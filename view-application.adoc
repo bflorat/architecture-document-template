@@ -1,4 +1,4 @@
-= Application view
+# Application view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -9,7 +9,7 @@
 Last modified: {docdate}
 
 
-== Introduction
+## Introduction
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
 
@@ -17,7 +17,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-=== Reference Documentation
+### Reference Documentation
 
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
@@ -29,9 +29,9 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | 1 | 2.0.4 | XX_Urba_POS.pdf | IS mapping |
 |=== 
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="1e,6e,1e,1e,1e"]
@@ -45,20 +45,20 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | BEFORE 2040
 |===
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1e,6e"]
-|====
+|===
 | ID | Detail
 
 | HA1
 | Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
-|====
+|===
 
-== General context
+## General context
 
-=== Objectives
+### Objectives
 
 [TIP]
 Briefly describe the project and recall its objectives. Highlight those which are structuring for the architecture.
@@ -73,7 +73,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main components of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-=== Existing
+### Existing
 
 [TIP]
 If this document presents a redesign or migration project, describe briefly the existing application. Do not repeat the documentation, simply refer to it and point to its architecture document if available. Beware of mentioning any information with a strong impact on the new project.
@@ -84,14 +84,14 @@ Example 1: The GOLD application is a Client-Server application in FORMS 4 pointi
 Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
 ====
 
-=== Positioning in the IS
+### Positioning in the IS
 
 [TIP]
 If the IS is urbanized, identify the block concerned by the project.
 
-=== Actors
+### Actors
 
-==== Internal actors
+#### Internal actors
 
 [TIP]
 By the term "internal", the IT team project refers to actors belonging to the organization. These actors can be humans or application components.
@@ -113,7 +113,7 @@ List of internal actors
 
 |===
 
-==== External actors
+#### External actors
 
 List of external actors
 [cols="e,e,e,e"]
@@ -130,9 +130,9 @@ List of external actors
 | Worldwide
 |===
 
-== Constraints
+## Constraints
 
-=== Budget
+### Budget
 
 TIP: Give the budget constraints of the project
 ====
@@ -142,14 +142,14 @@ Example 1: Overall envelope of $1M
 Example 2: Cloud infrastructure should cost less than $20K a month
 ====
 
-=== Planning
+### Planning
 
 TIP: Without detailing the project schedules, it is suggested to highlight interesting elements for the architecture.
 ====
 Example 1: Application Launch before February 2034, prerequisite for the HEAVY program in May 2034.
 ====
 
-=== Urbanization
+### Urbanization
 
 [TIP]
 ====
@@ -183,7 +183,7 @@ Example 6: The components of this application follow the SOA architecture as def
 Example 7: Components in an Internet zone cannot call components in an Intranet zone for security reasons.
 ====
 
-== Requirements
+## Requirements
 
 TIP: Give here the application architecture requirements that can be applied to the project.
 
@@ -200,9 +200,9 @@ Example 2: Development should be able to take place within distributed teams, ea
 ====
 
 
-== Target architecture
+## Target architecture
 
-=== General application architecture
+### General application architecture
 
 [TIP]
 ====
@@ -240,7 +240,7 @@ Example 3: Thanks to the August 03, 20xx derogation, the GUI will be written usi
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
 
-=== Detailed application architecture
+### Detailed application architecture
 
 [TIP]
 ====
@@ -258,7 +258,7 @@ The flows are logical and not technical (for example, we can represent a direct 
 For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
 ====
 
-=== Principles that dictated the choices
+### Principles that dictated the choices
 
 [TIP]
 ====
@@ -268,7 +268,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-=== Static view
+### Static view
 
 [TIP]
 ====
@@ -279,7 +279,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-static.svg[Detailed application architecture diagram (static view)] 
 
-=== Dynamic view
+### Dynamic view
 
 [TIP]
 ====
@@ -297,7 +297,7 @@ image::diagrams/detailed-application-architecture-dynamic.svg[Detailed applicati
 
 ====
 
-=== Matrix of application flows
+### Matrix of application flows
 
 [TIP]
 ====
@@ -308,9 +308,9 @@ Do not detail the monitoring or clustering streams for example. Indicate the typ
 
 Partial example of an application flow matrix
 [cols = '1e, 3e, 1e, 1e, 1e']
-|====
+|===
 | Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
 
 | Company| PC / tablet / external mobile | gui-allmydata | WAN | R
 | batch-process-requests | service-compo-pdf | HTTP | LAN | C
-|==== 
+|===

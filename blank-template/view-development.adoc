@@ -1,4 +1,4 @@
-= Development view
+# Development view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -8,7 +8,7 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 
 This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
 
@@ -17,7 +17,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
-=== Reference Documentation
+### Reference Documentation
 
 .Development documentary references
 [cols="1,1,4,4"]
@@ -28,9 +28,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="1,1,1,1,1"]
@@ -42,7 +42,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1,4"]
@@ -53,77 +53,77 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-== Constraints
+## Constraints
 
-== Non-functional requirements
+## Non-functional requirements
 
-=== Accessibility
+### Accessibility
 
-=== Ergonomics
+### Ergonomics
 
-==== Ergonomic charter
+#### Ergonomic charter
 
-==== Specificities on widgets
+#### Specificities on widgets
 
-==== Fonts
+#### Fonts
 
-==== Responsive website
+#### Responsive website
 
-==== Progressive Web Apps (PWA)
+#### Progressive Web Apps (PWA)
 
-==== Supported browsers
+#### Supported browsers
 
-==== Internationalization (i18n)
+#### Internationalization (i18n)
 
-==== Offline mode
+#### Offline mode
 
-=== SEO Requirements
+### SEO Requirements
 
-== Target architecture
+## Target architecture
 
-=== Software stack
+### Software stack
 
-==== Stack profile
+#### Stack profile
 
-==== Software stack
+#### Software stack
 
-=== Performance
+### Performance
 
-=== Software factory specifics
+### Software factory specifics
 
-=== Development standards and automatic code review
+### Development standards and automatic code review
 
-=== Notable patterns
+### Notable patterns
 
-=== Specificities of the tests
+### Specificities of the tests
 
-=== Eco-design
+### Eco-design
 
-=== Management of robustness
+### Management of robustness
 
-==== Transaction management
+#### Transaction management
 
-==== Session management
+#### Session management
 
-==== Error handling
+#### Error handling
 
-=== Configuration management
+### Configuration management
 
-=== Branch management policy
+### Branch management policy
 
-=== Versioning
+### Versioning
 
-=== Concurrency
+### Concurrency
 
-=== Encoding
+### Encoding
  
-=== Timezones
+### Timezones
 
-=== Log management
+### Log management
 
-=== Administrative tools
+### Administrative tools
 
-=== Sorting and Pagination
+### Sorting and Pagination
 
-=== Provisioning and data updates
+### Provisioning and data updates
 

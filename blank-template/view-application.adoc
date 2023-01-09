@@ -1,4 +1,4 @@
-= Application view
+# Application view
 
 :sectnumlevels: 4
 :toclevels: 4
@@ -10,7 +10,7 @@
 Last modified: {docdate}
 
 
-== Introduction
+## Introduction
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
 
@@ -18,7 +18,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-=== Reference Documentation
+### Reference Documentation
 
 .Documentary references
 [cols="1,1,4,4"]
@@ -27,11 +27,11 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |  |  |   | 
 
-|=== 
+|===
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="1,6,1,1,1"]
@@ -42,7 +42,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |===
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1,6"]
@@ -53,18 +53,18 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 |====
 
-== General context
+## General context
 
-=== Objectives
+### Objectives
 
-=== Existing
+### Existing
 
 
-=== Positioning in the IS
+### Positioning in the IS
 
-=== Actors
+### Actors
 
-==== Internal actors
+#### Internal actors
 
 
 List of internal actors
@@ -76,7 +76,7 @@ List of internal actors
 
 |===
 
-==== External actors
+#### External actors
 
 List of external actors
 [cols="1,1,1,1"]
@@ -87,29 +87,29 @@ List of external actors
 
 |===
 
-== Constraints
+## Constraints
 
-=== Budget
+### Budget
 
-=== Planning
+### Planning
 
-=== Urbanization
+### Urbanization
 
-== Requirements
+## Requirements
 
-== Target architecture
+## Target architecture
 
-=== General application architecture
+### General application architecture
 
-=== Detailed application architecture
+### Detailed application architecture
 
-=== Principles that dictated the choices
+### Principles that dictated the choices
 
-=== Static view
+### Static view
 
-=== Dynamic view
+### Dynamic view
 
-=== Matrix of application flows
+### Matrix of application flows
 
 [cols = '1,3,1,1,1']
 |====
@@ -117,4 +117,4 @@ List of external actors
 
 |  |  |   |  | 
 
-|==== 
+|====

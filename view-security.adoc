@@ -1,4 +1,4 @@
-= Security view
+# Security view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -8,7 +8,7 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 
 This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 
@@ -20,7 +20,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 Availability is dealt with in the infrastructure section. Even if availability concept is often handled with Integrity and Confidentiality (the "CIA triad"), this model is role-oriented and we feel that availability is more often managed by infrastructure architects than by the security experts.
 
 
-=== Reference Documentation
+### Reference Documentation
 
 [TIP]
 ====
@@ -36,9 +36,9 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | 2 | latest | Company security standards | http://acme.com/myurl
 |====
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="1e,3e,1e,1e,2e"]
@@ -53,7 +53,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 
 |====
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="e,e"]
@@ -64,7 +64,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | The SAML solution currently in place in the organization does not meet the authentication requirements. An OpenID Connect solution will be implemented.
 |====
 
-== Constraints
+## Constraints
 
 [TIP]
 ====
@@ -85,7 +85,7 @@ Example 2: a component in the internet zone is formally prohibited from accessin
 Example 3: in application of the GDPR, user data must be encrypted.
 ====
 
-== Requirements
+## Requirements
 
 [TIP]
 ====
@@ -95,7 +95,7 @@ For particularly sensitive projects, provide a risk analysis file. To do this, f
 ====
 
 [[integrity-requirements]]
-=== Integrity requirements
+### Integrity requirements
 
 [TIP]
 ====
@@ -153,7 +153,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 |====
 
 [[confidentiality-requirements]]
-=== Confidentiality requirements
+### Confidentiality requirements
 
 [TIP]
 ====
@@ -203,7 +203,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 |====
 
 [[identification-requirements]]
-=== Identification requirements
+### Identification requirements
 
 [TIP]
 ====
@@ -221,7 +221,7 @@ Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 ====
 
 [[authentication-requirements]]
-=== Authentication requirements
+### Authentication requirements
 
 [TIP]
 ====
@@ -276,7 +276,7 @@ It is possible to require several occurrences of the same factor, use as many cr
 |====
 
 [[identity-federation-requirements]]
-=== Identity Federation Requirements
+### Identity Federation Requirements
 
 [TIP]
 ====
@@ -290,7 +290,7 @@ Example: Identification and authentication will be outsourced to the Auth0 ident
 ====
 
 [[sso-requirements]]
-=== SSO and SLO requirements
+### SSO and SLO requirements
 
 [TIP]
 ====
@@ -315,7 +315,7 @@ Example 3: this Web application must provide single authentication shared with t
 ====
 
 [[non-repudiation-requirements]]
-=== Non-repudiation requirements
+### Non-repudiation requirements
 
 [TIP]
 ====
@@ -333,7 +333,7 @@ List here the business actions with a non-repudiation requirement, i.e., a measu
 |===
 
 [[privacy-requirements]]
-=== Anonymity and privacy requirements
+### Anonymity and privacy requirements
 
 [TIP]
 List the constraints of anonymity and legal privacy.
@@ -358,7 +358,7 @@ Example 6: Pursuant to the GDPR, explicit consent from users to store their pers
 ====
 
 [[authorization-requirements]]
-=== Authorizations requirements
+### Authorizations requirements
 
 [TIP]
 ====
@@ -422,7 +422,7 @@ Example role matrix
 ====
 
 [[traceability-requirements]]
-=== Traceability and auditability requirements
+### Traceability and auditability requirements
 
 [TIP]
 ====
@@ -476,9 +476,9 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 | 5 years
 |===
 
-== Security measures
+## Security measures
 
-=== Integrity
+### Integrity
 
 Measures meeting the <<integrity-requirements>> :
 
@@ -514,7 +514,7 @@ a|
 | Digital signature of the net amount + date + name in PKCS#7 (RSA, SHA256) format with timestamp. The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF.
 |===
 
-=== Confidentiality
+### Confidentiality
 
 Measures meeting the <<confidentiality-requirements>>:
 
@@ -553,7 +553,7 @@ Also consider the confidentiality of derived data:
 * encryption of desktops. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
 ====
 
-=== Identification
+### Identification
 
 Measures meeting the <<identification-requirements>> :
 
@@ -561,7 +561,7 @@ _Example 1: The user ID of the application will be the uid attribute of the DNs 
 
 _Example 2: To ensure that the IDs of deleted accounts are not reused, a history table will be added to the application and requested before any new account is created._
 
-=== Authentication
+### Authentication
 
 Measures meeting the <<authentication-requirements>>:
 [TIP]
@@ -581,7 +581,7 @@ Example 3: when creating a new beneficiary in the online bank app, the user will
 Example 4: Passwords will in no case be kept plaintext but stored in the form of bcrypt digest.
 ====
 
-==== Service accounts
+#### Service accounts
 
 [TIP]
 ====
@@ -598,7 +598,7 @@ Service accounts should only be used for authentication to a technical component
 |====
 
 
-=== Identity federation
+### Identity federation
 
 Measures meeting the <<identity-federation-requirements>>:
 
@@ -613,7 +613,7 @@ For Web applications, specify the browser constraints (activation of cookies in 
 Example: The end-user website leverages Google https://developers.google.com/identity/protocols/oauth2/openid-connect[OIDC API] to handle authentication. 
 ====
 
-=== SSO, SLO
+### SSO, SLO
 
 Measures meeting the <<sso-requirements>>:
 [TIP]
@@ -627,7 +627,7 @@ Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Sh
 Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
-=== Non-repudiation
+### Non-repudiation
 
 Measures meeting the <<non-repudiation-requirements>>:
 
@@ -635,7 +635,7 @@ Measures meeting the <<non-repudiation-requirements>>:
 Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component.
 ====
 
-=== Anonymity and privacy
+### Anonymity and privacy
 
 Measures meeting the <<privacy-requirements>>:
 
@@ -649,7 +649,7 @@ Example 2: data destined for the public zone will be partially exported via a `C
 Example 3: the cookie acceptance banner will be implemented on all pages of the Angular application via the `angular-cookie-law` module.
 ====
 
-=== Authorizations
+### Authorizations
 
 Measures meeting the <<authorization-requirements>>:
 ====
@@ -659,7 +659,7 @@ Example 1: Authorization management will be managed by application and stored in
 Example 2: Obtaining the Facebook address book will be in OAuth2. We will use the Google OAuth2 Java API.
 ====
 
-=== Traceability, auditability
+### Traceability, auditability
 
 Measures meeting the <<traceability-requirements>>:
 
@@ -680,9 +680,9 @@ Example 5: The logs containing the `[PROOF]` tag from any component will be cent
 ====
 
 
-== Self-checks
+## Self-checks
 
-=== Self-check for vulnerabilities
+### Self-check for vulnerabilities
 
 [TIP]
 ====

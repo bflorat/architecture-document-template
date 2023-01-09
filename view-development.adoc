@@ -1,4 +1,4 @@
-= Development view
+# Development view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -8,7 +8,7 @@
 
 Last modified: {docdate}
 
-== Introduction
+## Introduction
 
 This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
 
@@ -17,7 +17,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
-=== Reference Documentation
+### Reference Documentation
 
 [TIP]
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
@@ -32,9 +32,9 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-== Not ruled
+## Not ruled
 
-=== Points subject to further study
+### Points subject to further study
 
 .Points subject to further study
 [cols="e,e,e,e,e"]
@@ -50,7 +50,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 |====
 
 
-=== Assumptions
+### Assumptions
 
 .Assumptions
 [cols="1e,4e"]
@@ -61,7 +61,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
 |====
 
-== Constraints
+## Constraints
 
 [TIP]
 ====
@@ -85,14 +85,14 @@ Example 2: The module should be based on the JPA framework for persistence
 Example 3: The application will be built, tested and deployed continuously with each push via the Gitlab-CI platform
 ====
 
-== Non-functional requirements
+## Non-functional requirements
 
 [TIP]
 ====
 Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements were given by the project decision-makers. Schedule interviews to determine them. If some requirements are not realistic, mention this in the reference points to be decided.
 ====
 
-=== Accessibility
+### Accessibility
 
 [TIP]
 ====
@@ -105,16 +105,16 @@ There are other accessibility standards. Be careful to correctly assess the targ
 
 ====
 
-=== Ergonomics
+### Ergonomics
 
-==== Ergonomic charter
+#### Ergonomic charter
 
 [TIP]
 ====
 In general, we refer here to the body's ergonomic charter. List any specificities. Do not duplicate here the accessibility constraints listed above.
 ====
  
-==== Specificities on widgets
+#### Specificities on widgets
 
 [TIP]
 ====
@@ -127,7 +127,7 @@ Example 1: The tables must be sortable according to several columns.
 Example 2: Most screens will be fitted with accordions.
 ====
 
-==== Fonts
+#### Fonts
 
 [TIP]
 ====
@@ -138,7 +138,7 @@ The choice of fonts follows licensing constraints. In order to ensure legal secu
 Redhat, for instance, provides four families of TrueType fonts (Liberation) under an Open Source license that is legally secure and compatible with the Monotype, Courier-New, Arial and Times New Roman.
 ====
 
-==== Responsive website
+#### Responsive website
 
 [TIP]
 ====
@@ -153,7 +153,7 @@ List the multi-media display constraints. When possible, use modern frameworks (
 WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of data to be downloaded by the client, complexity, more end-to-end tests to be expected…).
 
 
-==== Progressive Web Apps (PWA)
+#### Progressive Web Apps (PWA)
 
 [TIP]
 ====
@@ -163,7 +163,7 @@ Specify whether the application is progressive. PWA applications are HTML5 web a
 Example: Application X will be fully PWA. Tests will have to demonstrate that the site will continue to operate with the network shutdown and that the pages load in less than 5 seconds using 4G Mobile Internet access.
 ====
 
-==== Supported browsers
+#### Supported browsers
 
 [TIP]
 ====
@@ -186,7 +186,7 @@ Example 2: Application Y being an internet application targeting the widest poss
 Example 3: Application Z is aimed at the broadest audience and with reasonably old systems and will therefore have to support: Firefox 6+, Chrome 8+, Opera 8+, IE 10, Edge.
 ====
 
-==== Internationalization (i18n)
+#### Internationalization (i18n)
 
 [TIP]
 ====
@@ -199,7 +199,7 @@ Example 1: The GUI X will be translated into 25 languages ​​including some A
 Example 2: Date formats and other input fields must be perfectly localized for maximum user convenience.
 ====
 
-==== Offline mode
+#### Offline mode
 
 [TIP]
 ====
@@ -214,7 +214,7 @@ Example 1: The application will be developed in Java Swing with local storage ba
 Example 2: The mobile application will be in PWA mode, entirely written in HTML5 with local storage to store the day's data into the browser.
 ====
 
-=== SEO Requirements
+### SEO Requirements
 
 [TIP]
 ====
@@ -227,11 +227,11 @@ Example 1: No indexing necessary or desired (Intranet site).
 Example 2: The static pages of the site must follow good SEO practices to optimize its visibility.
 ====
 
-== Target architecture
+## Target architecture
 
-=== Software stack
+### Software stack
 
-==== Stack profile
+#### Stack profile
 
 [TIP]
 ====
@@ -244,7 +244,7 @@ Example: this application has "Spring Web Application" profile with exceptional 
 Example: Using Reacts.js on an experimental basis within the organization. Validated in architecture committee on ...
 ====
 
-==== Software stack
+#### Software stack
 
 [TIP]
 ====
@@ -268,7 +268,7 @@ Software stack example
 |====
 ====
 
-=== Performance
+### Performance
 
 IMPORTANT: Requirements are listed in the link:./component-architecture-sizing.adoc[Sizing section].
 
@@ -308,7 +308,7 @@ Frontend and backend:
 
 WARNING: Do not fall into the premature optimization trap : it is "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards. Only optimize if it is worth it (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds or even nanoseconds.
 
-=== Software factory specifics
+### Software factory specifics
 
 [TIP]
 ====
@@ -318,7 +318,7 @@ Specify shortly whether this project requires a particular CI/CD configuration.
 Example: Gitlab jobs will produce the software as Docker containers if all UT pass. The integration tests will then be run against the container. If all integration and BDD tests pass, the Docker image is released into Nexus.
 ====
 
-=== Development standards and automatic code review
+### Development standards and automatic code review
 
 [TIP]
 ====
@@ -339,7 +339,7 @@ Example 2: The required quality level corresponds to the recommended https://doc
 Example 3: Which language should be used for the code? Business terms in German (it is imperative to use business terms as recommended by the DDD) and English for generic technical terms.
 ====
 
-=== Notable patterns
+### Notable patterns
 
 [TIP]
 ====
@@ -349,7 +349,7 @@ Specify whether this project has implemented structuring patterns (GoF, JEE or o
 Example 1: to deal with the combinatorial explosion of possible contracts and to avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <provide a diagram>.
 ====
 
-=== Specificities of the tests
+### Specificities of the tests
 
 [TIP]
 ====
@@ -453,7 +453,7 @@ detect as many bugs as possible before UAT tests.
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
-=== Eco-design
+### Eco-design
 
 [TIP]
 ====
@@ -480,9 +480,9 @@ Example 2: Robustness tests running over several days will be performed on the m
 Example 3: The performance campaigns will integrate a detailed analysis of the consumption of bandwidth and CPU cycles even if the response time requirements are covered to help  identifying eco-design optimizations.
 ====
 
-=== Management of robustness
+### Management of robustness
 
-==== Transaction management
+#### Transaction management
 
 [TIP]
 ====
@@ -499,7 +499,7 @@ List here the decisions taken regarding the management of transactions. This is 
 Example: Our resources are not transactional (REST services), and wanting to avoid making compensatory transactions, it is forbidden to call two update services synchronously. If absolutely necessary, we will use an Event-Driven architecture using a queue.
 ====
 
-==== Session management
+#### Session management
 
 [TIP]
 ====
@@ -519,7 +519,7 @@ Examples of points to be addressed:
 Example: our JSF application will store in an HTTP session only its shopping cart, not the product references.
 ====
 
-==== Error handling
+#### Error handling
 
 [TIP]
 ====
@@ -541,7 +541,7 @@ How do we deal with errors? Examples of points to be addressed:
 Example (Spring): technical (unforeseen) errors such as the timeout to a REST service call are caught at the highest level of the application (via an `ErrorHandler`). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
 ====
 
-=== Configuration management
+### Configuration management
 
 [TIP]
 ====
@@ -561,7 +561,7 @@ Example (application deployed in Kubernetes):
 The configuration will be injected at runtime via environment variables provided in the Kubernetes Deployment Descriptor. No live reloading.
 ====
 
-=== Branch management policy
+### Branch management policy
 
 [TIP]
 ====
@@ -578,7 +578,7 @@ Example:
 ====
 
 
-=== Versioning
+### Versioning
 
 [TIP]
 ====
@@ -595,7 +595,7 @@ Example:
 
 ====
 
-=== Concurrency
+### Concurrency
 
 [TIP]
 ====
@@ -611,7 +611,7 @@ How do we manage concurrent access? Examples of points to be addressed:
 Example (Spring MVC): All controllers will be in singleton scope and therefore must in no case store state in their attributes to avoid race conditions.
 ====
 
-=== Encoding
+### Encoding
 
 [TIP]
 ====
@@ -625,7 +625,7 @@ Example 1: The only encoding allowed in all modules and technical components is 
 Example 2: If an external system requires sending or receiving character strings in an encoding different from UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible. In addition, never persist in our systems a data in a non-UTF-8 encoding.
 ====
  
-=== Timezones
+### Timezones
 
 [TIP]
 ====
@@ -639,7 +639,7 @@ Example 1: Hours will never be stored without a time zone. Basically, we will us
 Example 2: Dates and date-times will be stored in database as epoch millis in long integer format. In the case of dates, we will store the epoch millis at 12:00 UTC (and not 00:00, too close to the previous day, risk of bug).
 ====
 
-=== Log management
+### Log management
 
 NOTE: The log infrastructure aspects are detailed in the link:view-infrastructure.adoc[infrastructure view].
 
@@ -649,7 +649,7 @@ Give here the general rules concerning the application traces (logs), the levels
 Think about the use of logs, especially on the server side. Ask yourself if it will be possible to benefit from it in the event of an error in production in the middle of MiB or even GiB of other logs and n threads logging in parallel.
 ====
 
-==== General rules
+#### General rules
 
 ====
 Example 1:
@@ -669,7 +669,7 @@ if (isDebugEnabled()) {
 ```
 ====
 
-==== Levels and quantity of logs
+#### Levels and quantity of logs
 [TIP]
 ====
 Explain when and what to log in so as to produce logs that can be used in production.
@@ -711,7 +711,7 @@ Example:
 
 ====
  
-=== Administrative tools
+### Administrative tools
 
 [TIP]
 ====
@@ -729,7 +729,7 @@ Examples of points to be addressed:
 Example: The `/internal/maj_2` service will perform a version upgrade of the data model to V2
 ====
 
-=== Sorting and Pagination
+### Sorting and Pagination
 
 [TIP]
 ====
@@ -750,7 +750,7 @@ Example 2 (Client side)
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).
 ====
 
-=== Provisioning and DDL updates
+### Provisioning and DDL updates
 
 [TIP]
 ====
