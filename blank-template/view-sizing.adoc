@@ -154,3 +154,11 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 | 
 
 |====
+
+
+.Non-SAN external storage
+[cols='1,3,3']
+|====
+|Nature|Size (Gio)|Type(s) of machine using this share
+
+|====
