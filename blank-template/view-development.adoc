@@ -113,6 +113,8 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 #### Error handling
 
+#### Frontend robustness
+
 ### Configuration management
 
 ### Branch management policy
@@ -127,9 +129,13 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ### Log management
 
+#### General rules
+
+#### Levels and quantity of logs
+
 ### Administrative tools
 
 ### Sorting and Pagination
 
-### Provisioning and data updates
+### Provisioning and DDL updates
 

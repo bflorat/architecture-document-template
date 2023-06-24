@@ -206,11 +206,9 @@ Infrastructure components
 
 ##### Application monitoring
 
-##### Monitoring tool
+##### Monitoring tools
 
 ##### Alerting
-
-##### Batch execution reports
 
 ##### Black box monitoring
 
