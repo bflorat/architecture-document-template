@@ -208,7 +208,15 @@ Measures meeting the <<identification-requirements>> :
 
 Measures meeting the <<authentication-requirements>>:
 
-#### Service accounts
+### Identity federation
+
+Measures meeting the <<identity-federation-requirements>>:
+
+### SSO, SLO
+
+Measures meeting the <<sso-requirements>>:
+
+### Service accounts
 
 .Service accounts
 [cols = '1,2,2']
@@ -219,16 +227,6 @@ Measures meeting the <<authentication-requirements>>:
 |
 |
 |====
-
-
-### Identity federation
-
-Measures meeting the <<identity-federation-requirements>>:
-
-
-### SSO, SLO
-
-Measures meeting the <<sso-requirements>>:
 
 ### Non-repudiation and timestamping
 

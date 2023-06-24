@@ -585,23 +585,6 @@ Example 3: when creating a new beneficiary in the online bank app, the user will
 Example 4: Passwords will in no case be kept plaintext but stored in the form of bcrypt digest.
 ====
 
-#### Service accounts
-
-[TIP]
-====
-Service accounts should only be used for authentication to a technical component from a batch or an API.
-====
-
-.Service accounts
-[cols = '1e,2e,2e']
-|====
-| Account | Resource requiring authentication | How credentials are stored?
-
-| JDBC accounts (one account per database) | PG and SqlServer instances.
-| Clear storage in the configuration of data sources. Valued from a vault.
-|====
-
-
 ### Identity federation
 
 Measures meeting the <<identity-federation-requirements>>:
@@ -630,6 +613,23 @@ Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Sh
 ====
 Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
+
+### Service accounts
+
+[TIP]
+====
+Service accounts should only be used for authentication to a technical component from a batch or an API.
+====
+
+.Service accounts
+[cols = '1e,2e,2e']
+|====
+| Account | Resource requiring authentication | How credentials are stored?
+
+| JDBC accounts (one account per database) | PG and SqlServer instances.
+| Clear storage in the configuration of data sources. Valued from a vault.
+|====
+
 
 ### Non-repudiation and timestamping
 
