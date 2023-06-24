@@ -1167,11 +1167,11 @@ It is also possible to set up BAM (Business Activity Monitoring) tools based on 
 Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
 ====
 
-##### Monitoring tool
+##### Monitoring tools
 
 [TIP]
 ====
-Such a tool (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
+Such tools (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
 
 * Collect metrics (in SNMP, JMX, HTTP ...) periodically.
 * Persist metrics in some type of time series database (like RRD).
