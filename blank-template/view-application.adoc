@@ -1,5 +1,4 @@
 # Application view
-
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
