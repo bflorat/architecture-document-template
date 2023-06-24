@@ -351,7 +351,7 @@ Example : Follow https://www.restapitutorial.com/[this tutorial] when designing 
 Make explicit the rules and the level of required code quality
 ====
 ====
-Example 1: The quality rules to be used will follow the https://rules.sonarsource.com/java[SonarQube for Java rules]).
+Example 1: The quality rules to be used will follow the https://rules.sonarsource.com/java[SonarQube for Java rules].
 ====
 ====
 Example 2: The required quality level corresponds to the recommended https://docs.sonarqube.org/6.7/QualityGates.html[Quality Gate SonarQube]:
