@@ -97,7 +97,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ### Software factory specifics
 
-### Development standards and automatic code review
+### Blueprints
+
+### Code quality standards and automatic review
 
 ### Notable patterns
 

@@ -334,7 +334,17 @@ Specify shortly whether this project requires a particular CI/CD configuration.
 Example: Gitlab jobs will produce the software as Docker containers if all UT pass. The integration tests will then be run against the container. If all integration and BDD tests pass, the Docker image is released into Nexus.
 ====
 
-### Development standards and automatic code review
+### Blueprints
+
+[TIP]
+====
+List applicable blueprints. Avoid own-in-house ones but give priority to wildly recognized ones from community, hence already proved and known to developers. Ideally, this should contain only links to external documentations.
+====
+====
+Example : Follow https://www.restapitutorial.com/[this tutorial] when designing a RestFul API.
+====
+
+### Code quality standards and automatic review
 
 [TIP]
 ====
