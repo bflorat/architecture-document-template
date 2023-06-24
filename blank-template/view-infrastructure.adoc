@@ -216,6 +216,6 @@ Infrastructure components
 
 ### Jobs scheduling
 
-### Migration
+### Migrations
 
 ### Decommissioning 

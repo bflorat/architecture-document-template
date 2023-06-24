@@ -1253,11 +1253,11 @@ Example 2: The jobs will have to produce an execution report at each launch (wit
 ====
 
 
-### Migration
+### Migrations
 
 [TIP]
 ====
-This chapter describes a possible migration from an old system.
+This chapter describes a required migrations from older systems.
 
 Describe on a macroscopic scale the planned procedure as well as the rollback strategy in case of problem.
 
