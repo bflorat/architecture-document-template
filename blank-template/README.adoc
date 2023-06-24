@@ -2,7 +2,10 @@
 :lang: en
 
 # Architecture document
+
 Last modified: {localdate} {localtime}
+
+Model version : #<https://github.com/bflorat/modele-da/commits/master[commit id], ex: `b523b6a`>#
 
 *Status*: ...
 
