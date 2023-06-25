@@ -181,7 +181,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 |
 |
 
-| Website Account Profile
+| User account profile data
 |
 | X
 |
@@ -193,7 +193,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 | X
 |
 
-| Technical logs of user activities
+| Technical logs of activities
 |
 |
 | X
@@ -231,13 +231,13 @@ Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 ====
 Authentication makes it possible to verify the consistency between the identity of a user and a real person.
 
-Note that automatic non-human interactions (such as batches calling an API) can also be identified and authenticated (batch which uses an access-token to call a service for example).
+Note that automatic non-human interactions (such as batches calling an API) can also be identified and authenticated (batch which uses an service account to call an API for example).
 
 Authentication can be one or more factors (in the latter case, we speak of strong authentication). These factors can be:
 
-* Something that we *know* (typically a password).
-* Something that we *are* (biometrics).
-* Something we *own* (token, unique password generator, ID document ...).
+* Something you *know* (password, pass phrase, PIN code, job data,...). 
+* Something you *are* (morphological biometrics via e.g. fingerprints, iris recognition or facial recognition; behavioral such as gait or handwritten or genetic signature (DNA analysis)). 
+* Something you *own* (OTP currency, TOTP application configured on your smartphone, smart card, photo ID, private key in file form, recovery key (PUK),...).
 
 Remember to describe the authentication system once registered but also during registration (i.e., the initial authentication).
 
@@ -249,7 +249,7 @@ It is possible to add authentication factors specific to your organization to th
 It is possible to require several occurrences of the same factor, use as many crosses:
 
 .Authentication requirement per use case
-[cols="e,e,e,e,e,e,e,e"]
+[cols="e,e,e,e,e,e,e"]
 |====
 | Authentication case
 | Password respecting the company password policy
@@ -257,26 +257,25 @@ It is possible to require several occurrences of the same factor, use as many cr
 | OTP by Token
 | Biometrics
 | Knowledge of business data
-| Activation email
-| Delegation of authentication
+| Email with verification hyperlink
 
 | User already registered
-| X ||||||
+| X |||||
 
 | Create an account
-||||| XX | X |
+||||| XX | X 
 
 | Change password
-| X ||||| X |
+| X ||||| X 
 
 | Access to logs
-|| X |||||
+|| X ||||
 
 | Adding a transfer beneficiary
-| X || X ||||
+| X || X |||
 
 | Mobile application Y
-||||||| X
+||||X||| 
 |====
 
 [[identity-federation-requirements]]

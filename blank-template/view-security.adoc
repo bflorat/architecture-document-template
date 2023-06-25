@@ -112,7 +112,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 ### Authentication requirements
 
 .Authentication requirement per use case
-[cols="1,1,1,1,1,1,1,1"]
+[cols="1,1,1,1,1,1,1"]
 |====
 | Authentication case
 | Password respecting the company password policy
@@ -121,7 +121,6 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 | Biometrics
 | Knowledge of business data
 | Activation email
-| Delegation of authentication
 
 |||||||| 
 
