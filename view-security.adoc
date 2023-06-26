@@ -691,6 +691,131 @@ Example 4: all the documents used as proof will be archived.
 Example 5: The logs containing the `[PROOF]` tag from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
+Types de traductions
+Traduction de texte
+Texte source
+## RACI
+
+[NOTE]
+====
+Ce RACI permet de définir clairement les rôles de chacun concernant les actes liés à la sécurité.
+
+:r: pass:quotes[[.green]#R#]
+:a: pass:quotes[[.red]#A#]
+:c: pass:quotes[[.blue]#C#]
+:i: pass:quotes[[.orange]#I#]
+:na: pass:quotes[[.grey]#N/A#]
+:et: pass:quotes[[.grey]#&amp;#]
+
+* {r} : *Responsive* (personne qui va exécuter : elle en est responsable)
+* {a} : *Accountable* (personne qui va approuver la tâche : elle en est l'autorité)
+* {c} : *Consulted* (personne qui va être consultée dans l'exécution de la tâche)
+* {i} : *Informed* (personne qui sera informée lorsque la tâche est terminée)
+====
+
+### Gestion de la plateforme AWS (exemple)
+
+.Gestion de la plateforme AWS
+[cols="6,^1,^1,^1"]
+|===
+||Équipe Systèmes & Cloud|Équipe Sécurité SI|Équipe Réseau
+
+.^|Création des accounts AWS
+.^|{r} {et} {a}
+.^|{c} {et} {i}
+.^|{a}
+
+.^|Création des SCP AWS
+.^|{r} {et} {a}
+.^|{c} {et} {i}
+.^|{a}
+|===
+
+### Gestion des comptes applicatifs (exemple)
+
+.Gestion des comptes applicatifs
+[cols="6,^1,^1,^1"]
+|===
+||Équipe annuaire|Équipe projet|Équipe SOC
+
+.^|Création des comptes SSO
+.^|{r} {et} {a}
+.^|{i}
+.^|{i}
+
+.^|Gestion des habilitations
+.^|{i}
+.^|{r} {et} {a}
+.^|{i}
+
+.^|Revue d'habilitations annuelle
+.^|{c} {et} {i}
+.^|{i}
+.^|{r} {et} {a}
+
+|===
+
+## RACI
+
+[NOTE]
+====
+This RACI makes it possible to clearly define the roles of each concerning the acts related to security.
+
+:r: pass:quotes[[.green]#R#]
+:a: pass:quotes[[.red]#A#]
+:c: pass:quotes[[.blue]#C#]
+:i: pass:quotes[[.orange]#I#]
+:na: pass:quotes[[.grey]#N/A#]
+:and: pass:quotes[[.grey]#&amp;#]
+
+* {r}: *Responsive* (person who will execute: she is responsible for it)
+* {a}: *Accountable* (person who will approve the task: he is the authority)
+* {c}: *Consulted* (person who will be consulted in the execution of the task)
+* {i}: *Informed* (person who will be informed when the task is completed)
+====
+
+### AWS Platform Management (example)
+
+.AWS Platform Management
+[cols="6,^1,^1,^1"]
+|===
+||Systems & Cloud Team|IS Security Team|Network Team
+
+.^|Creating AWS Accounts
+.^|{r} {and} {a}
+.^|{c} {and} {i}
+.^|{a}
+
+.^|Creating AWS SCPs
+.^|{r} {and} {a}
+.^|{c} {and} {i}
+.^|{a}
+|===
+
+### Application account management (example)
+
+.Management of application accounts
+[cols="6,^1,^1,^1"]
+|===
+||Directory team|Project team|SOC team
+
+.^|Creating SSO accounts
+.^|{r} {and} {a}
+.^|{i}
+.^|{i}
+
+.^|Permissions management
+.^|{i}
+.^|{r} {and} {a}
+.^|{i}
+
+.^|Annual accreditation review
+.^|{c} {and} {i}
+.^|{i}
+.^|{r} {and} {a}
+
+|===
+
 
 ## Self-checks
 

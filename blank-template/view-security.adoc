@@ -246,6 +246,35 @@ Measures meeting the <<authorization-requirements>>:
 Measures meeting the <<traceability-requirements>>:
 
 
+## RACI
+
+[NOTE]
+====
+:r: pass:quotes[[.green]#R#]
+:a: pass:quotes[[.red]#A#]
+:c: pass:quotes[[.blue]#C#]
+:i: pass:quotes[[.orange]#I#]
+:na: pass:quotes[[.grey]#N/A#]
+:and: pass:quotes[[.grey]#&amp;#]
+
+* {r}: *Responsive* (person who will execute: she is responsible for it)
+* {a}: *Accountable* (person who will approve the task: he is the authority)
+* {c}: *Consulted* (person who will be consulted in the execution of the task)
+* {i}: *Informed* (person who will be informed when the task is completed)
+====
+
+.Management of  ...
+[cols="6,^1,^1,^1"]
+|===
+||Team A|Team B|Team C
+
+.^|...
+.^|{r} {and} {a}
+.^|{c} {and} {i}
+.^|{a}
+
+|===
+
 ## Self-checks
 
 ### Self-check for vulnerabilities
