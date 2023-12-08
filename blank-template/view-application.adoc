@@ -108,11 +108,11 @@ List of external actors
 
 ### Detailed application architecture
 
-### Principles that dictated the choices
+#### Principles that dictated the choices
 
-### Static view
+#### Static view
 
-### Dynamic view
+#### Dynamic view
 
 ### Matrix of application flows
 

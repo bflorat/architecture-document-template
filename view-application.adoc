@@ -281,7 +281,7 @@ The flows are logical and not technical (for example, we can represent a direct 
 For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
 ====
 
-### Principles that dictated the choices
+#### Principles that dictated the choices
 
 [TIP]
 ====
@@ -291,7 +291,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-### Static view
+#### Static view
 
 [TIP]
 ====
@@ -302,7 +302,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-static.svg[Detailed application architecture diagram (static view)] 
 
-### Dynamic view
+#### Dynamic view
 
 [TIP]
 ====
@@ -334,6 +334,6 @@ Partial example of an application flow matrix
 |===
 | Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
 
-| Company| PC / tablet / external mobile | gui-allmydata | WAN | R
-| batch-process-requests | service-compo-pdf | HTTP | LAN | C
+| Company| PC / tablet / external mobile | WAN | gui-allmydata | R
+| batch-process-requests | service-compo-pdf | LAN | HTTP | C
 |===
