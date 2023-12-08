@@ -245,6 +245,16 @@ Measures meeting the <<authorization-requirements>>:
 
 Measures meeting the <<traceability-requirements>>:
 
+### Combatting Cyber Threats
+
+#### Prevention Solutions
+
+#### Detection Solutions
+
+#### Corrective Solutions
+
+#### Predictive Solutions
+
 
 ## RACI
 

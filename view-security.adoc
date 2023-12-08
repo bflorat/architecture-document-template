@@ -691,9 +691,85 @@ Example 4: all the documents used as proof will be archived.
 Example 5: The logs containing the `[PROOF]` tag from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
-Types de traductions
-Traduction de texte
-Texte source
+
+
+### Combatting Cyber Threats
+These technical or organizational measures help combat cyber threats such as malware, phishing, DOS/DDOS attacks, exploitation of vulnerabilities (known or zero-day), social engineering, online scams, sensitive data breaches, etc. Most solutions are implemented at the Information System (IS) level. Therefore, it is probably a matter of pointing to reference documents and detailing any solutions specific to your project or product.
+
+#### Prevention Solutions
+
+Include:
+
+* User training and awareness programs.
+* Training and awareness programs for IT personnel.
+* Implementation of an Intrusion Prevention System (IPS) that blocks malicious actors.
+* Implementation and adherence to procedures, such as regular reviews of authorizations.
+* Tightening of security rules such as enforcing mandatory multi-factor authentication, mandatory password renewal, or the use of digital safes (personal or shared) to store secrets.
+* Regular audits (penetration tests and/or code audits) if possible by external experts.
+* Data Loss Prevention (DLP) tools that analyze network flows or emails for leaks of sensitive data or intellectual property.
+* Blocking certain attack vectors like USB drives.
+* Automatic update systems for security patches on operating systems.
+
+====
+Example 1: User awareness through [these recommendations from the NSA](https://www.nsa.gov/What-We-Do/Cybersecurity/Best-Practices/).
+====
+
+====
+Example 2: Risk awareness among IT professionals through https://www.nsa.gov/Press-Room/Cybersecurity-Advisories-Guidance/[NSA's cybersecurity guides].
+====
+
+====
+Example 3: Implementation of the OpenSource IPS CrowdSec based on community information sharing (Crowdsourcing).
+====
+
+#### Detection Solutions
+
+Include:
+
+* Antivirus software (the latest generations include AI and go beyond signature searching).
+* WAF (Web Application Firewall) that detects and blocks attack attempts in real-time.
+* SIEM (Security Information and Event Management) tools that analyze logs from various sources.
+* IDS (Intrusion Detection System) tools, often also performing IPS functions, analyzing network flows for malicious access attempts (such as exploitation of CVEs).
+* SAST (Static Application Security Testing) and DAST (Dynamic Application Security Testing) tools analyzing the organization's source code and execution behavior, looking for known vulnerabilities.
+* SCA (Software Composition Analysis) tools analyzing project dependencies (primarily Open Source) and reporting known CVEs (vulnerabilities) as soon as possible for updates.
+
+====
+Example 1: Implementation of the SCA tool OWASP Dependency-Check in CI/CD pipelines to detect Open Source libraries containing vulnerabilities (CVEs). Any presence of CVEs must be blocking.
+====
+
+#### Corrective Solutions
+
+Include:
+
+* Anti-malware solutions that remove malicious software.
+* Backup restoration tools (knowledge of MTTR, defined in the infrastructure view, is crucial for restoration planning).
+* Tools and procedures for isolating compromised components or areas within the IS.
+* Software asset management tools that block unauthorized software.
+* Forensic analysis tools and methodologies for analyzing logs to understand attack paths and construct a post-mortem.
+* Procedures and tools for responding to an attack.
+
+====
+Example 1: Preparation of procedures and a [contingency plan](https://www.cisa.gov/uscert/ncas/alerts/ta15-119a) in case of a security incident following the NIST SP 800-61 standard.
+====
+
+#### Predictive Solutions
+
+These recent solutions are primarily based on Machine Learning and the analysis of large-scale data (Big Data). They include:
+
+* User and Entity Behavior Analytics (UEBA) solutions that detect abnormal behavior of certain users.
+* Tools for simulating complex attacks.
+* Tools and repositories for Threat Intelligence.
+
+====
+Example 1: Analysis and alerting of suspicious behaviors with AWS GuardDuty on an AWS-deployed cloud application.
+====
+
+====
+Example 2: Using CrowdSec Threat Intelligence to discover threat trends based on real and consolidated data.
+====
+
+
+
 ## RACI
 
 [NOTE]
