@@ -340,6 +340,13 @@ Example 2: the maximum retention period for logs is 3 months.
 [TIP]
 ====
 List the constraints related to backups
+
+A common constraint is adherence to the 3-2-1 method:
+
+* At least 3 copies of the data (the active data + 2 backups);
+* At least 2 different storage technologies for these 3 copies (example: SSD for the active data and two backups on tape);
+* At least 1 offline and offsite copy (example: a set of tapes stored in a fireproof safe at the bank).
+
 ====
 ====
 Example 1: The maximum disk space that can be provisioned by a project for backups is 100 TiB.
