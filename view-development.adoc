@@ -240,7 +240,7 @@ Ecodesign consists of limiting the environmental impact of the software and hard
 List the eco-design requirements relating to software here.
 ====
 ====
-Example: The average power consumption caused by the display of a Web page must not exceed 10mWH, i.e. for 10K users who display on average 100 pages 200 J per year: 50 g/KWH x 10mWH x 100 x 10K x 200 = 100 Kg CO2 equivalent / year.
+Example: The cumulative emissions of Service A should not exceed 100KgCO2/year.
 ====
 
 ## Target architecture
@@ -495,6 +495,19 @@ Some proposals that can help to save energy:
 * Use lazy loading for occasional resources.
 * Limit the results returned from the database (pagination).
 
+An interesting starting point for managing carbon impact can be the Software Carbon Intensity (SCI) formula:
+
+----
+SCI = ((E * I) + M) / R
+----
+
+Where:
+
+* E (kWh): The total energy consumed by the software;
+* I (gCO2/kWh): The amount of carbon emitted per kWh;
+* M (gCO2): The carbon footprint of the hardware;
+* R: The reference quantity (e.g., per user, per device, ...).
+
 ====
 ====
 Example 1: The gulp application building process will apply an image size reduction via the imagemin-pngcrush plugin.
@@ -504,6 +517,11 @@ Example 2: Robustness tests running over several days will be performed on the m
 ====
 ====
 Example 3: The performance campaigns will integrate a detailed analysis of the consumption of bandwidth and CPU cycles even if the response time requirements are covered to help  identifying eco-design optimizations.
+====
+====
+Example 4: For a requirement of a maximum of 100kg CO2/year emitted by online service A, which uses 20% of a physical server, given that the carbon intensity of the server, excluding operation, is estimated at 1.5 TCO2 over its entire life cycle of 10 years (thus 30kg CO2/year pro-rata for service A), how much energy (E) can be consumed?
+
+Using the SCI formula (see above), and assuming a total consumption of the server of 800W and 20,000 calls per hour on average, with US electricity having a carbon intensity of 400g/kWh, E must not exceed 175 kWh/year, which equates to 1 mWh/call.
 ====
 
 ### Management of robustness
