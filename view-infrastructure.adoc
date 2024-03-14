@@ -188,7 +188,10 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 [TIP]
 ====
-Give here the security level of the data center according to the Uptime Institute scale (Tier from 1 to 4).
+Give here the security level of the data center (DC) according to the Uptime Institute scale (Tier from 1 to 4).
+
+TIP: It should be noted that modern Cloud architectures favor the redundancy of DCs across distant sites rather than a higher Tier level at a single site (provided that data can be replicated effectively and a delay in immediate data consistency is acceptable, see the CAP theorem). Simplistically, it can be calculated that the availability of two active DCs in parallel is seven nines versus four nines for a Tier 4 DC. A compromise between the two models is deployment in redundant zones of the same site, at the cost of greater vulnerability to disasters.
+
 
 .Tier levels of data centers (source: Wikipedia)
 [cols="1,1,1,1,1,1"]
