@@ -828,3 +828,14 @@ Describe how the DDL (Database tables definition) and the initial data (such as 
 ====
 Example: we will use Liquibase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
 ====
+
+### i18N Management
+[TIP]
+====
+Describe how you meet the internationalization requirements mentioned above.
+====
+
+====
+Example: The management of dates, plurals, and numbers will be done via the https://icu.unicode.org/[ICU standard] and the JS library http://messageformat.github.io/messageformat/[messageformat].
+====
+
