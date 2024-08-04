@@ -102,6 +102,21 @@ List of external actors
 
 ## Requirements
 
+### Strategic Requirements
+
+### Interoperability
+
+### Archiving
+
+### Retention Periods
+
+.Retention period for data and documents
+[cols="1e,1e"]
+|====
+| Data | Maximum Retention Period
+
+|====
+
 ## Target architecture
 
 ### General application architecture
@@ -113,6 +128,10 @@ List of external actors
 #### Static view
 
 #### Dynamic view
+
+### Archiving
+
+### Purges
 
 ### Matrix of application flows
 

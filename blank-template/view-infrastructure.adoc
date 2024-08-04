@@ -130,10 +130,6 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ### RTO Requirements
 
-### Archiving requirements
-
-### Purge requirements
-
 ### Deployment and update requirements
 #### Server side
 #### Customer side
@@ -193,10 +189,6 @@ Infrastructure components
 #### Switch to maintenance mode procedure
 
 #### Backups and restores
-
-#### Archiving
-
-#### Purges
 
 #### Logs
 

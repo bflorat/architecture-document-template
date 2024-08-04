@@ -208,18 +208,74 @@ Example 4: The EULA of the software package provides access to sources for users
 
 ## Requirements
 
-TIP: Give here the application architecture requirements that can be applied to the project.
+TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
+
+### Strategic Requirements
+
+TIP: Describe here the requirements related to the overall strategy of the project in terms of trajectory, budget, and organization.
 
 ====
-Example 1 (migration project): The legacy system being rewrote should be subject to as few adaptations as possible.
+Example 1: Development must be able to take place within distributed teams, each working on distinct modules.
 ====
 
 ====
-Example 2: The modules must be able to interface with the partner XYZ via their APIs.
+Example 2 (migration project): Legacy modules should require as few adaptations as possible due to a lack of human resources.
+====
+
+### Interoperability
+
+TIP: Describe here the requirements regarding protocols, formats, and semantics to be followed to facilitate exchanges with organizations or third parties.
+
+====
+Example: Our XYZ modules must be exposed to X organizations from the Internet in the form of authenticated REST APIs.
+====
+
+
+### Archiving
+
+[TIP]
+====
+Archiving is the copying of important data to a dedicated offline medium for occasional consultation, unlike backup which is intended for restoration. Archives are often required for legal reasons and kept for thirty years or more.
+
+Specify if application data needs to be kept long-term. Specify the reasons for this archiving (usually legal).
+
+Specify if specific integrity protection mechanisms (mainly to prevent any modification) need to be put in place.
 ====
 
 ====
-Example 2: Development should be able to take place within distributed teams, each working on separate modules.
+Example 1: As required by the law, accounting data must be kept for at least ten years.
+====
+====
+Example 2: Accounting documents must be kept online (in the database) for at least two years and then can be archived for at least ten more years. A SHA256 hash will be calculated at the time of archiving and stored separately to verify the integrity of the documents if needed.
+====
+
+### Retention Periods
+
+TIP: Specify here how long data and documents persisted by your application modules should be kept. Note that these durations may be legally constrained (see legal constraints above), for example in the context of the GDPR right to be forgotten.
+
+TIP: Don't forget to mention technical data (such as logs or technical tables) as well as archives.
+
+====
+Example:
+
+.Retention period for data and documents
+[cols="1e,1e"]
+|====
+| Data | Maximum Retention Period
+
+| Payment Data (Credit Card)
+| 2 months
+
+| Order List
+| 2 years
+
+| Access Logs
+| 1 month
+
+| Archived Accounting Data
+| 30 years
+
+|====
 ====
 
 
@@ -319,6 +375,36 @@ Example:
 image::diagrams/detailed-application-architecture-dynamic.svg[Detailed application architecture diagram (dynamic view)] 
 
 ====
+
+### Archiving
+
+[TIP]
+====
+Describe here the measures to meet archiving requirements. This section will mainly include:
+
+* Technology: Ideally, for security, the archive will be duplicated on multiple media of different technologies: magnetic tape type LTO, optical disk (Blu-ray Disc Recordable for example), cloud storage (such as AWS 'Glacier' or GCP 'Coldline'), SMR mode hard drives, etc.
+* A specific storage location distinct from traditional backups (e.g., Cloud, bank vault).
+====
+
+====
+Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
+====
+
+### Purges
+
+[TIP]
+====
+Describe here the technical measures to meet purge requirements.
+====
+
+====
+Example 1: The consultation history will be archived by a dump with an SQL query like `COPY (SELECT * FROM my_table WHERE ...) TO '/tmp/dump.tsv'` and then purged by an SQL `DELETE` query after the operator has validated the completeness of the dump.
+====
+
+====
+Example 2: Each API is responsible for purging the data it exposes. For this, plan internal processes that delete data according to a schedule (cron expression) and configurable criteria.
+====
+
 
 ### Matrix of application flows
 

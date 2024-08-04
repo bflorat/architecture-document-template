@@ -513,40 +513,6 @@ Specify this value only to clarify a precise restoration objective, otherwise, d
 Example: We must be able to restore and put back online the 3 TiB of the XYZ database in 1 hour maximum.
 ====
 
-### Archiving requirements
-
-[TIP]
-====
-Archiving is the process of moving important data onto a dedicated offline medium. It is not aimed at restoring like a backup but only to allow occasional _consulting_ of some files. Archives are often required for legal reasons and kept for thirty years or more. Backups and archives are very different beasts: archives should allow to recover a few files while a restoration aims to restore a full system. Moreover, most of the time, the archiving process includes data deletion from the source system to lighten it.
-
-Specify whether application data should be retained for the long term. Specify the reasons (legal or others) for this archiving.
-
-Specify whether specific integrity protection measures (mainly to prevent any modification) must be put in place.
-====
-
-====
-Example 1: As required by Sec. 31 of the Accounting Act (Act No. 563/1991 Coll.), accounting data must be kept for at least five years.
-====
-====
-Example 2: The accounting documents must be kept online (in database) for at least two years, then can be archived for conservation at least ten years more. A SHA256 fingerprint will be calculated at the time of archiving and stored separately for document integrity verification if needed.
-====
-
-### Purge requirements
-
-[TIP]
-====
-
-It is crucial to plan for regular purges to avoid a continuous drift in performance and disk usage (for example due to too large a database volume).
-
-Purges can also be required by law. Since 2018, the GDPR regulation has brought new constraints on the right to be forgotten that may affect the length of time personal information is retained.
-
-It is often wise to wait for the production phase or even several months of operation to precisely determine the retention periods (age or maximum volume for example) but it is advisable to plan purges as soon as the definition of the application. The existence of purges often has indeed important consequences on the architecture (example: some patterns based on linked lists are not possible if the full history will not always be available).
-====
-
-====
-Example 1: Files older than six months will be archived and purged.
-====
-
 ### Deployment and update requirements
 
 #### Server side
@@ -1092,29 +1058,6 @@ Finally, it's important to keep in mind that what we _really_ want are restores,
 * How long will a restoration (benchmarks) take? Is it compatible with the RTO?
 * Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
 * Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
-
-#### Archiving
-
-[TIP]
-====
-Describe the measures making it possible to meet <<Archiving requirements>> with the following storage methods:
-
-* Technology: ideally, the archive will be duplicated for security on several media of different technologies (tape + hard disk for example).
-* Specific storage location separated from the backups (in a bank safe for example).
-====
-====
-Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. The two media will be stored in a safe in two different banks.
-====
-
-#### Purges
-
-[TIP]
-====
-List here the technical measures that meet the <<Purge requirements>>.
-====
-====
-Example: the history of accesses will be archived by a dump with an SQL query of the form `COPY (SELECT * FROM mytable WHERE ...) TO '/tmp/dump.tsv'` then purged by an SQL request `DELETE` after validation by the operator of the completeness of the dump.
-====
 
 #### Logs
 
