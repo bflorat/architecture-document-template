@@ -72,7 +72,7 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
     ** The closer the element described is to the physical architecture, the less it must be detailed. For example, it may be relevant to document in the application section the general architecture of modules that should be implemented in a year, but wait as long as possible to document their precise sizing in the sizing section. Similarly, you can document remote application flows, but wait before describing specific technical flows in the infrastructure section.
 
 ## Licence
-* Copyright (c) 2017-2023 Bertrand Florat and contributors
+* Copyright (c) 2017-2024 Bertrand Florat and contributors
 * This template is licensed under https://creativecommons.org/licenses/by-sa/4.0/[CC-BY-SA 4.0] : Creative Commons Attribution - Share Alike V4.0
 * You can create your *own template* as long as it retains the CC BY-SA 4.0 license and therefore contains these three elements:
 ** The name of the creator (Bertrand Florat);
