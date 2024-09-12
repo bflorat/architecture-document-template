@@ -286,7 +286,7 @@ Software stack example
 
 ### Performance
 
-IMPORTANT: Requirements are listed in the link:./component-architecture-sizing.adoc[Sizing section].
+IMPORTANT: Requirements are listed in the link:./view-sizing.adoc#requirements[Sizing section].
 
 
 [TIP]
