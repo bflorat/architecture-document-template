@@ -18,6 +18,6 @@ Rel(batch, queue, "[2.1] Pop requests", "JMS, asynchronous, read then delete")
 Rel(batch, scompta, "[2.2] Retrieving accounting information", "HTTPS, synchronous, read only")
 Rel(batch, compo, "[2.3] PDF creation", "HTTP, synchronous, read")
 Rel(batch, smails, "[2.4] Request to send mail with PDF", "SMTP, synchronous, execution")
-Rel(smails, company, "[2.5] Sending mail with PDF", "SMTP, synchronous, execution")
+Rel(smails, smails, "[2.5] Sending mail with PDF", "SMTP, synchronous, execution")
 
 @enduml
