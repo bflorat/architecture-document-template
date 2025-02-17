@@ -1,9 +1,10 @@
-@startuml
-!include C4/C4_Deployment.puml
-title infrastructure
-header Deployment diagram \nInfrastucture architecture \n AllMyData Project \n(partial)
+@startuml infrastructure
+!include <C4/C4_Deployment>
+header Infrastucture architecture view
 LAYOUT_WITH_LEGEND()
 
+AddElementTag("passive", $bgColor="grey")
+AddElementTag("external", $bgColor="grey")
 
 Node("client", "Client", "Desktop / mobile") {
   Node("nav1", "Web browser", "Chrome / Firefox / Safari") {
@@ -11,16 +12,16 @@ Node("client", "Client", "Desktop / mobile") {
   }
 }
 
-Node("dc", "Datacenter", "Paris") {
+Node("dc", "Datacenter", "Atlanta") {
     Node("r2", "Firewall", "Cisco Firepower 4100")
     Node("lb1", "LB Debian lb1", "<<active>>")
-    Node("lb2", "LB Debian lb2", "<<passive>>")
+    Node("lb2", "LB Debian lb2", "<<passive>>",$tags="passive")
 
     Node("rp1", "Reverse Proxy", "x2 Debian Buster <<active/active>>") {
       Container("ha1", "Reverse Proxy", "HaProxy")
     }
 
-    Node("server_gui", "HMI HMI server", "x2 Debian Buster") {
+    Node("server_gui", "AllMyData server", "x2 Debian Buster") {
       Node("sw1", "Web server", "Nginx") {
         Container("guis1", "SPA Web Application", "React.js", "Expose static resources \n (.js, .html, images ...)")
       }
@@ -37,35 +38,39 @@ Node("dc", "Datacenter", "Paris") {
 
     Node("bdd1", "BDD Server", "RHEL") {
       ContainerDb("pg1", "PostgreSQL", "PostgreSQL 12")
-      ContainerDb("mq1", "Message queue", "RabbitMQ")
+      ContainerDb("mq1", "Message queue", "ActiveMQ")
       Container("mail1", "MTA", "Postfix")
     }
 
+    Node("all_servers","<Any server>")
     Node("sup1_server", "Monitoring Server", "x1 Debian Stretch") {
       Container("sup1", "Monitoring tool", "Centreon")
     }
 
-    Node("ech1", "Exchange Server", "x1 Windows Server") {
-      Container("gw1", "API Gateway", "Axway API Gateway")
-    }
-
-    ContainerDb("bay1", "SAN EMC", "bay 1")
-    Node("all_servers", "<all servers>", "Monitoring")
 }
 
-spa -> r2 : HTTPS on the Internet
-r2 --> lb1 : HTTPS
-lb2 -> lb1 : Heartbeat VRRP
-lb1 -> ha1
-ha1 --> guis1 : HTTP
-api1 -> mq1 : product \n JMS / RabbitMQ
-batch1 --> mq1 : consume \n JMS / RabbitMQ
-api1 --> pg1: JDBC / PG
-batch1 --> mail1 : SMTP / sending mails
-api1 --> gw1 : SOAP / HTTPS
-ha1 --> api1 : REST / HTTP
-sup1 --> all_servers : SNMP
+Node("administration_b","Datacenter","NYC",$tags="external"){
+     Node("ech1","API Geatexway","x1 Windows Server") {
+      Container("gw1","API Gateway","API Gateway")    
+    } 
 
-Rel_Left("bdd1", "bay1", "FC")
+    Node("compta","Accounting Serveur","x1 Linux") {
+      Container("api_b","Accounting Service API","")    
+    } 
+}
+
+Rel("spa", "r2","HTTPS on the Internet")
+Rel("r2","lb1","HTTPS")
+Rel("lb2", "lb1","Heartbeat VRRP")
+Rel("lb1","ha1","")
+Rel("ha1","guis1", "HTTP")
+Rel("api1", "mq1", "products \n AMQP"))
+Rel("batch1","mq1", "consumes \n AMQP")
+Rel("api1", "pg1", "JDBC / PG")
+Rel("batch1", "mail1", "SMTP / sends e-mails")
+Rel("api1","gw1","SOAP/HTTPS")
+Rel("gw1","api_b","SOAP/HTTPS")
+Rel("ha1","api1","REST/HTTP")
+Rel_L("sup1_server","all_servers","SNMP")
 
 @enduml

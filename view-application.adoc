@@ -289,7 +289,7 @@ Present here the application as a whole (without detailing its sub-components) i
 
 Summarize:
 
- * The kind of architecture (client-server, monolithic Web, SOA, micro-service...).
+ * The kind of architecture (client-server, monolithic Web, SOA, micro-service, event-driven...).
  * Large network flows between components or between applications in the case of monoliths.
  * Any derogation to applicable architectural rules.
 
@@ -335,6 +335,9 @@ Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
 The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer: this level of detail will be given in the infrastructure section).
 
 For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
+
+We suggest patterns and provide details in https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article].
+
 ====
 
 #### Principles that dictated the choices
@@ -347,7 +350,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-#### Static view
+#### Inventory view
 
 [TIP]
 ====
@@ -356,7 +359,7 @@ Expose the application modules in their different zones or domains.
 ====
 Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON domain.
 ====
-image::diagrams/detailed-application-architecture-static.svg[Detailed application architecture diagram (static view)] 
+image::diagrams/detailed-application-architecture-inventory.svg[Detailed application architecture diagram (inventory view)] 
 
 #### Dynamic view
 

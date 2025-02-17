@@ -1,23 +1,22 @@
 @startuml detailed-application-architecture-dynamic
-!include detailled-application-design-static.puml
-header Container diagram \nDynamic detailed application point of view \n My Online Info Project (AllMyData)
-
+!include detailled-application-design-inventory.puml
+header Dynamic detailed application view\n R: Read, W:Write, X: Execute, D: Delete\n Dashed lines: asynchronous call
 LAYOUT_WITH_LEGEND()
-HIDE_STEREOTYPE()
-SHOW_PERSON_PORTRAIT()
 
-Rel(company, static_resources, "Visit https://allmydata.gouv", "HTTPS, synchronous, read only")
+AddRelTag("async", $lineStyle = DashedLine())
+
+Rel(company, static_resources, "Visit https://allmydata.gouv", "HTTPS, R")
 Rel(company, spa, "Retrieves information via")
 Rel(company, mobile, "Retrieves information via")
-Rel(static_resources, spa, "Provide to client's web browser", "HTTPS, synchronous, read-only")
-Rel(spa, sm, "[1.1] Info request", "HTTPS, synchronous, read only")
-Rel(mobile, sm, "[1.1] Information request", "HTTPS, synchronous, read only")
-Rel(sm, bdd, "[1.2] Historization of the request", "JDBC, synchronous, write")
-Rel(sm, queue, "[1.3] Request storage", "JMS, synchronous, write")
-Rel(batch, queue, "[2.1] Pop requests", "JMS, asynchronous, read then delete")
-Rel(batch, scompta, "[2.2] Retrieving accounting information", "HTTPS, synchronous, read only")
-Rel(batch, compo, "[2.3] PDF creation", "HTTP, synchronous, read")
-Rel(batch, smails, "[2.4] Request to send mail with PDF", "SMTP, synchronous, execution")
-Rel(smails, smails, "[2.5] Sending mail with PDF", "SMTP, synchronous, execution")
+Rel(static_resources, spa, "Provide to client's web browser", "HTTPS, R")
+Rel(spa, sm, "[1.1] Info request", "HTTPS,  R")
+Rel(mobile, sm, "[1.1] Information request", "HTTPS, R")
+Rel(sm, bdd, "[1.2] Historization of the request", "JDBC, W")
+Rel(sm, queue, "[1.3] Request storage", "JMS, W",$tags='async')
+Rel(batch, queue, "[2.1] Pop requests", "JMS, R+D")
+Rel(batch, scompta, "[2.2] Retrieving accounting information", "HTTPS, R")
+Rel(batch, compo, "[2.3] PDF creation", "HTTP R")
+Rel(batch, smails, "[2.4] Request to send mail with PDF", "SMTP, X")
+Rel(smails, smails, "[2.5] Sending mail with PDF", "SMTP, X")
 
 @enduml

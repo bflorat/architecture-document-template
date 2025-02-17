@@ -1,13 +1,12 @@
 @startuml general-application-design
-!include C4/C4_Context.puml
+!include <C4/C4_Context>
 header System context diagram \nGeneral application point of view \n of the AllMyData project
 LAYOUT_WITH_LEGEND()
-HIDE_STEREOTYPE()
 SHOW_PERSON_PORTRAIT()
 
 Person_Ext(company, "Company", "[Person]")
 
-System_Boundary(administration, "System administration B") {
+System_Ext(administration, "Administration B") {
      System(p1, "Accounting system")
 }
 

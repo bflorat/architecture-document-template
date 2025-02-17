@@ -1,5 +1,4 @@
-@startuml
-title roles
+@startuml roles
 header Classic authorization model
 skinparam defaultFontName Liberation Sans
 scale 500 * 400
