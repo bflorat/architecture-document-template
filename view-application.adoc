@@ -300,7 +300,7 @@ If the application is planned to be implemented in several stages, briefly descr
 [TIP]
 ====
 
-The choice of representation is free but a C4 diagram from System Landscape or a UML2 component diagram seems the most suitable.
+The choice of representation is free but a C4 diagram from System Landscape or a UML2 component diagram seems the most suitable. We provide patterns and details on this topic in https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article].
 
 Numbering the steps in chronological order ensures a better understanding of the diagram. Group the sub-steps by the notation x, x.y, x.y.z, ...
 
@@ -308,13 +308,10 @@ Do not include specific infrastructure system (SMTP server, security device, rev
 ====
 
 ====
-Example 1: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration.
+Example 1: Thanks to the August 03, 20xx derogation, the GUI will be written using an SPA (Single Page Application) technology.
 ====
 ====
-Example 2: AllMyData is made up of several independent microservices (GUI components, batches or REST services).
-====
-====
-Example 3: Thanks to the August 03, 20xx derogation, the GUI will be written using an SPA (Single Page Application) technology.
+Example 2: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration. AllMyData is made up of several independent modules (GUI components, batches and REST services).
 ====
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
@@ -323,20 +320,13 @@ image::diagrams/general-application-design.svg[General application architecture 
 
 [TIP]
 ====
-Detail here all the components of the application, the flows between them and with the other applications of the IS.
+Detail here all the modules of the application, their interdependencies, and the interactions with other applications within the information system (IS) or with partners.
 
-Provide one or more diagrams (preferably C4 diagrams of the container type or UML2 component diagram).
+The flows are logical rather than technical (for example, you can represent a direct HTTP flow between two modules even though, in reality, it passes through an intermediate load balancer: this level of detail will be provided in the infrastructure view).
 
-Ideally, the diagram will fit on an A4 page and be self-supporting and understandable by non-ICT staff. It should become one of the most important documentary artifacts and be in the war room or be printed by every developer.
+Propose one or more diagrams (preferably C4 container diagrams or UML2 component diagrams). You can find further patterns and details in https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article].
 
-If the application is particularly complex, draw a diagram for each linking chain.
-
-Use a simple non-significant sequence (1, 2, ..., n) as the flow ID.
-The flows are logical and not technical (for example, we can represent a direct HTTP flow between two components when in reality, it passes through an intermediate load balancer: this level of detail will be given in the infrastructure section).
-
-For each stream, give the protocol, a synchronous/asynchronous attribute, a read/write/execute attribute and a description so that the scheme is self-supporting.
-
-We suggest patterns and provide details in https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article].
+Ideally, the diagram should fit on an A4 page, be self-explanatory, and understandable by a non-technical person. It should become one of the most important documentation artifacts and be displayed in the war room of an agile project or printed by each developer.
 
 ====
 
@@ -365,13 +355,18 @@ image::diagrams/detailed-application-architecture-inventory.svg[Detailed applica
 
 [TIP]
 ====
-Expose the application modules in their different areas or domains with their main application flows.
+Expose the dependencies between all application modules across their various zones or domains. Do not detail technical flows (such as those related to monitoring or clustering).
 
-Do not detail technical flows (such as flows related to monitoring or clustering).
+If (and only if) the complexity of the application justifies it, propose, in addition to this global diagram, a detailed diagram for each main communication chain by numbering the exchanges (use a sequence diagram or, preferably, a Dynamic Diagram C4).
 
-If the application is complex, propose a global diagram listing
- all the application flows and then a diagram for each main linking chain by numbering the exchanges (use a sequence diagram or (better) a C4 Dynamic Diagram). It is also possible to detail the linking chains by main functionality.
+Use a simple, non-significant, and hierarchical sequence as the ID for the flows (e.g., 1, 2.1, 2.2.3, ..., n).
+
+For each flow, specify the protocol, a read/write/execute attribute, and a description to make the diagram self-explanatory. If the flow is asynchronous, indicate this (in the example below, the call is shown in dashed lines).
+
+Each communication chain describes a major functionality. In cases of complex sequences, it is recommended to break down the functionality into several communication chains containing only synchronous calls (see https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article]).
+
 ====
+
 ====
 Example:
 

@@ -1,6 +1,6 @@
-@startuml detailed-application-architecture-static
+@startuml detailed-application-architecture-inventory
 !include <C4/C4_Container>
-header Container diagram \nStatic detailed application point of view \n My Online Info Project (AllMyData)
+header Inventory view
 LAYOUT_WITH_LEGEND()
 
 System_Boundary(company_system, "Any company IS") {
