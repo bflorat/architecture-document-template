@@ -122,7 +122,7 @@ In general, we refer here to the body's ergonomic charter. List any specificitie
 
 [TIP]
 ====
-Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a library of graphic components or another. It is strongly advised not to customize existing libraries (high maintenance cost, high complexity).
+Very precise ergonomic behavior can have a fairly strong impact on the architecture and impose a widgets library or another. It is strongly advised not to customize existing libraries (high maintenance cost, high complexity).
 ====
 ====
 Example 1: The tables must be sortable according to several columns.
@@ -264,7 +264,7 @@ Example: Using Reacts.js on an experimental basis within the organization. Valid
 
 [TIP]
 ====
-List here for each component the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to list every minor library: focus on the structuring software components.
+List here for each dependency the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to list every minor library: focus on the structuring dependencies.
 ====
 ====
 Example:
@@ -427,7 +427,7 @@ Example 3: Types of tests:
 | IT (Integration Tests)
 | Low
 | Automated
-| Components calling external systems (databases, API ...)
+| Tests calling external systems (databases, API ...)
 | 50 to 60%
 | Only test one external system at a time
 
@@ -532,7 +532,7 @@ Using the SCI formula (see above), and assuming a total consumption of the serve
 ====
 List here the decisions taken regarding the management of transactions. This is especially useful for a distributed system. Some examples of issues:
 
-* Are updates allowed on multiple components during the same request?
+* Are updates allowed on multiple distinct modules during the same request?
  - If so, do we ensure the ACID character at all (via XA mode for example)?
 * What transactional engine do we use?
 * What level of transactional isolation (read commited, uncommited, repeatable read, serializable)?
@@ -687,7 +687,7 @@ What are the rules for encoding strings? This is a recurring problem. This probl
 ====
 
 ====
-Example 1: The only encoding allowed in all modules and technical components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources, configuration files, databases, and files.
+Example 1: The only encoding allowed in all modules and infrastructure components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources, configuration files, databases, and files.
 ====
 ====
 Example 2: If an external system requires sending or receiving character strings in an encoding different from UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible. In addition, never persist in our systems a data in a non-UTF-8 encoding.

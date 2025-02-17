@@ -1,4 +1,4 @@
-# Infrastructure view
+RO# Infrastructure view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -13,7 +13,7 @@
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
 ## Introduction
-This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all technical components involved.
+This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all infrastructure components involved.
 
 The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
@@ -308,14 +308,14 @@ List the constraints dealing with the network, in particular the theoretical max
 Example 1: the LAN has a maximum bandwith of 10 Gbps
 ====
 ====
-Example 2: The application components of intranet applications must be located in a trusted zone that cannot be accessed from the Internet.
+Example 2: The intranet modules must be located in a trusted zone that cannot be accessed from the Internet.
 ====
 
 ### Deployment constraints
 
 [TIP]
 ====
-List the constraints related to the deployment of applications and technical components.
+List the constraints related to the deployment of modules and infrastructure components.
 ====
 ====
 Example 1: A Virtual Machine should only host a single Postgresql instance.
@@ -464,7 +464,7 @@ Example 2: If the SMTP server no longer works, the emails will be stored in the 
 
 [TIP]
 ====
-The robustness of the system indicates its ability not to produce errors during exceptional events such as overload or failure of one of its components.
+The robustness of the system indicates its ability not to produce errors during exceptional events such as overload or failure of one of its infrastructure components.
 
 This robustness is expressed in absolute value per unit of time: number of (technical) errors per month, number of messages lost per year, etc.
 
@@ -524,8 +524,8 @@ Specify here how the application should be deployed on the server side.
 For example :
 
 * Is the installation manual? scripted with IT Automation tools like Ansible or SaltStack? via Docker images?
-* How are the components deployed? As packages? Are we using a package repository (type yum or apt)? Do we use containers?
-* How are the updates applied?
+* How are the modules deployed? As packages? Are we using a package repository (type yum or apt)? Do we use containers?
+* How are they upgraded?
 ====
 
 #### Client side
@@ -561,10 +561,10 @@ Example: The application will be deployed in blue/green mode. Once ready, a DNS 
 
 [TIP]
 ====
-Specify the internal or external components that may interfere with the application.
+Specify the internal or external modules that may interfere with the application.
 ====
 ====
-Example 1: All components of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
+Example 1: All modules of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
 ====
 ====
 Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
@@ -598,7 +598,7 @@ What are the main infrastructure principles of our application?
 ====
 Examples:
 
-* Application components exposed to the Internet are located in a DMZ protected behind a firewall then a reverse-proxy.
+* Modules exposed to the Internet are located in a DMZ protected behind a firewall then a reverse-proxy.
 * Regarding interactions between the DMZ and the intranet, a firewall only allows communications from the intranet to the DMZ.
 * Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
@@ -626,17 +626,17 @@ We can group availability measures into four main categories:
 ====
 *Availability and redundancy*:
 
-* The *availability of a set of serial components* can be computed by this formula: `A = A1 * A2 * ... * An`. Example: the availability of an application using a Tomcat server available at 98% and an Oracle database available at 99% would be 97.02%.
-* The *availability of a set of components in parallel* can be computed by this formula: `A = 1 - (1-A1) * (1-A2) * .. * (1-An)`. Example: the availability of three clustered Nginx servers each available at 98% is 99.999%.
+* The *availability of a set of serial infrastructure components* can be computed by this formula: `A = A1 * A2 * ... * An`. Example: the availability of an application using a Tomcat server available at 98% and an Oracle database available at 99% would be 97.02%.
+* The *availability of a set of infrastructure components in parallel* can be computed by this formula: `A = 1 - (1-A1) * (1-A2) * .. * (1-An)`. Example: the availability of three clustered Nginx servers each available at 98% is 99.999%.
 * It is important to be consistent on the *availability of each link* in the linking chain: there is no point in having an expensive active/active cluster of JEE application servers if all these servers call a database located on a single server physical with disks without RAID.
 * A system is estimated to be *highly available (HA) from 99%* availability.
 * The term *“spare”* designates a spare device (server, disk, electronic card, etc.) which is dedicated to the need for availability but which is not activated outside of failures. Depending on the level of availability requirement, it can be dedicated to the application or shared at the IS level.
 * The main *redundancy models* (NMR = N-Modular Redundancy) are listed below (with N, the number of devices ensuring correct operation under load and that we can replicate):
-** *N*: no redundancy (example: when a server single power supply fails, the server is down)
-** *N+1*: a spare component is available (but not yet active), we can support the failure of a piece of equipment (example: we have a spare power supply available).
-** *N+M*: a single spare component cannot handle the load, at least M spare devices are required.
-** *2N*: the system is fully redundant and active and can withstand the loss of half of the components (example: we have two power supplies, if one fails, the server keeps running). This system is considered Fault-Tolerant.
-** *2N+1*: In addition to a fully mirrored system, a backup system is available (for maintenance operations for instance).
+** *N*: No redundancy (example: when a server single power supply fails, the server is down)
+** *N+1*: Single Spare. A spare infrastructure component is available (but not yet active), we can support the failure of a piece of equipment (example: we have a spare power supply available).
+** *N+M*: Multiple Spare. A single spare infrastructure component cannot handle the load, at least M spare devices are required.
+** *2N*: Fully Redundant and Active. The system is fully redundant and active and can withstand the loss of half of the infrastructure components (example: we have two power supplies, if one fails, the server keeps running). This system is considered Fault-Tolerant.
+** *2N+1*: Fully Redundant with Additional Spare. In addition to a fully mirrored system, a backup system is available (for maintenance operations for instance).
 
 
 ====
@@ -694,7 +694,7 @@ A few words about *load balancers*:
 ====
 *Fault tolerance*:
 
-Fault Tolerance (FT = Fault Tolerance) should not be confused with HA; It is *stricter version of HA where availability is 100% and no data can be lost* (Wikipedia: "Fault tolerance is the property that enables a system to continue operating properly in the event of the failure of (or one or more faults within) some of its components"). Historically, it meant a full hardware redundancy. In a micro-services world, it can also be achieved at a software level with active-active clusters. Moreover, a true fault-tolerance system should avoid significant performance degradation seen by the end-users.
+Fault Tolerance (FT = Fault Tolerance) should not be confused with HA; It is *stricter version of HA where availability is 100% and no data can be lost* (Wikipedia: "Fault tolerance is the property that enables a system to continue operating properly in the event of the failure of (or one or more faults within) some of its infrastructure components"). Historically, it meant a full hardware redundancy. In a micro-services world, it can also be achieved at a software level with active-active clusters. Moreover, a true fault-tolerance system should avoid significant performance degradation seen by the end-users.
 
 For example, a RAID 1 drive provides transparent fault tolerance: in case of failure, the process writes or reads without error after the automatic failover to the healthy disk. A Kubernetes cluster can achieve fault tolerance as well by starting new PODs. Or a clustered in-memory distributed cache can avoid losing any HTTP session.
 
@@ -715,7 +715,7 @@ Do not take lightly a FT requirement because in general these solutions:
 
 | Disks in RAID 1 | XXX | X | XXX
 | Disks in RAID 5 | X | X | XX
-| Redundancy of power supplies and other components | XX | X | XX
+| Redundancy of power supplies and other infrastructure components | XX | X | XX
 | Ethernet card bonding | XX | X | X
 | Active / passive cluster | XX | XX | XX
 | Active / active cluster with LB | XXX | XXX | XXX
@@ -756,7 +756,7 @@ Naturally, it will be preferably documented with a UML2 deployment diagram or a 
 
 For clusters, give the instantiation factor of each node.
 
-Comment out if necessary the affinity constraints (two components must run on the same node or the same middleware) or anti-affinity (if two components must not run on the same node or in the same middleware).
+Comment out if necessary the affinity constraints (two infrastructure components must run on the same node or the same middleware) or anti-affinity (if two infrastructure components must not run on the same node or in the same middleware).
 
 Clearly identify the hardware dedicated to the application.
 ====
@@ -776,7 +776,7 @@ List here OS, databases, MOM, application servers, etc ...
 Example of infrastructure components
 [cols="1e,2e,1e,2e"]
 |====
-| Component | Role | Version | Technical environment
+| Infrastructure Component | Role | Version | Technical environment
 
 | CFT
 | Secure file transfer
@@ -834,7 +834,7 @@ Include useful information about the network being used in order to assess the p
 ====
 Give here an overall view of the environments used by the application. The most common environments are: development, testing, acceptance, pre-production/benchmarks, production, training.
 
-It is often useful to subdivide environnements into 'platforms' made up of a set of technical components isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
+It is often useful to subdivide environments into 'platforms' made up of a set of machines isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 
 .Environments
 [cols = '1,2,2,2']
@@ -921,9 +921,9 @@ Example 2: a throttling of 100 requests per source and per minute will be set up
 ====
 In general, all distributed calls (in particular HTTP(S) to APIs or object storage and calls to databases) must be limited in connection time AND execution time. Without these timeouts, deadly module contentions can occur in the event of performance issues.
 
-Describe here the different timeouts implemented on the linking chains. Keep in mind that from client to persistence, timeouts should decrease as you go through the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database). In the opposite case, a technical component can continue to process a request when its calling component has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
+Describe here the different timeouts implemented on the linking chains. Keep in mind that from client to persistence, timeouts should decrease as you go through the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database). In the opposite case, an infrastructure component can continue to process a request when its calling module has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
 
-Also avoid using exactly the same value in all the technical components to avoid unexpected effects linked to the concomitant timeouts.
+Also avoid using exactly the same value in all the linking chain to avoid unexpected effects linked to the concomitant timeouts.
 
 ====
 
@@ -931,7 +931,7 @@ Also avoid using exactly the same value in all the technical components to avoid
 Example:
 
 |===
-| Component | Timeout (ms)
+| Module or Infrastructure component | Timeout (ms)
 
 | Rest JavaScript Client | 5000
 | API Gateway | 4000
@@ -955,7 +955,7 @@ If this application remains in the organization's standard, simply refer to any 
 
 [TIP]
 ====
-Specify the starting and the stopping sequence of devices and components required to run the application modules. Depending on the situation, you can include some external components or not.
+Specify the starting and the stopping sequence of devices and infrastructure components required to run the application modules. Depending on the situation, you can include some external infrastructure components or not.
 
 Some others operations documents will contain a more precise version of this chapter (for instance using detailed SystemD "Wants"), only describe here the general principles.
 
@@ -1067,12 +1067,12 @@ Without being exhaustive on the log files, present the general policy for the pr
 
 * What are the log turnover policies? is the rollover managed by the application (via a `DailyRollingFileAppender` log4j for example) or by the system (typically via the logrotate daemon)?
 * Is a centralization of logs planned? (essential for SOA or micro-services architectures). See for example the ELK stack.
-* What is the level of verbosity expected by type of component? we have often to choose between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
+* What is the level of verbosity expected by type of infrastructure component? we have often to choose between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
 * Are anti-log injection (XSS) measures taken?
 
 ====
 ====
-Example 1: the application logs of the service-allmydata component will be in production at INFO level with daily rotation and kept two-month.
+Example 1: the application logs of the service-allmydata module will be in production at INFO level with daily rotation and kept two-month.
 ====
 ====
 Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
@@ -1143,18 +1143,18 @@ Example: the management of the monitoring will be based on the Grafana platform.
 Specify here the alert conditions and the channel used
 ====
 ====
-Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a component exceeds 10/h.
+Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a module exceeds 10/h.
 ====
 
 ##### Black box monitoring
 
 [TIP]
 ====
-It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific components are supervised).
+It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific module or infrastructure components are supervised).
 
 In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
 
-In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
+In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the infrastructure components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
 ====
 ====
 Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
@@ -1170,7 +1170,7 @@ This allows:
 
 * To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
 * To proactively detect failures (following a sudden drop in the number of requests for example).
-* Perform statistical analysis on the use of components or services in order to promote decision-making (for the decommissioning of an application, for example).
+* Perform statistical analysis on the use of modules order to promote decision-making (for the decommissioning of an application, for example).
 
 There are three main groups of solutions:
 
@@ -1217,10 +1217,10 @@ Describe on a macroscopic scale the planned procedure as well as the rollback st
 Describe, if necessary, a dry-run operation in parallel with the old system.
 ====
 ====
-Example 1: The X component will be replaced by the Y services. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T component.
+Example 1: The X API module will be replaced by the Y API. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T module.
 ====
 ====
-Example 2: In the event of a problem with the new component, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
+Example 2: In the event of a problem with the new module, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
 ====
 
 ### Decommissioning
@@ -1232,8 +1232,8 @@ This chapter will be read when the application reaches the end of its life and m
 Among other things, he describes:
 
 * Data to be archived or on the contrary destroyed with a high level of confidence.
-* The physical components to be removed or destroyed.
-* Server and/or client side uninstallation procedures (it is common to see obsolete components still running on servers and causing performance and security issues that go under the radar).
+* The physical devices to be removed or destroyed.
+* Server and/or client side uninstallation procedures (it is common to see obsolete modules still running on servers and causing performance and security issues that go under the radar).
 * Security constraints associated with decommissioning (this is a sensitive step that is often overlooked, for example hard drives can be found filled with very sensitive data following a donation of equipment).
 ====
 

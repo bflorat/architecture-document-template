@@ -65,13 +65,26 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 ## FAQ
 * **From what project size is this model eligible?** This model has been used successfully on a one-person project. It can be used for any size project. A large project will probably fill more sections but most relate to all projects. For example, questions of availability or internationalization are not related to the size of a project in our opinion.
 * **Can this model be used as a basis for an architecture repository?** Even if many ideas can be taken up, no, this is not the purpose of this model.
-* **Is this model suitable for a complete program?** For a complete program, we recommend a TOGAF-type approach with the associated deliverables. On the other hand, phases C and D can be documented by a DA within each project of this program.
-* **How ​​to document architecture trajectories?** We recommend describing the general trajectory (without going into too many details) in the "General Architecture" section of the application component and describing the architecture of future modules in the usual sections of the different panes but clearly specifying which step it is (for example, prefix the title of a module or a flow that only appears in step 2 with `[Step 2]`) . However, be careful to avoid too much documentary refactoring when this part of the project is implemented (broken links for example).
+* **Is this model suitable for a complete program?** For a complete program, we recommend a TOGAF-like approach with the associated deliverables. On the other hand, phases C and D can be documented by a DA within each project of this program.
+* **How ​​to document architecture trajectories?** We recommend describing the general trajectory (without going into too many details) in the "General Architecture" section of the application view and describing the architecture of future modules in the usual sections of the different panes but clearly specifying which step it is (for example, prefix the title of a module or a flow that only appears in step 2 with `[Step 2]`) . However, be careful to avoid too much documentary refactoring when this part of the project is implemented (broken links for example).
     ** Treat the elements described in the same sections as the elements to be implemented immediately in order to treat them according to the same logic as the rest.
     ** The more the element described is distant in time, the less its architecture must be detailed (it is a good agile principle of 'Just In Time' architecture which will avoid rewriting these sections many times).
     ** The closer the element described is to the physical architecture, the less it must be detailed. For example, it may be relevant to document in the application section the general architecture of modules that should be implemented in a year, but wait as long as possible to document their precise sizing in the sizing section. Similarly, you can document remote application flows, but wait before describing specific technical flows in the infrastructure section.
 
-## Licence
+## Terminology
+
+TIP: Architecture documentation often uses several synonyms for the same concept interchangeably and possibly ambiguously. This architecture document uses (unless in error) consistent and coherent terminology. We have avoided ambiguous terms (such as '_service_') and use the most widely accepted terms in literature and operational contexts.
+
+- **Module**: A unit of code that groups related functionalities or services. We use this term to refer to APIs (which contain **endpoints**), batch processes or **batches** (which contain **jobs**), and GUIs (graphical interfaces).
+
+- **Application**: In a monolithic architecture, a complete single-tenant application. In a microservices architecture, a logical set of modules.
+
+- **Infrastructure Component**: Third-party executable or equipment providing infrastructure services such as persistence for a database, messaging for queues, load balancing for a load balancer, malware detection for an antivirus API, etc. Should not be confused with a 'component', which describes a software subpart of a module or a monolithic application (and is rarely documented in this document as it is too close to the implementation).
+
+- **Deployable Unit**: A self-contained package/artifact (zip, war, jar, gem, .deb, OCI/Docker image, binary, etc.) that contains the executables of a module (e.g., 'jar' of a Spring Boot application, archive of a PHP or JS application) or an infrastructure component (e.g., 'deb' for installing a PostgreSQL database).
+
+
+## License
 * Copyright (c) 2017-2025 Bertrand Florat and contributors
 * This template is licensed under https://creativecommons.org/licenses/by-sa/4.0/[CC-BY-SA 4.0] : Creative Commons Attribution - Share Alike V4.0
 * You can create your *own template* as long as it retains the CC BY-SA 4.0 license and therefore contains these three elements:

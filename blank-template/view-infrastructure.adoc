@@ -149,10 +149,10 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ### Versions of infrastructure components
 
-Infrastructure components
+.Infrastructure components
 [cols = "1,2,1,2"]
 |====
-| Component | Role | Version | Technical environment
+| Infrastructure Component | Role | Version | Technical environment
 
 | | | |
 |====

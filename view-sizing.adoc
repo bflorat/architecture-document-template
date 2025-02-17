@@ -154,7 +154,7 @@ TIP: These are measured or estimated business data that will be used as inputs t
 
 [TIP]
 ====
-List here the storage needs of each component once the application has reached full load (volume at two years for example).
+List here the storage needs of each module or infrastructure component (especially databases) once the application has reached full load (volume at two years for example).
 
 Take into account:
 
@@ -180,7 +180,7 @@ Only estimate data whose size is not negligible (several GiB minimum).
 ====
 
 ====
-. Example of static sizing of component C:
+. Example of static sizing of module C:
 |====
 | Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
 
@@ -232,7 +232,7 @@ a|
 
 [TIP]
 ====
-This involves estimating the number of calls to components and therefore the target throughput (in TPS = Transactions per second) that each of them will have to absorb. A well-sized system should have *average response times of the same order at nominal load and peak*.
+This involves estimating the number of calls to modules and therefore the target throughput (in TPS = Transactions per second) that each of them will have to absorb. A well-sized system should have *average response times of the same order at nominal load and peak*.
 
 Always estimate the *"peak of the peak"*, i.e., the moment when the load will be maximum following the accumulation of all the factors (for example for an accounting system: between 02 pm and 03 pm on a weekday at the end of December).
 
@@ -241,7 +241,7 @@ Do not consider that the load is constant but take into account:
 * Daily variations. For a management application with users working during office hours, we typically observe peaks of double the average load at 8-9 a.m., 11-12 a.m. and 2 p.m.-3 p.m. For a consumer Internet application, it will be more at the end of the evening. Again, rely on measurements of similar applications when possible, rather than estimates.
 * The elements of seasonality like Christmas for the chocolate industry, Saturday evening for emergency admissions, June for central booking stays etc. The load can then double or even more. This estimate should therefore not be neglected.
 
-If the calculation of the peak for a component at the end of the linking chain is complex (for example, a central IS service exposing referential data and called by many components which each have their own peak), cut the day into time intervals sufficiently small (one hour for example) and the measured or estimated sum of the calls of each caller (batch or GUI) will be calculated over each interval to thus determine the highest cumulative demand.
+If the calculation of the peak for a module at the end of the linking chain is complex (for example, a central IS service exposing referential data and called by many modules which each have their own peak), cut the day into time intervals sufficiently small (one hour for example) and the measured or estimated sum of the calls of each caller (batch or GUI) will be calculated over each interval to thus determine the highest cumulative demand.
 
 If the application runs on a PaaS type cloud, the load will be absorbed dynamically, but take care to *estimate the additional cost* and to set consistent consumption limits to respect the budget while ensuring a good level of service.
 ====
@@ -260,7 +260,7 @@ If the application runs on a PaaS type cloud, the load will be absorbed dynamica
 
 [TIP]
 ====
-For a technical component (such as a database instance) at the end of the linking chain and requested by many services, it is necessary to estimate the number of requests at peak by cumulating the calls from all the clients and to *specify the read/write ratio* when this information is relevant (it is especially important for a database).
+For an infrastructure component (such as a database instance) at the end of the linking chain and requested by many services, it is necessary to estimate the number of requests at peak by cumulating the calls from all the clients and to *specify the read/write ratio* when this information is relevant (it is especially important for a database).
 
 The level of detail of the estimate depends on the progress of the application design and the reliability of the assumptions.
 
@@ -379,17 +379,17 @@ Example 3: the batches and the GUI can operate in competition, there is no stric
 We give a final sizing to support the static and dynamic sizing and meet the requirements.
 ====
 
-### Estimate of resource requirements by technical component
+### Estimate of resource requirements by deployable unit
 
 [TIP]
 ====
-Give here RAM, disk and CPU per instance of technical component deployed (to be refined after performance campaign or MEP).
+Give here RAM, disk and CPU per deployable unit (to be refined after performance campaign or MEP).
 
 ====
 ====
 Example:
 
-.Estimation of resource requirements by technical component
+.Estimation of resource requirements by deployable unit
 [cols="2e,1e,1e,3e,2e"]
 |====
 | Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments

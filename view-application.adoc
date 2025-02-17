@@ -42,7 +42,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Subject | Detail | Status | Subject bearer | Deadline
 
 | Use of Y services
-| Depending on the progress of project Y, this component could call the services of the latter or those of the former component Z
+| Depending on the progress of project Y, this module could call the services of the latter or those of the former module Z
 | PENDING
 | Project Y team
 | BEFORE 2040
@@ -73,7 +73,7 @@ Example 1: This application allows suppliers invoices dematerialization and easy
 Example 2: This project is the rewrite in web technologies of the X legacy application. It should ease the maintenance.
 ====
 ====
-Example 3: The X application is one of the main components of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
+Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
 ### Existing
@@ -97,7 +97,7 @@ If the IS is urbanized, identify the block concerned by the project.
 #### Internal actors
 
 [TIP]
-By the term "internal", the IT team project refers to actors belonging to the organization. These actors can be humans or application components.
+By the term "internal", the IT team project refers to actors belonging to the organization. These actors can be humans or application modules.
 
 List of internal actors
 [cols="1e,1e,4e,4e"]
@@ -158,7 +158,7 @@ Example 1: Application Launch before February 2034, prerequisite for the HEAVY p
 ====
 List here the constraints relating to urbanization, this includes for example but not only:
 
-* The rules applicable for calls between components (SOA)
+* The rules applicable for calls between modules (SOA)
 * Call rules between network zones
 * The rules concerning the localization of data (MDM)
 * The rules concerning the propagation of updates by events (EDA)
@@ -180,10 +180,10 @@ Example 4: All the batches must be able to operate in competition with the UIs w
 Example 5: Services cannot be called directly. The calls must be made via an exposed route at the level of the company bus which will in turn call the service. It is then possible to control, prioritize, orchestrate or manage the calls.
 ====
 ====
-Example 6: The components of this application follow the SOA architecture as defined in the reference document X.
+Example 6: The modules of this application follow the SOA architecture as defined in the reference document X.
 ====
 ====
-Example 7: Components in an Internet zone cannot call components in an Intranet zone for security reasons.
+Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
 ====
 
 ### Legals
@@ -290,7 +290,7 @@ Present here the application as a whole (without detailing its sub-components) i
 Summarize:
 
  * The kind of architecture (client-server, monolithic Web, SOA, micro-service, event-driven...).
- * Large network flows between components or between applications in the case of monoliths.
+ * Large network flows between modules or between applications in the case of monoliths.
  * Any derogation to applicable architectural rules.
 
 If the application is planned to be implemented in several stages, briefly describe the target trajectory.
@@ -304,14 +304,14 @@ The choice of representation is free but a C4 diagram from System Landscape or a
 
 Numbering the steps in chronological order ensures a better understanding of the diagram. Group the sub-steps by the notation x, x.y, x.y.z, ...
 
-Do not include specific infrastructure system (SMTP server, security device, reverse proxy, LDAP directories, etc.) which are in the domain of technical architecture. On the contrary, mention Enterprise Service Buses, API Gateway or similar components if they play an application role (service orchestration for example).
+Do not include specific infrastructure system (SMTP server, security device, reverse proxy, LDAP directories, etc.) which are in the domain of technical architecture. On the contrary, mention Enterprise Service Buses, API Gateway or similar infrastructure components if they play an application role (service orchestration for example).
 ====
 
 ====
 Example 1: Thanks to the August 03, 20xx derogation, the GUI will be written using an SPA (Single Page Application) technology.
 ====
 ====
-Example 2: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration. AllMyData is made up of several independent modules (GUI components, batches and REST services).
+Example 2: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration. AllMyData is made up of several independent modules (GUIs, batches and APIs).
 ====
 
 image::diagrams/general-application-design.svg[General application architecture diagram]

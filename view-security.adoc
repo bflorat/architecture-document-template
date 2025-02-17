@@ -74,7 +74,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 ====
 List here the constraints relating to security, this includes for example but not only:
 
-* Isolation of components within network areas (DMZ, firewalls, reverse-proxy, etc.)
+* Isolation of modules within network areas (DMZ, firewalls, reverse-proxy, etc.)
 * Applicable standards (such as password policies)
 * Legal constraints (GDPR for example)
 
@@ -83,7 +83,7 @@ List here the constraints relating to security, this includes for example but no
 Example 1: the password policy will have to conform to the xyz standard.
 ====
 ====
-Example 2: a component in the internet zone is formally prohibited from accessing the intranet zone.
+Example 2: a module in the internet zone is formally prohibited from accessing the intranet zone.
 ====
 ====
 Example 3: in application of the GDPR, user data must be encrypted.
@@ -617,7 +617,7 @@ Example 2: Like every business portal application, GUI X will have to manage dis
 
 [TIP]
 ====
-Service accounts should only be used for authentication to a technical component from a batch or an API.
+Service accounts should only be used for authentication to an infrastructure component (like a database) from a batch or an API.
 ====
 
 .Service accounts
@@ -635,7 +635,7 @@ Service accounts should only be used for authentication to a technical component
 Measures meeting the <<non-repudiation-requirements>>:
 
 ====
-Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X component.
+Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X module.
 ====
 
 [TIP]
@@ -688,7 +688,7 @@ Example 3: The tables X, Y, .. will store data in a historical way according to 
 Example 4: all the documents used as proof will be archived.
 ====
 ====
-Example 5: The logs containing the `[PROOF]` tag from any component will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
+Example 5: The logs containing the `[PROOF]` tag from any module will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
 
@@ -743,7 +743,7 @@ Include:
 
 * Anti-malware solutions that remove malicious software.
 * Backup restoration tools (knowledge of MTTR, defined in the infrastructure view, is crucial for restoration planning).
-* Tools and procedures for isolating compromised components or areas within the IS.
+* Tools and procedures for isolating compromised modules or areas within the IS.
 * Software asset management tools that block unauthorized software.
 * Forensic analysis tools and methodologies for analyzing logs to understand attack paths and construct a post-mortem.
 * Procedures and tools for responding to an attack.

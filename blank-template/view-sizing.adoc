@@ -122,9 +122,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 ## Target sizing
 
-### Estimate of resource requirements by technical component
+### Estimate of resource requirements by deployable unit
 
-.Estimation of resource requirements by technical component
+.Estimation of resource requirements by deployable unit
 [cols="2,1,1,3,2"]
 |====
 | Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
