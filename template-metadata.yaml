@@ -1,18 +1,13 @@
 author: Bertrand Florat
 license: CC BY-SA 4.0
 views:
-  - application:
-    name: Application
+  - name: Application
     file: view-application.adoc
-  - development:
-    name: Development
+  - name: Development
     file: view-development.adoc
-  - infrastructure:
-    name: infrastructure
+  - name: infrastructure
     file: view-infrastructure.adoc
-  - security:
-    name: Security
+  - name: Security
     file: security.adoc
-  - sizing:
-    name: sizing
+  - name: sizing
     file: view-sizing.adoc
