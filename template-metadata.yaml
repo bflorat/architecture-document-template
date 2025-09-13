@@ -8,6 +8,6 @@ views:
   - name: infrastructure
     file: view-infrastructure.adoc
   - name: Security
-    file: security.adoc
+    file: view-security.adoc
   - name: sizing
     file: view-sizing.adoc
