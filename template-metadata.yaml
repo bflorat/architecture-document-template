@@ -11,3 +11,17 @@ views:
     file: view-security.adoc
   - name: sizing
     file: view-sizing.adoc
+labels:
+  - name: level
+    available_values:
+      - basic
+      - intermediate
+      - advanced
+  - name: project_size
+    available_values: 
+      - small
+      - medium
+      - large
+  - name: persistence
+  - name: green-IT
+  
