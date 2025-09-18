@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["level::basic", "project_size::medium", "detail_level::abstract"]}
+🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["level::basic", "project_size::*", "detail_level::abstract","introduction"]}
 
 ## Introduction
 
