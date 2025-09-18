@@ -1,4 +1,4 @@
-RO# Infrastructure view
+# Infrastructure view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
