@@ -24,12 +24,9 @@ labels:
       - large
   - name: project_size
   - detail_level: 
-      - abstract      # conceptual, principles, big picture
-      - overview      # broad but slightly more concrete
+      - overview      # broad principles, big picture
       - detailed      # technical specifics, diagrams, modules
       - in-depth      # exhaustive detail, e.g., data models, algorithms
-  - name: persistence
-  - name: green-IT
   - name: open-questions
   - name: context
   - name: constraint
