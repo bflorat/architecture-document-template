@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-## Introduction
+//🏷{"id": "32c8942e-443f-429d-a411-43869a720224", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Introduction
 
 This is the sizing point of view of the project. It determines the hardware required by the project.
 
@@ -21,7 +21,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
-### Reference Documentation
+//🏷{"id": "c443e562-398d-49ab-92bd-8031f3e91bec", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Reference Documentation
 
 .Sizing documentary references
 [cols="1e,1e,4e,4e"]
@@ -33,9 +33,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 
-## Not ruled
+//🏷{"id": "1ef7beb9-71ee-43e5-9a1b-c45a48959084", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Not ruled
 
-### Points subject to further study
+//🏷{"id": "c5db3e60-e70c-4ebb-9848-44a0cecc4c6e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Points subject to further study
 
 .Points subject to further study
 [cols="1e,1e,1e,2e,2e"]
@@ -47,7 +47,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |====
 
 
-### Assumptions
+//🏷{"id": "577c9b37-77a2-4568-9fb5-2804d6f9bc70", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Assumptions
 
 [TIP]
 ====
@@ -68,7 +68,7 @@ Example:
 
 ====
 
-## Constraints
+//🏷{"id": "69811b17-b947-4562-90ba-a97160421965", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Constraints
 
 [TIP]
 ====
@@ -79,7 +79,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 ====
 
 
-### Storage constraints
+//🏷{"id": "646fc728-6cef-4e75-9fa9-646b4ec2159d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Storage constraints
 
 TIP: List here the possible constraints related to the disks
 
@@ -88,7 +88,7 @@ TIP: List here the possible constraints related to the disks
 Example: The maximum disk space that can be allocated to a VM is 2 TiB.
 ====
 
-### CPU constraints
+//🏷{"id": "1d3ec06e-d63d-4a61-bb4e-437358064687", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### CPU constraints
 
 TIP: List here the possible constraints related to the computing power
 [Example]
@@ -100,7 +100,7 @@ Example 1: A VM will have a maximum of 10 VCPUs
 Example 2: All the pods of the application should not require more than 1 CPU per node.
 ====
 
-### Memory constraints
+//🏷{"id": "ec6a420b-c284-442a-93fd-edc3d45ed00a", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Memory constraints
 
 TIP: List here the possible constraints related to memory
 [Example]
@@ -108,7 +108,7 @@ TIP: List here the possible constraints related to memory
 Example: a pod or a Kubernetes job should not use more than 6 GiB of RAM
 ====
 
-### Network constraints
+//🏷{"id": "8d948872-15f9-49b6-9527-f511a2f7597d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Network constraints
 
 TIP: List here the possible network volume constraints used
 [Example]
@@ -121,7 +121,7 @@ Example 1: The minimum latency for requests on the WAN between London and Tokyo 
 Example 2: The Ethernet network of the Datacenter has a bandwidth of 40 Gbps.
 ====
 
-## Requirements
+//🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Requirements
 
 [TIP]
 ====
@@ -134,11 +134,11 @@ The following sections dealing with static and dynamic sizing calculations give 
 
 ====
 
-### Static sizing
+//🏷{"id": "962347a4-c3c8-4f0c-bcac-774a6ef617a4", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Static sizing
 
 TIP: These are the metrics used to determine the *cumulative* storage volume of the project. Remember to clearly specify the assumptions made for the estimated metrics. It will thus be possible to review them if new business elements appear.
 
-#### Metrics
+//🏷{"id": "1736e661-2c68-4aa6-a157-9e4444d5a374", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Metrics
 
 TIP: These are measured or estimated business data that will be used as inputs to the calculation of required storage.
 
@@ -150,7 +150,7 @@ TIP: These are measured or estimated business data that will be used as inputs t
 | S2 | Average size of a PDF | Measured | 40KiB | 0% | Operators |
 |====
 
-#### Estimated storage needs
+//🏷{"id": "9968c2e6-46b9-4005-89d4-6a9114246a4c", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Estimated storage needs
 
 [TIP]
 ====
@@ -207,11 +207,11 @@ Only estimate data whose size is not negligible (several GiB minimum).
 |====
 ====
 
-### Dynamic sizing
+//🏷{"id": "b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Dynamic sizing
 
 TIP: These are metrics by duration (year, month, hour, ...) and allowing to determine the load applied to the architecture, which will help to size the systems in terms of CPU, bandwidth and performance of disks.
 
-#### Metrics
+//🏷{"id": "910fc171-30ed-47cd-b03c-3ca918b3103e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Metrics
 
 TIP: These are the measured or estimated business data that will be used as inputs for the calculation.
 
@@ -228,7 +228,7 @@ a|
 |====
 
 
-#### Estimated load
+//🏷{"id": "3d09511c-17b2-43c3-bcba-0a62ead057b4", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Estimated load
 
 [TIP]
 ====
@@ -302,9 +302,9 @@ Example: the Oracle BD01 database is used for reading by the REST endpoint `GET 
 |====
 ====
 
-### Response time requirements
+//🏷{"id": "c1a8f666-70e1-4acf-9d7a-5e1b06ecb588", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Response time requirements
 
-#### Response time of GUIs
+//🏷{"id": "24f70acd-5f7c-49b3-bd75-d594e5af8917", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Response time of GUIs
 
 [TIP]
 ====
@@ -353,7 +353,7 @@ Acceptable if:
 Apart from these values, the application must be optimized and go back to acceptance and then be subjected to load tests again.
 ====
 
-#### Duration of batch execution
+//🏷{"id": "88645b89-d407-4107-93b2-48003fd8688a", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Duration of batch execution
 
 [TIP]
 ====
@@ -372,14 +372,14 @@ Example 3: the batches and the GUI can operate in competition, there is no stric
 ====
 
 
-## Target sizing
+//🏷{"id": "fb740b6a-bd23-4401-a7e0-b01610a01b9b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Target sizing
 
 [TIP]
 ====
 We give a final sizing to support the static and dynamic sizing and meet the requirements.
 ====
 
-### Estimate of resource requirements by deployable unit
+//🏷{"id": "63214041-3461-4019-a685-fac68fdb4d74", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Estimate of resource requirements by deployable unit
 
 [TIP]
 ====
@@ -413,7 +413,7 @@ Example:
 | Postgresql instance
 ====
 
-### Sizing of machines
+//🏷{"id": "6e9675d7-5d8c-4cf8-989a-13640cd28ef3", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Sizing of machines
 
 [TIP]
 ====

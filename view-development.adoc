@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-## Introduction
+//🏷{"id": "84c5d434-ea70-41fc-92bc-53a40ab29025", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Introduction
 
 This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
 
@@ -21,7 +21,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
-### Reference Documentation
+//🏷{"id": "712fc07b-76ba-4093-bbf8-cceeaa903e64", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Reference Documentation
 
 [TIP]
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
@@ -36,9 +36,9 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-## Not ruled
+//🏷{"id": "fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Not ruled
 
-### Points subject to further study
+//🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Points subject to further study
 
 .Points subject to further study
 [cols="e,e,e,e,e"]
@@ -54,7 +54,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 |====
 
 
-### Assumptions
+//🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Assumptions
 
 .Assumptions
 [cols="1e,4e"]
@@ -65,7 +65,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
 |====
 
-## Constraints
+//🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Constraints
 
 [TIP]
 ====
@@ -89,14 +89,14 @@ Example 2: The module should be based on the JPA framework for persistence
 Example 3: The application will be built, tested and deployed continuously with each push via the Gitlab-CI platform
 ====
 
-## Non-functional requirements
+//🏷{"id": "8d79cc07-e094-4863-8bb8-0a3ca317743d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Non-functional requirements
 
 [TIP]
 ====
 Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements were given by the project decision-makers. Schedule interviews to determine them. If some requirements are not realistic, mention this in the reference points to be decided.
 ====
 
-### Accessibility
+//🏷{"id": "48bb8b97-2e97-4515-bf3b-95864f85e4e9", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Accessibility
 
 [TIP]
 ====
@@ -109,16 +109,16 @@ There are other accessibility standards. Be careful to correctly assess the targ
 
 ====
 
-### Ergonomics
+//🏷{"id": "b098d142-655e-4521-9d4f-2c2ea8eceb45", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Ergonomics
 
-#### Ergonomic charter
+//🏷{"id": "3c031334-5598-4817-87b4-dec34ce8389b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Ergonomic charter
 
 [TIP]
 ====
 In general, we refer here to the body's ergonomic charter. List any specificities. Do not duplicate here the accessibility constraints listed above.
 ====
  
-#### Specificities on widgets
+//🏷{"id": "90b4af62-df5b-485e-87c4-7dd0b21d0464", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Specificities on widgets
 
 [TIP]
 ====
@@ -131,7 +131,7 @@ Example 1: The tables must be sortable according to several columns.
 Example 2: Most screens will be fitted with accordions.
 ====
 
-#### Fonts
+//🏷{"id": "1cacea74-bede-43b3-93a5-804fd60ff4fb", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Fonts
 
 [TIP]
 ====
@@ -142,7 +142,7 @@ The choice of fonts follows licensing constraints. In order to ensure legal secu
 Redhat, for instance, provides four families of TrueType fonts (Liberation) under an Open Source license that is legally secure and compatible with the Monotype, Courier-New, Arial and Times New Roman.
 ====
 
-#### Responsive website
+//🏷{"id": "cfd3435f-d888-43e3-a634-35c3d5d92cb4", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Responsive website
 
 [TIP]
 ====
@@ -157,7 +157,7 @@ List the multi-media display constraints. When possible, use modern frameworks (
 WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of data to be downloaded by the client, complexity, more end-to-end tests to be expected…).
 
 
-#### Progressive Web Apps (PWA)
+//🏷{"id": "30cc6226-2213-4351-83aa-a4905c5d4baa", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Progressive Web Apps (PWA)
 
 [TIP]
 ====
@@ -167,7 +167,7 @@ Specify whether the application is progressive. PWA applications are HTML5 web a
 Example: Application X will be fully PWA. Tests will have to demonstrate that the site will continue to operate with the network shutdown and that the pages load in less than 5 seconds using 4G Mobile Internet access.
 ====
 
-#### Supported browsers
+//🏷{"id": "67ff8381-8145-4dc4-bd15-cfec867dc8b5", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Supported browsers
 
 [TIP]
 ====
@@ -190,7 +190,7 @@ Example 2: Application Y being an internet application targeting the widest poss
 Example 3: Application Z is aimed at the broadest audience and with reasonably old systems and will therefore have to support: Firefox 6+, Chrome 8+, Opera 8+, IE 10, Edge.
 ====
 
-#### Internationalization (i18n)
+//🏷{"id": "fbe627e5-be3f-41ec-9a2a-c43bd3587c6e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Internationalization (i18n)
 
 [TIP]
 ====
@@ -203,7 +203,7 @@ Example 1: The GUI X will be translated into 25 languages ​​including some A
 Example 2: Date formats and other input fields must be perfectly localized for maximum user convenience.
 ====
 
-#### Offline mode
+//🏷{"id": "39318743-8131-4d46-9354-c64804066ae8", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Offline mode
 
 [TIP]
 ====
@@ -218,7 +218,7 @@ Example 1: The application will be developed in Java Swing with local storage ba
 Example 2: The mobile application will be in PWA mode, entirely written in HTML5 with local storage to store the day's data into the browser.
 ====
 
-### SEO Requirements
+//🏷{"id": "8c3bc449-1b44-44cf-82a1-f26cdbf258af", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### SEO Requirements
 
 [TIP]
 ====
@@ -231,7 +231,7 @@ Example 1: No indexing necessary or desired (Intranet site).
 Example 2: The static pages of the site must follow good SEO practices to optimize its visibility.
 ====
 
-### Ecodesign requirements
+//🏷{"id": "c8e58371-6bea-48e2-ab0e-989fec63e0ee", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Ecodesign requirements
 
 [TIP]
 ====
@@ -243,11 +243,11 @@ List the eco-design requirements relating to software here.
 Example: The cumulative emissions of Service A should not exceed 100KgCO2/year.
 ====
 
-## Target architecture
+//🏷{"id": "2c0aa24a-24b8-4272-8787-b5e5207785fb", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}## Target architecture
 
-### Software stack
+//🏷{"id": "50b4ef16-e558-4604-9b17-b90e68da6337", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Software stack
 
-#### Stack profile
+//🏷{"id": "16dc549a-4b87-428e-b59d-4c0af1e720db", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Stack profile
 
 [TIP]
 ====
@@ -260,7 +260,7 @@ Example: this application has "Spring Web Application" profile with exceptional 
 Example: Using Reacts.js on an experimental basis within the organization. Validated in architecture committee on ...
 ====
 
-#### Software stack
+//🏷{"id": "e9b08c72-a836-48ad-9255-e2977a09f290", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Software stack
 
 [TIP]
 ====
@@ -284,7 +284,7 @@ Software stack example
 |====
 ====
 
-### Performance
+//🏷{"id": "ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Performance
 
 IMPORTANT: Requirements are listed in the link:./view-sizing.adoc#requirements[Sizing section].
 
@@ -324,7 +324,7 @@ Frontend and backend:
 
 WARNING: Do not fall into the premature optimization trap : it is "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards. Only optimize if it is worth it (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds or even nanoseconds.
 
-### Software factory specifics
+//🏷{"id": "cacf4bd8-9e8a-449c-af31-1fd27169a685", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Software factory specifics
 
 [TIP]
 ====
@@ -334,7 +334,7 @@ Specify shortly whether this project requires a particular CI/CD configuration.
 Example: Gitlab jobs will produce the software as Docker containers if all UT pass. The integration tests will then be run against the container. If all integration and BDD tests pass, the Docker image is released into Nexus.
 ====
 
-### Blueprints
+//🏷{"id": "11f66697-ac3a-40f0-903a-cc8202b7315e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Blueprints
 
 [TIP]
 ====
@@ -344,7 +344,7 @@ List applicable blueprints. Avoid own-in-house ones but give priority to wildly 
 Example : Follow https://www.restapitutorial.com/[this tutorial] when designing a RestFul API.
 ====
 
-### Code quality standards and automatic review
+//🏷{"id": "4cfc1f5e-bf4b-4c33-b718-83ca90974090", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Code quality standards and automatic review
 
 [TIP]
 ====
@@ -365,7 +365,7 @@ Example 2: The required quality level corresponds to the recommended https://doc
 Example 3: Which language should be used for the code? Business terms in German (it is imperative to use business terms as recommended by the DDD) and English for generic technical terms.
 ====
 
-### Notable patterns
+//🏷{"id": "bbe62a07-d42a-4495-8d23-4d0ea23d19e6", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Notable patterns
 
 [TIP]
 ====
@@ -375,7 +375,7 @@ Specify whether this project has implemented structuring patterns (GoF, JEE or o
 Example 1: to deal with the combinatorial explosion of possible contracts and to avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <provide a diagram>.
 ====
 
-### Specificities of the tests
+//🏷{"id": "99e519d3-e8cf-4b3c-8e87-e06a1bf675af", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Specificities of the tests
 
 [TIP]
 ====
@@ -479,7 +479,7 @@ detect as many bugs as possible before UAT tests.
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
-### Ecodesign
+//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Ecodesign
 
 [TIP]
 ====
@@ -524,9 +524,9 @@ Example 4: For a requirement of a maximum of 100kg CO2/year emitted by online se
 Using the SCI formula (see above), and assuming a total consumption of the server of 800W and 20,000 calls per hour on average, with US electricity having a carbon intensity of 400g/kWh, E must not exceed 175 kWh/year, which equates to 1 mWh/call.
 ====
 
-### Management of robustness
+//🏷{"id": "bb5d8145-8519-4516-98a9-fc089f758d9c", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Management of robustness
 
-#### Transaction management
+//🏷{"id": "a7bacacc-de70-48e5-8563-6a0b6d7b31a2", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Transaction management
 
 [TIP]
 ====
@@ -543,7 +543,7 @@ List here the decisions taken regarding the management of transactions. This is 
 Example: Our resources are not transactional (REST services), and wanting to avoid making compensatory transactions, it is forbidden to call two update services synchronously. If absolutely necessary, we will use an Event-Driven architecture using a queue.
 ====
 
-#### Session management
+//🏷{"id": "8bd70b17-0223-4aaf-97ac-a7284efe721f", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Session management
 
 [TIP]
 ====
@@ -563,7 +563,7 @@ Examples of points to be addressed:
 Example: our JSF application will store in an HTTP session only its shopping cart, not the product references.
 ====
 
-#### Error handling
+//🏷{"id": "4ffcfd1b-87c9-48d0-96d6-f3b3b817a869", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Error handling
 
 [TIP]
 ====
@@ -585,7 +585,7 @@ How do we deal with errors? Examples of points to be addressed:
 Example (Spring): technical (unforeseen) errors such as the timeout to a REST service call are caught at the highest level of the application (via an `ErrorHandler`). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
 ====
 
-#### Frontend robustness
+//🏷{"id": "7a33eb60-882d-4095-bde2-9a477cc27433", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Frontend robustness
 
 [TIP]
 ====
@@ -609,7 +609,7 @@ Example 1: If the application is opened with IE, an error message should prompt 
 Example 2: All buttons in the application must prevent double submission by temporarily disabling buttons when an event occurs.
 ====
 
-### Configuration management
+//🏷{"id": "d101d1ee-8ec7-48dd-b733-ebba345c656d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Configuration management
 
 [TIP]
 ====
@@ -629,7 +629,7 @@ Example (application deployed in Kubernetes):
 The configuration will be injected at runtime via environment variables provided in the Kubernetes Deployment Descriptor. No live reloading.
 ====
 
-### Branch management policy
+//🏷{"id": "01a81b2c-1dc0-4563-a2e2-5c5248086499", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Branch management policy
 
 [TIP]
 ====
@@ -646,7 +646,7 @@ Example:
 ====
 
 
-### Versioning
+//🏷{"id": "35b97569-e671-40c3-809c-ffcb5d1af383", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Versioning
 
 [TIP]
 ====
@@ -663,7 +663,7 @@ Example:
 
 ====
 
-### Concurrency
+//🏷{"id": "79682de3-09b7-46f1-8354-9371295d18a8", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Concurrency
 
 [TIP]
 ====
@@ -679,7 +679,7 @@ How do we manage concurrent access? Examples of points to be addressed:
 Example (Spring MVC): All controllers will be in singleton scope and therefore must in no case store state in their attributes to avoid race conditions.
 ====
 
-### Encoding
+//🏷{"id": "856b9e7b-3305-48c3-bb99-798cf409181d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Encoding
 
 [TIP]
 ====
@@ -693,7 +693,7 @@ Example 1: The only encoding allowed in all modules and infrastructure component
 Example 2: If an external system requires sending or receiving character strings in an encoding different from UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible. In addition, never persist in our systems a data in a non-UTF-8 encoding.
 ====
  
-### Timezones
+//🏷{"id": "5885803d-2d3d-4e19-af30-40e904e9fb6d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Timezones
 
 [TIP]
 ====
@@ -707,7 +707,7 @@ Example 1: Hours will never be stored without a time zone. Basically, we will us
 Example 2: Dates and date-times will be stored in database as epoch millis in long integer format. In the case of dates, we will store the epoch millis at 12:00 UTC (and not 00:00, too close to the previous day, risk of bug).
 ====
 
-### Log management
+//🏷{"id": "96ec879c-3ce3-4e48-a3f9-84590c281fd4", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Log management
 
 NOTE: The log infrastructure aspects are detailed in the link:view-infrastructure.adoc[infrastructure view].
 
@@ -717,7 +717,7 @@ Give here the general rules concerning the application traces (logs), the levels
 Think about the use of logs, especially on the server side. Ask yourself if it will be possible to benefit from it in the event of an error in production in the middle of MiB or even GiB of other logs and n threads logging in parallel.
 ====
 
-#### General rules
+//🏷{"id": "cad3fb2c-5047-4025-892f-3180e74579c8", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### General rules
 
 ====
 Example 1:
@@ -737,7 +737,7 @@ if (isDebugEnabled()) {
 ```
 ====
 
-#### Levels and quantity of logs
+//🏷{"id": "992c0bb3-83bc-4598-84ff-150a67df3324", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}#### Levels and quantity of logs
 [TIP]
 ====
 Explain when and what to log in so as to produce logs that can be used in production.
@@ -779,7 +779,7 @@ Example:
 
 ====
  
-### Administrative tools
+//🏷{"id": "f2e9066c-18d9-4234-b37c-27d342b1c99e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Administrative tools
 
 [TIP]
 ====
@@ -797,7 +797,7 @@ Examples of points to be addressed:
 Example: The `/internal/maj_2` service will perform a version upgrade of the data model to V2
 ====
 
-### Sorting and Pagination
+//🏷{"id": "ef97a533-5fc7-4999-87fc-def24074746c", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Sorting and Pagination
 
 [TIP]
 ====
@@ -818,7 +818,7 @@ Example 2 (Client side)
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).
 ====
 
-### Provisioning and DDL updates
+//🏷{"id": "4af6fb38-c84a-456f-b043-32abeb6e7798", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### Provisioning and DDL updates
 
 [TIP]
 ====
@@ -829,7 +829,7 @@ Describe how the DDL (Database tables definition) and the initial data (such as 
 Example: we will use Liquibase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
 ====
 
-### i18N Management
+//🏷{"id": "201fca5f-50af-41f9-ab97-60b2f7abddc6", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}### i18N Management
 [TIP]
 ====
 Describe how you meet the internationalization requirements mentioned above.
@@ -838,4 +838,3 @@ Describe how you meet the internationalization requirements mentioned above.
 ====
 Example: The management of dates, plurals, and numbers will be done via the https://icu.unicode.org/[ICU standard] and the JS library http://messageformat.github.io/messageformat/[messageformat].
 ====
-
