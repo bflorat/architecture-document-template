@@ -95,7 +95,7 @@ Example 1: The GOLD application is a Client-Server application in FORMS 4 pointi
 Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
 ====
 
-//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["level::medium", "project_size::large", "detail_level::overview"]}
+//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["level::intermediate", "project_size::large", "detail_level::overview"]}
 ### Positioning in the IS
 
 [TIP]
