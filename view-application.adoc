@@ -165,7 +165,7 @@ TIP: Without detailing the project schedules, it is suggested to highlight inter
 Example 1: Application Launch before February 2034, prerequisite for the HEAVY program in May 2034.
 ====
 
-//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
 ### Urbanization
 
 [TIP]
@@ -200,7 +200,7 @@ Example 6: The modules of this application follow the SOA architecture as define
 Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
 ====
 
-//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "constraint"]}
 ### Legals
 
 List here (without detailing too much) any legal constraints related to the project.
