@@ -52,7 +52,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | BEFORE 2040
 |===
 
-//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
+//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
 ### Assumptions
 
 .Assumptions
@@ -67,7 +67,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ## General context
 
-//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ### Objectives
 
 [TIP]
@@ -83,7 +83,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ### Existing
 
 [TIP]
@@ -143,10 +143,10 @@ List of external actors
 | Worldwide
 |===
 
-//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
 ## Constraints
 
-//🏷{"id": "8becd0a2-d086-4368-871e-31cdf8b199fb", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
 ### Budget
 
 TIP: Give the budget constraints of the project
@@ -157,7 +157,7 @@ Example 1: Overall envelope of $1M
 Example 2: Cloud infrastructure should cost less than $20K a month
 ====
 
-//🏷{"id": "7b98ceeb-6436-4d38-a8f1-6e1859c00db1", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
 ### Planning
 
 TIP: Without detailing the project schedules, it is suggested to highlight interesting elements for the architecture.
@@ -165,7 +165,7 @@ TIP: Without detailing the project schedules, it is suggested to highlight inter
 Example 1: Application Launch before February 2034, prerequisite for the HEAVY program in May 2034.
 ====
 
-//🏷{"id": "73b258f2-5b1b-42bc-97b3-c27791a464ae", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
 ### Urbanization
 
 [TIP]
@@ -200,7 +200,7 @@ Example 6: The modules of this application follow the SOA architecture as define
 Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
 ====
 
-//🏷{"id": "639ed3d1-76eb-45cb-a2b0-d0f2771eb3d7", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
+//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "constraint"]}
 ### Legals
 
 List here (without detailing too much) any legal constraints related to the project.
@@ -221,12 +221,12 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
-//🏷{"id": "817ca6bb-927b-4567-997e-37e5993bb75f", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "requirement"]}
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
 ## Requirements
 
 TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
 
-//🏷{"id": "866e03ec-06da-4a92-89fa-acb309e22e3a", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "requirement"]}
+//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["level::basic", "project_size::large", "detail_level::overview", "constraint"]}
 ### Strategic Requirements
 
 TIP: Describe here the requirements related to the overall strategy of the project in terms of trajectory, budget, and organization.
@@ -239,7 +239,7 @@ Example 1: Development must be able to take place within distributed teams, each
 Example 2 (migration project): Legacy modules should require as few adaptations as possible due to a lack of human resources.
 ====
 
-//🏷{"id": "0254fb6a-5ebc-4423-9fd7-32845cfd99a5", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "requirement"]}
+//🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": ["level::basic", "project_size::large", "detail_level::overview", "constraint"]}
 ### Interoperability
 
 TIP: Describe here the requirements regarding protocols, formats, and semantics to be followed to facilitate exchanges with organizations or third parties.
@@ -249,7 +249,7 @@ Example: Our XYZ modules must be exposed to X organizations from the Internet in
 ====
 
 
-//🏷{"id": "c6448152-b87b-4619-8ec2-0dd2f317b2c4", "labels": ["level::advanced", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "ec7cfacf-e267-4937-80e8-b5c92409ecd1", "labels": ["level::basic", "project_size::medium", "detail_level::detailed", "constraint"]}
 ### Archiving
 
 [TIP]
@@ -299,10 +299,10 @@ Example:
 ====
 
 
-//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "solution"]}
+//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["level::basic", "project_size::*", "detail_level::overview", "solution"]}
 ## Target architecture
 
-//🏷{"id": "1525a303-3c07-4d5c-8e9c-26f3e3a0e01c", "labels": ["level::advanced", "project_size::medium", "detail_level::overview", "solution"]}
+//🏷{"id": "2c107a25-a1c4-433d-b746-e12aa2c6eea1", "labels": ["level::basic", "project_size::*", "detail_level::overview", "solution"]}
 ### General application architecture
 
 [TIP]
@@ -338,7 +338,7 @@ Example 2: AllMyData allows a company to retrieve by email a document summarizin
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
 
-//🏷{"id": "6390e724-c2f0-4737-99a0-531fdcfe8e20", "labels": ["level::advanced", "project_size::medium", "detail_level::detailed", "solution"],"link_to":["1525a303-3c07-4d5c-8e9c-26f3e3a0e01c"]}
+//🏷{"id": "6390e724-c2f0-4737-99a0-531fdcfe8e20", "labels": ["level::basic", "project_size::medium", "detail_level::detailed", "solution"],"link_to":["1525a303-3c07-4d5c-8e9c-26f3e3a0e01c"]}
 ### Detailed application architecture
 
 [TIP]
@@ -353,7 +353,7 @@ Ideally, the diagram should fit on an A4 page, be self-explanatory, and understa
 
 ====
 
-//🏷{"id": "148fd29c-b0a0-4bff-b5da-71f5b1195e1e", "labels": ["level::advanced", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "148fd29c-b0a0-4bff-b5da-71f5b1195e1e", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
 #### Principles that dictated the choices
 
 [TIP]
@@ -364,7 +364,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-//🏷{"id": "d4124d8e-47b9-4cfa-94ec-8164180bdecc", "labels": ["level::advanced", "project_size::large", "detail_level::detailed"]}
+//🏷{"id": "d4124d8e-47b9-4cfa-94ec-8164180bdecc", "labels": ["level::medium", "project_size::large", "detail_level::detailed"]}
 #### Inventory view
 
 [TIP]
@@ -376,7 +376,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-inventory.svg[Detailed application architecture diagram (inventory view)] 
 
-//🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["level::advanced", "project_size::large", "detail_level::detailed"]}
+//🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["level::medium", "project_size::large", "detail_level::detailed"]}
 #### Dynamic view
 
 [TIP]
@@ -400,7 +400,7 @@ image::diagrams/detailed-application-architecture-dynamic.svg[Detailed applicati
 
 ====
 
-//🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["level::advanced", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["level::medium", "project_size::*", "detail_level::overview"]}
 ### Archiving
 
 [TIP]
@@ -415,7 +415,7 @@ Describe here the measures to meet archiving requirements. This section will mai
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
 ====
 
-//🏷{"id": "7a01e2dd-1921-4e41-95d6-57f2b80e447b", "labels": ["level::advanced", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "7a01e2dd-1921-4e41-95d6-57f2b80e447b", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
 ### Purges
 
 [TIP]
@@ -432,7 +432,7 @@ Example 2: Each API is responsible for purging the data it exposes. For this, pl
 ====
 
 
-//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth"]}
+//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth"]}
 ### Matrix of application flows
 
 [TIP]
