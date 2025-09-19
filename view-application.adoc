@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-//🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["level::*", "project_size::*", "detail_level::*","context"]}
+//🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["level::basic", "project_size::*", "detail_level::*","context"]}
 ## Introduction
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
@@ -21,7 +21,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-//🏷{"id": "c182158d-40af-4840-b8f2-3a2a030c95af", "labels": ["level::*", "project_size::*", "detail_level::*","context"]}
+//🏷{"id": "c182158d-40af-4840-b8f2-3a2a030c95af", "labels": ["level::basic", "project_size::*", "detail_level::*","context"]}
 ### Reference Documentation
 
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
@@ -34,10 +34,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | 1 | 2.0.4 | XX_Urba_POS.pdf | IS mapping |
 |=== 
 
-//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["level::*", "project_size::medium", "detail_level::detailed","context", "open-questions","context"]}
+//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["level::basic", "project_size::*", "detail_level::detailed","context", "open-questions"]}
 ## Not ruled
 
-//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "open-questions","context"]}
+//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
 ### Points subject to further study
 
 .Points subject to further study
@@ -52,7 +52,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | BEFORE 2040
 |===
 
-//🏷{"id": "f1f481b6-e006-49e5-afbb-40ce4652eadf", "labels": ["level::intermediate","level::medium","project_size::medium", "detail_level::*","context","open-questions"]}
+//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
 ### Assumptions
 
 .Assumptions
@@ -64,10 +64,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
 |===
 
-//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
+//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ## General context
 
-//🏷{"id": "ed5f86f2-2ec3-47c0-bb77-2608bdad690a", "labels": ["level::*", "project_size::*", "detail_level::basic", "context"]}
+//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ### Objectives
 
 [TIP]
@@ -83,7 +83,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-//🏷{"id": "34104769-837d-4417-b7ac-06cd74b16d62", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
+//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ### Existing
 
 [TIP]
@@ -95,16 +95,15 @@ Example 1: The GOLD application is a Client-Server application in FORMS 4 pointi
 Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
 ====
 
-//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["level::basic", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["level::medium", "project_size::large", "detail_level::overview"]}
 ### Positioning in the IS
 
 [TIP]
 If the IS is urbanized, identify the block concerned by the project.
 
-//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "context"]}
+//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
 ### Actors
 
-//🏷{"id": "f5da02a5-2942-4c3c-98b3-7af866ea8bf9", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
 #### Internal actors
 
 [TIP]
@@ -127,7 +126,6 @@ List of internal actors
 
 |===
 
-//🏷{"id": "f7ef9f4a-f9d1-4c55-9f85-1d9d48722ce6", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
 #### External actors
 
 List of external actors
