@@ -5,11 +5,11 @@ parts:
     file: view-application.adoc
   - name: Development
     file: view-development.adoc
-  - name: infrastructure
+  - name: Infrastructure
     file: view-infrastructure.adoc
   - name: Security
     file: view-security.adoc
-  - name: sizing
+  - name: Sizing
     file: view-sizing.adoc
 labels:
   - name: level
