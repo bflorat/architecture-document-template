@@ -221,7 +221,7 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
-//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirements"]}
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirement"]}
 ## Requirements
 
 TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
