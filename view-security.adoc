@@ -323,19 +323,40 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 //🏷{"id": "e60500e8-b4a3-471c-941c-8fd8c02c4da9", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
 ### Integrity
 Measures meeting the <> :
+
 .Measures to ensure the required level of integrity
 [cols="e,e,e"]
 |===
 | Data class | Required level | Measures
-| Business database data | No alteration | a|
+
+| Business database data
+| No alteration
+a|
 * Use of PostgreSQL RDBMS with a SERIALIZABLE transactional isolation level
 * Entities will be referenced only by technical IDs from PostgreSQL sequences
-| Archived data | Detected | Generation of SHA-256 checksums of backups
-| Calculated data D1 | Controlled | Storage of a SHA1 checksum, calculation automatical control within 24 hours.
-| Big Data data lake before consolidation | Alterable | No special measure, no backup
-| Sources | No alteration | Using the Git SCM
-| Tax notice PDF | No alteration | Digital signature of the net amount + date + name in PKCS#7 (RSA, SHA256) format with timestamp. The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF.
+
+| Archived data
+| Detected
+| Generation of SHA-256 checksums of backups
+
+| Calculated data D1
+| Controlled
+| Storage of a SHA1 checksum, calculation automatical control within 24 hours.
+
+| Big Data data lake before consolidation
+| Alterable
+| No special measure, no backup
+
+| Sources
+| No alteration
+| Using the Git SCM
+
+| Tax notice PDF
+| No alteration
+| Digital signature of the net amount + date + name in PKCS#7 (RSA, SHA256) format with timestamp. The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF.
 |===
+
+
 
 //🏷{"id": "a64b5e5d-e4d4-4ed2-b425-19cd542fa58e", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
 ### Confidentiality

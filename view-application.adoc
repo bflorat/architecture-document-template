@@ -22,7 +22,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 //🏷{"id": "c182158d-40af-4840-b8f2-3a2a030c95af", "labels": ["level::basic", "project_size::*", "detail_level::*","context"]}
-### Reference Documentation
+=== Reference Documentation
 
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
