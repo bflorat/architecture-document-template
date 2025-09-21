@@ -67,7 +67,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["detail_level::overview"]}
 ## General context
 
-//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": ["detail_level::overview"]}
+//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": []}
 ### Objectives
 
 [TIP]
@@ -83,7 +83,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["detail_level::overview","rewrite"]}
+//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["rewrite"]}
 ### Existing
 
 [TIP]
@@ -95,13 +95,13 @@ Example 1: The GOLD application is a Client-Server application in FORMS 4 pointi
 Example 2: The existing application is based on an LDAP directory for its authorizations. The new project has to coexist temporary with the former one. Thus, it is important to manage concurrent accesses as well as the coherence of LDAP during the tiling period.
 ====
 
-//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["level::intermediate", "project_size::large", "detail_level::overview"]}
+//🏷{"id": "67bbae56-5ed3-4977-8467-2c951882d1a9", "labels": ["project_size::large"]}
 ### Positioning in the IS
 
 [TIP]
 If the IS is urbanized, identify the block concerned by the project.
 
-//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": ["detail_level::overview"]}
+//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": []}
 ### Actors
 
 #### Internal actors
@@ -148,7 +148,7 @@ List of external actors
 
 TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
 
-//🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": ["detail_level::overview"]}
+//🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": []}
 ### Budget
 
 TIP: Give the budget constraints of the project
@@ -159,7 +159,7 @@ Example 1: Overall envelope of $1M
 Example 2: Cloud infrastructure should cost less than $20K a month
 ====
 
-//🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": ["detail_level::overview"]}
+//🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": []}
 ### Planning
 
 TIP: Without detailing the project schedules, it is suggested to highlight interesting elements for the architecture.
@@ -167,7 +167,7 @@ TIP: Without detailing the project schedules, it is suggested to highlight inter
 Example 1: Application Launch before February 2034, prerequisite for the HEAVY program in May 2034.
 ====
 
-//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["project_size::large", "detail_level::overview"]}
+//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["project_size::large"]}
 ### Urbanization
 
 [TIP]
@@ -202,7 +202,7 @@ Example 6: The modules of this application follow the SOA architecture as define
 Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
 ====
 
-//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["detail_level::overview"]}
+//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": []}
 ### Legals
 
 List here (without detailing too much) any legal constraints related to the project.
@@ -223,7 +223,7 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
-//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["detail_level::overview"]}
+//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": []}
 ### Strategic Requirements
 
 TIP: Describe here the requirements related to the overall strategy of the project in terms of trajectory, budget, and organization.
@@ -236,7 +236,7 @@ Example 1: Development must be able to take place within distributed teams, each
 Example 2 (migration project): Legacy modules should require as few adaptations as possible due to a lack of human resources.
 ====
 
-//🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": ["detail_level::overview"]}
+//🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": []}
 ### Interoperability
 
 TIP: Describe here the requirements regarding protocols, formats, and semantics to be followed to facilitate exchanges with organizations or third parties.
@@ -296,10 +296,10 @@ Example 2: Accounting documents must be kept online (in the database) for at lea
 ====
 
 
-//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["solution"]}
+//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["solution","detail_level::overview"]}
 ## Target architecture
 
-//🏷{"id": "2c107a25-a1c4-433d-b746-e12aa2c6eea1", "labels": ["detail_level::overview"]}
+//🏷{"id": "2c107a25-a1c4-433d-b746-e12aa2c6eea1", "labels": []}
 ### General application architecture
 
 [TIP]
