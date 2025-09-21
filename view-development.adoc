@@ -508,7 +508,7 @@ detect as many bugs as possible before UAT tests.
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
-//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"],"link_to": ["c8e58371-6bea-48e2-ab0e-989fec63e0ee"]}
+//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"],"link_to": ["c8e58371-6bea-48e2-ab0e-989fec63e0ee","a7bacacc-de70-48e5-8563-6a0b6d7b31a2"]}
 ### Ecodesign
 
 [TIP]
