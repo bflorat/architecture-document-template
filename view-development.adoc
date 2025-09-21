@@ -403,7 +403,7 @@ Specify whether this project has implemented structuring patterns (GoF, JEE or o
 Example 1: to deal with the combinatorial explosion of possible contracts and to avoid multiplying the levels of inheritance, we will massively use the decorator pattern[GoF], of which here is an example of use: <provide a diagram>.
 ====
 
-//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "99e519d3-e8cf-4b3c-8e87-e06a1bf675af", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
 ### Specificities of the tests
 
 [TIP]
