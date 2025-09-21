@@ -1,0 +1,95 @@
+# Application view
+:sectnumlevels: 4
+:toclevels: 4
+:sectnums: 4
+:toc: left
+:icons: font
+:toc-title: Table of contents
+
+[#74c82505-5f47-4342-8f1b-f6951d603062]
+## Introduction
+
+[#c182158d-40af-4840-b8f2-3a2a030c95af]
+### Reference Documentation
+
+[#946b3119-a878-47ca-86f2-4c9e22ef0c89]
+## Not ruled
+
+[#af23d422-402c-49be-900f-2f55a5619615]
+### Points subject to further study
+
+[#60a52e4c-4416-429a-a739-37153b05133c]
+### Assumptions
+
+[#382fd086-f48e-4ad5-9911-07e3de281971]
+## General context
+
+[#ba1f44fe-c47a-4d34-bfdb-07e777e23dda]
+### Objectives
+
+[#bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00]
+### Existing
+
+[#67bbae56-5ed3-4977-8467-2c951882d1a9]
+### Positioning in the IS
+
+[#9ca40d05-ab6e-42ab-aa3c-b9724373ae7f]
+### Actors
+
+#### Internal actors
+
+#### External actors
+
+[#3b714287-891e-4ea3-a7a4-17672caaf945]
+## Requirements
+
+[#58897e87-0c12-4139-b5da-daec9cae21c6]
+### Budget
+
+[#ac5b1f28-bfcb-4543-a90b-abcff2b41822]
+### Planning
+
+[#5837249a-8fcc-4e42-9dd9-384c4fa32afc]
+### Urbanization
+
+[#abafa462-262f-429e-aad8-d2cdc0cf15a3]
+### Legals
+
+[#9352a89a-3f8b-4028-98d5-58fb970e01ef]
+### Strategic Requirements
+
+[#38fd6aa0-2354-4d0d-9812-10ed917eae5e]
+### Interoperability
+
+[#9efde825-9508-4669-918c-7cfb0d45c21f]
+### Retention Periods
+
+[#ec7cfacf-e267-4937-80e8-b5c92409ecd1]
+### Archiving
+
+[#b269e65b-a8c7-4518-a861-5c6c17802869]
+## Target architecture
+
+[#2c107a25-a1c4-433d-b746-e12aa2c6eea1]
+### General application architecture
+
+[#6390e724-c2f0-4737-99a0-531fdcfe8e20]
+### Detailed application architecture
+
+[#148fd29c-b0a0-4bff-b5da-71f5b1195e1e]
+#### Principles that dictated the choices
+
+[#d4124d8e-47b9-4cfa-94ec-8164180bdecc]
+#### Inventory view
+
+[#6c06792f-9e6d-4156-88d3-468063716834]
+#### Dynamic view
+
+[#f49dc567-ef07-45db-b25a-34c57a58f213]
+### Archiving
+
+[#7a01e2dd-1921-4e41-95d6-57f2b80e447b]
+### Purges
+
+[#3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895]
+### Matrix of application flows

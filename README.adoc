@@ -40,6 +40,7 @@ or create an https://github.com/bflorat/architecture-document-template/issues[is
 * In addition, it is voluntarily *rich in explanations and examples* because it also has a (modest) learning claim aimed at students and young architects.
 * Text in italics contains examples;
 * Each chapter contains notes and tips to help fill it out;
+* If needed, you can reduce the size of this template using the https://document-template-customizer.florat.net/[Document-Template-Customizer].
 * link:blank-template[Blank templates] (without examples) are provided for your convenience. *It is strongly recommended to start with blank models while having the model with examples and explanations in front of you in another window*;
 * The provided `export` script along with the blank template files can be used to export your Asciidoc document into a PDF, HTML or ODT bundle so it can easily exported from a Github or Gitlab repository for instance.
 * It is highly recommended to specify, at the beginning of the `README.adoc` document, the precise version (Git hash) of this model you used for your architectural document (see the blank template : `Model version: <commit id, e.g., b523b6a>`). This practice ensures awareness of any discrepancies that may arise with subsequent model versions.

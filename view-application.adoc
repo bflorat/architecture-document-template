@@ -143,10 +143,10 @@ List of external actors
 | Worldwide
 |===
 
-//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirements"]}
-## Requirements
+//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraints"]}
+## Constraints
 
-TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
+TIP: Limits and imposed choices on how you may design/implement the solution. They restrict the design space (technology, process, organization, time, budget, regulation).
 
 //🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": []}
 ### Budget
@@ -222,6 +222,11 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 ====
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
+
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirement"]}
+## Requirements
+
+TIP: What the solution must achieve for stakeholders: capabilities, behaviors, and quality levels. They express needs/goals and are (ideally) testable. Depending on your context, feel free to add sub-sections.
 
 //🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": []}
 ### Strategic Requirements
@@ -429,7 +434,7 @@ Example 2: Each API is responsible for purging the data it exposes. For this, pl
 ====
 
 
-//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["project_size::medium", "detail_level::in-depth"]}
+//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["detail_level::in-depth"]}
 ### Matrix of application flows
 
 [TIP]
