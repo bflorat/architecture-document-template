@@ -41,7 +41,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e", "labels": ["context","uncertainty"]}
 ## Not ruled
 
-//🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": ["uncertainty"]}
+//🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": []}
 ### Points subject to further study
 
 .Points subject to further study
@@ -58,7 +58,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 |====
 
 
-//🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": ["uncertainty"]}
+//🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": []}
 ### Assumptions
 
 .Assumptions
