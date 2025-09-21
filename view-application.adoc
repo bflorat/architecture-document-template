@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-//🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["level::*", "project_size::*", "detail_level::*","context"]}
+//🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["context"]}
 ## Introduction
 
 This is the application point of view of the project. It describes the application modules in play and their exchanges.
@@ -21,7 +21,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
-//🏷{"id": "c182158d-40af-4840-b8f2-3a2a030c95af", "labels": ["context"]}
+//🏷{"id": "c182158d-40af-4840-b8f2-3a2a030c95af", "labels": ["references"]}
 ### Reference Documentation
 
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
@@ -34,10 +34,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | 1 | 2.0.4 | XX_Urba_POS.pdf | IS mapping |
 |=== 
 
-//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["level::basic", "project_size::*", "detail_level::detailed","context", "open-questions"]}
+//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["open-questions"]}
 ## Not ruled
 
-//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
+//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["open-questions"]}
 ### Points subject to further study
 
 .Points subject to further study
@@ -52,7 +52,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | BEFORE 2040
 |===
 
-//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["level::basic", "project_size::*", "detail_level::detailed", "context", "open-questions"]}
+//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["open-questions"]}
 ### Assumptions
 
 .Assumptions
@@ -64,10 +64,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
 |===
 
-//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["detail_level::overview"]}
 ## General context
 
-//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": ["detail_level::overview"]}
 ### Objectives
 
 [TIP]
@@ -83,7 +83,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["detail_level::overview","rewrite"]}
 ### Existing
 
 [TIP]
@@ -101,7 +101,7 @@ Example 2: The existing application is based on an LDAP directory for its author
 [TIP]
 If the IS is urbanized, identify the block concerned by the project.
 
-//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": ["level::basic", "project_size::*", "detail_level::overview", "context"]}
+//🏷{"id": "9ca40d05-ab6e-42ab-aa3c-b9724373ae7f", "labels": ["detail_level::overview"]}
 ### Actors
 
 #### Internal actors
@@ -143,10 +143,10 @@ List of external actors
 | Worldwide
 |===
 
-//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
+//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
-//🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
+//🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": ["detail_level::overview"]}
 ### Budget
 
 TIP: Give the budget constraints of the project
@@ -157,7 +157,7 @@ Example 1: Overall envelope of $1M
 Example 2: Cloud infrastructure should cost less than $20K a month
 ====
 
-//🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
+//🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": ["detail_level::overview"]}
 ### Planning
 
 TIP: Without detailing the project schedules, it is suggested to highlight interesting elements for the architecture.
@@ -165,7 +165,7 @@ TIP: Without detailing the project schedules, it is suggested to highlight inter
 Example 1: Application Launch before February 2034, prerequisite for the HEAVY program in May 2034.
 ====
 
-//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "5837249a-8fcc-4e42-9dd9-384c4fa32afc", "labels": ["project_size::large", "detail_level::overview"]}
 ### Urbanization
 
 [TIP]
@@ -200,7 +200,7 @@ Example 6: The modules of this application follow the SOA architecture as define
 Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
 ====
 
-//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "constraint"]}
+//🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": ["detail_level::overview"]}
 ### Legals
 
 List here (without detailing too much) any legal constraints related to the project.
@@ -221,12 +221,12 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
-//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["level::basic", "project_size::*", "detail_level::overview", "constraint"]}
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirements"]}
 ## Requirements
 
 TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
 
-//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["level::basic", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["detail_level::overview"]}
 ### Strategic Requirements
 
 TIP: Describe here the requirements related to the overall strategy of the project in terms of trajectory, budget, and organization.
@@ -239,7 +239,7 @@ Example 1: Development must be able to take place within distributed teams, each
 Example 2 (migration project): Legacy modules should require as few adaptations as possible due to a lack of human resources.
 ====
 
-//🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": ["level::basic", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": ["detail_level::overview"]}
 ### Interoperability
 
 TIP: Describe here the requirements regarding protocols, formats, and semantics to be followed to facilitate exchanges with organizations or third parties.
@@ -248,27 +248,7 @@ TIP: Describe here the requirements regarding protocols, formats, and semantics 
 Example: Our XYZ modules must be exposed to X organizations from the Internet in the form of authenticated REST APIs.
 ====
 
-
-//🏷{"id": "ec7cfacf-e267-4937-80e8-b5c92409ecd1", "labels": ["level::basic", "project_size::medium", "detail_level::detailed", "constraint"]}
-### Archiving
-
-[TIP]
-====
-Archiving is the copying of important data to a dedicated offline medium for occasional consultation, unlike backup which is intended for restoration. Archives are often required for legal reasons and kept for thirty years or more.
-
-Specify if application data needs to be kept long-term. Specify the reasons for this archiving (usually legal).
-
-Specify if specific integrity protection mechanisms (mainly to prevent any modification) need to be put in place.
-====
-
-====
-Example 1: As required by the law, accounting data must be kept for at least ten years.
-====
-====
-Example 2: Accounting documents must be kept online (in the database) for at least two years and then can be archived for at least ten more years. A SHA256 hash will be calculated at the time of archiving and stored separately to verify the integrity of the documents if needed.
-====
-
-//🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["level::intermediate", "project_size::medium", "detail_level::overview", "requirement"]}
+//🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["detail_level::detailed"]}
 ### Retention Periods
 
 TIP: Specify here how long data and documents persisted by your application modules should be kept. Note that these durations may be legally constrained (see legal constraints above), for example in the context of the GDPR right to be forgotten.
@@ -299,10 +279,30 @@ Example:
 ====
 
 
-//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["level::basic", "project_size::*", "detail_level::overview", "solution"]}
+//🏷{"id": "ec7cfacf-e267-4937-80e8-b5c92409ecd1", "labels": ["detail_level::detailed", "archiving"]}
+### Archiving
+
+[TIP]
+====
+Archiving is the copying of important data to a dedicated offline medium for occasional consultation, unlike backup which is intended for restoration. Archives are often required for legal reasons and kept for thirty years or more.
+
+Specify if application data needs to be kept long-term. Specify the reasons for this archiving (usually legal).
+
+Specify if specific integrity protection mechanisms (mainly to prevent any modification) need to be put in place.
+====
+
+====
+Example 1: As required by the law, accounting data must be kept for at least ten years.
+====
+====
+Example 2: Accounting documents must be kept online (in the database) for at least two years and then can be archived for at least ten more years. A SHA256 hash will be calculated at the time of archiving and stored separately to verify the integrity of the documents if needed.
+====
+
+
+//🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["solution"]}
 ## Target architecture
 
-//🏷{"id": "2c107a25-a1c4-433d-b746-e12aa2c6eea1", "labels": ["level::basic", "project_size::*", "detail_level::overview", "solution"]}
+//🏷{"id": "2c107a25-a1c4-433d-b746-e12aa2c6eea1", "labels": ["detail_level::overview"]}
 ### General application architecture
 
 [TIP]
@@ -338,7 +338,7 @@ Example 2: AllMyData allows a company to retrieve by email a document summarizin
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
 
-//🏷{"id": "6390e724-c2f0-4737-99a0-531fdcfe8e20", "labels": ["level::basic", "project_size::medium", "detail_level::detailed", "solution"],"link_to":["1525a303-3c07-4d5c-8e9c-26f3e3a0e01c"]}
+//🏷{"id": "6390e724-c2f0-4737-99a0-531fdcfe8e20", "labels": ["detail_level::detailed"]}
 ### Detailed application architecture
 
 [TIP]
@@ -353,7 +353,7 @@ Ideally, the diagram should fit on an A4 page, be self-explanatory, and understa
 
 ====
 
-//🏷{"id": "148fd29c-b0a0-4bff-b5da-71f5b1195e1e", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
+//🏷{"id": "148fd29c-b0a0-4bff-b5da-71f5b1195e1e", "labels": ["project_size::medium", "detail_level::detailed"]}
 #### Principles that dictated the choices
 
 [TIP]
@@ -364,7 +364,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-//🏷{"id": "d4124d8e-47b9-4cfa-94ec-8164180bdecc", "labels": ["level::medium", "project_size::large", "detail_level::detailed"]}
+//🏷{"id": "d4124d8e-47b9-4cfa-94ec-8164180bdecc", "labels": ["project_size::large", "detail_level::detailed"]}
 #### Inventory view
 
 [TIP]
@@ -376,7 +376,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-inventory.svg[Detailed application architecture diagram (inventory view)] 
 
-//🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["level::medium", "project_size::large", "detail_level::detailed"]}
+//🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["project_size::large", "detail_level::detailed"]}
 #### Dynamic view
 
 [TIP]
@@ -400,7 +400,7 @@ image::diagrams/detailed-application-architecture-dynamic.svg[Detailed applicati
 
 ====
 
-//🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["level::medium", "project_size::*", "detail_level::overview"]}
+//🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["detail_level::detailed","archiving"]}
 ### Archiving
 
 [TIP]
@@ -415,7 +415,7 @@ Describe here the measures to meet archiving requirements. This section will mai
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
 ====
 
-//🏷{"id": "7a01e2dd-1921-4e41-95d6-57f2b80e447b", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
+//🏷{"id": "7a01e2dd-1921-4e41-95d6-57f2b80e447b", "labels": ["detail_level::detailed"]}
 ### Purges
 
 [TIP]
@@ -432,7 +432,7 @@ Example 2: Each API is responsible for purging the data it exposes. For this, pl
 ====
 
 
-//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth"]}
+//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["project_size::medium", "detail_level::in-depth"]}
 ### Matrix of application flows
 
 [TIP]
