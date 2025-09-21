@@ -143,8 +143,10 @@ List of external actors
 | Worldwide
 |===
 
-//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
-## Constraints
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirements"]}
+## Requirements
+
+TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
 
 //🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": ["detail_level::overview"]}
 ### Budget
@@ -220,11 +222,6 @@ Example 3: The data exposed by the project will be licensed under ODS-By.
 ====
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
-
-//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirement"]}
-## Requirements
-
-TIP: List here the application architecture requirements that may apply to the project. Depending on your context, feel free to add sub-sections.
 
 //🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["detail_level::overview"]}
 ### Strategic Requirements
