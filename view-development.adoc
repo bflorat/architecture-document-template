@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-//🏷{"id": "84c5d434-ea70-41fc-92bc-53a40ab29025", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "84c5d434-ea70-41fc-92bc-53a40ab29025", "labels": ["context"]}
 ## Introduction
 
 This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
@@ -22,7 +22,7 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
-//🏷{"id": "712fc07b-76ba-4093-bbf8-cceeaa903e64", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "712fc07b-76ba-4093-bbf8-cceeaa903e64", "labels": ["context","references"]}
 ### Reference Documentation
 
 [TIP]
@@ -38,10 +38,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-//🏷{"id": "fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e", "labels": ["context","uncertainty"]}
 ## Not ruled
 
-//🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": ["uncertainty"]}
 ### Points subject to further study
 
 .Points subject to further study
@@ -58,7 +58,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 |====
 
 
-//🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": ["uncertainty"]}
 ### Assumptions
 
 .Assumptions
@@ -70,7 +70,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
 |====
 
-//🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["detail_level::overview", "constraints"]}
 ## Constraints
 
 [TIP]
@@ -508,7 +508,7 @@ detect as many bugs as possible before UAT tests.
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
 
-//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"],"link_to": ["c8e58371-6bea-48e2-ab0e-989fec63e0ee","a7bacacc-de70-48e5-8563-6a0b6d7b31a2","53b2f98c-11d9-4aa0-b762-b8f31db0c30f"]}
+//🏷{"id": "6ff8aacb-5020-4ade-a10d-3dce3898276b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"],"link_to": ["c8e58371-6bea-48e2-ab0e-989fec63e0ee"]}
 ### Ecodesign
 
 [TIP]
