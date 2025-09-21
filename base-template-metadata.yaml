@@ -11,25 +11,4 @@ parts:
     file: view-security.adoc
   - name: Sizing
     file: view-sizing.adoc
-labels:
-  - name: level
-    available_values:
-      - basic
-      - intermediate
-      - advanced
-  - name: project_size
-    available_values: 
-      - small
-      - medium
-      - large
-  - name: project_size
-  - detail_level: 
-      - overview      # broad principles, big picture
-      - detailed      # technical specifics, diagrams, modules
-      - in-depth      # exhaustive detail, e.g., data models, algorithms
-  - name: open-questions
-  - name: context
-  - name: constraint
-  - name : solution
-  - name: requirement
   
