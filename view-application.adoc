@@ -34,10 +34,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | 1 | 2.0.4 | XX_Urba_POS.pdf | IS mapping |
 |=== 
 
-//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["open-questions"]}
+//🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["uncertainty"]}
 ## Not ruled
 
-//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["open-questions"]}
+//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["uncertainty"]}
 ### Points subject to further study
 
 .Points subject to further study
@@ -52,7 +52,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | BEFORE 2040
 |===
 
-//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["open-questions"]}
+//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["uncertainty"]}
 ### Assumptions
 
 .Assumptions
