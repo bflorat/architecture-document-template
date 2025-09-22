@@ -12,7 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
-//🏷{"id": "e3208a9c-8d35-46a1-9399-aacea9817e0a", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "e3208a9c-8d35-46a1-9399-aacea9817e0a", "labels": ["context"]}
 ## Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all infrastructure components involved.
 
@@ -26,7 +26,7 @@ This point of view deals with the infrastructure: servers, networks, operating s
 In short, it covers everything that is external to the application modules but necessary for their execution.
 ====
 
-//🏷{"id": "06fd3383-f875-4a44-a1f8-d135f9050038", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "06fd3383-f875-4a44-a1f8-d135f9050038", "labels": ["references"]}
 ### Reference Documentation
 [TIP]
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
@@ -41,9 +41,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-//🏷{"id": "933039be-008f-40c7-a630-a08002b379f1", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "933039be-008f-40c7-a630-a08002b379f1", "labels": ["context","uncertainty"]}
 ## Not ruled
-//🏷{"id": "87385297-c5c3-44f6-b9e8-7599576dda0a", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+
+//🏷{"id": "87385297-c5c3-44f6-b9e8-7599576dda0a", "labels": []}
 ### Points subject to further study
 .Points subject to further study
 [cols="1e,5e,2e,2e,2e"]
@@ -58,7 +59,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
-//🏷{"id": "30d20b83-e35d-464b-8286-3ff230fb1471", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "30d20b83-e35d-464b-8286-3ff230fb1471", "labels": []}
 ### Assumptions
 
 .Assumptions
@@ -70,7 +71,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | We assume that by the time the project will be released, PostgreSQL 12 will be validated internally.
 |====
 
-//🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["detail_level::overview", "constraints"]}
 ## Constraints
 
 [TIP]
@@ -81,7 +82,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 
 ====
 
-//🏷{"id": "cc4a17a8-d68b-43cf-8b4e-c64829d950fc", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "cc4a17a8-d68b-43cf-8b4e-c64829d950fc", "labels": ["availability"]}
 ### Constraints on availability
 
 [TIP]
@@ -91,7 +92,7 @@ The elements provided here can serve as a basis for the SLO (Service Level Objec
 This chapter has a pedagogical vocation because it highlights the maximum possible availability: the final availability of the application can only be lower.
 ====
 
-//🏷{"id": "a18eb613-e522-4bf5-a1fd-742b9d754ce1", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "a18eb613-e522-4bf5-a1fd-742b9d754ce1", "labels": ["detail_level::detailed","monitoring"]}
 #### MTTD
 
 [TIP]
@@ -104,7 +105,7 @@ Example 1: hypervision is done 24/7/365
 Example 2: the production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
 ====
 
-//🏷{"id": "dc11b031-5685-4972-9832-138fa74cd30b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "dc11b031-5685-4972-9832-138fa74cd30b", "labels": ["detail_level::detailed","monitoring"]}
 #### Monitoring tools
 
 [TIP]
@@ -119,7 +120,7 @@ Example 2: The batches must be able to be launch using a REST endpoint
 Example 3: A failed batch must not be scheduled again without a human acknowledgment
 ====
 
-//🏷{"id": "6903a99e-8b8e-464b-909c-d40da5a808d1", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "6903a99e-8b8e-464b-909c-d40da5a808d1", "labels": ["detail_level::detailed"]}
 #### MTTR
 
 [TIP]
@@ -135,6 +136,7 @@ List here the intervention times of the hardware, software, electricity, telecom
 We tentatively divide this section into "Hardware", "System and Virtualization", "Network", and "Data Recovery" subsections. Other categories are possible.
 ====
 
+//🏷{"id": "e7470aba-8588-4792-bc94-28e4bf186b63", "labels": ["detail_level::in-depth"]}
 ##### Hardware
 
 TIP: Describe here the elements used to predict the MTTR of hardware elements (servers / racks / network equipment / electrical systems, etc.). List for example here the durations of intervention of the material service providers, electricity….
@@ -147,6 +149,7 @@ Example 2: The Hitashi support contract provides for an intervention on the SAN 
 Example 3: Replacement of IBM hardware support on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, working days only.
 ====
 
+//🏷{"id": "96cd73f1-0dca-447e-8fc8-2d9c03399e1c", "labels": ["detail_level::in-depth"]}
 ##### System and virtualization
 
 TIP: List here the elements allowing to estimate the correction time of a problem related to the OS or to a possible virtualization solution.
@@ -160,6 +163,7 @@ Example 3: The observed restore time of a 40 GiB VM Veeam backup is 45 mins.
 
 ====
 
+//🏷{"id": "9c691337-434c-4439-b735-0d0884ab15f1", "labels": ["detail_level::in-depth"]}
 ##### Network
 
 TIP: List here the elements related to the network allowing to estimate the durations of intervention of the service providers or Telecom suppliers...
@@ -170,6 +174,7 @@ Example 1: A network engineer is on call every weekend.
 Example 2: Orange's SLA provides for restoration of the Internet connection under nominal conditions in less than 24 hours.
 ====
 
+//🏷{"id": "b39586c3-6bbe-417f-ad64-eff53c81d283", "labels": ["detail_level::detailed"]}
 ##### Data Restore
 TIP: List here the elements allowing to evaluate the duration of data restoration (files / objects / database). The RTO requirements listed below should take this MTTR into account.
 
@@ -180,7 +185,7 @@ Example 2: Restoring an offline backup (on tape) requires at least 4 hours of ad
 ====
 
 
-//🏷{"id": "421860fb-b6b3-461a-b149-57c6ba6dae41", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "421860fb-b6b3-461a-b149-57c6ba6dae41", "labels": ["detail_level::in-depth"]}
 #### Scheduled interruptions
 
 [TIP]
@@ -195,7 +200,7 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 ====
 
-//🏷{"id": "21d704f6-f740-40f9-986c-36274643a711", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "21d704f6-f740-40f9-986c-36274643a711", "labels": ["detail_level::detailed"]}
 #### Level of service of the datacenter
 
 [TIP]
@@ -241,7 +246,7 @@ TIP: It should be noted that modern Cloud architectures favor the redundancy of 
 Example: the Madrid DC is Tier 3
 ====
 
-//🏷{"id": "7c1d0446-34df-4572-92b0-19baaba54183", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "7c1d0446-34df-4572-92b0-19baaba54183", "labels": ["detail_level::overview"]}
 #### Summary of floor availability
 
 [TIP]
@@ -253,7 +258,7 @@ Taking into account the previous elements, estimate the maximum floor availabili
 Example: <datacenter availability> * <% of time not in scheduled maintenance> * <system availability> * <hardware availability> = 99.8 x 99.99 x 99.6 x 99.99 = ~ * 99.4% *.
 ====
 
-//🏷{"id": "4860fb1c-98e9-4c2c-adfc-09ea8149235d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "4860fb1c-98e9-4c2c-adfc-09ea8149235d", "labels": ["detail_level::overview"]}
 #### Disaster management (DRP/BCP)
 
 [TIP]
@@ -295,7 +300,7 @@ Example 2: Two spare servers are available in the London site. Business data is 
 ====
 
 
-//🏷{"id": "c7c4fce5-c971-4ec8-bef7-006381492aff", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "c7c4fce5-c971-4ec8-bef7-006381492aff", "labels": ["detail_level::overview"]}
 ### Hosting
 
 * Where will this application modules be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
@@ -313,7 +318,7 @@ Example 2: Given the very high level of security required to run the application
 Example 3: Given the very large number of calls from this application to the PERSON repository, both will be collocated in the XYZ VLAN.
 ====
 
-//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"]}
 ### Network constraints
 
 [TIP]
@@ -327,7 +332,7 @@ Example 1: the LAN has a maximum bandwith of 10 Gbps
 Example 2: The intranet modules must be located in a trusted zone that cannot be accessed from the Internet.
 ====
 
-//🏷{"id": "86a3082e-7069-4120-b86f-f886ef919986", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "86a3082e-7069-4120-b86f-f886ef919986", "labels": ["detail_level::detailed"]}
 ### Deployment constraints
 
 [TIP]
@@ -343,7 +348,7 @@ Example 3: Any application must be packaged as an OCI image and deployable on Ku
 
 ====
 
-//🏷{"id": "0a25770c-6a02-4fa3-82cc-bf5152d3cba6", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "0a25770c-6a02-4fa3-82cc-bf5152d3cba6", "labels": ["detail_level::detailed"]}
 ### Log constraints
 
 [TIP]
@@ -356,7 +361,7 @@ Example 1: an application must not produce more than 1 Tio of logs/month.
 Example 2: the maximum retention period for logs is 3 months.
 ====
 
-//🏷{"id": "608d63e6-7299-4976-bf59-52fa1c6ac486", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "608d63e6-7299-4976-bf59-52fa1c6ac486", "labels": ["detail_level::detailed"]}
 ### Backup and restore constraints
 
 [TIP]
@@ -378,7 +383,7 @@ Example 2: the maximum retention period for backups is two years
 Example 3: Count 1 min/GiB for a NetBackup restore.
 ====
 
-//🏷{"id": "22e6cfa3-bc3d-466c-a902-9854540258b7", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "22e6cfa3-bc3d-466c-a902-9854540258b7", "labels": ["detail_level::detailed"]}
 ### Costs
 
 [TIP]
@@ -389,7 +394,7 @@ List the budget limits.
 Example 1: AWS Cloud service charges should not exceed $5K/year for this project.
 ====
 
-//🏷{"id": "f9ed2469-e3e5-48a1-8b69-4b9c9492c6cb", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "f9ed2469-e3e5-48a1-8b69-4b9c9492c6cb", "labels": ["detail_level::overview", "constraint"]}
 ## Requirements
 
 [TIP]
@@ -402,7 +407,7 @@ If certain requirements are still not realistic, mention it in the "Points subje
 
 ====
 
-//🏷{"id": "332c967b-3729-4a5f-984e-fc2f301b0329", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "332c967b-3729-4a5f-984e-fc2f301b0329", "labels": []}
 ### Operating ranges
 
 [TIP]
@@ -435,7 +440,7 @@ Example of operating windows
 |====
 ====
 
-//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"]}
 ### Availability requirements
 
 [TIP]
@@ -470,7 +475,7 @@ The availability required here must be consistent with the “Constraints on ava
 | 4 hours, 8 times a year
 |====
 
-//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
 ### Degraded modes
 [TIP]
 ====
@@ -484,7 +489,7 @@ Example 1: The _mysite.com_ site must be able to continue to accept orders in th
 Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
 ====
 
-//🏷{"id": "231768e7-6a9d-429e-b200-2febdd91a0e3", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "231768e7-6a9d-429e-b200-2febdd91a0e3", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Robustness requirements
 
 [TIP]
@@ -505,7 +510,7 @@ Example 2: the user must not lose his shopping cart even in the event of a break
 Example 3: the system should be able to withstand a load three times greater than the average with a response time of less than 10 seconds at the 95th percentile.
 ====
 
-//🏷{"id": "f0e94586-876d-46ca-b060-b5dcde468734", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "f0e94586-876d-46ca-b060-b5dcde468734", "labels": ["level::intermediate"]}
 ### RPO requirements
 
 [TIP]
@@ -524,7 +529,7 @@ Data restoration occurs mainly in following cases:
 Example: We shouldn't loose more than one working day of application data.
 ====
 
-//🏷{"id": "3e07d851-b2dc-422f-9cba-1b4447a5c956", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "3e07d851-b2dc-422f-9cba-1b4447a5c956", "labels": ["level::intermediate", "project_size::medium", "project_size::large", "detail_level::overview"]}
 ### RTO Requirements
 
 [TIP]
@@ -540,10 +545,10 @@ Specify this value only to clarify a precise restoration objective, otherwise, d
 Example: We must be able to restore and put back online the 3 TiB of the XYZ database in 1 hour maximum.
 ====
 
-//🏷{"id": "cdb68f23-d2c5-4373-9f7d-e358191f0ebf", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-### Deployment and update requirements
+//🏷{"id": "cdb68f23-d2c5-4373-9f7d-e358191f0ebf", "labels": ["level::intermediate","detail_level::detailed"]}
+### Deployment and upgrades requirements
 
-//🏷{"id": "663ee84f-7dde-4c6d-acf6-a810ab8fafb4", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "663ee84f-7dde-4c6d-acf6-a810ab8fafb4", "labels": []}
 #### Server side
 
 [TIP]
@@ -557,7 +562,7 @@ For example :
 * How are they upgraded?
 ====
 
-//🏷{"id": "fd64ad27-05da-42f0-9491-f790642b5d91", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "fd64ad27-05da-42f0-9491-f790642b5d91", "labels": ["gui"]}
 #### Client side
 
 [TIP]
