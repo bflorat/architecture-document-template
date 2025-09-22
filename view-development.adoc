@@ -154,7 +154,7 @@ The choice of fonts follows licensing constraints. In order to ensure legal secu
 Redhat, for instance, provides four families of TrueType fonts (Liberation) under an Open Source license that is legally secure and compatible with the Monotype, Courier-New, Arial and Times New Roman.
 ====
 
-//🏷{"id": "cfd3435f-d888-43e3-a634-35c3d5d92cb4", "labels": ["level::intermediate", "detail_level::in-depth"]}]}
+//🏷{"id": "cfd3435f-d888-43e3-a634-35c3d5d92cb4", "labels": ["level::intermediate", "detail_level::in-depth"]}
 #### Responsive website
 
 [TIP]
