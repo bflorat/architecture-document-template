@@ -861,7 +861,7 @@ Example 2 (Client side)
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).
 ====
 
-//🏷{"id": "4af6fb38-c84a-456f-b043-32abeb6e7798", "labels": ["level::intermediate" "detail_level::detailed"]}
+//🏷{"id": "4af6fb38-c84a-456f-b043-32abeb6e7798", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Provisioning and DDL updates
 
 [TIP]
