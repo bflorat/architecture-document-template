@@ -307,7 +307,7 @@ Software stack example
 |====
 ====
 
-//🏷{"id": "ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7", "labels": ["level::intermediate"], link_to=["d6e3eb12-371b-4c26-b538-9fea2051bfed"]}
+//🏷{"id": "ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7", "labels": ["level::intermediate"], "link_to": ["d6e3eb12-371b-4c26-b538-9fea2051bfed"]}
 ### Performance
 
 [TIP]
@@ -873,7 +873,7 @@ Describe how the DDL (Database tables definition) and the initial data (such as 
 Example: we will use Liquibase embedded in the war to create and update the DDL of the database. There will therefore be no SQL scripts to launch, the necessary queries will be carried out directly by the application when it starts.
 ====
 
-//🏷{"id": "201fca5f-50af-41f9-ab97-60b2f7abddc6", "labels": ["level::intermediate",  "detail_level::detailed"], link_to=["fbe627e5-be3f-41ec-9a2a-c43bd3587c6e"]}
+//🏷{"id": "201fca5f-50af-41f9-ab97-60b2f7abddc6", "labels": ["level::intermediate",  "detail_level::detailed"], "link_to": ["fbe627e5-be3f-41ec-9a2a-c43bd3587c6e"]}
 ### i18N Management
 [TIP]
 ====
