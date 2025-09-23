@@ -12,7 +12,7 @@
 
 *Document status* : _<'WIP', 'DRAFT', ...>_
 
-//🏷{"id": "a08e807e-1e9b-4752-a5b8-372a40665c49", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
+//🏷{"id": "a08e807e-1e9b-4752-a5b8-372a40665c49", "labels": ["context"]}
 ## Introduction
 This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
 The other views of the document are accessible link:./README.adoc[from here].
@@ -20,7 +20,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 [TIP]
 Availability is dealt with in the infrastructure section. Even if availability concept is often handled with Integrity and Confidentiality (the "CIA triad"), this model is role-oriented and we feel that availability is more often managed by infrastructure architects than by the security experts.
 
-//🏷{"id": "cd8c64f1-d216-4b24-946c-175455e824a7", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "context"]}
+//🏷{"id": "cd8c64f1-d216-4b24-946c-175455e824a7", "labels": ["context","references"]}
 ### Reference Documentation
 [TIP]
 ====
@@ -34,10 +34,10 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | 2 | latest | Company security standards | http://acme.com/myurl
 |====
 
-//🏷{"id": "ea245600-dbd6-4f56-a58c-8c77556643ad", "labels": ["level::basic", "project_size::medium", "detail_level::overview", "open-questions"]}
+//🏷{"id": "ea245600-dbd6-4f56-a58c-8c77556643ad", "labels": ["context","uncertainty"]}
 ## Not ruled
 
-//🏷{"id": "a058d388-72e1-4136-8659-7a9db1c1a340", "labels": ["level::basic", "project_size::medium", "detail_level::abstract", "open-questions"]}
+//🏷{"id": "a058d388-72e1-4136-8659-7a9db1c1a340", "labels": []}
 ### Points subject to further study
 .Points subject to further study
 [cols="1e,3e,1e,1e,2e"]
@@ -50,7 +50,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | BEFORE 2040
 |====
 
-//🏷{"id": "68a4f41c-1139-4cdd-bb9e-e15667f47fd9", "labels": ["level::basic", "project_size::medium", "detail_level::overview"]}
+//🏷{"id": "68a4f41c-1139-4cdd-bb9e-e15667f47fd9", "labels": []}
 ### Assumptions
 .Assumptions
 [cols="e,e"]
@@ -60,7 +60,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | The SAML solution currently in place in the organization does not meet the authentication requirements. An OpenID Connect solution will be implemented.
 |====
 
-//🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "constraint"]}
+//🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["detail_level::overview", "constraints"]}
 ## Constraints
 [TIP]
 ====
@@ -79,7 +79,7 @@ Example 2: a module in the internet zone is formally prohibited from accessing t
 Example 3: in application of the GDPR, user data must be encrypted.
 ====
 
-//🏷{"id": "4882e5b9-c250-4079-8b24-04996016606d", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "requirement"]}
+//🏷{"id": "4882e5b9-c250-4079-8b24-04996016606d", "labels": ["detail_level::overview", "requirement"]}
 ## Requirements
 [TIP]
 ====
@@ -87,8 +87,7 @@ Present the requirements here, *not the measures meeting them*. These will be de
 For particularly sensitive projects, provide a risk analysis file. To do this, for example, use the https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/[EBIOS Risk Manager] framework.
 ====
 
-[[integrity-requirements]]
-//🏷{"id": "323d4c77-810a-4015-bc1a-11da07e24f3b", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "323d4c77-810a-4015-bc1a-11da07e24f3b", "labels": []}
 ### Integrity requirements
 [TIP]
 ====
@@ -109,7 +108,6 @@ It is possible to define only one data class for the entire application.
 | Tax notice in PDF | | | | X
 |====
 
-[[confidentiality-requirements]]
 //🏷{"id": "acfa846e-0ed7-4f41-a593-f4ee29e94efd", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Confidentiality requirements
 [TIP]
@@ -129,7 +127,6 @@ Be careful not to multiply the data classes. It is possible to define only one d
 | HR data of the "social assistance to employees" | | | | X
 |====
 
-[[identification-requirements]]
 //🏷{"id": "94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Identification requirements
 [TIP]
@@ -146,7 +143,6 @@ Example 2: the identity of an Internet user will be checked before any API call.
 Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 ====
 
-[[authentication-requirements]]
 //🏷{"id": "9d0646cd-3e3f-4878-96de-f215c9f20bdc", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Authentication requirements
 [TIP]
@@ -174,7 +170,6 @@ It is possible to require several occurrences of the same factor, use as many cr
 | Mobile application Y ||||X|||
 |====
 
-[[identity-federation-requirements]]
 //🏷{"id": "f552f1e6-9aea-4866-8da1-e7ed676fd228", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Identity Federation Requirements
 [TIP]
@@ -186,7 +181,6 @@ For example, see the “Connect with[Google | Twitter | ...]” OpenId Connect t
 Example: Identification and authentication will be outsourced to the Auth0 identity provider to simplify security management and reduce development and operating costs.
 ====
 
-[[sso-requirements]]
 //🏷{"id": "400376ad-cc62-4ab3-8e96-5a9f9a954e49", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### SSO and SLO requirements
 [TIP]
@@ -207,7 +201,6 @@ Example 2: no need for SSO or SLO is identified
 Example 3: this Web application must provide single authentication shared with that of other intranet applications. Once authenticated on one of the applications, the agent must not have to reconnect (until his session expires). Likewise, a disconnection from one of the applications must ensure the disconnection of all intranet applications.
 ====
 
-[[non-repudiation-requirements]]
 //🏷{"id": "01404b83-f96f-4649-ace0-e5611601b830", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Non-repudiation requirements
 [TIP]
@@ -221,7 +214,6 @@ List here the business actions with a non-repudiation requirement, i.e., a measu
 | Income tax declaration (X, Y and Z data) | Tax administration PKI | Verisign
 |===
 
-[[privacy-requirements]]
 //🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Anonymity and privacy requirements
 [TIP]
@@ -245,7 +237,6 @@ Example 5: In application of a European directive, a banner must inform the user
 Example 6: Pursuant to the GDPR, explicit consent from users to store their personal health data will be offered.
 ====
 
-[[authorization-requirements]]
 //🏷{"id": "fcad5990-c241-4c88-b2c5-646602f8935a", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Authorizations requirements
 [TIP]
@@ -282,7 +273,6 @@ Example role matrix
 |===
 ====
 
-[[traceability-requirements]]
 //🏷{"id": "e72e5ea5-5711-4665-8a91-76c63cbca2bc", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
 ### Traceability and auditability requirements
 [TIP]
@@ -563,64 +553,12 @@ Example 1: Analysis and alerting of suspicious behaviors with AWS GuardDuty on a
 Example 2: Using CrowdSec Threat Intelligence to discover threat trends based on real and consolidated data.
 ====
 
-//🏷{"id": "1b185643-82bd-4376-959e-02a24690928c", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "context"]}
-## RACI
-[NOTE]
-====
-Ce RACI permet de définir clairement les rôles de chacun concernant les actes liés à la sécurité.
-:r: pass:quotes[[.green]#R#]
-:a: pass:quotes[[.red]#A#]
-:c: pass:quotes[[.blue]#C#]
-:i: pass:quotes[[.orange]#I#]
-:na: pass:quotes[[.grey]#N/A#]
-:et: pass:quotes[[.grey]#&#]
-* {r} : *Responsive* (personne qui va exécuter : elle en est responsable)
-* {a} : *Accountable* (personne qui va approuver la tâche : elle en est l'autorité)
-* {c} : *Consulted* (personne qui va être consultée dans l'exécution de la tâche)
-* {i} : *Informed* (personne qui sera informée lorsque la tâche est terminée)
-====
-
-//🏷{"id": "8b5945b8-14f2-45ae-9965-49397d3f94d2", "labels": ["level::basic", "project_size::medium", "detail_level::abstract"]}
-### Gestion de la plateforme AWS (exemple)
-.Gestion de la plateforme AWS
-[cols="6,^1,^1,^1"]
-|===
-||Équipe Systèmes & Cloud|Équipe Sécurité SI|Équipe Réseau
-.^|Création des accounts AWS
-.^|{r} {et} {a}
-.^|{c} {et} {i}
-.^|{a}
-.^|Création des SCP AWS
-.^|{r} {et} {a}
-.^|{c} {et} {i}
-.^|{a}
-|===
-
-//🏷{"id": "5c93aa54-4321-405d-9a1d-dc81cda55a80", "labels": ["level::basic", "project_size::medium", "detail_level::abstract"]}
-### Gestion des comptes applicatifs (exemple)
-.Gestion des comptes applicatifs
-[cols="6,^1,^1,^1"]
-|===
-||Équipe annuaire|Équipe projet|Équipe SOC
-.^|Création des comptes SSO
-.^|{r} {et} {a}
-.^|{i}
-.^|{i}
-.^|Gestion des habilitations
-.^|{i}
-.^|{r} {et} {a}
-.^|{i}
-.^|Revue d'habilitations annuelle
-.^|{c} {et} {i}
-.^|{i}
-.^|{r} {et} {a}
-|===
-
 //🏷{"id": "b2f76b28-83da-478b-bc94-f1bc29dc6084", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "context"]}
 ## RACI
 [NOTE]
 ====
 This RACI makes it possible to clearly define the roles of each concerning the acts related to security.
+
 :r: pass:quotes[[.green]#R#]
 :a: pass:quotes[[.red]#A#]
 :c: pass:quotes[[.blue]#C#]
@@ -631,10 +569,9 @@ This RACI makes it possible to clearly define the roles of each concerning the a
 * {a}: *Accountable* (person who will approve the task: he is the authority)
 * {c}: *Consulted* (person who will be consulted in the execution of the task)
 * {i}: *Informed* (person who will be informed when the task is completed)
-====
 
-//🏷{"id": "a92779ad-62bb-413e-b9ff-ac16c4552c5c", "labels": ["level::basic", "project_size::medium", "detail_level::abstract"]}
-### AWS Platform Management (example)
+Examples: 
+
 .AWS Platform Management
 [cols="6,^1,^1,^1"]
 |===
@@ -649,8 +586,6 @@ This RACI makes it possible to clearly define the roles of each concerning the a
 .^|{a}
 |===
 
-//🏷{"id": "18fcc330-56e5-46d6-ad41-769bd7be3e3c", "labels": ["level::basic", "project_size::medium", "detail_level::abstract"]}
-### Application account management (example)
 .Management of application accounts
 [cols="6,^1,^1,^1"]
 |===
@@ -668,6 +603,8 @@ This RACI makes it possible to clearly define the roles of each concerning the a
 .^|{i}
 .^|{r} {and} {a}
 |===
+
+====
 
 //🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
 ## Self-checks

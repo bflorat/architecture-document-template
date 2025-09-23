@@ -247,15 +247,34 @@ Example: the Madrid DC is Tier 3
 ====
 
 //🏷{"id": "7c1d0446-34df-4572-92b0-19baaba54183", "labels": ["detail_level::overview"]}
-#### Summary of floor availability
+#### Availability Ceiling (Upper Bound)
 
 [TIP]
 ====
-Taking into account the previous elements, estimate the maximum floor availability of an application module (excluding disaster). Any requirement should be lower than this. In the case of a cloud, use the supplier's SLA as a basis. In the case of an internally hosted application, take into account the availability of the datacenter and scheduled downtimes.
+Make it clear to stakeholders that, even with application-level HA, the **maximum end-to-end availability** is capped by
+the availability of underlying dependencies (datacenter, network, platform).
+This **Availability Ceiling** is the product of their SLAs, and is always
+≤ the least available dependency.
+
+`A_upper_bound = ∏(A_SLA of each serial dependency)  ≤  min(A_SLA)`
+
+**Implication:** SLO targets **must not exceed** this ceiling. HA helps you
+approach the ceiling, not surpass it.
+
+**Scope notes**
+
+* If all replicas sit in the **same failure domain** (same DC/power/edge),
+  the DC’s SLA effectively **sets the ceiling**.
+* To **raise the ceiling**, use **independent failure domains** (e.g., multi-AZ/region);
+  then for parallel redundancy: `A_parallel = 1 - ∏(1 - A_i)` (independence assumed).
 ====
 
 ====
-Example: <datacenter availability> * <% of time not in scheduled maintenance> * <system availability> * <hardware availability> = 99.8 x 99.99 x 99.6 x 99.99 = ~ * 99.4% *.
+*Example (serial, one DC):*  
+`<Datacenter 99.9%> × <Internal network 99.95%> × <Platform 99.9%> ≈ **99.75%**`
+
+Even if the application tier is “HA 99.999%”, the **end-to-end** availability
+cannot exceed ~**99.75%** on this infrastructure.
 ====
 
 //🏷{"id": "4860fb1c-98e9-4c2c-adfc-09ea8149235d", "labels": ["detail_level::overview"]}
