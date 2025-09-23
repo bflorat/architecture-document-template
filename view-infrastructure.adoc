@@ -1121,7 +1121,7 @@ Finally, it's important to keep in mind that what we _really_ want are restores,
 * Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
 * Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
 
-//🏷{"id": "74ff1a8d-91b4-4437-bbfd-439e3d4b18b5", "labels": ["level::intermediate""detail_level::detailed"]}
+//🏷{"id": "74ff1a8d-91b4-4437-bbfd-439e3d4b18b5", "labels": ["level::intermediate","detail_level::detailed"]}
 #### Logs
 
 [TIP]
