@@ -367,6 +367,29 @@ Example 3: Any application must be packaged as an OCI image and deployable on Ku
 
 ====
 
+//🏷{"id": "16781642-a7f3-40f1-b208-e4064ffedaa4", "labels": ["detail_level::detailed"]}
+### Constraints Related to the Lifecycle of Infrastructure Components
+
+[TIP]
+====
+List the constraints related to updates and maintenance of infrastructure components (operating systems, middleware, databases, etc.).
+====
+
+====
+Example 1: Any operating system update must be validated in a staging environment before deployment to production.
+
+Example 2: Database updates must be applied using a rolling upgrade strategy to avoid any service interruption.
+
+Example 3: Linux kernel versions used in production must be LTS versions validated by the infrastructure team.
+
+Example 4: Any critical security patch must be applied within 72 hours of its release.
+
+Example 5: OCI images used in production must be updated quarterly with the latest validated dependency versions.
+
+Example 6: An update schedule for critical components will be established to prevent security vulnerabilities and ensure compatibility with dependencies.
+====
+
+
 //🏷{"id": "0a25770c-6a02-4fa3-82cc-bf5152d3cba6", "labels": ["detail_level::detailed"]}
 ### Log constraints
 
