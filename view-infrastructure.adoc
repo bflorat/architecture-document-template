@@ -163,7 +163,7 @@ Example 3: The observed restore time of a 40 GiB VM Veeam backup is 45 mins.
 
 ====
 
-//🏷{"id": "9c691337-434c-4439-b735-0d0884ab15f1", "labels": ["detail_level::in-depth"]}
+//🏷{"id": "22a1f1de-1ab0-4a54-bd0f-64c7c5ab9713", "labels": ["detail_level::in-depth"]}
 ##### Network
 
 TIP: List here the elements related to the network allowing to estimate the durations of intervention of the service providers or Telecom suppliers...
@@ -1160,7 +1160,7 @@ Example 1: the application logs of the service-allmydata module will be in produ
 Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
 ====
 
-//🏷{"id": "f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+//🏷{"id": "2c3d502d-d67c-417b-88f4-d610e158e930", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
 #### Monitoring
 
 [TIP]
