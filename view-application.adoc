@@ -250,6 +250,20 @@ TIP: Describe here the requirements regarding protocols, formats, and semantics 
 Example: Our XYZ modules must be exposed to X organizations from the Internet in the form of authenticated REST APIs.
 ====
 
+//🏷{"id": "7d3090d0-87d0-434f-9717-f9a12ccf60d1", "labels": ["level::intermediate","detail_level::detailed"]}
+### Concurrency management requirements
+
+[TIP]
+====
+Specify the internal or external modules that may interfere with the application.
+====
+====
+Example 1: All modules of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
+====
+====
+Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
+====
+
 //🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["detail_level::detailed"]}
 ### Retention Periods
 
@@ -401,6 +415,25 @@ Example:
 image::diagrams/detailed-application-architecture-dynamic.svg[Detailed application architecture diagram (dynamic view)] 
 
 ====
+
+//🏷{"id": "9ac6e5d2-e9a0-427e-ba12-27dedbd8ac4d", "labels": ["level::intermediate","rewrite"]}
+### Transition paths
+
+[TIP]
+====
+This chapter describes a required migrations from older systems.
+
+Describe on a macroscopic scale the planned procedure as well as the rollback strategy in case of problem.
+
+Describe, if necessary, a dry-run operation in parallel with the old system.
+====
+====
+Example 1: The X API module will be replaced by the Y API. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T module.
+====
+====
+Example 2: In the event of a problem with the new module, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
+====
+
 
 //🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["detail_level::detailed","archiving"]}
 ### Archiving

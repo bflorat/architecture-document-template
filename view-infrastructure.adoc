@@ -579,7 +579,7 @@ Specify here how the application should be deployed on the client side:
 * How are the updates applied?
 ====
 
-//🏷{"id": "0bbb4d10-bb6c-4cb0-b227-2e97db99eae1", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "0bbb4d10-bb6c-4cb0-b227-2e97db99eae1", "labels": ["level::intermediate","detail_level::detailed"]}
 #### Specific deployment strategy
 
 [TIP]
@@ -593,21 +593,7 @@ Specify here how the application should be deployed on the client side:
 Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the new version.
 ====
 
-//🏷{"id": "7d3090d0-87d0-434f-9717-f9a12ccf60d1", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-### Concurrency management requirements
-
-[TIP]
-====
-Specify the internal or external modules that may interfere with the application.
-====
-====
-Example 1: All modules of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
-====
-====
-Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
-====
-
-//🏷{"id": "da0d11fe-0dc9-478e-a984-7a80ea1be482", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "da0d11fe-0dc9-478e-a984-7a80ea1be482", "labels": ["level::intermediate"]}
 ### Ecodesign requirements
 
 [TIP]
@@ -625,10 +611,10 @@ Example 1: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
 Example 2: Ink and paper consumption should be reduced by 10% compared to 2020.
 ====
 
-//🏷{"id": "602a7a0a-7f25-4512-b0ab-3b97c8a734e0", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "602a7a0a-7f25-4512-b0ab-3b97c8a734e0", "labels": ["detail_level::overview", "solution"]}
 ## Target architecture
 
-//🏷{"id": "8088138c-5258-4f3a-a293-0984501bb5db", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "8088138c-5258-4f3a-a293-0984501bb5db", "labels": ["detail_level::detailed"]}
 ### Principles
 
 [TIP]
@@ -643,7 +629,7 @@ Examples:
 * Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
 
-//🏷{"id": "17a46000-c51d-4fb7-868c-7386aef5b523", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "17a46000-c51d-4fb7-868c-7386aef5b523", "labels": ["level::intermediate","availability"]}
 ### Availability
 
 [TIP]
@@ -787,7 +773,7 @@ Example 2: To achieve the required availability of 99.97%, the availability mech
 
 ====
 
-//🏷{"id": "c23ff676-32e3-4957-8cec-6a7619a33567", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "c23ff676-32e3-4957-8cec-6a7619a33567", "labels": ["detail_level::detailed"]}
 ### Deployment in production
 
 [TIP]
@@ -809,7 +795,7 @@ Example:
 image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 ====
 
-//🏷{"id": "28ba010e-1c33-41b9-8061-9596710563bc", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "28ba010e-1c33-41b9-8061-9596710563bc", "labels": ["detail_level::detailed"]}
 ### Versions of infrastructure components
 
 [TIP]
@@ -847,7 +833,7 @@ Example of infrastructure components
 | CentOS 7
 |====
 
-//🏷{"id": "3ff53ea7-2e7f-4d71-8848-6819ba23c930", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "3ff53ea7-2e7f-4d71-8848-6819ba23c930", "labels": ["detail_level::in-depth"]}
 ### Matrix of network flows
 
 [TIP]
@@ -872,7 +858,7 @@ Include useful information about the network being used in order to assess the p
 | 4 | sup1 | host[1-6] | LAN | SNMP | 199
 |====
 
-//🏷{"id": "93947744-e0ec-4bc3-af30-cc60473b7caf", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "93947744-e0ec-4bc3-af30-cc60473b7caf", "labels": ["project_size::medium","project_size::large", "detail_level::detailed"]}
 ### Environments
 
 [TIP]
@@ -897,7 +883,7 @@ It is often useful to subdivide environments into 'platforms' made up of a set o
 | 2 (UAT1 and UAT2)
 ====
 
-//🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate"]}
 ### Ecodesign
 
 [TIP]
@@ -923,10 +909,10 @@ Example 1: setting up a Varnish cache in front of our CMS will reduce the number
 Example 2: The application will be hosted on a cloud with a PUE of 1.2 and an 80% renewable source of electrical energy.
 ====
 
-//🏷{"id": "46e9c057-75cb-4bc0-9c8d-9af81f737c61", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "46e9c057-75cb-4bc0-9c8d-9af81f737c61", "labels": ["level::advanced", "detail_level::detailed"]}
 ### Load regulation
 
-//🏷{"id": "32466600-a3a5-465f-9679-2a244b34321e", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "32466600-a3a5-465f-9679-2a244b34321e", "labels": ["level::advanced", "detail_level::in-depth"]}
 #### Circuit breakers
 
 [TIP]
@@ -938,7 +924,7 @@ If this risk is identified, provide a fuse system with offset of all or part of 
 This measure can also be used in the event of a DDOS-type attack because it allows already connected users to finish their transactions properly.
 ====
 
-//🏷{"id": "44f0732c-3b29-4bd5-873f-046fc010f728", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "44f0732c-3b29-4bd5-873f-046fc010f728", "labels": ["level::advanced", "detail_level::in-depth"]}
 #### Quality of Service
 
 [TIP]
@@ -964,7 +950,7 @@ Example 1: distribution of tokens will be as follows by default:
 Example 2: a throttling of 100 requests per source and per minute will be set up in the reverse proxy.
 ====
 
-//🏷{"id": "5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796", "labels": ["level::intermediate","detail_level::detailed"]}
 ### Timeout management
 
 [TIP]
@@ -992,7 +978,7 @@ Example:
 
 ====
 
-//🏷{"id": "c9a330f1-ffde-44e2-a432-a1e178440333", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "c9a330f1-ffde-44e2-a432-a1e178440333", "labels": ["operations"]}
 ### Operations
 
 [TIP]
@@ -1002,7 +988,7 @@ List here the main operating principles of the solution. The details (saved file
 If this application remains in the organization's standard, simply refer to any common document.
 ====
 
-//🏷{"id": "0a3f0e4e-0458-4528-9513-1f75a4ad8464", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "0a3f0e4e-0458-4528-9513-1f75a4ad8464", "labels": ["level::intermediate", "detail_level::detailed"]}
 #### Stop/start-up sequence
 
 [TIP]
@@ -1036,24 +1022,45 @@ Example of stopping sequence:
 
 ====
 
-//🏷{"id": "314a1ef0-48b4-42a4-a8b6-be49250c5a50", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-#### Scheduled operations
+//🏷{"id": "314a1ef0-48b4-42a4-a8b6-be49250c5a50", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+#### Scheduled Operations
 
 [TIP]
 ====
-List macroscopically (don't try to make it exhaustive, we just need jobs streams principles applying):
+Describe here all scheduled operations and how they are monitored, including:
 
-* The jobs or family of jobs and their possible inter-dependencies. Specify if a scheduler will be used.
-* Internal tasks (cleaning/checking tasks) of the system which only fulfill technical roles (purges, rebuilding indexes, deleting temporary data, etc.)
-====
-====
-Example 1: the `process-demand` job will be launched every 5 mins by JobScheduler.
-====
-====
-Example 2: the internal `ti_index` process is a Java class calling `REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
+* Jobs and any interdependencies (execution order, constraints, frequency).
+* Internal processes (cleanup, maintenance) that serve purely technical purposes (purges, index rebuilds, deletion of temporary data…).
+* The scheduler used to orchestrate jobs and consolidate the production plan (e.g., VTOM, JobScheduler, Dollar Universe, Control-M, etc.).
+* Any application-specific aspects:
+
+  - Degree of job parallelism;
+  - Mandatory time windows;
+  - Retries in case of error;
+  - Execution report production (content and format).
+
+It is also crucial to define monitoring/alerting mechanisms to detect failures of critical jobs.
 ====
 
-//🏷{"id": "0cf18e71-b20e-4b2b-9377-e104c21c9785", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+====
+Example 1: Jobs will be scheduled by the organization’s JobScheduler instance.  
+
+* They must never run on public holidays.  
+* Their execution is restricted to **23:00–06:00**. Any task scheduled outside this window will not be executed.  
+* No more than **five concurrent instances** of job `J1` will be launched.  
+* Each job will produce a **detailed execution report** containing the number of items processed, processing duration, and relevant business indicators.
+====
+
+====
+Example 2: The `send-orders` job will run **continuously**, executed every **5 minutes** via the JobScheduler scheduler.
+====
+
+====
+Example 3: The internal process `ti_index` is a **Java class** issuing `VACUUM FULL` commands via JDBC, executed by a Quartz scheduler **once per month**.
+====
+
+
+//🏷{"id": "0cf18e71-b20e-4b2b-9377-e104c21c9785", "labels": ["level::intermediate", "detail_level::in-depth"]}
 #### Switch to maintenance mode procedure
 
 [TIP]
@@ -1064,7 +1071,7 @@ Explain (if necessary) the measures and procedures allowing to put the applicati
 Example: We will use the F5 BigIp LTM to display an unavailability page.
 ====
 
-//🏷{"id": "fd5b00b0-4b23-4cbc-8117-0dcee74ddd8b", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "fd5b00b0-4b23-4cbc-8117-0dcee74ddd8b", "labels": ["detail_level::detailed"]}
 #### Backups and restores
 
 [TIP]
@@ -1114,7 +1121,7 @@ Finally, it's important to keep in mind that what we _really_ want are restores,
 * Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
 * Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
 
-//🏷{"id": "74ff1a8d-91b4-4437-bbfd-439e3d4b18b5", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "74ff1a8d-91b4-4437-bbfd-439e3d4b18b5", "labels": ["level::intermediate""detail_level::detailed"]}
 #### Logs
 
 [TIP]
@@ -1134,7 +1141,7 @@ Example 1: the application logs of the service-allmydata module will be in produ
 Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
 ====
 
-//🏷{"id": "f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
 #### Monitoring
 
 [TIP]
@@ -1148,6 +1155,7 @@ Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system,
 Indicators are logical combinations of several metrics with thresholds (e.g. 'critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes').
 ====
 
+//🏷{"id": "f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
 ##### Technical monitoring
 
 [TIP]
@@ -1161,6 +1169,7 @@ List the metrics:
 Example: we measure the percentage of wait-io and the server load.
 ====
 
+//🏷{"id": "be41d5fd-e1a8-4a49-bf80-a81c3db693db", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
 ##### Application monitoring
 
 [TIP]
@@ -1177,6 +1186,7 @@ It is also possible to set up BAM (Business Activity Monitoring) tools based on 
 Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
 ====
 
+//🏷{"id": "236fd883-5195-4b81-b5dd-f6c66f9ae3f0", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
 ##### Monitoring tools
 
 [TIP]
@@ -1193,6 +1203,7 @@ Such tools (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
 Example: the management of the monitoring will be based on the Grafana platform.
 ====
 
+//🏷{"id": "aa3c7bab-527c-4411-a1f2-583a1d62118f", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
 ##### Alerting
 
 [TIP]
@@ -1203,6 +1214,7 @@ Specify here the alert conditions and the channel used
 Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a module exceeds 10/h.
 ====
 
+//🏷{"id": "20dff012-aa85-465f-ba2e-272d7580dd0b", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
 ##### Black box monitoring
 
 [TIP]
@@ -1217,6 +1229,7 @@ In general, they don't perform update actions but only read-only ones. If they p
 Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
 ====
 
+//🏷{"id": "f455e87e-47f0-422a-a80b-0ec65517ad53", "labels": ["level::advanced", "detail_level::detailed","monitoring"]}
 ##### Metrology
 
 [TIP]
@@ -1239,50 +1252,7 @@ There are three main groups of solutions:
 Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
 ====
 
-//🏷{"id": "56cf150f-625e-48e0-9600-327b4d5e3508", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-### Jobs scheduling
-
-[TIP]
-====
-Indicate the scheduler or planner used to manage the jobs and consolidate the production plan (example: VTOM, JobScheduler, Dollar Universe, Control-M, ...). Detail any specificities of the application:
-
-* Degree of parallelism of jobs
-* Mandatory time slots
-* Retries in case of error
-* ...
-
-Do the jobs have to produce an execution report? in what form and with what content?
-====
-====
-Example 1: the jobs will be scheduled by the JobScheduler instance of the organization.
-
-* The jobs should never run on public holidays.
-* Their execution will be limited to the periods 11h00pm-06h00am. Their schedule must therefore be in this range or they will not be launched.
-* We will not launch more than five instances of the job J1 in parallel.
-
-Example 2: The jobs will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
-====
-
-
-//🏷{"id": "9ac6e5d2-e9a0-427e-ba12-27dedbd8ac4d", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-### Migrations
-
-[TIP]
-====
-This chapter describes a required migrations from older systems.
-
-Describe on a macroscopic scale the planned procedure as well as the rollback strategy in case of problem.
-
-Describe, if necessary, a dry-run operation in parallel with the old system.
-====
-====
-Example 1: The X API module will be replaced by the Y API. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T module.
-====
-====
-Example 2: In the event of a problem with the new module, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
-====
-
-//🏷{"id": "53b2f98c-11d9-4aa0-b762-b8f31db0c30f", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
+//🏷{"id": "53b2f98c-11d9-4aa0-b762-b8f31db0c30f", "labels": ["level::intermediate"]}
 ### Decommissioning
 
 [TIP]
