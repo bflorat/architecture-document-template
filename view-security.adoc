@@ -417,7 +417,7 @@ Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Sh
 Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
-//🏷{"id": "8e35ee35-b5bc-433b-8389-f07e62a05339", "labels": "detail_level::detailed"]}
+//🏷{"id": "8e35ee35-b5bc-433b-8389-f07e62a05339", "labels": ["detail_level::detailed"]}
 ### Service accounts
 [TIP]
 ====
