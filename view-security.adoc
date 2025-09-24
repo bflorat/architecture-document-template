@@ -372,7 +372,7 @@ Also consider the confidentiality of derived data:
 _Example 1: The user ID of the application will be the uid attribute of the DNs `cn=XXX, ou=service1, dc=company, dc=com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou=my application, dc=company, dc= com`._
 _Example 2: To ensure that the IDs of deleted accounts are not reused, a history table will be added to the application and requested before any new account is created._
 
-//🏷{"id": "ac587042-7060-44cf-96aa-93fddadc15f5", "labels": ], "link_to": ["9d0646cd-3e3f-4878-96de-f215c9f20bdc"]}
+//🏷{"id": "ac587042-7060-44cf-96aa-93fddadc15f5", "labels": [], "link_to": ["9d0646cd-3e3f-4878-96de-f215c9f20bdc"]}
 ### Authentication
 
 [TIP]
