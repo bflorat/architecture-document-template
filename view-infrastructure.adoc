@@ -38,8 +38,8 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 |====
 | N ° | Version | Document title / URL | Detail
 
-| 1 || backup_rules.pdf
-| Backup rules
+| 1 || 
+| 
 
 |====
 
