@@ -117,7 +117,7 @@ TIP: List here the possible constraints related to memory
 Example: a pod or a Kubernetes job should not use more than 6 GiB of RAM
 ====
 
-//🏷{"id": "8d948872-15f9-49b6-9527-f511a2f7597d", "labels": []]}
+//🏷{"id": "8d948872-15f9-49b6-9527-f511a2f7597d", "labels": []}
 ### Network constraints
 
 TIP: List here the possible network volume constraints used
