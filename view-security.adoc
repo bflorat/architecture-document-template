@@ -609,9 +609,6 @@ Examples:
 ====
 
 //🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate","detail_level::detailed"]}
-### Self-checks
-
-//🏷{"id": "68556bb6-b10d-4fe3-b956-ae9c5f926f4a", "labels": []}
 #### Self-check for vulnerabilities
 [TIP]
 ====
