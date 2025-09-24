@@ -108,7 +108,7 @@ It is possible to define only one data class for the entire application.
 | Tax notice in PDF | | | | X
 |====
 
-//🏷{"id": "acfa846e-0ed7-4f41-a593-f4ee29e94efd", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "acfa846e-0ed7-4f41-a593-f4ee29e94efd", "labels": []}
 ### Confidentiality requirements
 [TIP]
 ====
@@ -127,7 +127,7 @@ Be careful not to multiply the data classes. It is possible to define only one d
 | HR data of the "social assistance to employees" | | | | X
 |====
 
-//🏷{"id": "94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b", "labels": []}
 ### Identification requirements
 [TIP]
 ====
@@ -143,7 +143,7 @@ Example 2: the identity of an Internet user will be checked before any API call.
 Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
 ====
 
-//🏷{"id": "9d0646cd-3e3f-4878-96de-f215c9f20bdc", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "9d0646cd-3e3f-4878-96de-f215c9f20bdc", "labels": []}
 ### Authentication requirements
 [TIP]
 ====
@@ -170,7 +170,7 @@ It is possible to require several occurrences of the same factor, use as many cr
 | Mobile application Y ||||X|||
 |====
 
-//🏷{"id": "f552f1e6-9aea-4866-8da1-e7ed676fd228", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "f552f1e6-9aea-4866-8da1-e7ed676fd228", "labels": ["level::advanced", "detail_level::detailed"]}
 ### Identity Federation Requirements
 [TIP]
 ====
@@ -181,7 +181,7 @@ For example, see the “Connect with[Google | Twitter | ...]” OpenId Connect t
 Example: Identification and authentication will be outsourced to the Auth0 identity provider to simplify security management and reduce development and operating costs.
 ====
 
-//🏷{"id": "400376ad-cc62-4ab3-8e96-5a9f9a954e49", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "400376ad-cc62-4ab3-8e96-5a9f9a954e49", "labels": ["level::advanced", "level::advanced"]}
 ### SSO and SLO requirements
 [TIP]
 ====
@@ -201,7 +201,7 @@ Example 2: no need for SSO or SLO is identified
 Example 3: this Web application must provide single authentication shared with that of other intranet applications. Once authenticated on one of the applications, the agent must not have to reconnect (until his session expires). Likewise, a disconnection from one of the applications must ensure the disconnection of all intranet applications.
 ====
 
-//🏷{"id": "01404b83-f96f-4649-ace0-e5611601b830", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "01404b83-f96f-4649-ace0-e5611601b830", "labels": ["level::advanced"]}
 ### Non-repudiation requirements
 [TIP]
 ====
@@ -214,7 +214,7 @@ List here the business actions with a non-repudiation requirement, i.e., a measu
 | Income tax declaration (X, Y and Z data) | Tax administration PKI | Verisign
 |===
 
-//🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": []}
 ### Anonymity and privacy requirements
 [TIP]
 List the constraints of anonymity and legal privacy.
@@ -237,7 +237,7 @@ Example 5: In application of a European directive, a banner must inform the user
 Example 6: Pursuant to the GDPR, explicit consent from users to store their personal health data will be offered.
 ====
 
-//🏷{"id": "fcad5990-c241-4c88-b2c5-646602f8935a", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "fcad5990-c241-4c88-b2c5-646602f8935a", "labels": ["level::intermediate"]}
 ### Authorizations requirements
 [TIP]
 ====
@@ -273,7 +273,7 @@ Example role matrix
 |===
 ====
 
-//🏷{"id": "e72e5ea5-5711-4665-8a91-76c63cbca2bc", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "requirement", "solution"]}
+//🏷{"id": "e72e5ea5-5711-4665-8a91-76c63cbca2bc", "labels": ["level::intermediate"]}
 ### Traceability and auditability requirements
 [TIP]
 ====
@@ -307,12 +307,11 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 | Initial tax notice with digital signature | Keep the amount and tax. | 5 years
 |===
 
-//🏷{"id": "d1f16239-18f7-4a4a-875e-34a587eb88b4", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "d1f16239-18f7-4a4a-875e-34a587eb88b4", "labels": ["solution"]}
 ## Security measures
 
-//🏷{"id": "e60500e8-b4a3-471c-941c-8fd8c02c4da9", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "e60500e8-b4a3-471c-941c-8fd8c02c4da9", "labels": [], "link_to": ["323d4c77-810a-4015-bc1a-11da07e24f3b"]}
 ### Integrity
-Measures meeting the <> :
 
 .Measures to ensure the required level of integrity
 [cols="e,e,e"]
@@ -347,10 +346,9 @@ a|
 |===
 
 
-
-//🏷{"id": "a64b5e5d-e4d4-4ed2-b425-19cd542fa58e", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "a64b5e5d-e4d4-4ed2-b425-19cd542fa58e", "labels": [], "link_to": ["acfa846e-0ed7-4f41-a593-f4ee29e94efd"]}
 ### Confidentiality
-Measures meeting the <>:
+
 .Measures to ensure the requested level of confidentiality
 [cols="e,e,e"]
 |===
@@ -368,15 +366,15 @@ Also consider the confidentiality of derived data:
 * encryption of desktops. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
 ====
 
-//🏷{"id": "3779a946-fc73-455b-8bab-3d5398ce0311", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "3779a946-fc73-455b-8bab-3d5398ce0311", "labels": [], "link_to": ["94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b"]}
 ### Identification
-Measures meeting the <> :
+
 _Example 1: The user ID of the application will be the uid attribute of the DNs `cn=XXX, ou=service1, dc=company, dc=com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou=my application, dc=company, dc= com`._
 _Example 2: To ensure that the IDs of deleted accounts are not reused, a history table will be added to the application and requested before any new account is created._
 
-//🏷{"id": "ac587042-7060-44cf-96aa-93fddadc15f5", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "ac587042-7060-44cf-96aa-93fddadc15f5", "labels": ], "link_to": ["9d0646cd-3e3f-4878-96de-f215c9f20bdc"]}
 ### Authentication
-Measures meeting the <>:
+
 [TIP]
 ====
 For password authentication, describe how it is stored and verified. Also remember to describe the password updating solutions.
@@ -394,9 +392,9 @@ Example 3: when creating a new beneficiary in the online bank app, the user will
 Example 4: Passwords will in no case be kept plaintext but stored in the form of bcrypt digest.
 ====
 
-//🏷{"id": "49de0015-9e27-4f60-91ca-282feec8345d", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "49de0015-9e27-4f60-91ca-282feec8345d", "labels": ["level::advanced","detail_level::detailed"], "link_to": ["f552f1e6-9aea-4866-8da1-e7ed676fd228"]}
 ### Identity federation
-Measures meeting the <>:
+
 [TIP]
 ====
 The most common solutions are currently: OpenId Connect (OIDC), SAML or OAuth 2.0 (pseudo-authentication only for the latter). For Web applications, specify the browser constraints (activation of cookies in particular).
@@ -405,9 +403,9 @@ The most common solutions are currently: OpenId Connect (OIDC), SAML or OAuth 2.
 Example: The end-user website leverages Google https://developers.google.com/identity/protocols/oauth2/openid-connect[OIDC API] to handle authentication.
 ====
 
-//🏷{"id": "1c4774ab-e6fc-46a4-bb89-97e318a8dd8f", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "1c4774ab-e6fc-46a4-bb89-97e318a8dd8f", "labels": ["level::advanced", "level::advanced"],"link_to:":["400376ad-cc62-4ab3-8e96-5a9f9a954e49"]}
 ### SSO, SLO
-Measures meeting the <>:
+
 [TIP]
 ====
 Detail the chosen technology and its integration. Some common solutions: Keycloak, Shibboleth, CAS, OpenAM. For Web applications, specify the browser constraints (activation of cookies in particular).
@@ -419,7 +417,7 @@ Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Sh
 Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
 ====
 
-//🏷{"id": "8e35ee35-b5bc-433b-8389-f07e62a05339", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "8e35ee35-b5bc-433b-8389-f07e62a05339", "labels": "detail_level::detailed"]}
 ### Service accounts
 [TIP]
 ====
@@ -432,9 +430,9 @@ Service accounts should only be used for authentication to an infrastructure com
 | JDBC accounts (one account per database) | PG and SqlServer instances. | Clear storage in the configuration of data sources. Valued from a vault.
 |====
 
-//🏷{"id": "9f09dacf-d151-45af-a5f6-209823e7a401", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "9f09dacf-d151-45af-a5f6-209823e7a401", "labels": ["level::advanced"],"link_to":["01404b83-f96f-4649-ace0-e5611601b830"]}
 ### Non-repudiation and timestamping
-Measures meeting the <>:
+
 ====
 Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X module.
 ====
@@ -446,9 +444,9 @@ Cryptographic timestamping solutions do not meet a specific need but are often r
 Example: Electronic signatures will be accompanied by a qualified eIDAS timestamp token issued by the trust service provider XYZ.
 ====
 
-//🏷{"id": "72efb92f-13f8-48e5-aed1-b57c4eab56fc", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "72efb92f-13f8-48e5-aed1-b57c4eab56fc", "labels": [],"link_to":["958fcccc-60cb-4158-940f-279cd1d12c9b"]}
 ### Anonymity and privacy
-Measures meeting the <>:
+
 ====
 Example 1: an internal audit will be carried out once a year on the content of the database data and the extractions intended for partners.
 ====
@@ -459,9 +457,9 @@ Example 2: data destined for the public zone will be partially exported via a `C
 Example 3: the cookie acceptance banner will be implemented on all pages of the Angular application via the `angular-cookie-law` module.
 ====
 
-//🏷{"id": "e6d0ad26-40b7-412e-b861-1f8e6e2299ca", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "e6d0ad26-40b7-412e-b861-1f8e6e2299ca", "labels": ["level::intermediate"],"link_to":["fcad5990-c241-4c88-b2c5-646602f8935a"]}
 ### Authorizations
-Measures meeting the <>:
+
 ====
 Example 1: Authorization management will be managed by application and stored in the PostgreSQL application database. These tables will be described in the specification file.
 ====
@@ -469,9 +467,9 @@ Example 1: Authorization management will be managed by application and stored in
 Example 2: Obtaining the Facebook address book will be in OAuth2. We will use the Google OAuth2 Java API.
 ====
 
-//🏷{"id": "3819b8cc-d9c4-4d29-9ca1-adae300a79e2", "labels": ["level::basic", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "3819b8cc-d9c4-4d29-9ca1-adae300a79e2", "labels": ["level::intermediate"],"link_to":["e72e5ea5-5711-4665-8a91-76c63cbca2bc"]}
 ### Traceability, auditability
-Measures meeting the <>:
+
 ====
 Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana.
 ====
@@ -488,11 +486,11 @@ Example 4: all the documents used as proof will be archived.
 Example 5: The logs containing the `[PROOF]` tag from any module will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
 ====
 
-//🏷{"id": "5e00eeef-1d5b-4a21-ac19-116ae376d999", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "5e00eeef-1d5b-4a21-ac19-116ae376d999", "labels": ["level::intermediate"]}
 ### Combatting Cyber Threats
 These technical or organizational measures help combat cyber threats such as malware, phishing, DOS/DDOS attacks, exploitation of vulnerabilities (known or zero-day), social engineering, online scams, sensitive data breaches, etc. Most solutions are implemented at the Information System (IS) level. Therefore, it is probably a matter of pointing to reference documents and detailing any solutions specific to your project or product.
 
-//🏷{"id": "d13f2885-ab5c-4543-9432-f53002c01c2c", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "d13f2885-ab5c-4543-9432-f53002c01c2c", "labels": []}
 #### Prevention Solutions
 Include:
 * User training and awareness programs.
@@ -514,7 +512,7 @@ Example 2: Risk awareness among IT professionals through https://www.nsa.gov/Pre
 Example 3: Implementation of the OpenSource IPS CrowdSec based on community information sharing (Crowdsourcing).
 ====
 
-//🏷{"id": "ac7dde83-27c9-4916-9020-73efaab5fcb1", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "ac7dde83-27c9-4916-9020-73efaab5fcb1", "labels": []}
 #### Detection Solutions
 Include:
 * Antivirus software (the latest generations include AI and go beyond signature searching).
@@ -527,7 +525,7 @@ Include:
 Example 1: Implementation of the SCA tool OWASP Dependency-Check in CI/CD pipelines to detect Open Source libraries containing vulnerabilities (CVEs). Any presence of CVEs must be blocking.
 ====
 
-//🏷{"id": "d4498522-32aa-4987-aaec-2d9cf01130da", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "d4498522-32aa-4987-aaec-2d9cf01130da", "labels": []}
 #### Corrective Solutions
 Include:
 * Anti-malware solutions that remove malicious software.
@@ -540,7 +538,7 @@ Include:
 Example 1: Preparation of procedures and a [contingency plan](https://www.cisa.gov/uscert/ncas/alerts/ta15-119a) in case of a security incident following the NIST SP 800-61 standard.
 ====
 
-//🏷{"id": "a69b42f5-4f4e-42bf-b4bc-c6093941600f", "labels": ["level::advanced", "project_size::medium", "detail_level::in-depth", "solution"]}
+//🏷{"id": "a69b42f5-4f4e-42bf-b4bc-c6093941600f", "labels": ["level::advanced"]}
 #### Predictive Solutions
 These recent solutions are primarily based on Machine Learning and the analysis of large-scale data (Big Data). They include:
 * User and Entity Behavior Analytics (UEBA) solutions that detect abnormal behavior of certain users.
@@ -553,8 +551,12 @@ Example 1: Analysis and alerting of suspicious behaviors with AWS GuardDuty on a
 Example 2: Using CrowdSec Threat Intelligence to discover threat trends based on real and consolidated data.
 ====
 
-//🏷{"id": "b2f76b28-83da-478b-bc94-f1bc29dc6084", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed", "context"]}
-## RACI
+
+//🏷{"id": "d4d0f075-dff9-4d81-aebc-bbd0cc45bb55", "labels": ["annexe"]}
+## Annexes
+
+//🏷{"id": "b2f76b28-83da-478b-bc94-f1bc29dc6084", "labels": ["level::intermediate", "detail_level::detailed"]}
+### RACI
 [NOTE]
 ====
 This RACI makes it possible to clearly define the roles of each concerning the acts related to security.
@@ -606,11 +608,11 @@ Examples:
 
 ====
 
-//🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
-## Self-checks
+//🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate","detail_level::detailed"]}
+### Self-checks
 
-//🏷{"id": "68556bb6-b10d-4fe3-b956-ae9c5f926f4a", "labels": ["level::intermediate", "project_size::medium", "detail_level::detailed"]}
-### Self-check for vulnerabilities
+//🏷{"id": "68556bb6-b10d-4fe3-b956-ae9c5f926f4a", "labels": []}
+#### Self-check for vulnerabilities
 [TIP]
 ====
 Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. Of course, there are many other control points depending on the context of the application.
