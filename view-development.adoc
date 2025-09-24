@@ -70,7 +70,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
 |====
 
-//🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["detail_level::overview", "constraints"]}
+//🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 [TIP]

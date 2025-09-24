@@ -143,7 +143,7 @@ List of external actors
 | Worldwide
 |===
 
-//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraints"]}
+//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 TIP: Limits and imposed choices on how you may design/implement the solution. They restrict the design space (technology, process, organization, time, budget, regulation).

@@ -60,7 +60,7 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 | The SAML solution currently in place in the organization does not meet the authentication requirements. An OpenID Connect solution will be implemented.
 |====
 
-//🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["detail_level::overview", "constraints"]}
+//🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 [TIP]
 ====

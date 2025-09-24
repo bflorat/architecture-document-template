@@ -75,7 +75,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | We assume that by the time the project will be released, PostgreSQL 12 will be validated internally.
 |====
 
-//🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["detail_level::overview", "constraints"]}
+//🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 [TIP]
