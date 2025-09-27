@@ -807,42 +807,113 @@ Do not take lightly a FT requirement because in general these solutions:
 * *Can even degrade the global availability* because all nodes are strongly coupled and synchronized. A software update for example can force the shutdown of the entire cluster.
 ====
 
-.Some availability solutions
+[TIP]
+====
+
+*High Availability (HA)*:
+
+A system is generally considered highly available (HA) starting at 99.9% availability (~8h45 of downtime/year).
+An HA system typically relies on:
+
+* *Redundancy mechanisms* (e.g., clustering, load balancing, replication).
+* *Failover* devices to automatically switch in case of failure.
+
+Fault Tolerance (FT) always includes High Availability (HA), but HA does not necessarily guarantee FT.
+
+====
+.Some Availability Solutions
+.Some Availability Solutions
 |====
-| Solution | Cost | Implementation complexity (indicative) | Availability level gain (indicative)
-
-| Disks in RAID 1 | XXX | X | XXX
-| Disks in RAID 5 | X | X | XX
-| Redundancy of power supplies and other infrastructure components | XX | X | XX
-| Ethernet card bonding | XX | X | X
-| Active / passive cluster | XX | XX | XX
-| Active / active cluster with LB | XXX | XXX | XXX
-| Servers / spare hardware | XX | X | XX
-| Good system monitoring | X | X | XX
-| Good application monitoring | XX | XX | XX
-| Remote uptime checks | X | X | XX
-| On call staff dedicated to the application, 24/7/365 | XXX | XX | XXX
-| Copy of the backup of the last working-day database dump on SAN bay (for express restoration) | XX | X | XX
+| Solution | Cost | Implementation Complexity | Availability Improvement
+| RAID 1 disks
+| XX
+| X
+| XXX
+| RAID 10 disks
+| X
+| X
+| XX
+| Redundant power supplies and other infrastructure components
+| XX
+| X
+| XX
+| Ethernet card bonding
+| XX
+| X
+| X
+| Active/passive cluster
+| XX
+| XX
+| XX
+| Active/active cluster (often with LB)
+| XXX
+| XXX
+| XXX
+| Spare servers/hardware
+| XX
+| X
+| XX
+| Good system monitoring
+| X
+| X
+| XX
+| Good application monitoring
+| XX
+| XX
+| XX
+| Liveness tests from a remote site
+| X
+| X
+| XX
+| Dedicated 24/7/365 on-call support for the application
+| XXX
+| XX
+| XXX
+| Asynchronous database replication (e.g., PostgreSQL Streaming)
+| XX
+| XX
+| XX
+| Synchronous database replication (e.g., Galera, Oracle Data Guard)
+| XXX
+| XXX
+| XXX
+| Data replication on SAN array for quick recovery
+| XX
+| X
+| XX
+| Auto-scaling and dynamic orchestration (Kubernetes, Serverless)
+| XXX
+| XXX
+| XXX
+| HA distributed storage (Ceph, GlusterFS, MinIO)
+| XXX
+| XXX
+| XXX
+| CDN with distributed caching (Cloudflare, Akamai)
+| XX
+| XX
+| XX
 |====
 
 ====
-Example 1: To achieve the required 98% availability, the envisaged availability measures are as follows:
+Example 1: To achieve the required 98% availability, the following availability measures are considered:
 
-* All servers in RAID 5 + redundant power supplies.
-* HAProxy + keepalived active/passive LB shared with other applications.
-* Active / active cluster of two Apache + mod_php servers.
-* Spare server that can be used to rebuild the MariaDB database from the backup of the day before in less than 2 hours.
+* Single server with RAID 1
+* Daily backups
+* Basic monitoring (e.g., Nagios)
+* 4h SLA for hardware replacement
 ====
-====
-Example 2: To achieve the required availability of 99.97%, the availability mechanisms considered are as follows:
-
-* Application hosted in a Tier 3 DC.
-* All servers in RAID 1 + redundant power supplies + bonding interfaces.
-* HAProxy + keepalived active/passive LB dedicated to the application.
-* Active/active cluster of four servers (i.e., 2N redundancy) Apache + mod_php.
-* Oracle instance in RAC on two machines (with dedicated FC interconnection).
 
 ====
+Example 2: To achieve the required 99.97% availability, the following availability measures are considered (note: the application will be hosted in a Tier 3 data center):
+
+* 2-server active/passive cluster (Apache + mod_php)
+* PostgreSQL with synchronous replication (e.g., Patroni)
+* Dedicated HAProxy + keepalived
+* Tier 3 DC with multi-homed network
+* Quarterly failover tests
+====
+
 
 //🏷{"id": "c23ff676-32e3-4957-8cec-6a7619a33567", "labels": ["detail_level::detailed"]}
 ### Deployment in production
