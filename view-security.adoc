@@ -447,6 +447,19 @@ An authorization (or permission) controls **access to a specific application fun
 
 ⚠ It is recommended **not to create excessive numbers** of functions and roles in order to avoid combinatorial explosion and high management overhead.
 
+Two main access control models are commonly used:
+
+- **RBAC (Role-Based Access Control):**  
+  Users are grouped into roles (e.g., `Administrator`, `Manager`, `User`) that determine their permissions. This is simple and widely used.
+
+- **ABAC (Attribute-Based Access Control):**  
+  Access decisions are based on user attributes, resource attributes, and context (e.g., *“allow access if role=Manager AND location=US AND time < 6PM”*).  
+
+- **PBAC (Policy-Based Access Control):**  
+  A broader term that often builds on ABAC, allowing complex authorization policies defined in policy engines (e.g., **OPA – Open Policy Agent**).  
+
+In mid-2020s, many organizations use a **hybrid model**, where **RBAC handles baseline roles** and **ABAC/PBAC adds fine-grained, contextual rules**.  
+
 **Best practices for simplifying authorization management:**
 
 - **Group** users into **groups** (e.g., `G_department_head`).  
@@ -553,236 +566,422 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 | Data class | Required level | Measures
 
 | Business database data
-| No alteration
+| Integral
 a|
-* Use of PostgreSQL RDBMS with a SERIALIZABLE transactional isolation level
-* Entities will be referenced only by technical IDs from PostgreSQL sequences
+* Use of **PostgreSQL RDBMS** with **SERIALIZABLE** transaction isolation level.  
+* Entities referenced only by **technical IDs** generated from PostgreSQL sequences.  
+* **WAL journaling** enabled to ensure crash recovery.  
+* Periodic integrity check using `pg_checksums`.  
 
 | Archived data
-| Detected
-| Generation of SHA-256 checksums of backups
+| Detectable
+| Generation of **SHA-256 checksums** for backups and validation during restorations.  
 
-| Calculated data D1
+| Computed data D1
 | Controlled
-| Storage of a SHA1 checksum, calculation automatical control within 24 hours.
+| Store a **SHA-1 checksum** and automatically re-run the batch computation within **24h** if a discrepancy is detected.  
 
-| Big Data data lake before consolidation
-| Alterable
-| No special measure, no backup
+| NoSQL Big Data silo (pre-consolidation)
+| Non-integral
+| No specific measures, **no backups**; this data is temporary and recalculable.  
 
-| Sources
-| No alteration
-| Using the Git SCM
+| Application source code
+| Integral
+a|
+* Use of **Git SCM** with native integrity control (SHA-1/SHA-256 hashes).  
+* Commit verification using **GPG signing**.  
+* Strict merge strategy (**fast-forward only**).  
 
 | Tax notice PDF
-| No alteration
-| Digital signature of the net amount + date + name in PKCS#7 (RSA, SHA256) format with timestamp. The resulting signature will be integrated a posteriori in hexadecimal format at the footer of the PDF.
+| Integral
+a|
+* **Digital signature** of net amount, date, and name via **PKCS#7 (RSA, SHA-256)**.  
+* **Qualified timestamp** embedded in the signature (PAdES).  
+* Inclusion of the hexadecimal signature in the **PDF footer** for later verification.  
 |===
 
 
 //🏷{"id": "a64b5e5d-e4d4-4ed2-b425-19cd542fa58e", "labels": [], "link_to": ["acfa846e-0ed7-4f41-a593-f4ee29e94efd"]}
 ### Confidentiality
 
-.Measures to ensure the requested level of confidentiality
+.Measures to ensure the required level of confidentiality
 [cols="e,e,e"]
 |===
-| Data class | Required level | Measures
-| Editorial content | Public | Network flows in HTTPS, no authentication
-| Website Account Profile | Limited | Access to this content requires successful authentication by login/password
-| Account history | Reserved | Access to this content is reserved for authorized operators, only via PL/SQL queries from the database
-| Logs of user activities | Reserved | Access to the log files is reserved for authorized operators (SSH access to machine M and Unix password)
-| HR data social assistance to employees | Private | This data is encrypted in AES 256 in the form of a BLOB in the database, sent to the Web client via the REST Y service then decrypted in the browser in the Angular application (forge.js library) via an additional password of the user (not stored on the server side). + This is client-side only encryption. Loss of password makes data unrecoverable. Data changed on the client is encrypted and saved back to the BLOB through the REST X service.
+| _Data class_ | _Required level_ | _Measures_
+
+| Editorial content
+| Public
+| Secured exchanges via **HTTPS** (TLS 1.2+), **no authentication required**.
+
+| Website account profile
+| Limited
+a|
+* Access requires **successful authentication** with username/password.  
+* **Secure password hashing** using **Argon2id**.  
+* Use of **JWT** for session management with controlled expiration.  
+
+| Account history
+| Restricted
+a|
+* Access is **restricted to authorized operators**.  
+* Consultation only via **secured PL/SQL queries** executed with a limited database role.  
+* **Data masking** enabled for sensitive fields.  
+
+| User activity logs
+| Restricted
+a|
+* **Access restricted** to authorized operators via **SSH** with strong authentication (SSH key + MFA).  
+* Automatic log rotation with **logrotate**.  
+* Protection against **log injection / log forging**.  
+
+| HR data – employee social benefits
+| Private
+a|
+* **AES-256 encryption** in the database stored as a **BLOB**.  
+* **Client-side decryption only** via `forge.js` (JavaScript).  
+* Additional password **never stored server-side**; loss of the password makes the data unrecoverable.  
+* Data modified on the client is **encrypted before transmission** and stored in the BLOB through REST service X.  
 |===
+
 [TIP]
 ====
-Also consider the confidentiality of derived data:
-* encryption of backups;
-* encryption of desktops. This can be hardware encryption in SED (Self Encryption Disk), software encryption at partition level (SafeGuard, dm-crypt) or file level (GnuPG, OpenSSL, TrueCrypt, etc.)
+⚠ **Confidentiality of derived data**:  
+
+✔ **Encrypted backups**:  
+- Use of **Restic, Borg, Kopia** with **AES-GCM encryption** and secure storage.  
+- **Enable S3 Object Lock (Compliance mode)** to prevent accidental or malicious deletion.  
+
+✔ **Client data encryption for thick clients**:  
+- **Hardware encryption** with **SED (Self-Encrypting Drive)**.  
+- **Partition-level software encryption** with **LUKS (dm-crypt)** or **BitLocker**.  
+- **File-level encryption** with **encfs**, **Cryptomator**, or **dm-crypt**.  
 ====
+
 
 //🏷{"id": "3779a946-fc73-455b-8bab-3d5398ce0311", "labels": [], "link_to": ["94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b"]}
 ### Identification
 
-_Example 1: The user ID of the application will be the uid attribute of the DNs `cn=XXX, ou=service1, dc=company, dc=com` in the central LDAP directory. A filter will also be applied on the membership of the group `ou=my application, dc=company, dc= com`._
-_Example 2: To ensure that the IDs of deleted accounts are not reused, a history table will be added to the application and requested before any new account is created._
+[TIP]
+====
+Describe here the method of identification for users and systems (batch jobs, APIs, external services).  
+Specify the identification attributes and the mechanisms that guarantee the **uniqueness** and **persistence** of identifiers.  
+====
+
+====
+Example 1: User identifiers will be the `uid` attribute of the DNs `cn=XXX,ou=service1,dc=company,dc=com` in the central LDAP directory.  
+A filter will also be applied to restrict access to members of the group `ou=myapplication,dc=company,dc=com`.  
+====
+
+====
+Example 2: To prevent the reuse of identifiers from deleted accounts, a history table `uid_history` will be added to the database and systematically checked before any new account creation.  
+====
+
+====
+Example 3: Service accounts will be identified via a unique API key stored in a **secure Vault** and rotated automatically every 6 months.  
+====
 
 //🏷{"id": "ac587042-7060-44cf-96aa-93fddadc15f5", "labels": [], "link_to": ["9d0646cd-3e3f-4878-96de-f215c9f20bdc"]}
 ### Authentication
 
 [TIP]
 ====
-For password authentication, describe how it is stored and verified. Also remember to describe the password updating solutions.
+Describe here the authentication mechanisms in place, including:  
+- The method of password storage and verification.  
+- Any additional authentication factors.  
+- The lifecycle management of credentials (creation, update, deactivation).  
 ====
+
+**Password-based authentication:**
+
 ====
-Example 1: The authentication of registered Internet users will be done by login/password (respecting the company password policy)
+Example 1: Registered users will authenticate via **username/password**, in compliance with password policy `P`.  
+Passwords will be hashed and stored as **bcrypt digests with a cost factor of 12**.  
 ====
+
 ====
-Example 2: The authentication of Internet users upon registration will be done by entering the Internet user code appearing on the invoices + the value of the last invoice and then by activating the account via a link appearing in a verification email.
+Example 2: Internal administrators will use **Kerberos-based SSO** with delegation through an OAuth2/OpenID Connect Identity Provider.  
 ====
+
 ====
-Example 3: when creating a new beneficiary in the online bank app, the user will have to provide a unique password from their OTP token in addition to being authenticated.
+Example 3: To enable account recovery, users will be able to reset their password via a **temporary email link** (valid for 10 minutes).  
 ====
+
+**Strong authentication (2FA/MFA):**
+
 ====
-Example 4: Passwords will in no case be kept plaintext but stored in the form of bcrypt digest.
+Example 4: When adding a new wire transfer beneficiary in the online banking portal, the user must provide:  
+
+  - Their regular password.  
+  - An **OTP** generated by a TOTP application (Google Authenticator, FreeOTP, etc.).  
+====
+
+====
+Example 5: Access to critical REST APIs will require **API key + signed JWT authentication**.  
+API keys will be stored in a **Vault** and rotated automatically.  
+====
+
+**Securing sensitive authentications:**
+
+====
+Example 6: All failed authentication attempts will be **logged and monitored**.  
+After **5 consecutive failures**, the account will be **temporarily locked for 30 minutes**.  
+====
+
+====
+Example 7: Suspicious logins (new IP address, unusual location) will require **additional verification via OTP sent by email**.  
 ====
 
 //🏷{"id": "49de0015-9e27-4f60-91ca-282feec8345d", "labels": ["level::advanced","detail_level::detailed"], "link_to": ["f552f1e6-9aea-4866-8da1-e7ed676fd228"]}
-### Identity federation
+### Identity Federation
 
 [TIP]
 ====
-The most common solutions are currently: OpenId Connect (OIDC), SAML or OAuth 2.0 (pseudo-authentication only for the latter). For Web applications, specify the browser constraints (activation of cookies in particular).
+The most common solutions currently are:
+
+- **OpenID Connect (OIDC)**: a modern protocol built on OAuth 2.0, well-suited for web and mobile applications.  
+- **SAML**: mainly used for enterprise SSO (e.g., ADFS, Shibboleth, Okta).  
+- **OAuth 2.0**: only for **authorization**, not authentication (pseudo-authentication possible via an additional IdP).  
+
+For web applications, specify **browser-related constraints** (cookie handling, SameSite policy, etc.).  
 ====
+
 ====
-Example: The end-user website leverages Google https://developers.google.com/identity/protocols/oauth2/openid-connect[OIDC API] to handle authentication.
+Example: The public-facing user interface will support identification and authentication via **Login.gov** (US federal identity service, based on OpenID Connect).  
+Users will be able to log in using their existing accounts from trusted government agencies (e.g., IRS, Social Security).  
 ====
+
 
 //🏷{"id": "1c4774ab-e6fc-46a4-bb89-97e318a8dd8f", "labels": ["level::advanced", "level::advanced"],"link_to:":["400376ad-cc62-4ab3-8e96-5a9f9a954e49"]}
-### SSO, SLO
+### SSO and SLO
 
 [TIP]
 ====
-Detail the chosen technology and its integration. Some common solutions: Keycloak, Shibboleth, CAS, OpenAM. For Web applications, specify the browser constraints (activation of cookies in particular).
+Describe here the chosen technology and its integration within the architecture.  
+Some common solutions:  
+
+- **CAS** (Central Authentication Service)  
+- **Keycloak**  
+- **ForgeRock OpenAM**  
+- **LemonLDAP::NG** (open source)  
+- **Okta, Azure AD, Ping Identity** (widely used in enterprises)  
+
+Be sure to specify web-specific constraints, including **cookie management**, **session tokens**, and the implications of **SameSite / CORS** policies.  
 ====
+
 ====
-Example 1: The GUI X will integrate a CAS spring-security client for SSO. The Shibboleth server used will be YYY. Its authentication realm will be the AD Y directory.
+Example 1: The X user interface will integrate a **CAS Spring Security client** for SSO.  
+The CAS server used will be **YYY**, with the **authentication realm** connected to **Active Directory (AD) Y**.  
 ====
+
 ====
-Example 2: Like every business portal application, GUI X will have to manage disconnection callbacks from the Shibboleth server following an SLO request.
+Example 2: Like all applications in the **business portal**, the X user interface must implement **Single Logout (SLO)** by **handling logout callbacks** from the CAS server.  
 ====
+
+====
+Example 3: SSO will be implemented via **Keycloak** as the identity provider, with delegation to Active Directory via **LDAP**.  
+====
+
 
 //🏷{"id": "8e35ee35-b5bc-433b-8389-f07e62a05339", "labels": ["detail_level::detailed"]}
-### Service accounts
+### Service Accounts
+
 [TIP]
 ====
-Service accounts should only be used for authentication to an infrastructure component (like a database) from a batch or an API.
+**Service accounts** are used to authenticate an application or a batch job when accessing an infrastructure service (database, API, etc.).
+
+**Best practices:**
+
+- **Secure storage** of credentials (avoid storing secrets in plain text within configuration files).  
+- **Automatic rotation** of secrets where possible (e.g., HashiCorp Vault, AWS Secrets Manager, Azure Key Vault).  
+- **Minimal permissions** following the **Principle of Least Privilege**.  
 ====
+
 .Service accounts
-[cols = '1e,2e,2e']
+[cols='1,2,2']
 |====
-| Account | Resource requiring authentication | How credentials are stored?
-| JDBC accounts (one account per database) | PG and SqlServer instances. | Clear storage in the configuration of data sources. Valued from a vault.
+|Account | Resource requiring authentication | Credential storage method
+
+|`jdbc_app` | PostgreSQL and SQL Server databases | **Stored as a Kubernetes Secret** (mounted as a volume only on the relevant pods)  
+|`api_backend` | REST API X | **Authentication via signed JWT stored in a secure secrets vault**  
+|`ci_cd_runner` | CI/CD server | **Stored in HashiCorp Vault with automatic secret rotation**  
 |====
+
 
 //🏷{"id": "9f09dacf-d151-45af-a5f6-209823e7a401", "labels": ["level::advanced"],"link_to":["01404b83-f96f-4649-ace0-e5611601b830"]}
-### Non-repudiation and timestamping
+### Non-repudiation and Timestamping
 
 ====
-Example: The tax return will be signed by the user's client certificate (X509, RSA, SHA-256 certificate) which was provided to him by the X module.
+Example: The tax declaration will be signed using the user’s client certificate (*X.509*, *RSA*, *SHA-256*) issued by organization X.  
 ====
+
 [TIP]
 ====
-Cryptographic timestamping solutions do not meet a specific need but are often required to meet non-repudiation requirements (especially via timestamp tokens used in conjunction with an electronic signature to prevent backdating or postdating).
+**Cryptographic timestamping** is not a standalone requirement but is most often used **together with a digital signature** to ensure non-repudiation.  
+Timestamping prevents any **alteration of dates** (*backdating or postdating*).  
+
+It relies on **qualified timestamp tokens** (*RFC 3161, eIDAS in EU*) issued by a **trusted timestamping authority (TSA)**.  
+In the US, this role may be provided by **trusted CAs** or services compliant with **NIST digital signature and timestamping standards**.  
 ====
+
 ====
-Example: Electronic signatures will be accompanied by a qualified eIDAS timestamp token issued by the trust service provider XYZ.
+Example: Digital signatures will be **timestamped** with a **qualified timestamp token**, issued by a **trusted timestamping authority (TSA) such as provider XYZ**.  
 ====
+
 
 //🏷{"id": "72efb92f-13f8-48e5-aed1-b57c4eab56fc", "labels": [],"link_to":["958fcccc-60cb-4158-940f-279cd1d12c9b"]}
-### Anonymity and privacy
+### Anonymity and Privacy
+====
+Example 1: An **annual internal audit** will be conducted on:
+
+- The **content of the databases**.  
+- The **data extracts** shared with external partners.  
+====
 
 ====
-Example 1: an internal audit will be carried out once a year on the content of the database data and the extractions intended for partners.
+Example 2: Publicly exposed data will be **partially exported** using:  
+`COPY (SELECT <allowed_columns> FROM table) TO <file>`  
+**Sensitive columns will be excluded** from replication to the public zone.  
 ====
+
 ====
-Example 2: data destined for the public zone will be partially exported via a `COPY (SELECT…) TO `. Sensitive columns will thus be excluded from replication.
+Example 3: A **cookie consent banner** will be implemented on all **Angular** application pages using the `angular-cookie-law` module.  
 ====
-====
-Example 3: the cookie acceptance banner will be implemented on all pages of the Angular application via the `angular-cookie-law` module.
-====
+
 
 //🏷{"id": "e6d0ad26-40b7-412e-b861-1f8e6e2299ca", "labels": ["level::intermediate"],"link_to":["fcad5990-c241-4c88-b2c5-646602f8935a"]}
-### Authorizations
+### Authorization (Access Rights)
 
 ====
-Example 1: Authorization management will be managed by application and stored in the PostgreSQL application database. These tables will be described in the specification file.
+Example 1: **Authorization management** will be implemented **at the application level** and stored in the **PostgreSQL database**.  
+The tables dedicated to access rights will be detailed in the **specification dossier**.  
 ====
+
 ====
-Example 2: Obtaining the Facebook address book will be in OAuth2. We will use the Google OAuth2 Java API.
+Example 2: Access to **address books** will be controlled via **OAuth2**.  
+The API used will be **Google OAuth2 in Java**.  
 ====
+
 
 //🏷{"id": "3819b8cc-d9c4-4d29-9ca1-adae300a79e2", "labels": ["level::intermediate"],"link_to":["e72e5ea5-5711-4665-8a91-76c63cbca2bc"]}
-### Traceability, auditability
+### Traceability and Auditability
 
 ====
-Example 1: At the end of each business action, the ReactJS application will invoke a business trace REST service asynchronously. This service will store the traces in an Elastic Search database for consultation in Kibana.
+Example 1: At the end of each **business action**, the **ReactJS** application will perform an **asynchronous call** to a dedicated REST service for **action traceability**.  
+This service will store the **business traces** in an **Elasticsearch database** for consultation via **Kibana**.  
 ====
+
 ====
-Example 2: the hybrid IDS tool (network + host) OSSEC will be installed on all the machines used by the application.
+Example 2: A hybrid **Intrusion Detection System (IDS)** (*network + host*), based on **Wazuh**, will be **deployed on all machines** used by the application.  
 ====
+
 ====
-Example 3: The tables X, Y, .. will store data in a historical way according to the following principle:… 
+Example 3: The **tables X, Y, …** will be **versioned (historized)** according to the following model: +  
+<class diagram describing data version retention>  
 ====
+
 ====
-Example 4: all the documents used as proof will be archived.
+Example 4: All documents **serving as evidence** will be archived in the **Document Management System (DMS)** with metadata to allow indexing and fast retrieval.  
 ====
+
 ====
-Example 5: The logs containing the `[PROOF]` tag from any module will be centralized via the Elastic Search log centralization system and then inserted with Logstash processing on a daily basis to the Elastic `proof` index.
+Example 5: Logs **containing the tag `[EVIDENCE]`** and originating from **all modules** will be:
+
+- **Centralized** via the **Elasticsearch** log system.  
+- **Transformed and enriched** with **Logstash**.  
+- **Indexed daily** in the **Elastic `evidence` index** to facilitate searches and ensure compliance.  
 ====
+
 
 //🏷{"id": "5e00eeef-1d5b-4a21-ac19-116ae376d999", "labels": ["level::intermediate"]}
-### Combatting Cyber Threats
-These technical or organizational measures help combat cyber threats such as malware, phishing, DOS/DDOS attacks, exploitation of vulnerabilities (known or zero-day), social engineering, online scams, sensitive data breaches, etc. Most solutions are implemented at the Information System (IS) level. Therefore, it is probably a matter of pointing to reference documents and detailing any solutions specific to your project or product.
+### Cyberthreat Mitigation
+
+Cyberthreats include: malware, phishing, DoS/DDoS attacks, exploitation of vulnerabilities (known or zero-day), social engineering, online fraud, data leaks, ransomware, etc.
+
+The response framework can be aligned with the **NIST Cybersecurity Framework (CSF 2.0)**, which defines six core functions:
+
+1. **Govern**: Establish governance, roles, and responsibilities for cybersecurity.  
+2. **Identify**: Understand and prioritize risks.  
+3. **Protect**: Implement defense mechanisms.  
+4. **Detect**: Identify ongoing attacks.  
+5. **Respond**: Contain and neutralize threats.  
+6. **Recover**: Restore services after an attack.  
 
 //🏷{"id": "d13f2885-ab5c-4543-9432-f53002c01c2c", "labels": []}
 #### Prevention Solutions
-Include:
-* User training and awareness programs.
-* Training and awareness programs for IT personnel.
-* Implementation of an Intrusion Prevention System (IPS) that blocks malicious actors.
-* Implementation and adherence to procedures, such as regular reviews of authorizations.
-* Tightening of security rules such as enforcing mandatory multi-factor authentication, mandatory password renewal, or the use of digital safes (personal or shared) to store secrets.
-* Regular audits (penetration tests and/or code audits) if possible by external experts.
-* Data Loss Prevention (DLP) tools that analyze network flows or emails for leaks of sensitive data or intellectual property.
-* Blocking certain attack vectors like USB drives.
-* Automatic update systems for security patches on operating systems.
+
+These solutions help **anticipate threats** before they occur:
+
+* **User and IT staff training and awareness**.  
+* Make sure developers are familiar with and apply mitigations from the **https://owasp.org/www-project-top-ten/[OWASP Top 10]** application security best practices (e.g., protecting against injection, broken authentication, insecure design, and other critical risks).  
+
+* **Intrusion Prevention Systems (IPS)** to block malicious actors.  
+* **Regular access reviews** to minimize exposure.  
+* **Security hardening**:  
+  - Multi-factor authentication (MFA).  
+  - Mandatory password rotation.  
+  - Use of **secure vaults** for secret storage.  
+* **Regular audits** (penetration tests, code audits) by internal or external experts.  
+* **DLP (Data Loss Prevention) solutions** to monitor and prevent sensitive data leaks.  
+* **Blocking attack vectors** (e.g., disabling USB ports).  
+* **Automated security patching**.  
+
 ====
-Example 1: User awareness through [these recommendations from the NSA](https://www.nsa.gov/What-We-Do/Cybersecurity/Best-Practices/).
+Example 1: User awareness training based on https://www.cisa.gov/resources-tools/resources/cisa-learning[guidance from CISA].  
 ====
+
 ====
-Example 2: Risk awareness among IT professionals through https://www.nsa.gov/Press-Room/Cybersecurity-Advisories-Guidance/[NSA's cybersecurity guides].
-====
-====
-Example 3: Implementation of the OpenSource IPS CrowdSec based on community information sharing (Crowdsourcing).
+Example 2: Deployment of the open-source IPS **CrowdSec**, leveraging community-driven intelligence (*crowdsourcing*).  
 ====
 
 //🏷{"id": "ac7dde83-27c9-4916-9020-73efaab5fcb1", "labels": []}
 #### Detection Solutions
-Include:
-* Antivirus software (the latest generations include AI and go beyond signature searching).
-* WAF (Web Application Firewall) that detects and blocks attack attempts in real-time.
-* SIEM (Security Information and Event Management) tools that analyze logs from various sources.
-* IDS (Intrusion Detection System) tools, often also performing IPS functions, analyzing network flows for malicious access attempts (such as exploitation of CVEs).
-* SAST (Static Application Security Testing) and DAST (Dynamic Application Security Testing) tools analyzing the organization's source code and execution behavior, looking for known vulnerabilities.
-* SCA (Software Composition Analysis) tools analyzing project dependencies (primarily Open Source) and reporting known CVEs (vulnerabilities) as soon as possible for updates.
+
+These solutions allow you to **identify attacks in progress**:
+
+* **Next-generation antivirus (NGAV)** (AI- and heuristic-based, not only signatures).  
+* **WAF (Web Application Firewall)** to analyze and block application-layer attacks.  
+* **SIEM (Security Information and Event Management)** to correlate and analyze logs from multiple sources.  
+* **IDS (Intrusion Detection Systems)** to monitor network traffic and detect attacks.  
+* **SAST (Static Application Security Testing)** and **DAST (Dynamic Application Security Testing)**:  
+  - SAST: Analysis of **source code** to identify known vulnerabilities.  
+  - DAST: Analysis of **runtime behaviors**.  
+* **SCA (Software Composition Analysis)**: Analyze software dependencies to detect **CVE (Common Vulnerabilities and Exposures)**.  
+
 ====
-Example 1: Implementation of the SCA tool OWASP Dependency-Check in CI/CD pipelines to detect Open Source libraries containing vulnerabilities (CVEs). Any presence of CVEs must be blocking.
+Example 1: Integration of **OWASP Dependency-Check** into the CI/CD pipeline to detect vulnerable libraries.  
 ====
 
 //🏷{"id": "d4498522-32aa-4987-aaec-2d9cf01130da", "labels": []}
-#### Corrective Solutions
-Include:
-* Anti-malware solutions that remove malicious software.
-* Backup restoration tools (knowledge of MTTR, defined in the infrastructure view, is crucial for restoration planning).
-* Tools and procedures for isolating compromised modules or areas within the IS.
-* Software asset management tools that block unauthorized software.
-* Forensic analysis tools and methodologies for analyzing logs to understand attack paths and construct a post-mortem.
-* Procedures and tools for responding to an attack.
+#### Response Solutions
+
+These solutions enable you to **react to and remediate** threats once detected:
+
+* **Anti-malware solutions** to remove malicious software.  
+* **Backup restoration plans** to resume operations quickly (**optimized MTTR**).  
+* **Isolation of compromised zones** (network micro-segmentation, application sandboxing).  
+* **Endpoint and software management** to **block unauthorized software**.  
+* **Forensic analysis** to understand attack vectors and identify the source of compromise.  
+* **Incident response procedures**, based on **NIST SP 800-61**.  
+
 ====
-Example 1: Preparation of procedures and a [contingency plan](https://www.cisa.gov/uscert/ncas/alerts/ta15-119a) in case of a security incident following the NIST SP 800-61 standard.
+Example 1: Deployment of a **contingency plan** aligned with the recommendations of https://csrc.nist.gov/pubs/sp/800/61/r3/final[NIST SP 800-61 Incident Response Guide].  
 ====
 
 //🏷{"id": "a69b42f5-4f4e-42bf-b4bc-c6093941600f", "labels": ["level::advanced"]}
-#### Predictive Solutions
-These recent solutions are primarily based on Machine Learning and the analysis of large-scale data (Big Data). They include:
-* User and Entity Behavior Analytics (UEBA) solutions that detect abnormal behavior of certain users.
-* Tools for simulating complex attacks.
-* Tools and repositories for Threat Intelligence.
+#### Prediction Solutions
+
+These recent approaches rely on **behavioral analysis** and **machine learning**:
+
+* **UEBA (User and Entity Behavior Analytics)**: Detect abnormal user or system behaviors.  
+* **Complex attack simulations** (red teaming, purple teaming) to test resilience.  
+* **Threat Intelligence**: Integration of real-time threat intelligence feeds.  
+
 ====
-Example 1: Analysis and alerting of suspicious behaviors with AWS GuardDuty on an AWS-deployed cloud application.
+Example 1: Monitoring of suspicious behaviors via **AWS GuardDuty** on a cloud-hosted application.  
 ====
+
 ====
-Example 2: Using CrowdSec Threat Intelligence to discover threat trends based on real and consolidated data.
+Example 2: Use of **CrowdSec Threat Intelligence** to anticipate attack trends.  
 ====
 
 
@@ -858,52 +1057,64 @@ Example:
 
 
 //🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate","detail_level::detailed"]}
-#### Self-check for vulnerabilities
+#### Vulnerability Self-Assessment
+
 [TIP]
 ====
-Vulnerability management is well beyond the scope of this document, but it is good practice to monitor yourself to ensure that the most common vulnerabilities are addressed and how. This list is partly from the TOP 10 OWASP. Of course, there are many other control points depending on the context of the application.
+Vulnerability management follows the **OWASP Top 10**, **MITRE ATT&CK**, and **NIST 800-53** standards.
+
+Objective: Verify that **protection, detection, and remediation measures** are correctly applied to reduce the risk of attacks (e.g., ransomware, supply chain attacks, injections…).  
 ====
-.Self-checking checklist to take into account common vulnerabilities
+
+.Vulnerability self-assessment checklist
+
+Sample basic checks:
+
 [cols="e,e,3e"]
 |===
-| Vulnerability | Taken into account? | Technical measures undertaken
-| Access to private ports | X | Configure the iptables firewall on the machine exposed to the Internet. Only ports 80 and 443 are open. The firewall will be configured in stateful mode (with conntrack extension)
-| Brute force password attack | X | Use of fail2ban, imprisonment for 1 hour after 3 ssh connection attempts.
-| Visibility of direct URLs | X | Centralization of all access from the Internet via an Apache reverse proxy + mod_proxy. Rewrite URLs to hide internal URLs.
-| Bypassing access control | X | Use of SSO CAS
-| SQL injection | X | Using PreparedStatement only, auditing SQL queries.
-| NoSQL injection | X | Disabling JS support by MongoDB
-| OS injection | X | Check that there is no system command call in the code (like `Runtime.exec()`)
-| Authentication and session management violation | X | Treated with the anti-CSRF measures, see below.
-| XSS | X | 
+|Vulnerability
+|Addressed?
+|Technical measures implemented
+
+|Exposure of unused ports
+|✅
+|Firewall configuration via **iptables/nftables**. Only ports 443 and 22 are open.
+
+|SSH brute-force
+|✅
+|Use of **Fail2Ban** + SSH key-based authentication.
+
+|Bypassing access controls
+|✅
+|Implementation of **Spring Security**, **OAuth2**, and **RBAC**.
+
+|SQL / NoSQL injection
+|✅
+|Use of **Prepared Statements only** and secure ORMs.
+
+|XSS (Cross-Site Scripting)
+|✅
 a|
-* _Use of escapement library. For Java modules we will use StringEscapeUtils.escapeHtml4() from commons-lang_
-* __Use of HTTP headers: X-Frame-Options SAMEORIGIN, X-Content-Type-Options nosniff, Content-Security-Policy__
-* __ Systematic specification of encoding in the Content-Type response header (eg: text/html; charset=UTF-8) to counter attacks based on special characters bypassing anti-XSS__
-| ReDOS | X | Checking that regular expressions used by anti-XSS measures are not eligible for this type of https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS[attack]
-| Direct reference to an object | X | Checking with each request that the arguments passed correspond to the identified person. For example, any request contains its ID and a request verifies that the file she is trying to consult belongs to her well before continuing with the initial request.
-| Planning for security updates | X | 
+* Systematic escaping of user input with **OWASP Java Encoder**.  
+* **CSP (Content-Security-Policy)** enabled to limit execution of unauthorized scripts.  
+
+|Secret and API key leaks
+|✅
+|Secrets stored in **Vault**.
+
+|HTTPS attacks (CRIME, BREACH, DROWN)
+|✅
 a|
-* __Centos updates will be scheduled every first Wednesday of the month__
-* __Wildfly updates are applied no more than two weeks after release__
-| Sensitive data exposure | X | 
+* **SSLv2 / SSLv3 disabled**.  
+* **HSTS (HTTP Strict Transport Security)** enabled.  
+
+|CSRF (Cross-Site Request Forgery)
+|✅
+|Use of the **double submit cookie pattern** and CSRF token validation.
+
+|Security patch management
+|✅
 a|
-* __All security algorithms are up to date: at least SHA-256, AES 256__
-* __The SSL V2 and V3 is disabled on the Apache side following the DROWN flaw (SSLProtocol all -SSLv2 -SSLv3) __
-* __The application only works in HTTPS__
-* __The web server will set the HSTS header with includeSubDomains on all resources__
-| CSRF | X | Using AngularJS Anti-CSRF (https://docs.angularjs.org/api/ng/service/$http)
-| Lack of access control at the functional level | X | 
-a|
-* __ Implementation of the authorization policy__
-* __Functional testing campaign__
-| Log injection | X | 
-a|
-* __Escaping logs before sending them to log4j__
-* __Verification of log consultation tools__
-| HTTPS attacks + CRIME / BREACH compression | X | 
-a|
-* __Disabling HTTPS compression at Apache level: SSLCompression off __
-* __Anti-CSRF measures__
-| Upload malicious files | X | Validation of attachments by the anti-virus ClamAV
+* **Debian/Ubuntu** updates applied weekly via **unattended-upgrades**.  
+* **PostgreSQL** updates applied within **7 days** after CVE publication.  
 |===
