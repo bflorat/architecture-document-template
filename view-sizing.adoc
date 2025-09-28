@@ -25,14 +25,21 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 //🏷{"id": "c443e562-398d-49ab-92bd-8031f3e91bec", "labels": ["context","references"]}
 ### Reference Documentation
 
-.Sizing documentary references
+[PRE-FILLED]
+====
+.Documentary references
 [cols="1e,1e,4e,4e"]
 |===
 | N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
 
 | 1 | 1.2 | Report_benchmark_xyz.pdf |
 
-|===
+|====
+====
 
 
 //🏷{"id": "1ef7beb9-71ee-43e5-9a1b-c45a48959084", "labels": []}
