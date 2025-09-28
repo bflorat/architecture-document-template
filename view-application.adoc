@@ -143,6 +143,27 @@ List of external actors
 | Worldwide
 |===
 
+//🏷{"id": "deafbeef-dead-4bed-8ace-0b0b0b0b0b0b", "labels": []}
+#### Nature and Sensitivity of Data and Processing
+
+Provide a summary of the business processes and the types of data they handle to support solution design.
+
+WARNING: Do not reproduce the DPIA (Data Protection Impact Assessment) here, but reference it if it exists.
+
+[%header,cols="2,3,3,2,1,1,1,1"]
+|===
+| Business Process | Purpose | Categories of Data Processed | Internal Classification | C | I | A | T
+
+| _Ex. Issuance of certificate_ | _Produce an official record_ | _identity, civil status, technical logs_ | _High_ | _Restricted distribution_ | _High_ | _High_ | _Medium_
+|===
+
+[cols="1,5"]
+|===
+| Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof: security requirements (Low, Medium, High)
+| Classification | Public, Internal, Restricted distribution, Confidential
+|===
+
+
 //🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
@@ -393,7 +414,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 image::diagrams/detailed-application-architecture-inventory.svg[Detailed application architecture diagram (inventory view)] 
 
 //🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["project_size::large", "detail_level::detailed"]}
-#### Dynamic view
+#### Links between modules
 
 [TIP]
 ====

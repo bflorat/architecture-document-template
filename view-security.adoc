@@ -26,7 +26,7 @@ Availability is dealt with in the infrastructure section. Even if availability c
 ====
 Mention here the reference (defined at IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 ====
-.Safety documentary references
+.Documentary references
 [cols="1e,1e,3e,3e"]
 |====
 | N ° | Version | Document title / URL | Detail
@@ -62,157 +62,352 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 
 //🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
+
 [TIP]
 ====
-List here the constraints relating to security, this includes for example but not only:
-* Isolation of modules within network areas (DMZ, firewalls, reverse-proxy, etc.)
-* Applicable standards (such as password policies)
-* Legal constraints (GDPR for example)
+List here the **security constraints** applicable to the architecture, including in particular:
+
+- **Module isolation** within secured network zones (_DMZ, firewalls, reverse proxy, network segmentation, etc._).  
+- **Applicable standards and policies** (_e.g., password policies, encryption requirements, MFA, compliance with security standards_).  
+- **Legal and regulatory constraints** (_e.g., GDPR compliance, industry-specific requirements_).  
+- **Access restrictions** between different zones and systems.  
 ====
+
 ====
-Example 1: the password policy will have to conform to the xyz standard.
+Example 1: The password management policy must comply with standard `XYZ`, including minimum complexity and periodic renewal.  
 ====
+
 ====
-Example 2: a module in the internet zone is formally prohibited from accessing the intranet zone.
+Example 2: A module in the **Internet zone** is strictly prohibited from directly accessing the **Intranet zone**.  
 ====
+
 ====
-Example 3: in application of the GDPR, user data must be encrypted.
+Example 3: In application of the **GDPR**, user data must be encrypted **at rest and in transit** using **AES-256 and TLS 1.3**.  
 ====
+
 
 //🏷{"id": "4882e5b9-c250-4079-8b24-04996016606d", "labels": ["detail_level::overview", "requirement"]}
 ## Requirements
+
 [TIP]
 ====
-Present the requirements here, *not the measures meeting them*. These will be detailed in chapter 3.
-For particularly sensitive projects, provide a risk analysis file. To do this, for example, use the https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/[EBIOS Risk Manager] framework.
+Present here the **requirements**, *not the measures or controls addressing them*.  
+Those will be detailed in Chapter 3.  
+
+For particularly sensitive projects, prepare a **risk analysis dossier**.  
+
+Possible methodologies include:  
+
+* The **NIST Risk Management Framework (RMF)** (NIST SP 800-37) or **ISO/IEC 27005** for information security risk management.  
+* The https://cyber.gouv.fr/en/publications/ebios-risk-manager-method[EBIOS Risk Manager] (_Expression of Needs and Identification of Security Objectives_) method.  
 ====
+
+
 
 //🏷{"id": "323d4c77-810a-4015-bc1a-11da07e24f3b", "labels": []}
-### Integrity requirements
+### Integrity Requirements
+
 [TIP]
 ====
-Integrity is about the durability, accuracy, and level of confidence in application data.
-Managing data integrity consists in verifying that it cannot be altered or deleted (involuntarily, following a disk crash for example) or voluntarily, for example in the context of a "man in the middle" attack or by a person who has granted himself undue rights.
-Be careful not to multiply the data classes.
-It is possible to define only one data class for the entire application.
+Integrity refers to the **accuracy, durability, and trustworthiness** of the application’s data.
+
+Guaranteeing data integrity means ensuring that data **cannot be altered or deleted** either unintentionally (_e.g., disk crash, software corruption, application bug_) or intentionally (_e.g., man-in-the-middle attack, privilege escalation, insider sabotage_).
+
+⚠ **Do not multiply data classes unnecessarily**. A single classification for the entire application is often sufficient.
 ====
-.Integrity level required by data class
-[cols = '2e, 1e, 1e, 1e, 1e']
+
+.Required integrity level by data class (example)
+[cols='2e,1e,1e,1e,1e']
 |====
-| Data class | "Alterable" level ([small]#The data may be altered)# | "Detectable" level ([small]#The data may be altered if the alteration is identified within a reasonable time)# | "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered within a reasonable time)# | "Integral" level ([small]#The data must always be rigorously intact)#
-| Business database data | | | | X
-| Archived data | | X | |
-| Calculated data company stats | | | X |
-| Big Data data lake before consolidation | X | | |
-| Application sources | | | | X
-| Tax notice in PDF | | | | X
+|Data Class |Non-Integral [small]#(Integrity errors are tolerated)# |Detectable [small]#(Errors are quickly identified)# |Controlled [small]#(Errors are corrected)# |Integral [small]#(No alteration is tolerated)#
+
+|**Business database data** | | | | X
+|**Archived data** | | X | |
+|**Aggregated statistical data** | | | X |
+|**NoSQL Big Data silo (pre-consolidation)** | X | | |
+|**Application source code** | | | | X
+|**Generated official documents (e.g., tax notice PDF)** | | | | X
 |====
+
+[TIP]
+====
+Examples of associated mechanisms depending on the required integrity level:
+
+- **Detectable** → Access logs and digital fingerprint (hash) verification.  
+- **Controlled** → Version retention, auditability, automatic correction of detected errors.  
+- **Integral** → Encryption, digital signatures, synchronous replication, immutable storage (WORM).  
+====
+
 
 //🏷{"id": "acfa846e-0ed7-4f41-a593-f4ee29e94efd", "labels": []}
-### Confidentiality requirements
+### Confidentiality Requirements
+
 [TIP]
 ====
-[quote]
-Confidentiality is ensuring that information is accessible only to those whose access is authorized (ISO 27018 standard). 
-Be careful not to multiply the data classes. It is possible to define only one data class for the entire application (common case).
+Confidentiality is the guarantee that information **is accessible only to authorized individuals** (ISO 27018 definition).
+
+**Best practices**:  
+
+- Do not multiply data classes unnecessarily. A single classification may be sufficient for the entire application.  
+- Ensure that confidentiality levels are **consistent with legal and contractual requirements**.  
 ====
-.Level of confidentiality required by data class
+
+.Required confidentiality level by data class
 [cols="e,e,e,e,e"]
 |====
-| Data class | “Public” level ([small]#Anyone can access the data)# | Limited Level "([small]#Data is only accessible to authorized persons)# | "Reserved" level ([small]#Data can only be accessed by authorized internal staff)# | Level "Private "([small]#The data is visible only to the interested party)#
-| Editorial content | X | | |
-| User account profile data | | X | |
-| Account history | | | X |
-| Technical logs of activities | | | X |
-| HR data of the "social assistance to employees" | | | | X
+|Data Class |Public [small]#(Accessible to anyone without restriction)# |Limited [small]#(Accessible only to authorized individuals)# |Restricted [small]#(Restricted to authorized internal staff)# |Private [small]#(Strictly individual access)#
+
+|**Editorial content**  
+| X | | | 
+
+|**User profile data**  
+| | X | | 
+
+|**Account history**  
+| | | X | 
+
+|**Technical activity logs**  
+| | | X | 
+
+|**HR data (e.g., employee benefits)**  
+| | | | X
 |====
+
+[TIP]
+====
+**Examples of applying confidentiality levels**:
+
+- **Public** → Web pages accessible without login.  
+- **Limited** → Information restricted to authenticated users (e.g., SaaS dashboard).  
+- **Restricted** → Sensitive internal data (e.g., system logs not accessible to customers).  
+- **Private** → Personal data visible only to the concerned user (e.g., payslip).  
+====
+
+[NOTE]
+====
+**Mapping to common US classification schemes**:  
+
+- **Public** → Public  
+- **Limited** → Internal Use Only  
+- **Restricted** → Confidential  
+- **Private** → Restricted / Highly Confidential (depending on corporate policy)  
+====
+
 
 //🏷{"id": "94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b", "labels": []}
-### Identification requirements
+### Identification Requirements
+
 [TIP]
 ====
-Identification is the set of measures used to differentiate one user from another (but without verifying that he is who he claims to be).
-====
-====
-Example 1: a user can only have one username and a username cannot be shared by multiple users. The personal e-mail address is therefore a good identifier.
-====
-====
-Example 2: the identity of an Internet user will be checked before any API call.
-====
-====
-Example 3: an ID cannot be deleted, cannot be modified and cannot be reused.
+Identification makes it possible to **assign a unique identifier** to each user in order to distinguish them from others.  
+
+**Note:** Identification **does not guarantee** that the user is who they claim to be. That is the role of authentication (e.g., password, MFA, etc.).  
 ====
 
-//🏷{"id": "9d0646cd-3e3f-4878-96de-f215c9f20bdc", "labels": []}
-### Authentication requirements
+.Identification requirements
+[cols="1e,3e"]
+|====
+|Requirement |Description
+
+|**Unique identifier**  
+| Each user must have a **unique and non-shareable** identifier. A personal email address is a good example of such an identifier.  
+
+|**Identity validation**  
+| The existence of a user’s identity must be verified before any service call.  
+
+|**Identifier permanence**  
+| An identifier must **never be deleted, modified, or reused**, even after a user account has been removed.  
+|====
+
 [TIP]
 ====
-Authentication makes it possible to verify the consistency between the identity of a user and a real person.
-Note that automatic non-human interactions (such as batches calling an API) can also be identified and authenticated (batch which uses an service account to call an API for example).
-Authentication can be one or more factors (in the latter case, we speak of strong authentication). These factors can be:
-* Something you *know* (password, pass phrase, PIN code, job data,...).
-* Something you *are* (morphological biometrics via e.g. fingerprints, iris recognition or facial recognition; behavioral such as gait or handwritten or genetic signature (DNA analysis)).
-* Something you *own* (OTP currency, TOTP application configured on your smartphone, smart card, photo ID, private key in file form, recovery key (PUK),...).
+**Best practices**:  
+
+- **Favor stable and unique identifiers** (email, customer number, UUID, etc.).  
+- **Avoid re-assignable identifiers** (e.g., incremental numeric IDs that may be reused after account deletion).  
+- **Ensure identifier consistency** across all systems where it is used.  
 ====
-Remember to describe the authentication system once registered but also during registration (i.e., the initial authentication).
-A possible delegation of authentication relies on identity federation technology to authenticate the user.
-It is possible to add authentication factors specific to your organization to the table below as needed.
-It is possible to require several occurrences of the same factor, use as many crosses:
-.Authentication requirement per use case
+
+
+//🏷{"id": "9d0646cd-3e3f-4878-96de-f215c9f20bdc", "labels": []}
+### Authentication Requirements
+
+[TIP]
+====
+Authentication verifies that a user is indeed who they claim to be, by validating their identity through one or more factors of proof.
+
+⚠ **Do not confuse with identification**, which only distinguishes one user from another without validating their identity.
+
+**Special cases**:  
+
+- **Technical accounts** (e.g., batch jobs, applications, APIs) also require authentication (e.g., service accounts using certificates or SSH keys).  
+- **Privileged accounts** (e.g., `root` on servers, application administrator accounts). These can be human or technical but can read/write/delete large volumes of data or perform irreversible operations (large blast radius).  
+- **Initial authentication** (during registration) is often stricter than subsequent logins.  
+- **Federated authentication** allows delegating authentication to an identity provider (SSO, OAuth2, SAML, etc.). See the next section.  
+====
+
+//🏷{"id": "58bf95ee-2fc4-4972-ac2b-7e2f775a4eb9", "labels": ["detail_level::detailed"]}
+#### Authentication Requirements by Use Case
+The table below indicates the **authentication factors required** depending on the usage context:  
+
 [cols="e,e,e,e,e,e,e"]
 |====
-| Authentication case | Password respecting the company password policy | Known ssh public key | OTP by Token | Biometrics | Knowledge of business data | Email with verification hyperlink
-| User already registered | X |||||
-| Create an account ||||| XX | X
-| Change password | X ||||| X
-| Access to logs || X ||||
-| Adding a transfer beneficiary | X || X ||
-| Mobile application Y ||||X|||
+|Authentication Case  
+|Password compliant with the security policy  
+|Known SSH public key  
+|OTP via Token  
+|Biometrics  
+|Knowledge of business data  
+|Verification link by email  
+
+|Existing user login  
+|X|||||  
+
+|Account creation  
+|||||XX|X  
+
+|Password change  
+|X|||||X  
+
+|Access to secured logs  
+||X||||  
+
+|Adding a wire transfer beneficiary  
+|X||X|||  
+
+|Login to mobile application Y  
+||||X|||  
 |====
+
+[TIP]
+====
+**Best practices**:  
+
+- **Avoid password-only authentication** → always prefer at least a second factor (OTP, biometrics, etc.).  
+- **Use proven standards** → FIDO2, WebAuthn, TOTP, SAML, OpenID Connect.  
+- **Secure service accounts** → avoid static passwords; prefer SSH keys, certificates, or JWT tokens.  
+- **Manage revocation and renewal** → implement mechanisms to regenerate a factor if lost or compromised.  
+====
+
+
 
 //🏷{"id": "f552f1e6-9aea-4866-8da1-e7ed676fd228", "labels": ["level::advanced", "detail_level::detailed"]}
 ### Identity Federation Requirements
+
 [TIP]
 ====
-Identity federation is the use of the same identity managed by an identity provider (IdP) from several different entities.
-For example, see the “Connect with[Google | Twitter | ...]” OpenId Connect technology. Unlike SSO, identity federation does not provide automatic login to an application such as SSO but simply allows you to reuse the same credentials (login/password).
-====
-====
-Example: Identification and authentication will be outsourced to the Auth0 identity provider to simplify security management and reduce development and operating costs.
+Identity federation allows a user to **reuse their credentials** managed by an **Identity Provider (IdP)** to authenticate across multiple independent systems.
+
+Unlike **Single Sign-On (SSO)**, which ensures automatic login without re-entering credentials, federation **does not bypass authentication** but centralizes identity management.
+
+**Common examples:**  
+
+- **Login.gov (US)** → Based on OpenID Connect, it enables US citizens to access federal services (IRS, Social Security, etc.) using a single account.  
+- **"Sign in with [Google | Facebook | GitHub]"** → Implemented via **OpenID Connect** or **OAuth2**, allowing the use of a third-party account for authentication on another platform.  
+
+**Advantages of identity federation:**  
+
+- **Simplifies account management** → Fewer credentials for the user to remember.  
+- **Reduces maintenance costs** → Fewer password resets and less user management overhead.  
+- **Improves security** → Centralizes authentication with a trusted IdP, enabling strong authentication and MFA integration.  
 ====
 
+====
+**Example Application**
+
+User identification and authentication will be externalized to **Auth0**, an identity provider (IdP) supporting **OIDC, SAML, and OAuth2**.  
+
+**Objectives**:  
+
+- **Centralize identity management** and avoid duplication of user accounts.  
+- **Reduce costs** related to authentication development and operations.  
+- **Enhance security** by delegating authentication to a standards-compliant IdP.  
+====
+
+
 //🏷{"id": "400376ad-cc62-4ab3-8e96-5a9f9a954e49", "labels": ["level::advanced", "level::advanced"]}
-### SSO and SLO requirements
+### SSO and SLO Requirements
+
 [TIP]
 ====
-Describe the requirements in terms of Single Sign On and Single Log Out.
-Here we mean SSO in its fullest sense: automatic authentication to an application of a user already authenticated from another application in the same trusted domain.
-Please note that setting up SSO can be complex, especially if the infrastructure (ID provider, etc.) does not yet exist and often requires adaptation of applications.
+**Single Sign-On (SSO)** allows a user to authenticate once and gain access to multiple applications without re-entering credentials.  
+**Single Log-Out (SLO)** ensures that logging out of one application automatically logs the user out of all other applications within the same trust domain.
+
+**Key considerations:**
+
+- **SSO can be complex** to implement, especially if an Identity Provider (IdP) infrastructure is not yet in place.  
+- **Applications must be compatible** with the chosen protocol (SAML, OIDC, Kerberos, etc.).  
+- **The business need must be justified** → An application used infrequently may not require SSO.  
+- **Security risk** → A **weak authentication method** for one SSO-enabled application compromises the entire system (e.g., one weak password can expose all applications accessible via SSO).  
+
+**Best practices:**
+
+- Define **limited trust boundaries** (e.g., SSO only for internal applications).  
+- Use **strong authentication (MFA)** to reduce impersonation risks.  
+- Properly manage **sessions and token expirations**.  
+- Consider **simpler centralized authentication (LDAP, CAS)** if full SSO is not justified.  
 ====
-The SSO can be requested by the end-users but this requirement must be justified. An infrequently used peripheral application or tool usually does not need SSO (a simple centralized authentication is often sufficient).
-Also, be careful to assess the impact that weak authentication (bad password for example) would have on the security of the entire IS.  
+
 ====
-Example 1: No SSO is required since all application GUIs are exposed within a JSR 352 portal which already manages authentication.
+**Example 1: No need for SSO**  
+The application portal relies on a JSR352 framework that already manages single authentication. No additional SSO required.  
 ====
+
 ====
-Example 2: no need for SSO or SLO is identified
+**Example 2: No SSO or SLO required**  
+The application runs autonomously and does not share authentication with other services.  
 ====
+
 ====
-Example 3: this Web application must provide single authentication shared with that of other intranet applications. Once authenticated on one of the applications, the agent must not have to reconnect (until his session expires). Likewise, a disconnection from one of the applications must ensure the disconnection of all intranet applications.
+**Example 3: SSO required for an intranet environment**  
+
+- Once authenticated on one intranet application, the user must **not be required to re-authenticate** on other applications until the session expires.  
+- A **logout (SLO)** from one application must trigger **logout from all other applications** in the trust domain.  
+- The chosen protocol will be **OIDC with the on-prem Keycloak Identity Provider**.  
 ====
+
 
 //🏷{"id": "01404b83-f96f-4649-ace0-e5611601b830", "labels": ["level::advanced"]}
 ### Non-repudiation requirements
 [TIP]
 ====
-List here the business actions with a non-repudiation requirement, i.e., a measure making it impossible to deny a contract by proving the identity of the two parties and the integrity of the document by digital signature.
+Non-repudiation ensures that a user or an organization cannot deny having performed a specific action (signature, approval, transaction, etc.).
+It generally relies on cryptographic mechanisms, particularly digital signatures and secure timestamping.
+
+**Typical use cases:**  
+
+- Signing of **contracts and legal commitments**.  
+- Validation of **sensitive financial transactions**.  
+- Submission of **official documents** (e.g., tax returns, notarized acts).  
+
+
+**Regulatory references:**  
+
+- **United States** → The **ESIGN Act** (Electronic Signatures in Global and National Commerce Act) and **UETA** (Uniform Electronic Transactions Act) establish the legal validity of electronic signatures.  
+- **European Union** → The **eIDAS Regulation (EU 910/2014)** defines the framework for electronic identification and trust services, including **qualified electronic signatures** with strong non-repudiation guarantees.  
 ====
-.Non-repudiation requirements
-[cols="e,e,e"]
+
+**Non-repudiation requirements by use case**
+[cols="e,e,e,e"]
 |===
-| Signed data | Origin of the client certificate | Origin of the server certificate
-| Income tax declaration (X, Y and Z data) | Tax administration PKI | Verisign
+|Signed action or document |Required signature level |Origin of client certificate |Origin of server certificate
+
+|Income tax return (data X, Y, and Z)
+|Legally binding digital signature (ESIGN / UETA)
+|IRS PKI (or approved tax authority CA)
+|Trusted Certification Authority (e.g., DigiCert, Verisign)
+
+|Electronic employment contract
+|Legally binding digital signature (ESIGN / UETA)
+|Corporate PKI or HR identity management system
+|External trusted CA
+
+|Electronic payment validation
+|Strong customer authentication with digital certificate (per PCI-DSS)
+|Client’s banking certificate
+|Payment provider PKI (e.g., Visa, Mastercard)
 |===
+
 
 //🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": []}
 ### Anonymity and privacy requirements
@@ -238,40 +433,79 @@ Example 6: Pursuant to the GDPR, explicit consent from users to store their pers
 ====
 
 //🏷{"id": "fcad5990-c241-4c88-b2c5-646602f8935a", "labels": ["level::intermediate"]}
-### Authorizations requirements
+### Authorization Requirements
+
 [TIP]
 ====
-Authorization (or authorization) allows you to give access to an application function (or "privilege" or "permission") to a user or a group of users.
-Examples of functions: 'make an inter-bank transfer', 'view your account history', 'delete a user'
-Be careful not to multiply the number of functions and roles to avoid a combinatorial explosion and associated management costs.
-To simplify the management of authorizations by factorization, one can:
-* Group users into groups (like `G_chief`).
-* Associate a list of functions with a role (such as `R_administrator`,`R_banker_level_1`, `R_president`) that can be assigned to a person or to a group.
+An authorization (or permission) controls **access to a specific application function** (also called a **privilege** or **entitlement**) for a user or a group of users.
+
+**Examples of application functions:**
+
+- "Execute an interbank transfer"  
+- "View account history"  
+- "Delete a user"  
+
+⚠ It is recommended **not to create excessive numbers** of functions and roles in order to avoid combinatorial explosion and high management overhead.
+
+**Best practices for simplifying authorization management:**
+
+- **Group** users into **groups** (e.g., `G_department_head`).  
+- **Associate** a list of **functions/permissions** with a **role** (e.g., `R_Administrator`, `R_banker_level1`, `R_department_head`).  
+- **Assign** roles to **users or groups** for better maintainability.  
+
+**Classic role-based access control (RBAC) model:**  
+
+image::diagrammes/roles.svg[Classic role-based access management]
+
+**Predefined users and roles:**  
+Be sure to specify generic user categories such as:
+
+- **`@anonymous`**: unauthenticated users.  
+- **`@authenticated`**: authenticated users.  
+
+**Delegated authorization (OAuth2, etc.):**
+
+If the application **delegates or consumes** authorizations via an **external system (OAuth2, OpenID Connect, etc.)**, it is necessary to specify:
+
+- **Is the application an authorization provider or consumer?**  
+- **Which types of authorizations are involved?**  
 ====
-Example of a classic authorization management model:
-image::diagrams/roles.svg[Classic role management]
-Remember to specify the possible pseudo-users and their roles, for example:
-* `@anonymous`: non-authenticated people
-* `@connected`: authenticated people
-Specify whether the application should use authorization delegation (OAuth2 type) and if so, is the application an authorization provider or consumer? What authorizations are concerned?
+
 ====
-Example 1: people who are not logged in will have access to all read-only privileges
+Example 1: **Unauthenticated users** will only have **read-only privileges**.  
 ====
+
 ====
-Example 2: the application will rely on a matrix authorization management of the type[roles] ->[groups or users] as described below.
+Example 2: The application will use a **matrix-based authorization management system** based on **[roles] → [groups or users]**.  
+Details of authorizations will be documented in the **Detailed Functional Specifications (DFS)**.  
 ====
-The details of the authorizations will be given in the specifications.
-====
-Example role matrix
+
+**Example role matrix:**  
 [cols="e,e,e,e"]
 |===
-| _Group or user_ | _Role_ `deletion` | _Role_`administration` | _Role_ `basic data consultation`
-| `g_users` group | | | X
-| `@anonymous` group | | |
-| `G_admin` group | X | X | X
-| `xyz` user | X | | X
+| _Group or user_ | _Role_ `delete` | _Role_ `administration` | _Role_ `basic data consultation`
+
+| Group `g_users`
+|
+|
+| X
+
+| Group `@anonymous`
+|
+|
+|
+
+| Group `g_admin`
+| X
+| X
+| X
+
+| User `xyz`
+| X
+|
+| X
 |===
-====
+
 
 //🏷{"id": "e72e5ea5-5711-4665-8a91-76c63cbca2bc", "labels": ["level::intermediate"]}
 ### Traceability and auditability requirements
@@ -556,57 +790,72 @@ Example 2: Using CrowdSec Threat Intelligence to discover threat trends based on
 ## Annexes
 
 //🏷{"id": "b2f76b28-83da-478b-bc94-f1bc29dc6084", "labels": ["level::intermediate", "detail_level::detailed"]}
-### RACI
+### RACI & Security Governance
+
 [NOTE]
 ====
-This RACI makes it possible to clearly define the roles of each concerning the acts related to security.
+This RACI clearly defines the roles and responsibilities of the teams with regard to **information security management**.
 
 :r: pass:quotes[[.green]#R#]
 :a: pass:quotes[[.red]#A#]
 :c: pass:quotes[[.blue]#C#]
 :i: pass:quotes[[.orange]#I#]
 :na: pass:quotes[[.grey]#N/A#]
-:and: pass:quotes[[.grey]#&#]
-* {r}: *Responsive* (person who will execute: she is responsible for it)
-* {a}: *Accountable* (person who will approve the task: he is the authority)
-* {c}: *Consulted* (person who will be consulted in the execution of the task)
-* {i}: *Informed* (person who will be informed when the task is completed)
+:et: pass:quotes[[.grey]#&amp;#]
 
-Examples: 
+* {r}: *Responsible* (executes the action).  
+* {a}: *Accountable* (approves the action and is answerable to the organization).  
+* {c}: *Consulted* (provides expertise and must be consulted).  
+* {i}: *Informed* (must be notified after completion).  
 
-.AWS Platform Management
+In a good RACI, there should **never** be more than one {a} per line.
+
+Example:  
+
+.AWS Cloud Services Management
 [cols="6,^1,^1,^1"]
 |===
-||Systems & Cloud Team|IS Security Team|Network Team
-.^|Creating AWS Accounts
-.^|{r} {and} {a}
-.^|{c} {and} {i}
+||Systems & Cloud Team|Security Team|Network Team
+
+.^|AWS account creation
+.^|{r} {et} {a}
+.^|{c} {et} {i}
+.^|{i}
+
+.^|IAM & AWS SCP policy creation
+.^|{r}
 .^|{a}
-.^|Creating AWS SCPs
-.^|{r} {and} {a}
-.^|{c} {and} {i}
+.^|{c}
+
+.^|CloudTrail log management & CloudWatch alerts
+.^|{r}
 .^|{a}
+.^|{i}
 |===
 
-.Management of application accounts
+.Application Accounts & IAM Management
 [cols="6,^1,^1,^1"]
 |===
-||Directory team|Project team|SOC team
-.^|Creating SSO accounts
-.^|{r} {and} {a}
-.^|{i}
-.^|{i}
-.^|Permissions management
-.^|{i}
-.^|{r} {and} {a}
-.^|{i}
-.^|Annual accreditation review
-.^|{c} {and} {i}
-.^|{i}
-.^|{r} {and} {a}
-|===
+||Directory Team|Project Team|SOC Team
 
+.^|SSO account creation
+.^|{r} {et} {a}
+.^|{i}
+.^|{i}
+
+.^|Application entitlements management
+.^|{i}
+.^|{r} {et} {a}
+.^|{c}
+
+.^|Annual entitlements review
+.^|{c} {et} {i}
+.^|{i}
+.^|{r} {et} {a}
+
+|===
 ====
+
 
 //🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate","detail_level::detailed"]}
 #### Self-check for vulnerabilities
