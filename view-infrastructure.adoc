@@ -1057,7 +1057,7 @@ It is often useful to subdivide environments into 'platforms' made up of a set o
 | 2 (UAT1 and UAT2)
 ====
 
-//🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate"], link_to=["da0d11fe-0dc9-478e-a984-7a80ea1be482"]}
+//🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate"], "link_to":["da0d11fe-0dc9-478e-a984-7a80ea1be482"]}
 ### Ecodesign
 
 [TIP]
