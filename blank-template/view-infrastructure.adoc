@@ -11,6 +11,15 @@
 
 [#06fd3383-f875-4a44-a1f8-d135f9050038]
 ### Reference Documentation
+.Documentary references
+[cols="1e,2e,5e,4e"]
+|====
+| N ° | Version | Document title / URL | Detail
+
+| 1 || 
+| 
+
+|====
 
 [#933039be-008f-40c7-a630-a08002b379f1]
 ## Not ruled
@@ -36,12 +45,16 @@
 [#6903a99e-8b8e-464b-909c-d40da5a808d1]
 #### MTTR
 
+[#e7470aba-8588-4792-bc94-28e4bf186b63]
 ##### Hardware
 
+[#96cd73f1-0dca-447e-8fc8-2d9c03399e1c]
 ##### System and virtualization
 
+[#22a1f1de-1ab0-4a54-bd0f-64c7c5ab9713]
 ##### Network
 
+[#b39586c3-6bbe-417f-ad64-eff53c81d283]
 ##### Data Restore
 
 [#421860fb-b6b3-461a-b149-57c6ba6dae41]
@@ -51,10 +64,10 @@
 #### Level of service of the datacenter
 
 [#7c1d0446-34df-4572-92b0-19baaba54183]
-#### Summary of floor availability
+#### Availability Ceiling (Upper Bound)
 
 [#4860fb1c-98e9-4c2c-adfc-09ea8149235d]
-#### Disaster management (DRP/BCP)
+#### Disaster Management
 
 [#c7c4fce5-c971-4ec8-bef7-006381492aff]
 ### Hosting
@@ -64,6 +77,9 @@
 
 [#86a3082e-7069-4120-b86f-f886ef919986]
 ### Deployment constraints
+
+[#16781642-a7f3-40f1-b208-e4064ffedaa4]
+### Constraints Related to the Lifecycle of Infrastructure Components
 
 [#0a25770c-6a02-4fa3-82cc-bf5152d3cba6]
 ### Log constraints
@@ -96,7 +112,7 @@
 ### RTO Requirements
 
 [#cdb68f23-d2c5-4373-9f7d-e358191f0ebf]
-### Deployment and update requirements
+### Deployment and upgrades requirements
 
 [#663ee84f-7dde-4c6d-acf6-a810ab8fafb4]
 #### Server side
@@ -106,9 +122,6 @@
 
 [#0bbb4d10-bb6c-4cb0-b227-2e97db99eae1]
 #### Specific deployment strategy
-
-[#7d3090d0-87d0-434f-9717-f9a12ccf60d1]
-### Concurrency management requirements
 
 [#da0d11fe-0dc9-478e-a984-7a80ea1be482]
 ### Ecodesign requirements
@@ -128,6 +141,8 @@
 [#28ba010e-1c33-41b9-8061-9596710563bc]
 ### Versions of infrastructure components
 
+### Infrastructure Component Versions
+
 [#3ff53ea7-2e7f-4d71-8848-6819ba23c930]
 ### Matrix of network flows
 
@@ -136,6 +151,11 @@
 
 [#0bbc320c-6291-4a89-b263-66abf1906ab0]
 ### Ecodesign
+TIP: See also <<da0d11fe-0dc9-478e-a984-7a80ea1be482,Ecodesign requirements>>.
+
+#### Energy Optimization & Infrastructure
+
+#### **Overall energy impact**
 
 [#46e9c057-75cb-4bc0-9c8d-9af81f737c61]
 ### Load regulation
@@ -144,7 +164,7 @@
 #### Circuit breakers
 
 [#44f0732c-3b29-4bd5-873f-046fc010f728]
-#### Quality of Service
+### Timeout Management
 
 [#5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796]
 ### Timeout management
@@ -153,40 +173,59 @@
 ### Operations
 
 [#0a3f0e4e-0458-4528-9513-1f75a4ad8464]
-#### Stop/start-up sequence
+#### Startup/Shutdown Order
 
 [#314a1ef0-48b4-42a4-a8b6-be49250c5a50]
-#### Scheduled operations
+#### Scheduled Operations and Monitoring
 
 [#0cf18e71-b20e-4b2b-9377-e104c21c9785]
-#### Switch to maintenance mode procedure
+#### Maintenance Mode
 
 [#fd5b00b0-4b23-4cbc-8117-0dcee74ddd8b]
-#### Backups and restores
+#### Backups and Restores
+
+[#506b442c-ec84-454c-b11b-ddf7fe560701]
+##### Scope
+
+[#ef7922e8-8122-4120-86f9-c5fed0676811]
+##### Backup Strategy
+TIP: See also <<f0e94586-876d-46ca-b060-b5dcde468734,RPO requirements>>, <<3e07d851-b2dc-422f-9cba-1b4447a5c956,RTO Requirements>>.
+
+[#93b244a6-976c-465a-80fc-9665a81adeb9]
+##### Tooling
+
+[#49e36233-2293-4135-80b2-5c145fe72c7d]
+##### Backup Processing
+
+[#d8955c5f-7ccd-493e-8697-bdd6611ef727]
+##### Storage Modalities
+
+[#2c96a319-9929-453b-a51e-d1de9b1103af]
+##### Restore
 
 [#74ff1a8d-91b4-4437-bbfd-439e3d4b18b5]
-#### Logs
+#### Logging
+
+[#2c3d502d-d67c-417b-88f4-d610e158e930]
+### Monitoring
 
 [#f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347]
-#### Monitoring
+#### Technical Monitoring
 
-##### Technical monitoring
+[#be41d5fd-e1a8-4a49-bf80-a81c3db693db]
+#### Application & Business Monitoring
 
-##### Application monitoring
+[#236fd883-5195-4b81-b5dd-f6c66f9ae3f0]
+#### Monitoring & Observability Tools
 
-##### Monitoring tools
+[#aa3c7bab-527c-4411-a1f2-583a1d62118f]
+#### Alerting & Notifications
 
-##### Alerting
+[#20dff012-aa85-465f-ba2e-272d7580dd0b]
+##### Black-box Monitoring
 
-##### Black box monitoring
-
-##### Metrology
-
-[#56cf150f-625e-48e0-9600-327b4d5e3508]
-### Jobs scheduling
-
-[#9ac6e5d2-e9a0-427e-ba12-27dedbd8ac4d]
-### Migrations
+[#f455e87e-47f0-422a-a80b-0ec65517ad53]
+##### Performance Monitoring (Metrology)
 
 [#53b2f98c-11d9-4aa0-b762-b8f31db0c30f]
 ### Decommissioning

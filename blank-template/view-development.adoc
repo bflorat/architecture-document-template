@@ -11,6 +11,16 @@
 
 [#712fc07b-76ba-4093-bbf8-cceeaa903e64]
 ### Reference Documentation
+.Documentary references
+[cols="1e,1e,4e,4e"]
+|====
+| N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
+
+|====
 
 [#fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e]
 ## Not ruled
@@ -51,11 +61,11 @@
 [#67ff8381-8145-4dc4-bd15-cfec867dc8b5]
 #### Supported browsers
 
-[#fbe627e5-be3f-41ec-9a2a-c43bd3587c6e]
-#### Internationalization (i18n)
-
 [#39318743-8131-4d46-9354-c64804066ae8]
 #### Offline mode
+
+[#fbe627e5-be3f-41ec-9a2a-c43bd3587c6e]
+#### Internationalization (i18n)
 
 [#8c3bc449-1b44-44cf-82a1-f26cdbf258af]
 ### SEO Requirements
@@ -73,10 +83,11 @@
 #### Stack profile
 
 [#e9b08c72-a836-48ad-9255-e2977a09f290]
-#### Software stack
+#### Dependencies
 
 [#ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7]
 ### Performance
+TIP: See also xref:view-sizing.adoc#d6e3eb12-371b-4c26-b538-9fea2051bfed[Requirements].
 
 [#cacf4bd8-9e8a-449c-af31-1fd27169a685]
 ### Software factory specifics
@@ -95,7 +106,7 @@
 
 [#6ff8aacb-5020-4ade-a10d-3dce3898276b]
 ### Ecodesign
-TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>, <<a7bacacc-de70-48e5-8563-6a0b6d7b31a2,Transaction management>>, xref:view-infrastructure.adoc#53b2f98c-11d9-4aa0-b762-b8f31db0c30f[Decommissioning].
+TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 
 [#bb5d8145-8519-4516-98a9-fc089f758d9c]
 ### Management of robustness
@@ -150,3 +161,4 @@ TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>, <
 
 [#201fca5f-50af-41f9-ab97-60b2f7abddc6]
 ### i18N Management
+TIP: See also <<fbe627e5-be3f-41ec-9a2a-c43bd3587c6e,Internationalization (i18n)>>.
