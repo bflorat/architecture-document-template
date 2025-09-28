@@ -12,6 +12,7 @@
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
+//🏷{"id": "32c8942e-443f-429d-a411-43869a720224", "labels": ["context"]}
 ## Introduction
 
 This is the sizing point of view of the project. It determines the hardware required by the project.
@@ -21,32 +22,43 @@ The other views of the document are accessible link:./README.adoc[from here].
 The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
 
 
+//🏷{"id": "c443e562-398d-49ab-92bd-8031f3e91bec", "labels": ["context","references"]}
 ### Reference Documentation
 
-.Sizing documentary references
+[PRE-FILLED]
+====
+.Documentary references
 [cols="1e,1e,4e,4e"]
-|====
+|===
 | N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
 
 | 1 | 1.2 | Report_benchmark_xyz.pdf |
 
 |====
+====
 
 
+//🏷{"id": "1ef7beb9-71ee-43e5-9a1b-c45a48959084", "labels": []}
 ## Not ruled
 
+//🏷{"id": "c5db3e60-e70c-4ebb-9848-44a0cecc4c6e", "labels": []}
 ### Points subject to further study
 
 .Points subject to further study
 [cols="1e,1e,1e,2e,2e"]
-|====
+|===
 | ID | Detail | Status | Subject holder | Deadline
 
 | 1 | SSD disk capacity | WIP | XYZ | 01/01/2022
 
-|====
+|===
 
 
+//🏷{"id": "577c9b37-77a2-4568-9fb5-2804d6f9bc70", "labels": []}
 ### Assumptions
 
 [TIP]
@@ -59,15 +71,16 @@ Example:
 
 .Assumptions
 [cols="1e,4e"]
-|====
+|===
 | ID | Detail
 
 | 1 | We estimate that 10M people will download our app and use it at least once a day
 
-|====
+|===
 
 ====
 
+//🏷{"id": "69811b17-b947-4562-90ba-a97160421965", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 [TIP]
@@ -79,6 +92,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 ====
 
 
+//🏷{"id": "646fc728-6cef-4e75-9fa9-646b4ec2159d", "labels": []}
 ### Storage constraints
 
 TIP: List here the possible constraints related to the disks
@@ -88,6 +102,7 @@ TIP: List here the possible constraints related to the disks
 Example: The maximum disk space that can be allocated to a VM is 2 TiB.
 ====
 
+//🏷{"id": "1d3ec06e-d63d-4a61-bb4e-437358064687", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### CPU constraints
 
 TIP: List here the possible constraints related to the computing power
@@ -100,6 +115,7 @@ Example 1: A VM will have a maximum of 10 VCPUs
 Example 2: All the pods of the application should not require more than 1 CPU per node.
 ====
 
+//🏷{"id": "ec6a420b-c284-442a-93fd-edc3d45ed00a", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Memory constraints
 
 TIP: List here the possible constraints related to memory
@@ -108,6 +124,7 @@ TIP: List here the possible constraints related to memory
 Example: a pod or a Kubernetes job should not use more than 6 GiB of RAM
 ====
 
+//🏷{"id": "8d948872-15f9-49b6-9527-f511a2f7597d", "labels": []}
 ### Network constraints
 
 TIP: List here the possible network volume constraints used
@@ -121,6 +138,7 @@ Example 1: The minimum latency for requests on the WAN between London and Tokyo 
 Example 2: The Ethernet network of the Datacenter has a bandwidth of 40 Gbps.
 ====
 
+//🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["detail_level::overview", "requirement"]}
 ## Requirements
 
 [TIP]
@@ -134,22 +152,25 @@ The following sections dealing with static and dynamic sizing calculations give 
 
 ====
 
+//🏷{"id": "962347a4-c3c8-4f0c-bcac-774a6ef617a4", "labels": []}
 ### Static sizing
 
 TIP: These are the metrics used to determine the *cumulative* storage volume of the project. Remember to clearly specify the assumptions made for the estimated metrics. It will thus be possible to review them if new business elements appear.
 
+//🏷{"id": "1736e661-2c68-4aa6-a157-9e4444d5a374", "labels": ["detail_level::detailed"]}
 #### Metrics
 
 TIP: These are measured or estimated business data that will be used as inputs to the calculation of required storage.
 
 [cols="e,e,e,e,e,e,e"]
-|====
+|===
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail/assumptions
 
 | S1 | Number of eligible companies | Estimated | 4M | + 1% | Government [reference] | We consider that AllMyData is applicable only for companies with more than 10 employees
 | S2 | Average size of a PDF | Measured | 40KiB | 0% | Operators |
-|====
+|===
 
+//🏷{"id": "9968c2e6-46b9-4005-89d4-6a9114246a4c", "labels": ["detail_level::detailed"]}
 #### Estimated storage needs
 
 [TIP]
@@ -181,7 +202,7 @@ Only estimate data whose size is not negligible (several GiB minimum).
 
 ====
 . Example of static sizing of module C:
-|====
+|===
 | Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
 
 | Table Article
@@ -204,19 +225,21 @@ Only estimate data whose size is not negligible (several GiB minimum).
 | 300M
 | 56 GiB
 | 0% (archiving)
-|====
+|===
 ====
 
+//🏷{"id": "b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be", "labels": []}
 ### Dynamic sizing
 
 TIP: These are metrics by duration (year, month, hour, ...) and allowing to determine the load applied to the architecture, which will help to size the systems in terms of CPU, bandwidth and performance of disks.
 
+//🏷{"id": "910fc171-30ed-47cd-b03c-3ca918b3103e", "labels": ["detail_level::detailed"]}
 #### Metrics
 
 TIP: These are the measured or estimated business data that will be used as inputs for the calculation.
 
 [cols="e,e,e,e,e,e,e,e"]
-|====
+|===
 | Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail/assumptions
 
 | D1 | Proportion of users connecting to the service / J | Estimated | 1% | + 5%
@@ -225,9 +248,10 @@ a|
  - Constant over the week
  - 3 peaks at 20% of the day at 8:00am-9:00am, 11:00am-12:00am and 02:00pm-03:00pm
  | | Users use the application during standard office hours
-|====
+|===
 
 
+//🏷{"id": "3d09511c-17b2-43c3-bcba-0a62ead057b4", "labels": ["detail_level::detailed"]}
 #### Estimated load
 
 [TIP]
@@ -247,7 +271,7 @@ If the application runs on a PaaS type cloud, the load will be absorbed dynamica
 ====
 
 .Example: dynamic volumetric estimation of the REST endpoint `GET Detail` of the AllMyData application
-|====
+|===
 | Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K / H
 | Average duration of a user session
 | 15 mins
@@ -255,7 +279,7 @@ If the application runs on a PaaS type cloud, the load will be absorbed dynamica
 | 10
 | Charge (Transaction / second)
 | 8K / 4 x 10/3600 = 5.5 Tps
-|====
+|===
 
 
 [TIP]
@@ -273,7 +297,7 @@ Finally, keep in mind that this is *simply an estimation* yet to be validated du
 Example: the Oracle BD01 database is used for reading by the REST endpoint `GET DetailArticle` made from the end-user application and for updating by the POST and PUT calls on `DetailArticle` endpoint from the supply batch B03 at night between 01:00 and 02:00.
 
 .Example estimates number of peak SQL queries to instance BD01 from 01:00 to 02:00 in December
-|====
+|===
 | Maximum rate of users logged in at the same time | 0.5%
 | Maximum number of concurrent connected users
 | 5K
@@ -299,11 +323,13 @@ Example: the Oracle BD01 database is used for reading by the REST endpoint `GET 
 | 0 + 3 x 4K / 3600 = 3.4 Tps
 | Number of UPDATE / sec
 | 0 + 3 x 10K / 3600 = 8.3 Tps
-|====
+|===
 ====
 
+//🏷{"id": "c1a8f666-70e1-4acf-9d7a-5e1b06ecb588", "labels": []}
 ### Response time requirements
 
+//🏷{"id": "24f70acd-5f7c-49b3-bd75-d594e5af8917", "labels": ["detail_level::detailed", "gui"]}
 #### Response time of GUIs
 
 [TIP]
@@ -319,7 +345,7 @@ No need to multiply the types of requests (depending on the complexity of the sc
 ====
 Example of types of solicitation:
 [cols = '3e, 1e, 1e, 1e']
-|====
+|===
 | Type of request | Good level | Medium level | Insufficient level
 
 | Loading a page
@@ -336,7 +362,7 @@ Example of types of solicitation:
 | <3 s
 | <6 s
 |> 15 s
-|====
+|===
 
 Example of acceptability of response times:
 
@@ -353,6 +379,7 @@ Acceptable if:
 Apart from these values, the application must be optimized and go back to acceptance and then be subjected to load tests again.
 ====
 
+//🏷{"id": "88645b89-d407-4107-93b2-48003fd8688a", "labels": ["detail_level::detailed", "batch"]}
 #### Duration of batch execution
 
 [TIP]
@@ -372,6 +399,7 @@ Example 3: the batches and the GUI can operate in competition, there is no stric
 ====
 
 
+//🏷{"id": "fb740b6a-bd23-4401-a7e0-b01610a01b9b","labels": ["solution"]}
 ## Target sizing
 
 [TIP]
@@ -379,19 +407,20 @@ Example 3: the batches and the GUI can operate in competition, there is no stric
 We give a final sizing to support the static and dynamic sizing and meet the requirements.
 ====
 
+//🏷{"id": "63214041-3461-4019-a685-fac68fdb4d74", "labels": ["detail_level::detailed"]}
 ### Estimate of resource requirements by deployable unit
 
 [TIP]
 ====
 Give here RAM, disk and CPU per deployable unit (to be refined after performance campaign or MEP).
-
 ====
+
 ====
 Example:
 
 .Estimation of resource requirements by deployable unit
 [cols="2e,1e,1e,3e,2e"]
-|====
+|===
 | Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
 
 | `tomcat-batchs1`
@@ -411,8 +440,11 @@ Example:
 | 2024
 | 24/7, main activity 8am-5pm GMT Mon-Fri
 | Postgresql instance
+|=== 
+
 ====
 
+//🏷{"id": "6e9675d7-5d8c-4cf8-989a-13640cd28ef3", "labels": []}
 ### Sizing of machines
 
 [TIP]
@@ -427,8 +459,8 @@ This section provides the final sizing of the machines required.
 ====
 
 .Sizing of machines
-[cols = '1e, 3e, 1e, 1e, 1e, 1e, 1e ”]
-|====
+[cols = '1e, 3e, 1e, 1e, 1e, 1e, 1e']
+|===
 | Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
 
 | Zone 1
@@ -450,9 +482,9 @@ This section provides the final sizing of the machines required.
 |=== 
 
 .Non-SAN external storage
-[cols='1,3,3']
-|====
-|Nature|Size (Gio)|Type(s) of machine using this share
+[cols='1e,3e,3e']
+|===
+|Nature |Size (Gio) |Type(s) of machine using this share
 
 |NFS (NAS mount)
 |248
@@ -462,4 +494,4 @@ This section provides the final sizing of the machines required.
 |2000
 |VM application server
 
-|====
+|===

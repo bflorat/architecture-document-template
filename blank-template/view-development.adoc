@@ -6,138 +6,159 @@
 :icons: font
 :toc-title: Table of contents
 
-*Last modified* : {docdate} 
-
-*Last global review* : 
-
-*Document status* :  
-
+[#84c5d434-ea70-41fc-92bc-53a40ab29025]
 ## Introduction
 
-This view describes the development aspects of the application. It describes the code to be produced and how to write it properly.
-
-The other views of the document are accessible link:./README.adoc[from here].
-
-The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
-
-
+[#712fc07b-76ba-4093-bbf8-cceeaa903e64]
 ### Reference Documentation
-
-.Development documentary references
-[cols="1,1,4,4"]
+.Documentary references
+[cols="1e,1e,4e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
-
-||||
+|
+|
+|
+|
 
 |====
 
+[#fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e]
 ## Not ruled
 
+[#b3592a4d-d0df-4f87-8416-97cfb287cd08]
 ### Points subject to further study
 
-.Points subject to further study
-[cols="1,1,1,1,1"]
-|====
-| ID | Detail | Status | Subject holder | Deadline
-
-|||||
-
-|====
-
-
+[#fb0b1a28-1c08-4c0b-bb38-1cae99a46818]
 ### Assumptions
 
-.Assumptions
-[cols="1,4"]
-|====
-| ID | Detail
-
-||
-
-|====
-
+[#84cd4aed-36c0-4564-8354-29a7de004923]
 ## Constraints
 
+[#8d79cc07-e094-4863-8bb8-0a3ca317743d]
 ## Non-functional requirements
 
+[#48bb8b97-2e97-4515-bf3b-95864f85e4e9]
 ### Accessibility
 
+[#b098d142-655e-4521-9d4f-2c2ea8eceb45]
 ### Ergonomics
 
+[#3c031334-5598-4817-87b4-dec34ce8389b]
 #### Ergonomic charter
 
+[#90b4af62-df5b-485e-87c4-7dd0b21d0464]
 #### Specificities on widgets
 
+[#1cacea74-bede-43b3-93a5-804fd60ff4fb]
 #### Fonts
 
+[#cfd3435f-d888-43e3-a634-35c3d5d92cb4]
 #### Responsive website
 
+[#30cc6226-2213-4351-83aa-a4905c5d4baa]
 #### Progressive Web Apps (PWA)
 
+[#67ff8381-8145-4dc4-bd15-cfec867dc8b5]
 #### Supported browsers
 
-#### Internationalization (i18n)
-
+[#39318743-8131-4d46-9354-c64804066ae8]
 #### Offline mode
 
-### SEO requirements
+[#fbe627e5-be3f-41ec-9a2a-c43bd3587c6e]
+#### Internationalization (i18n)
 
+[#8c3bc449-1b44-44cf-82a1-f26cdbf258af]
+### SEO Requirements
+
+[#c8e58371-6bea-48e2-ab0e-989fec63e0ee]
 ### Ecodesign requirements
 
+[#2c0aa24a-24b8-4272-8787-b5e5207785fb]
 ## Target architecture
 
+[#50b4ef16-e558-4604-9b17-b90e68da6337]
 ### Software stack
 
+[#16dc549a-4b87-428e-b59d-4c0af1e720db]
 #### Stack profile
 
-#### Software stack
+[#e9b08c72-a836-48ad-9255-e2977a09f290]
+#### Dependencies
 
+[#ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7]
 ### Performance
+TIP: See also xref:view-sizing.adoc#d6e3eb12-371b-4c26-b538-9fea2051bfed[Requirements].
 
+[#cacf4bd8-9e8a-449c-af31-1fd27169a685]
 ### Software factory specifics
 
+[#11f66697-ac3a-40f0-903a-cc8202b7315e]
 ### Blueprints
 
+[#4cfc1f5e-bf4b-4c33-b718-83ca90974090]
 ### Code quality standards and automatic review
 
+[#bbe62a07-d42a-4495-8d23-4d0ea23d19e6]
 ### Notable patterns
 
+[#99e519d3-e8cf-4b3c-8e87-e06a1bf675af]
 ### Specificities of the tests
 
+[#6ff8aacb-5020-4ade-a10d-3dce3898276b]
 ### Ecodesign
+TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 
+[#bb5d8145-8519-4516-98a9-fc089f758d9c]
 ### Management of robustness
 
+[#a7bacacc-de70-48e5-8563-6a0b6d7b31a2]
 #### Transaction management
 
+[#8bd70b17-0223-4aaf-97ac-a7284efe721f]
 #### Session management
 
+[#4ffcfd1b-87c9-48d0-96d6-f3b3b817a869]
 #### Error handling
 
+[#7a33eb60-882d-4095-bde2-9a477cc27433]
 #### Frontend robustness
 
+[#d101d1ee-8ec7-48dd-b733-ebba345c656d]
 ### Configuration management
 
+[#01a81b2c-1dc0-4563-a2e2-5c5248086499]
 ### Branch management policy
 
+[#35b97569-e671-40c3-809c-ffcb5d1af383]
 ### Versioning
 
+[#79682de3-09b7-46f1-8354-9371295d18a8]
 ### Concurrency
 
+[#856b9e7b-3305-48c3-bb99-798cf409181d]
 ### Encoding
- 
+
+[#5885803d-2d3d-4e19-af30-40e904e9fb6d]
 ### Timezones
 
+[#96ec879c-3ce3-4e48-a3f9-84590c281fd4]
 ### Log management
 
+[#cad3fb2c-5047-4025-892f-3180e74579c8]
 #### General rules
 
+[#992c0bb3-83bc-4598-84ff-150a67df3324]
 #### Levels and quantity of logs
 
+[#f2e9066c-18d9-4234-b37c-27d342b1c99e]
 ### Administrative tools
 
+[#ef97a533-5fc7-4999-87fc-def24074746c]
 ### Sorting and Pagination
 
+[#4af6fb38-c84a-456f-b043-32abeb6e7798]
 ### Provisioning and DDL updates
 
+[#201fca5f-50af-41f9-ab97-60b2f7abddc6]
+### i18N Management
+TIP: See also <<fbe627e5-be3f-41ec-9a2a-c43bd3587c6e,Internationalization (i18n)>>.

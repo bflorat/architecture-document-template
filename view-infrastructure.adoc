@@ -1,4 +1,4 @@
-RO# Infrastructure view
+# Infrastructure view
 :sectnumlevels: 4
 :toclevels: 4
 :sectnums: 4
@@ -12,6 +12,7 @@ RO# Infrastructure view
 
 *Document status* :  _<'WIP', 'DRAFT', ...>_
 
+//🏷{"id": "e3208a9c-8d35-46a1-9399-aacea9817e0a", "labels": ["context"]}
 ## Introduction
 This is the infrastructure point of view of the application. It describes the deployment of application modules in production and all infrastructure components involved.
 
@@ -25,21 +26,29 @@ This point of view deals with the infrastructure: servers, networks, operating s
 In short, it covers everything that is external to the application modules but necessary for their execution.
 ====
 
+//🏷{"id": "06fd3383-f875-4a44-a1f8-d135f9050038", "labels": ["references"]}
 ### Reference Documentation
 [TIP]
 Mention here the reference (defined at a IS level) architecture documents. This file should never summarize their content under penalty of quickly becoming obsolete and unmaintainable.
 
+[PRE-FILLED]
+====
 .Documentary references
 [cols="1e,2e,5e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
-| 1 || backup_rules.pdf
-| Backup rules
+| 1 || 
+| 
 
 |====
 
+====
+
+//🏷{"id": "933039be-008f-40c7-a630-a08002b379f1", "labels": ["context","uncertainty"]}
 ## Not ruled
+
+//🏷{"id": "87385297-c5c3-44f6-b9e8-7599576dda0a", "labels": []}
 ### Points subject to further study
 .Points subject to further study
 [cols="1e,5e,2e,2e,2e"]
@@ -54,6 +63,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 |====
 
+//🏷{"id": "30d20b83-e35d-464b-8286-3ff230fb1471", "labels": []}
 ### Assumptions
 
 .Assumptions
@@ -65,6 +75,7 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | We assume that by the time the project will be released, PostgreSQL 12 will be validated internally.
 |====
 
+//🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 [TIP]
@@ -75,6 +86,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 
 ====
 
+//🏷{"id": "cc4a17a8-d68b-43cf-8b4e-c64829d950fc", "labels": ["availability"]}
 ### Constraints on availability
 
 [TIP]
@@ -84,6 +96,7 @@ The elements provided here can serve as a basis for the SLO (Service Level Objec
 This chapter has a pedagogical vocation because it highlights the maximum possible availability: the final availability of the application can only be lower.
 ====
 
+//🏷{"id": "a18eb613-e522-4bf5-a1fd-742b9d754ce1", "labels": ["detail_level::detailed","monitoring"]}
 #### MTTD
 
 [TIP]
@@ -96,6 +109,7 @@ Example 1: hypervision is done 24/7/365
 Example 2: the production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
 ====
 
+//🏷{"id": "dc11b031-5685-4972-9832-138fa74cd30b", "labels": ["detail_level::detailed","monitoring"]}
 #### Monitoring tools
 
 [TIP]
@@ -110,6 +124,7 @@ Example 2: The batches must be able to be launch using a REST endpoint
 Example 3: A failed batch must not be scheduled again without a human acknowledgment
 ====
 
+//🏷{"id": "6903a99e-8b8e-464b-909c-d40da5a808d1", "labels": ["detail_level::detailed"]}
 #### MTTR
 
 [TIP]
@@ -125,6 +140,7 @@ List here the intervention times of the hardware, software, electricity, telecom
 We tentatively divide this section into "Hardware", "System and Virtualization", "Network", and "Data Recovery" subsections. Other categories are possible.
 ====
 
+//🏷{"id": "e7470aba-8588-4792-bc94-28e4bf186b63", "labels": ["detail_level::in-depth"]}
 ##### Hardware
 
 TIP: Describe here the elements used to predict the MTTR of hardware elements (servers / racks / network equipment / electrical systems, etc.). List for example here the durations of intervention of the material service providers, electricity….
@@ -137,6 +153,7 @@ Example 2: The Hitashi support contract provides for an intervention on the SAN 
 Example 3: Replacement of IBM hardware support on BladeCenter blades is provided in 4 hours from 8 am to 5 pm, working days only.
 ====
 
+//🏷{"id": "96cd73f1-0dca-447e-8fc8-2d9c03399e1c", "labels": ["detail_level::in-depth"]}
 ##### System and virtualization
 
 TIP: List here the elements allowing to estimate the correction time of a problem related to the OS or to a possible virtualization solution.
@@ -150,6 +167,7 @@ Example 3: The observed restore time of a 40 GiB VM Veeam backup is 45 mins.
 
 ====
 
+//🏷{"id": "22a1f1de-1ab0-4a54-bd0f-64c7c5ab9713", "labels": ["detail_level::in-depth"]}
 ##### Network
 
 TIP: List here the elements related to the network allowing to estimate the durations of intervention of the service providers or Telecom suppliers...
@@ -160,6 +178,7 @@ Example 1: A network engineer is on call every weekend.
 Example 2: Orange's SLA provides for restoration of the Internet connection under nominal conditions in less than 24 hours.
 ====
 
+//🏷{"id": "b39586c3-6bbe-417f-ad64-eff53c81d283", "labels": ["detail_level::detailed"]}
 ##### Data Restore
 TIP: List here the elements allowing to evaluate the duration of data restoration (files / objects / database). The RTO requirements listed below should take this MTTR into account.
 
@@ -170,6 +189,7 @@ Example 2: Restoring an offline backup (on tape) requires at least 4 hours of ad
 ====
 
 
+//🏷{"id": "421860fb-b6b3-461a-b149-57c6ba6dae41", "labels": ["detail_level::in-depth"]}
 #### Scheduled interruptions
 
 [TIP]
@@ -184,13 +204,14 @@ Example 2: following security updates to certain RPM packages (kernel, libc, etc
 
 ====
 
+//🏷{"id": "21d704f6-f740-40f9-986c-36274643a711", "labels": ["detail_level::detailed"]}
 #### Level of service of the datacenter
 
 [TIP]
 ====
 Give here the security level of the data center (DC) according to the Uptime Institute scale (Tier from 1 to 4).
 
-TIP: It should be noted that modern Cloud architectures favor the redundancy of DCs across distant sites rather than a higher Tier level at a single site (provided that data can be replicated effectively and a delay in immediate data consistency is acceptable, see the CAP theorem). Simplistically, it can be calculated that the availability of two active DCs in parallel is seven nines versus four nines for a Tier 4 DC. A compromise between the two models is deployment in redundant zones of the same site, at the cost of greater vulnerability to disasters.
+TIP: It should be noted that modern Cloud architectures favor the redundancy of DCs across distant sites rather than a higher Tier level at a single site (provided that data can be replicated effectively and a delay in immediate data consistency is acceptable, see the https://en.wikipedia.org/wiki/CAP_theorem[CAP theorem]). Simplistically, it can be calculated that the availability of two active DCs in parallel is seven nines versus four nines for a Tier 4 DC. A compromise between the two models is deployment in redundant zones of the same site, at the cost of greater vulnerability to disasters.
 
 
 .Tier levels of data centers (source: Wikipedia)
@@ -219,7 +240,7 @@ TIP: It should be noted that modern Cloud architectures favor the redundancy of 
 | Tier 4
 | Fault tolerance
 | 99.995%
-| 0.4 h
+| 24 mins
 | Yes
 | Yes
 |====
@@ -229,58 +250,105 @@ TIP: It should be noted that modern Cloud architectures favor the redundancy of 
 Example: the Madrid DC is Tier 3
 ====
 
-#### Summary of floor availability
+//🏷{"id": "7c1d0446-34df-4572-92b0-19baaba54183", "labels": ["detail_level::overview"]}
+#### Availability Ceiling (Upper Bound)
 
 [TIP]
 ====
-Taking into account the previous elements, estimate the maximum floor availability of an application module (excluding disaster). Any requirement should be lower than this. In the case of a cloud, use the supplier's SLA as a basis. In the case of an internally hosted application, take into account the availability of the datacenter and scheduled downtimes.
+Make it clear to stakeholders that, even with application-level HA, the **maximum end-to-end availability** is capped by
+the availability of underlying dependencies (datacenter, network, platform).
+This **Availability Ceiling** is the product of their SLAs, and is always
+≤ the least available dependency.
+
+`A_upper_bound = ∏(A_SLA of each serial dependency)  ≤  min(A_SLA)`
+
+**Implication:** SLO targets **must not exceed** this ceiling. HA helps you
+approach the ceiling, not surpass it.
+
+**Scope notes**
+
+* If all replicas sit in the **same failure domain** (same DC/power/edge),
+  the DC’s SLA effectively **sets the ceiling**.
+* To **raise the ceiling**, use **independent failure domains** (e.g., multi-AZ/region);
+  then for parallel redundancy: `A_parallel = 1 - ∏(1 - A_i)` (independence assumed).
 ====
 
 ====
-Example: <datacenter availability> * <% of time not in scheduled maintenance> * <system availability> * <hardware availability> = 99.8 x 99.99 x 99.6 x 99.99 = ~ * 99.4% *.
+*Example (serial, one DC):*  
+`<Datacenter 99.9%> × <Internal network 99.95%> × <Platform 99.9%> ≈ **99.75%**`
+
+Even if the application tier is “HA 99.999%”, the **end-to-end** availability
+cannot exceed ~**99.75%** on this infrastructure.
 ====
 
-#### Disaster management (DRP/BCP)
-
+//🏷{"id": "4860fb1c-98e9-4c2c-adfc-09ea8149235d", "labels": ["detail_level::overview"]}
+#### Disaster Management
 [TIP]
 ====
-A Disaster Recovery Plan (DRP) contains IT procedures and systems allowing IT services to be resumed ASAP after a disaster. DRP is a subset of a Business Continuity Plan (BCP). BCP provides an holistic perspective of the business procedures and systems required for an organization to continue in case of a disaster. A DRP focus on the IT part of it.
+Disasters can be classified into three categories:
 
-Disaster Management is a complex subject. In most cases, it is managed at an IS level. It is one of the strengths of public clouds (GCP, AWS, Azure...) to handle a part of this complexity for you. Specific offers exist: see Disaster Recovery as a Service (DRaaS).
+* Natural (earthquakes, floods, hurricanes, heatwaves, etc.);
+* Infrastructure-related (accidental such as industrial accidents, fires, major power outages, major network/storage/server failures, critical administrator errors or intentional: military, terrorist, sabotage, etc.);
+* Cyber (DDoS, viruses, ransomware, etc.).
 
-Disasters can be classified into three categories : 
+**Disaster Recovery (DR)** is the set of strategies and solutions implemented to **restore a computer system after a disaster**, thereby minimizing data loss and downtime. DR can include solutions such as:
 
-* Natural (earthquakes, floods, hurricanes, hot weather...).
-* Incident in the datacenter (accidental like industrial accidents, fires, major electrical failures, major network/storage/compute hardware outages, major sysadmin errors or intensional: military, terroristic, sabotage...).
-* Cyber: DDOS, virus, ransomware...
+* **Cold site**: backup center ready to be activated but without active infrastructure;
+* **Warm site**: pre-installed infrastructure but requiring manual production deployment;
+* **Hot site**: real-time replication with possible automatic failover;
+* **Disaster Recovery as a Service (DRaaS)**: cloud-based rapid recovery solutions (AWS Elastic Disaster Recovery, Azure Site Recovery, etc.).
 
-Some BCP leverage High Availability (HA) architectures to allow continuity of critical IT activities of the organization during a disaster without notable interruption. Basically, a DRP focus on how to restore an IS after a disaster while HA architecture focus on making it work even when a disaster occurs.
+The **Disaster Recovery Plan (DRP)** and **Business Continuity Plan (BCP)** are specific **DR** strategies responding to a risk of disaster on the IT system:
 
-The most important requirements to take into account when designing the architecture are the *RPO* (Recovery Point Objective, i.e. how much data we agree to lose since last backup) and the *RTO* (Recovery Time Objective, i.e. the maximum acceptable time to resume the operations). The lower the RTO and RPO, the more associated costs increase. It is therefore important to choose the right architecture for each IT service according to its importance and budget. An HA architecture targets a RTO and a RPO of zero or very near zero.
+* **Disaster Recovery Plan (DRP)** or *"How to return to normal after the problem?"*
+  Allows **resuming activity after a disaster** within a defined timeframe (RTO). It relies on **asynchronous synchronizations between sites, backups, restorations, and backup infrastructures** such as **secondary DC, replicated storage**, or **DRaaS solutions**. The goal is to ensure recovery, but with a **temporary interruption** and acceptance of a non-zero RPO.
 
-IT architects have two main options: 
+* **Business Continuity Plan (BCP)** or *"How to continue working despite the problem?"*
+  Ensures the **continuity of critical activities** without significant interruption and with an almost zero RPO. It includes organizational measures (crisis teams, degraded mode such as paper usage, fallback sites, etc.) and technical measures such as **multi-zone active-active clusters, synchronous data replication, and highly redundant infrastructures**.
 
-* When targeting a near zero RTO, only an HA architecture (like a multi-zones active-active clusters) can meet the requirement.
-* For less demanding RTO (from several hours to several days), the most important thing is the time of data download and restoration into a backup DC.
+An architect does not use the same technologies depending on whether the goal is a **DRP or BCP**:
 
-Both options requires either an alternate site (at least ~10 km away from the main DC) or a public cloud solution. Note that synchronous data replication between DC is realistic only for short distances (few kms). For more distant DC, the latency is too high for most use cases. Asynchronous replication can be used at the price of loosing a few seconds of transactions when an incident occurs.
+* **DRP** → Focuses on **backup and restoration** in a backup DC, with a **defined RTO**.
+  On-premises examples: **VM snapshots with Veeam, DRaaS solutions, databases replicated in asynchronous mode** (e.g., **MySQL/MariaDB asynchronous, PostgreSQL streaming replication, SQL Server log shipping, VMware vSphere Replication, Dell EMC SRDF in asynchronous mode, Zerto**).
+  Cloud examples: **AWS Aurora Global Database (asynchronous inter-region replication), Amazon RDS cross-region read replicas, Azure SQL Geo-Replication, Google Cloud SQL cross-region replication**.
 
-Describe among others:
+* **BCP** → Relies on **multi-zone active-active clusters** distributed across several distant DCs, with **generally synchronous replication** to ensure a zero (or near-zero) RPO.
+  On-premises examples: **Oracle RAC, VMware vSphere Metro Storage Cluster, NetApp MetroCluster, Dell EMC SRDF in synchronous mode, Ceph RADOS synchronous**.
+  Cloud examples: **Google Cloud Spanner (synchronous multi-region replication), Azure SQL Managed Instance Business Critical with redundant zones, AWS Aurora Multi-AZ (synchronous replication)**.
 
-* Redundant equipment in the second data center, number of spare servers, capacity of the standby data center compared to the main data center.
-* Recovery measures (OS, data, applications).
-* Organization's RTO and RPO.
-* Data replication mode between DC.
-* Failback policy (reversibility): should we switch back to the first datacenter? How ?
-* How are the blank tests organized? How often?
+Notes:
+
+* For a BCP, synchronous replication is often used to ensure a zero RPO, but some architectures (e.g., vSphere Metro Storage Cluster with asynchronous SRDF) allow a BCP with asynchronous replication, provided that the RPO remains within acceptable limits (loss of only a few transactions). However, synchronous replication over long distances can introduce high latency, impacting performance. This is why this type of synchronous replication is not feasible for DCs more than approximately 50 km apart.
+* A DRP, on the other hand, can tolerate asynchronous replication or periodic backups depending on business requirements.
+* Traditional backup systems may suffice for a DRP with an appropriate RTO but are generally insufficient for a BCP, which requires real-time replication.
+* In the case of a DRP, a failover and significant preparation of the backup DC must be planned, whereas in the case of a BCP, all DCs operate in parallel in active/active mode under normal conditions.
+* Failover tests should be conducted at least once a year for a DRP, and quarterly for a BCP. They must include unit tests (failover of an application) and global tests (complete IT system failover).
+
+Note: Disaster management is a complex topic. One of the strengths of public clouds (OVH, GCP, Azure, AWS, etc.) is that they manage part of this complexity for you. Specific cloud solutions exist (Disaster Recovery as a Service – DRaaS).
+
+Describe, among other things:
+
+* The redundant hardware in the second DC, the number of spare servers, the capacity of the backup DC compared to the primary DC.
+* For a DRP, the planned restoration devices (OS, data, applications) and the RTO.
+* For a BCP, the latency and performance degradation induced by synchronous data replication between DCs or the acceptable amount of lost transactions in case of asynchronous replication.
+* Present the failback policy (reversibility): should we fail back to the first DC? How?
+* How are failover tests organized? With what frequency?
 ====
+
 ====
-Example: As a reminder (see[doc xyz]), the VMs are replicated in the standby alternative datacenter via vSphere Metro Storage Cluster technology using SRDF in asynchronous mode. In the event of a disaster, the replicated VM at the standby site are up to date and ready to start.
+Example 1 - DRP based on backup site and asynchronous replication: Production VMs are continuously replicated to a backup site located 100 km away via the Zerto asynchronous replication solution. In case of disaster, the VMs at the secondary site can be started quickly. The RPO is around 5 minutes, and the RTO is about 30 minutes.
+====
 
-Example 2: Two spare servers are available in the London site. Business data is backed-up every 4 hours and uploaded to BackBlaze.com. Estimated RPO is therefore 4H and RTO 2H.
+====
+Example 2 - DRP based on cloud backups (SME with its own DC in Paris): two spare servers are stored in Lille premises. The company's main data is backed up every four hours and sent (with client-side encryption) to BackBlaze.com. In case of a major disaster, the spare servers can be reinstalled and restored. The RPO is 4 hours, and the targeted RTO is 2 to 4 hours, depending on the transfer and restart time.
+====
+
+====
+Example 3 - BCP with elasticity: applications run as Kubernetes pods distributed across at least three clusters located in different availability zones. MongoDB data is sharded and replicated between zones via a ReplicaSet system. The system is self-regulated by Kubernetes: in case of a DC failure, new pods are redeployed within seconds on the remaining clusters. Thus, users do not experience service interruption, and the impact on performance remains very limited.
 ====
 
 
+//🏷{"id": "c7c4fce5-c971-4ec8-bef7-006381492aff", "labels": ["detail_level::overview"]}
 ### Hosting
 
 * Where will this application modules be hosted? "on premises" datacenter? Private cloud? IaaS? PaaS? other?
@@ -298,6 +366,7 @@ Example 2: Given the very high level of security required to run the application
 Example 3: Given the very large number of calls from this application to the PERSON repository, both will be collocated in the XYZ VLAN.
 ====
 
+//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"]}
 ### Network constraints
 
 [TIP]
@@ -311,6 +380,7 @@ Example 1: the LAN has a maximum bandwith of 10 Gbps
 Example 2: The intranet modules must be located in a trusted zone that cannot be accessed from the Internet.
 ====
 
+//🏷{"id": "86a3082e-7069-4120-b86f-f886ef919986", "labels": ["detail_level::detailed"]}
 ### Deployment constraints
 
 [TIP]
@@ -326,6 +396,30 @@ Example 3: Any application must be packaged as an OCI image and deployable on Ku
 
 ====
 
+//🏷{"id": "16781642-a7f3-40f1-b208-e4064ffedaa4", "labels": ["detail_level::detailed"]}
+### Constraints Related to the Lifecycle of Infrastructure Components
+
+[TIP]
+====
+List the constraints related to updates and maintenance of infrastructure components (operating systems, middleware, databases, etc.).
+====
+
+====
+Example 1: Any operating system update must be validated in a staging environment before deployment to production.
+
+Example 2: Database updates must be applied using a rolling upgrade strategy to avoid any service interruption.
+
+Example 3: Linux kernel versions used in production must be LTS versions validated by the infrastructure team.
+
+Example 4: Any critical security patch must be applied within 72 hours of its release.
+
+Example 5: OCI images used in production must be updated quarterly with the latest validated dependency versions.
+
+Example 6: An update schedule for critical components will be established to prevent security vulnerabilities and ensure compatibility with dependencies.
+====
+
+
+//🏷{"id": "0a25770c-6a02-4fa3-82cc-bf5152d3cba6", "labels": ["detail_level::detailed"]}
 ### Log constraints
 
 [TIP]
@@ -338,6 +432,7 @@ Example 1: an application must not produce more than 1 Tio of logs/month.
 Example 2: the maximum retention period for logs is 3 months.
 ====
 
+//🏷{"id": "608d63e6-7299-4976-bf59-52fa1c6ac486", "labels": ["detail_level::detailed"]}
 ### Backup and restore constraints
 
 [TIP]
@@ -359,6 +454,7 @@ Example 2: the maximum retention period for backups is two years
 Example 3: Count 1 min/GiB for a NetBackup restore.
 ====
 
+//🏷{"id": "22e6cfa3-bc3d-466c-a902-9854540258b7", "labels": ["detail_level::detailed"]}
 ### Costs
 
 [TIP]
@@ -369,6 +465,7 @@ List the budget limits.
 Example 1: AWS Cloud service charges should not exceed $5K/year for this project.
 ====
 
+//🏷{"id": "f9ed2469-e3e5-48a1-8b69-4b9c9492c6cb", "labels": ["detail_level::overview", "constraint"]}
 ## Requirements
 
 [TIP]
@@ -381,6 +478,7 @@ If certain requirements are still not realistic, mention it in the "Points subje
 
 ====
 
+//🏷{"id": "332c967b-3729-4a5f-984e-fc2f301b0329", "labels": []}
 ### Operating ranges
 
 [TIP]
@@ -413,6 +511,7 @@ Example of operating windows
 |====
 ====
 
+//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"]}
 ### Availability requirements
 
 [TIP]
@@ -447,6 +546,7 @@ The availability required here must be consistent with the “Constraints on ava
 | 4 hours, 8 times a year
 |====
 
+//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
 ### Degraded modes
 [TIP]
 ====
@@ -460,6 +560,7 @@ Example 1: The _mysite.com_ site must be able to continue to accept orders in th
 Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
 ====
 
+//🏷{"id": "231768e7-6a9d-429e-b200-2febdd91a0e3", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Robustness requirements
 
 [TIP]
@@ -474,12 +575,13 @@ Be careful not to be too demanding on this point because great robustness can im
 Example 1: no more than 0.001% of requests in error
 ====
 ====
-Example 2: the user must not lose his shopping cart even in the event of a breakdown (be careful, this type of requirement impacts the architecture in depth, see the <<Availability>> section).
+Example 2: the user must not lose his shopping cart even in the event of a breakdown (be careful, this type of requirement impacts the architecture in depth, see the Availability section).
 ====
 ====
 Example 3: the system should be able to withstand a load three times greater than the average with a response time of less than 10 seconds at the 95th percentile.
 ====
 
+//🏷{"id": "f0e94586-876d-46ca-b060-b5dcde468734", "labels": ["level::intermediate"]}
 ### RPO requirements
 
 [TIP]
@@ -498,6 +600,7 @@ Data restoration occurs mainly in following cases:
 Example: We shouldn't loose more than one working day of application data.
 ====
 
+//🏷{"id": "3e07d851-b2dc-422f-9cba-1b4447a5c956", "labels": ["level::intermediate", "project_size::medium", "project_size::large", "detail_level::overview"]}
 ### RTO Requirements
 
 [TIP]
@@ -513,8 +616,10 @@ Specify this value only to clarify a precise restoration objective, otherwise, d
 Example: We must be able to restore and put back online the 3 TiB of the XYZ database in 1 hour maximum.
 ====
 
-### Deployment and update requirements
+//🏷{"id": "cdb68f23-d2c5-4373-9f7d-e358191f0ebf", "labels": ["level::intermediate","detail_level::detailed"]}
+### Deployment and upgrades requirements
 
+//🏷{"id": "663ee84f-7dde-4c6d-acf6-a810ab8fafb4", "labels": []}
 #### Server side
 
 [TIP]
@@ -528,6 +633,7 @@ For example :
 * How are they upgraded?
 ====
 
+//🏷{"id": "fd64ad27-05da-42f0-9491-f790642b5d91", "labels": ["gui"]}
 #### Client side
 
 [TIP]
@@ -544,6 +650,7 @@ Specify here how the application should be deployed on the client side:
 * How are the updates applied?
 ====
 
+//🏷{"id": "0bbb4d10-bb6c-4cb0-b227-2e97db99eae1", "labels": ["level::intermediate","detail_level::detailed"]}
 #### Specific deployment strategy
 
 [TIP]
@@ -557,19 +664,7 @@ Specify here how the application should be deployed on the client side:
 Example: The application will be deployed in blue/green mode. Once ready, a DNS switch will point to machines with the new version.
 ====
 
-### Concurrency management requirements
-
-[TIP]
-====
-Specify the internal or external modules that may interfere with the application.
-====
-====
-Example 1: All modules of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
-====
-====
-Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
-====
-
+//🏷{"id": "da0d11fe-0dc9-478e-a984-7a80ea1be482", "labels": ["level::intermediate"]}
 ### Ecodesign requirements
 
 [TIP]
@@ -587,8 +682,10 @@ Example 1: The Power usage effectiveness (PUE) of the site must be 1.5 or less.
 Example 2: Ink and paper consumption should be reduced by 10% compared to 2020.
 ====
 
+//🏷{"id": "602a7a0a-7f25-4512-b0ab-3b97c8a734e0", "labels": ["detail_level::overview", "solution"]}
 ## Target architecture
 
+//🏷{"id": "8088138c-5258-4f3a-a293-0984501bb5db", "labels": ["detail_level::detailed"]}
 ### Principles
 
 [TIP]
@@ -603,6 +700,7 @@ Examples:
 * Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
 
+//🏷{"id": "17a46000-c51d-4fb7-868c-7386aef5b523", "labels": ["level::intermediate","availability"]}
 ### Availability
 
 [TIP]
@@ -709,43 +807,115 @@ Do not take lightly a FT requirement because in general these solutions:
 * *Can even degrade the global availability* because all nodes are strongly coupled and synchronized. A software update for example can force the shutdown of the entire cluster.
 ====
 
-.Some availability solutions
+[TIP]
+====
+
+*High Availability (HA)*:
+
+A system is generally considered highly available (HA) starting at 99.9% availability (~8h45 of downtime/year).
+An HA system typically relies on:
+
+* *Redundancy mechanisms* (e.g., clustering, load balancing, replication).
+* *Failover* devices to automatically switch in case of failure.
+
+Fault Tolerance (FT) always includes High Availability (HA), but HA does not necessarily guarantee FT.
+
+====
+.Some Availability Solutions
+.Some Availability Solutions
 |====
-| Solution | Cost | Implementation complexity (indicative) | Availability level gain (indicative)
-
-| Disks in RAID 1 | XXX | X | XXX
-| Disks in RAID 5 | X | X | XX
-| Redundancy of power supplies and other infrastructure components | XX | X | XX
-| Ethernet card bonding | XX | X | X
-| Active / passive cluster | XX | XX | XX
-| Active / active cluster with LB | XXX | XXX | XXX
-| Servers / spare hardware | XX | X | XX
-| Good system monitoring | X | X | XX
-| Good application monitoring | XX | XX | XX
-| Remote uptime checks | X | X | XX
-| On call staff dedicated to the application, 24/7/365 | XXX | XX | XXX
-| Copy of the backup of the last working-day database dump on SAN bay (for express restoration) | XX | X | XX
+| Solution | Cost | Implementation Complexity | Availability Improvement
+| RAID 1 disks
+| XX
+| X
+| XXX
+| RAID 10 disks
+| X
+| X
+| XX
+| Redundant power supplies and other infrastructure components
+| XX
+| X
+| XX
+| Ethernet card bonding
+| XX
+| X
+| X
+| Active/passive cluster
+| XX
+| XX
+| XX
+| Active/active cluster (often with LB)
+| XXX
+| XXX
+| XXX
+| Spare servers/hardware
+| XX
+| X
+| XX
+| Good system monitoring
+| X
+| X
+| XX
+| Good application monitoring
+| XX
+| XX
+| XX
+| Liveness tests from a remote site
+| X
+| X
+| XX
+| Dedicated 24/7/365 on-call support for the application
+| XXX
+| XX
+| XXX
+| Asynchronous database replication (e.g., PostgreSQL Streaming)
+| XX
+| XX
+| XX
+| Synchronous database replication (e.g., Galera, Oracle Data Guard)
+| XXX
+| XXX
+| XXX
+| Data replication on SAN array for quick recovery
+| XX
+| X
+| XX
+| Auto-scaling and dynamic orchestration (Kubernetes, Serverless)
+| XXX
+| XXX
+| XXX
+| HA distributed storage (Ceph, GlusterFS, MinIO)
+| XXX
+| XXX
+| XXX
+| CDN with distributed caching (Cloudflare, Akamai)
+| XX
+| XX
+| XX
 |====
 
 ====
-Example 1: To achieve the required 98% availability, the envisaged availability measures are as follows:
+Example 1: To achieve the required 98% availability, the following availability measures are considered:
 
-* All servers in RAID 5 + redundant power supplies.
-* HAProxy + keepalived active/passive LB shared with other applications.
-* Active / active cluster of two Apache + mod_php servers.
-* Spare server that can be used to rebuild the MariaDB database from the backup of the day before in less than 2 hours.
-====
-====
-Example 2: To achieve the required availability of 99.97%, the availability mechanisms considered are as follows:
-
-* Application hosted in a Tier 3 DC.
-* All servers in RAID 1 + redundant power supplies + bonding interfaces.
-* HAProxy + keepalived active/passive LB dedicated to the application.
-* Active/active cluster of four servers (i.e., 2N redundancy) Apache + mod_php.
-* Oracle instance in RAC on two machines (with dedicated FC interconnection).
-
+* Single server with RAID 1
+* Daily backups
+* Basic monitoring (e.g., Nagios)
+* 4h SLA for hardware replacement
 ====
 
+====
+Example 2: To achieve the required 99.97% availability, the following availability measures are considered (note: the application will be hosted in a Tier 3 data center):
+
+* 2-server active/passive cluster (Apache + mod_php)
+* PostgreSQL with synchronous replication (e.g., Patroni)
+* Dedicated HAProxy + keepalived
+* Tier 3 DC with multi-homed network
+* Quarterly failover tests
+====
+
+
+//🏷{"id": "c23ff676-32e3-4957-8cec-6a7619a33567", "labels": ["detail_level::detailed"]}
 ### Deployment in production
 
 [TIP]
@@ -756,7 +926,7 @@ Naturally, it will be preferably documented with a UML2 deployment diagram or a 
 
 For clusters, give the instantiation factor of each node.
 
-Comment out if necessary the affinity constraints (two infrastructure components must run on the same node or the same middleware) or anti-affinity (if two infrastructure components must not run on the same node or in the same middleware).
+Comment out if necessary the affinity constraints (two infrastructure components must run on the same node or the same middleware) or anti-affinity (if two infrastructure components must not run on the same node or in the same middleware). Example: Database and application tiers should be deployed on separate instances to avoid CPU contention and maintain resource isolation.
 
 Clearly identify the hardware dedicated to the application.
 ====
@@ -767,67 +937,102 @@ Example:
 image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 ====
 
+//🏷{"id": "28ba010e-1c33-41b9-8061-9596710563bc", "labels": ["detail_level::detailed"]}
 ### Versions of infrastructure components
 
+### Infrastructure Component Versions
 [TIP]
 ====
-List here OS, databases, MOM, application servers, etc ...
+List operating systems, databases, message-oriented middleware (MOM), application servers, etc. here.
+Only specify the exact patch/minor version (`y` or `z` in `x.y.z`) when this level of detail is operationally relevant.
 ====
-Example of infrastructure components
-[cols="1e,2e,1e,2e"]
-|====
-| Infrastructure Component | Role | Version | Technical environment
 
-| CFT
-| Secure file transfer
-| X.Y.Z
-| RHEL 6
-| Wildfly
-| JEE application server
-| 9
-| Debian 8, OpenJDK 1.8.0_144
-| Tomcat
-| Web container for UIs
-| 7.0.3
-| CentOS 7, Sun JDK 1.8.0_144
-| Nginx
-| Web server
-| 1.11.4
-| Debian 8
-| PHP + php5-fpm
-| Dynamic pages of the XYZ GUI
-| 5.6.29
-| nginx
-| PostgreSQL
-| RDBMS
-| 9.3.15
-| CentOS 7
+.Infrastructure Components Example
+[cols="1m,2m,1m,2m"]
+|====
+|Infrastructure Component |Role |Version |Technical Environment
+
+|Express.js
+|Node.js application server
+|4.21.x
+|Debian 13, OpenJDK 1.8.0_144
+
+|Tomcat
+|Web container for UIs
+|10.x.x
+|RHEL 9, Sun JDK 1.8.0_144
+
+|Nginx
+|Web server
+|1.11.x
+|Debian 13
+
+|PHP + php-fpm
+|Dynamic pages for XYZ UI
+|8.3.x
+|Windows Server 2025 + IIS
+
+|PostgreSQL
+|RDBMS
+|17.x
+|AlmaLinux 9.x
 |====
 
+
+//🏷{"id": "3ff53ea7-2e7f-4d71-8848-6819ba23c930", "labels": ["detail_level::in-depth"]}
 ### Matrix of network flows
 
 [TIP]
 ====
-List here all the network flows used by the application. Listening ports should be specified. We also detail here the protocols (JMX or SNMP for example).
+List all technical flows used by the application here, including listening ports.
+Also detail operational flows (such as JMX or SNMP protocols).
 
-In some organizations, this matrix will be too detailed for an architecture document and will be kept in a document managed by the integrators or the operators.
+In some organizations, this matrix may be too detailed for architecture documentation and is maintained separately by integrators or operations teams.
 
-It is not necessary to refer to application flows here because readers are not looking for the same information. Operators or integrators seek completeness of network flows to configure infrastructure (like firewalls).
+Application flows need not be referenced here, as readers are typically looking for different information. Operations and integration teams require comprehensive flow details for firewall configuration and installation purposes.
 
-Include useful information about the network being used in order to assess the performance (TR, latency) and security: LAN, VLAN, Internet, LS, WAN, ...)
+Network types should include useful network information to assess performance (throughput, latency) and security: LAN, VLAN, Internet, LS, WAN, etc.
 ====
 
-.Partial example of a network flows matrix
-[cols="1e,2e,2e,2e,1e,1e"]
+.Partial Example of Technical Flow Matrix
+[cols="1m,2m,2m,2m,1m,1m,1m"]
 |====
-| ID | Source | Destination | Network type | Protocol | Listening port
+|ID|Source|Destination|Network Type|Protocol|Listening Port|Encryption?
 
-| 1 | lb2 | IP multicast 224.0.0.18 | LAN | VRRP over UDP | 3222
-| 2 | lb1 | host1, host2 | LAN | HTTP | 80
-| 3 | host3, host4, host5 | bdd1 | LAN | PG | 5432
-| 4 | sup1 | host[1-6] | LAN | SNMP | 199
+|1
+|lb2
+|IP multicast 224.0.0.18
+|LAN
+|VRRP over UDP
+|3222
+|No
+
+|2
+|lb1
+|host1, host2
+|LAN
+|HTTPS
+|80
+|Yes (TLS)
+
+|3
+|host3, host4, host5
+|bdd1
+|LAN
+|PostgreSQL
+|5432
+|Yes (via VPN)
+
+|4
+|sup1
+|host[1-6]
+|LAN
+|SNMP
+|199
+|No (but uses admin VLAN)
 |====
 
+//🏷{"id": "93947744-e0ec-4bc3-af30-cc60473b7caf", "labels": ["project_size::medium","project_size::large", "detail_level::detailed"]}
 ### Environments
 
 [TIP]
@@ -852,33 +1057,60 @@ It is often useful to subdivide environments into 'platforms' made up of a set o
 | 2 (UAT1 and UAT2)
 ====
 
+//🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate"], "link_to":["da0d11fe-0dc9-478e-a984-7a80ea1be482"]}
 ### Ecodesign
 
 [TIP]
 ====
-List here the infrastructure measures to meet the "Ecodesign Requirements".
+The objectives of eco-design are often aligned with **performance goals** (response times, latency, resource optimization) and **cost goals** (reducing energy consumption, streamlining infrastructure). When a solution impacts several of these dimensions, referencing it briefly may suffice.  
 
-The solutions are often the same as those to performance requirements. In this case, just refer to it.
-
-However, ecodesign analyzes and solutions can be specific to this theme. Some tips for improving energy performance:
-
-* Measure the electrical consumption of the systems with the http://www.powerapi.org/[PowerAPI] probes (developed by INRIA and the University of Lille 1).
-* Use caches (opcode cache, memory caches, HTTP caches ...).
-* Use containers to greatly optimize VMs or physical machines usage (especially when dealing with RAM consumption).
-* Host servers in a high-performance datacenter. Cloud providers generally offer more efficient data centers than on-premises ones. The unit of comparison here is the PUE (Power Usage Effectiveness), a ratio between the energy consumed by the data center and the energy actually used by the servers (therefore excluding cooling and external devices). Some DC can achieve PUE as low as 1.2 against 2.5 on average (2017).
-* However :
-** verify the origin of the energy (see for example the analyzes of Greenpeace in 2017 on http://www.clickclean.org[the use of energy from coal and nuclear] by Amazon);
-** keep in mind that the energy consumed by the application on the client and network side is much greater than that used on the server side (for example, we can estimate that a server consuming barely more than one workstation is enough for several thousands or even tens of thousands of users). Energy reduction also involves extending the lifespan of terminals and the use of soberer devices.
-====
-====
-Example 1: setting up a Varnish cache in front of our CMS will reduce the number of PHP dynamic page construction by 50% and will save two servers.
-====
-====
-Example 2: The application will be hosted on a cloud with a PUE of 1.2 and an 80% renewable source of electrical energy.
+However, some practices are **specifically tied to eco-design** and should be considered right from the architecture phase.  
 ====
 
+#### Energy Optimization & Infrastructure
+* **Power consumption measurement & monitoring**:  
+  - Use energy analysis tools such as PowerAPI (or equivalent).  
+  - Integrate energy metrics into your observability stack (e.g. Prometheus with custom energy metrics).  
+
+* **Resource management & sharing**:  
+  - Prioritize use of **caches** (opcode cache, memory caches, HTTP cache, etc.) to reduce CPU load and disk I/O.  
+  - **Optimize container usage** by dynamically orchestrating resource allocation via Kubernetes (or similar), adapting energy use to real demand.  
+
+* **Data center efficiency**:  
+  - Host workloads in **energy-efficient data centers**. The key metric is PUE (Power Usage Effectiveness).  
+  - **PUE examples**: AWS reports a global PUE of 1.15 (with some top sites as low as 1.04) :contentReference[oaicite:0]{index=0}.  
+  - **Caveat**: Efficiency goes beyond PUE — consider also the **energy source** (renewable vs fossil).  
+
+#### **Overall energy impact**
+* **Assess full stack energy impact**:  
+  - Energy used at the **client side and network** often outweighs server energy.  
+  - **Extending hardware lifecycle** (servers, devices) is effective in reducing carbon footprint.  
+
+* **Deployment optimization**:  
+  - Scale down active instances during low-demand periods.  
+  - Favor **serverless or Function-as-a-Service** where appropriate, to avoid maintaining idle capacity.  
+
+[TIP]
+====
+To evaluate and improve the energy footprint of your software stack, organizations like the **Green Software Foundation** provide assessment models and frameworks.  
+====
+
+====  
+**Example 1**: Deploying a **Varnish cache** in front of our CMS reduces dynamic PHP page generations by **50%** and saves **two server instances**.  
+====  
+
+====  
+**Example 2**: The application is hosted in a **data center with PUE = 1.15**, powered **80% by renewable energy**.  
+====  
+
+====  
+**Example 3**: **Autoscaling Kubernetes pods** helps reduce carbon footprint by disabling idle instances during off-peak periods.  
+====
+
+//🏷{"id": "46e9c057-75cb-4bc0-9c8d-9af81f737c61", "labels": ["level::advanced", "detail_level::detailed"]}
 ### Load regulation
 
+//🏷{"id": "32466600-a3a5-465f-9679-2a244b34321e", "labels": ["level::advanced", "detail_level::in-depth"]}
 #### Circuit breakers
 
 [TIP]
@@ -890,31 +1122,47 @@ If this risk is identified, provide a fuse system with offset of all or part of 
 This measure can also be used in the event of a DDOS-type attack because it allows already connected users to finish their transactions properly.
 ====
 
-#### Quality of Service
+//🏷{"id": "44f0732c-3b29-4bd5-873f-046fc010f728", "labels": ["level::advanced", "detail_level::in-depth"]}
+### Timeout Management
 
 [TIP]
 ====
-It is also useful to provide dynamic application regulation systems, for example:
+All distributed calls (e.g., HTTP(S) to APIs, object storage access, database queries) must have **strictly defined connection and execution timeouts**.  
+Without appropriate timeouts, contention may arise, leading to **critical blocking and resource saturation** if downstream systems slow down.  
 
-* Via throttling (set a maximum number of requests by origin and unit of time). 
-* Token systems (which also make it possible to favor some clients over others by granting them a greater number of tokens).
-====
-====
-Example 1: The total number of tokens for calls to REST operations on the `DetailArticle` resource will be 1000. Beyond 1000 simultaneous calls, callers will get an unavailability error 429 that they will have to manage (and possibly make retries in exponential backoff mode).
+**Key principles:**
 
-Example 1: distribution of tokens will be as follows by default:
-|====
-| Operation on `DetailArticle` | Proportion of tokens
+* **Define cascading timeouts** along the call chain.  
+  - Example: **10s at the reverse proxy**, **8s at the REST API**, **5s at the database**.  
+  - Goal: ensure an infrastructure service does not continue processing a request after its caller has already given up.  
+* **Avoid identical timeout values everywhere**, as this can cause simultaneous expirations and undesirable cascading failures.  
+* **Use smart retries with exponential backoff** (progressively increasing the delay between attempts).  
+* **Add jitter** to the backoff to avoid thundering herds when multiple requests fail at once.  
 
-| GET | 80%
-| POST | 5%
-| PUT | 15%
-|====
-====
-====
-Example 2: a throttling of 100 requests per source and per minute will be set up in the reverse proxy.
+**Jitter:**
+
+- If multiple clients fail simultaneously and retry with a **fixed delay**, they risk overwhelming the system.  
+- Jitter introduces **randomized variability** into the backoff delay to spread the load.  
+- Example:  
+  * **Without jitter**: all clients retry after **1s, then 2s, then 4s…** → risk of request spikes.  
+  * **With jitter**: retries occur at **1.1s, 1.8s, 3.6s, 4.2s…** → load is better distributed.  
 ====
 
+====
+**Example of defined timeouts in a reference architecture:**
+
+|===
+|Infrastructure Module or Component |Connection Timeout (ms)|Execution Timeout (ms)
+
+|JavaScript REST Client   | 1000 | 5000
+|API Gateway (Reverse Proxy) | 1500 | 4000
+|Node.js REST API         | 1000 | 3500
+|PostgreSQL Database      | 500  | 3000
+|===
+====
+
+
+//🏷{"id": "5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796", "labels": ["level::intermediate","detail_level::detailed"]}
 ### Timeout management
 
 [TIP]
@@ -942,301 +1190,504 @@ Example:
 
 ====
 
+//🏷{"id": "c9a330f1-ffde-44e2-a432-a1e178440333", "labels": ["operations"]}
 ### Operations
 
 [TIP]
 ====
-List here the main operating principles of the solution. The details (saved filesystems, production plan, processing planning ...) will be recorded in separate documents.
+List here the main operating principles of the solution. The details (saved filesystems, production plan, processing planning ...) will be recorded in separate documents (or better, coded as IaC resources).
 
 If this application remains in the organization's standard, simply refer to any common document.
 ====
 
-#### Stop/start-up sequence
+//🏷{"id": "0a3f0e4e-0458-4528-9513-1f75a4ad8464", "labels": ["level::intermediate", "detail_level::detailed"]}
+#### Startup/Shutdown Order
 
 [TIP]
 ====
-Specify the starting and the stopping sequence of devices and infrastructure components required to run the application modules. Depending on the situation, you can include some external infrastructure components or not.
+Specify here the startup order of machines and modules, as well as the shutdown order. Depending on the context, you may also include external modules.  
 
-Some others operations documents will contain a more precise version of this chapter (for instance using detailed SystemD "Wants"), only describe here the general principles.
+In general, startup follows the **reverse order of the dependency chain**, while shutdown follows the **direct order of component dependencies**.  
 
-Starting sequence is generally done in the reverse direction of the linking chains and stopping in the direction of the linking chain. Most of the time, the stopping sequence is simply the reversed sequence version of the starting sequence.
-
-Specify any issues in the event of a partial start-up sequence (for example, will the application server connection pool retry to connect to the database if it is not yet started? How many times?)
-====
-====
-Example of a start-up sequence:
-
-. pg1 on bdd1 server
-. mq1 on bdd1
-. services1 on host3, host4 and host5 servers
-. services2 on host3, host4 and host5 servers
-. batches on servers host1, host2
-. GUI on servers host1, host2
-
-Example of stopping sequence:
-
-. GUI on servers host1, host2
-. batches on servers host1, host2
-. services2 on host3, host4 and host5 servers
-. services1 on host3, host4 and host5 servers
-. mq1 on bdd1
-. pg1 on bdd1 server
-
+Be sure to specify any constraints in case of partial startup (e.g., does the application server’s connection pool retry connecting to the database if it is not yet available? How many times? At what frequency?).  
 ====
 
-#### Scheduled operations
+====
+.Example startup order:
+
+. Database `pg1` on server `db1`  
+. Database `mq1` on server `db1`  
+. `services1` on servers `host3`, `host4`, `host5`  
+. `services2` on servers `host3`, `host4`, `host5`  
+. `batchs` on servers `host1`, `host2`  
+. `ui` on servers `host1`, `host2`  
+
+.Example shutdown order:
+
+1. `ui` on servers `host1`, `host2`  
+2. `batchs` on servers `host1`, `host2`  
+3. `services2` on servers `host3`, `host4`, `host5`  
+4. `services1` on servers `host3`, `host4`, `host5`  
+5. Database `mq1` on server `db1`  
+6. Database `pg1` on server `db1`  
+====
+
+
+//🏷{"id": "314a1ef0-48b4-42a4-a8b6-be49250c5a50", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+#### Scheduled Operations and Monitoring
 
 [TIP]
 ====
-List macroscopically (don't try to make it exhaustive, we just need jobs streams principles applying):
+Describe here all scheduled operations and how they are monitored, including:
 
-* The jobs or family of jobs and their possible inter-dependencies. Specify if a scheduler will be used.
-* Internal tasks (cleaning/checking tasks) of the system which only fulfill technical roles (purges, rebuilding indexes, deleting temporary data, etc.)
-====
-====
-Example 1: the `process-demand` job will be launched every 5 mins by JobScheduler.
-====
-====
-Example 2: the internal `ti_index` process is a Java class calling `REINDEX` commands in JDBC. It is launched from a Quartz scheduler once a month.
-====
+* Jobs and their potential interdependencies (execution order, constraints, frequency).  
+* Internal processes (cleanup tasks, maintenance) that serve only technical roles (purges, index rebuilds, deletion of temporary data, etc.).  
+* The scheduler used to orchestrate jobs and consolidate the production plan (examples: VTOM, JobScheduler, Dollar Universe, Control-M, etc.).  
+* Application-specific characteristics:  
+  - Degree of job parallelism;  
+  - Mandatory time windows;  
+  - Retries in case of errors;  
+  - Execution reports (content and format).  
 
-#### Switch to maintenance mode procedure
-
-[TIP]
-====
-Explain (if necessary) the measures and procedures allowing to put the application offline explicitly for the users.
-====
-====
-Example: We will use the F5 BigIp LTM to display an unavailability page.
+It is also crucial to define monitoring and alerting mechanisms to detect failures in critical jobs.  
 ====
 
-#### Backups and restores
-
-[TIP]
 ====
-Give the general safeguard policy. It must meet the "RPO Requirements". Likewise, restoration measures must be compatible with the "Availability Requirements":
+Example 1: Jobs will be scheduled by the organization’s JobScheduler instance.  
 
-* Are backups hot ? Cold ?
-* Which data should be saved? (carefully select the data to be backed up because the cumulative volume of the backups set can easily reach ten times the backed up volume).
-** system images / snapshots for server or VM recovery?
-** full filesystems or directories?
-** databases in dump format? binary format?
-** the logs? traces ?
-* Are the backups encrypted? if so, specify the encryption algorithm used and how the key will be managed.
-* Are the backups compressed? if so, with which algorithm? (lzw, deflate, lzma ...)? using which compression level ? be careful to find the compromise between compression/decompression time and storage gain.
-* What tools are used? (simple cron?, Quartz, "backup-manager" tool? IBM TSM?).
-* What technology is used for backups? (LTO or DLT magnetic tapes? external drives? RDX cartridges? cloud storage like Amazon S3? optical support? NAS? ...)
-* What is the frequency of each type of backup? (do not go into too much detail here)
-* What is the backup strategy?
-** complete? incremental? differential? (Take into account availability requirements. Restoring an incremental backup will take longer than a differential backup restore, itself longer than a full backup restore);
-** which rollover strategy? 
-* Backup execution report: content, how is it sent? where are the logs?
-* Where are the backups stored? (ideally as far as possible from the backed up system while allowing restoration in a time compatible with availability requirements).
-* Who has physical access to the backups and their logs? to the encryption key? (think about confidentiality requirements).
-
-
-We recommend :
-
-* to use a medium separate from the source data;
-* to have at least two separate storage media if data is critical to the organization (e.g. hard disk + magnetic tape);
-* to make sure that the backups are not modifiable by the machine which was backed up (for example, a backup on NAS may be deleted by mistake at the same time as the backed up data);
-* to use read-only features with online backups systems to deal with ransomwares (some online backups systems have a temporary read-only attribute feature).
-====
-====
-Rollover example: set of 21 backups over one year:
-
-* 6 daily incremental backups;
-* 1 full backup on sunday which serves as a weekly backup;
-* 3 weekly backups corresponding to the 3 other sundays. The support of the last sunday of the month becomes the monthly backup;
-* 11 monthly backups corresponding to the last 11 months.
+* They must never run on public holidays.  
+* Execution is restricted to the **11:00 PM – 6:00 AM** window. Any task scheduled outside this window will not run.  
+* No more than **five concurrent instances** of job `J1` may run.  
+* Each job will produce a **detailed execution report** containing the number of items processed, processing duration, and relevant business KPIs.  
 ====
 
-Finally, it's important to keep in mind that what we _really_ want are restores, not backups. It is crucial to ensure that the restoration will be functional:
+====
+Example 2: The job `process-request` will run in **continuous mode**, executed every **5 minutes** via JobScheduler.  
+====
 
-* Are the backups valid and complete?
-* What restoration tests are planned? how often (once a year is a minimum)?
-* How long will a restoration (benchmarks) take? Is it compatible with the RTO?
-* Do we have external dependencies that can slow us down (safe accessible during the day only, for example)?
-* Do we have enough resources for the restoration (intermediate storage, CPU and memory for decompression/decryption, etc...)? 
+====
+Example 3: The internal process `ti_index` is a **Java class** that issues `VACUUM FULL` commands over JDBC, scheduled by Quartz **once a month**.  
+====
 
-#### Logs
+
+
+//🏷{"id": "0cf18e71-b20e-4b2b-9377-e104c21c9785", "labels": ["level::intermediate", "detail_level::in-depth"]}
+#### Maintenance Mode
 
 [TIP]
 ====
-Without being exhaustive on the log files, present the general policy for the production and management of logs:
-
-* What are the log turnover policies? is the rollover managed by the application (via a `DailyRollingFileAppender` log4j for example) or by the system (typically via the logrotate daemon)?
-* Is a centralization of logs planned? (essential for SOA or micro-services architectures). See for example the ELK stack.
-* What is the level of verbosity expected by type of infrastructure component? we have often to choose between the WARN and INFO levels. If the developers have used the INFO level for relevant information (environment at startup for example) and not the DEBUG, set the INFO level.
-* Are anti-log injection (XSS) measures taken?
-
-====
-====
-Example 1: the application logs of the service-allmydata module will be in production at INFO level with daily rotation and kept two-month.
-====
-====
-Example 2: the logs will be escaped using the Jakarta commons-lang `StringEscapeUtils.escapeHtml()` method.
+Detail the mechanisms and procedures that allow the application to be explicitly taken offline for users.  
 ====
 
-#### Monitoring
-
-[TIP]
 ====
-Monitoring is a central pillar of availability by drastically reducing MTTD (average failure detection time).
-
-Ideally, it will not only be reactive but also proactive (weak signals detection).
-
-Metrics are raw measurements (% CPU, FS size, size of a pool, etc.) from system, middleware or application probes.
-
-Indicators are logical combinations of several metrics with thresholds (e.g. 'critical level if the CPU usage on server s1 remains above 95% for more than 5 minutes').
+Example 1: We will use the F5 BigIP LTM to display a maintenance (unavailability) page.  
 ====
 
-##### Technical monitoring
+====
+Example 2: A `maintenance.lock` file will be used to disable access to the backend. A shell script will trigger a degraded mode that serves a temporary static page.  
+====
+
+
+//🏷{"id": "fd5b00b0-4b23-4cbc-8117-0dcee74ddd8b", "labels": ["detail_level::detailed"]}
+#### Backups and Restores
+
+//🏷{"id": "506b442c-ec84-454c-b11b-ddf7fe560701", "labels": []}
+##### Scope
 
 [TIP]
 ====
-List the metrics:
+What is the scope of the backup?
 
-* System (% of file system usage, load, swap in/out volume, number of threads...)
-* Middleware (% of HEAP used on a JVM, number of threads on the JVM,% use of a pool of threads or JDBC connections ..)
-====
-====
-Example: we measure the percentage of wait-io and the server load.
-====
-
-##### Application monitoring
-
-[TIP]
-====
-List the application metrics (developed internally). They can be technical or functional:
-
-* Number of requests to access a screen.
-* Number of contracts processed per hour.
-* ...
-
-It is also possible to set up BAM (Business Activity Monitoring) tools based on these metrics to monitor process-oriented indicators.
-====
-====
-Example: the application monitoring REST API will offer a Metric resource containing the main business metrics: number of packages to send, number of active preparers, etc.
+* System images/snapshots for full server or VM system restore?  
+* File systems or directories?  
+* Databases in dump format?  
+* Logs? Traces?  
 ====
 
-##### Monitoring tools
+====
+Example of scope:
+
+* VM system backups;  
+* PostgreSQL database backups;  
+* Ceph document backups.  
+====
+
+//🏷{"id": "ef7922e8-8122-4120-86f9-c5fed0676811", "labels": [], "link_to":["f0e94586-876d-46ca-b060-b5dcde468734","3e07d851-b2dc-422f-9cba-1b4447a5c956"]}
+##### Backup Strategy
 
 [TIP]
 ====
-Such tools (like Nagios, Zabbix, Hyperic HQ in the Open Source world):
+Provide the general backup policy. It must meet **RPO requirements**. Likewise, restore mechanisms must align with **availability requirements**.
 
-* Collect metrics (in SNMP, JMX, HTTP ...) periodically.
-* Persist metrics in some type of time series database (like RRD).
-* Consolidates indicators from metrics.
-* Displays trends over time for these indicators.
-* Allows setting alert thresholds based on indicators and notifying operators in the event of exceeding.
-====
-====
-Example: the management of the monitoring will be based on the Grafana platform.
-====
+* What types of backups are performed? Hot? Read-only? Cold (requiring service downtime)?  
+* What is the frequency of each type of backup? (do not over-detail here, this belongs in the operations handbook).  
+* What is the backup strategy?  
+** full? incremental? differential? (consider availability: restoring from an incremental backup is slower than differential, which is slower than full).  
+** what rotation? (are backup media periodically overwritten)?  
 
-##### Alerting
-
-[TIP]
-====
-Specify here the alert conditions and the channel used
-====
-====
-Example: an SMS is sent if no request occurs for the last 4 hours or if the number of technical errors of a module exceeds 10/h.
+* How is backup reporting handled? Email? Where are the logs stored? Are they easily accessible? Do they contain sensitive data?  
 ====
 
-##### Black box monitoring
-
-[TIP]
 ====
-It is also highly desirable and inexpensive to provide a black box monitoring test system (via scenarios run automatically). The idea here is to test a system as a whole and with the most external end-user view possible (unlike whitebox monitoring for which specific module or infrastructure components are supervised).
+Example of rotation: 21-backup set over one year:
 
-In general, these tests are simple (HTTP requests from a scheduled curl for example). They must be launched from one or more remote sites to detect network cuts.
-
-In general, they don't perform update actions but only read-only ones. If they perform updates, it will be necessary to be able to identify in all the infrastructure components the data resulting from this type of requests in order not to pollute the business data and the decision-making systems. We don't advice such tests because they bring a lot of complexity.
-====
-====
-Example for a website: black box monitoring tests will be implemented via HTTP requests launched via the uptrends.com tool. In the event of a breakdown, an email is sent to the operators.
+* 6 daily incremental backups;  
+* 1 full backup on Sundays, serving as the weekly backup;  
+* 3 other weekly backups corresponding to the other Sundays. The last Sunday of the month becomes the monthly backup;  
+* 11 monthly backups corresponding to the previous 11 months.  
 ====
 
-##### Metrology
+//🏷{"id": "93b244a6-976c-465a-80fc-9665a81adeb9", "labels": []}
+##### Tooling
 
 [TIP]
 ====
-Are we monitoring the performance of the application in production? 
+List the tools used for different backup types.
 
-This allows:
+What tools are implemented?
 
-* To have factual feedback on _in vivo_ performance and to improve the quality of decisions about possible resizing of the hardware platform.
-* To proactively detect failures (following a sudden drop in the number of requests for example).
-* Perform statistical analysis on the use of modules order to promote decision-making (for the decommissioning of an application, for example).
-
-There are three main groups of solutions:
-
-* APMs (Application Performance Monitoring): tools that inject probes without application impact, which collect and restore them (some even reconstitute the complete linking chains via correlation identifiers injected during distributed calls). Example: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Pinpoint in Open-Source ...). Check that the overhead of these solutions is still negligible or limited and that the stability of the application is not jeopardized.
-* In-house metrology by logs if the requirements are low.
-* External query sites which periodically call the application and produce dashboards. They have the advantage of taking into account the WAN times not available via internal tools. To be used in conjunction with black-box monitoring (see above).
-====
-====
-Example: site performance will be continuously monitored by `pingdom.com`. More in-depth performance analyzes will be implemented by Pinpoint as needed.
+* Simple cron + rsync + tar?  
+* Open Source file-oriented tool such as *backup-manager*?  
+* Deduplicated backup tools such as Restic, Borg, Kopia?  
+* VM imaging-oriented tool such as Veeam or FSArchiver?  
+* Cloud-oriented backup tools such as *Duplicity* or *Restic*?  
+* Database-specific backup tool (e.g., MySQLDump, Barman)?  
 ====
 
-### Jobs scheduling
+====
+Example 1: PostgreSQL database streaming backup with Barman, with a full backup every night.  
+====
+====
+Example 2: Daily backup of documents using Restic with S3 storage on OVH Public Cloud.  
+====
+
+//🏷{"id": "49e36233-2293-4135-80b2-5c145fe72c7d", "labels": []}
+##### Backup Processing
 
 [TIP]
 ====
-Indicate the scheduler or planner used to manage the jobs and consolidate the production plan (example: VTOM, JobScheduler, Dollar Universe, Control-M, ...). Detail any specificities of the application:
+List the operations performed on backups:
 
-* Degree of parallelism of jobs
-* Mandatory time slots
-* Retries in case of error
-* ...
+* Are backups deduplicated? (identical files or data blocks are stored only once across the whole backup set). Most modern solutions use this. Examples: Open Source tools like Restic or proprietary ones like Veeam rely heavily on this principle (similar to Git repositories) to drastically reduce backup size and eliminate the need for full backups.  
 
-Do the jobs have to produce an execution report? in what form and with what content?
-====
-====
-Example 1: the jobs will be scheduled by the JobScheduler instance of the organization.
+* Are backups encrypted? If yes, is it whole-partition encryption, per-file encryption, or both? Should directory and file names also be encrypted? Specify the algorithm used and how keys will be managed (digital vaults, recovery codes, etc.).  
 
-* The jobs should never run on public holidays.
-* Their execution will be limited to the periods 11h00pm-06h00am. Their schedule must therefore be in this range or they will not be launched.
-* We will not launch more than five instances of the job J1 in parallel.
+* Are backups compressed? If yes, with which algorithm (lzw, deflate, lzma, etc.)? At which compression level? Be careful to balance storage savings against compression/decompression overhead.  
 
-Example 2: The jobs will have to produce an execution report at each launch (with basic data such as the number of elements processed, the duration of the treatment and any relevant indicator).
+* Should **Point In Time Recovery (PITR)** be supported, to allow restoration to an exact, configurable moment?  
+
+* Are backups protected against write/delete operations (anti-ransomware)? If yes, is this temporary or permanent?  
+
+* Other features? (integrity tests, automatic cleanup of archives, archive file refactoring, etc.).  
 ====
 
+====
+Example 1: Block-level deduplication of backups using Restic.  
+====
+====
+Example 2: Backup encryption with AES-256 using a LUKS encrypted partition.  
+====
+====
+Example 3: Compression with lzma2 at level 6.  
+====
+====
+Example 4: Online backups stored in S3 object storage are protected against ransomware using S3 Object Lock in Compliance mode.  
+====
+====
+Example 5: PITR enabled on PostgreSQL via Barman to allow second-precise recovery in case of corruption or human error.  
+====
 
-### Migrations
+//🏷{"id": "d8955c5f-7ccd-493e-8697-bdd6611ef727", "labels": []}
+##### Storage Modalities
 
 [TIP]
 ====
-This chapter describes a required migrations from older systems.
+Specify the storage media used for backups and their location.
 
-Describe on a macroscopic scale the planned procedure as well as the rollback strategy in case of problem.
+* Is the medium offline, nearline (accessible via tape library), or online (always accessible)? Note: online and nearline backups are vulnerable to human error and ransomware.  
 
-Describe, if necessary, a dry-run operation in parallel with the old system.
-====
-====
-Example 1: The X API module will be replaced by the Y API. Then the Z Oracle database will be migrated in one-shot via a PL/SQL + DBLink script to the X instance with the new basic format of the T module.
-====
-====
-Example 2: In the event of a problem with the new module, a rollback will be provided: the old data will be restored within two hours and the new data from the failover will be taken over by the S1 script.
+* Which storage technology is used? (magnetic tapes such as LTO or DLT? external disks? RDX cartridges? cloud storage such as Amazon S3? optical media? NAS?).  
+
+* Where are backups physically stored? (ideally offline and as far away from the system as possible, while still allowing restoration within the RTO window).  
+
+* What is the legislation of the country hosting backups? Is it compatible with legal requirements such as GDPR? (consider the US Cloud Act, etc.).  
+
+* Who has physical access to backups and logs? To the encryption keys? (consider confidentiality requirements).  
+
+* Are we aware of external dependencies that could slow us down (e.g., bank vault accessible only during business hours)?  
+
+* Strongly recommended:  
+** use a medium different from the source data;  
+** maintain at least two separate backup media if the data is vital to the organization;  
+** ensure backups cannot be modified by the machine being backed up (e.g., backups stored on a NAS can be deleted along with the original data).  
+
+* Apply the "3-2-1 rule" for critical data: at least 2 copies in addition to production data, stored on 2 different types of media, with at least 1 offline copy in a secure offsite location (e.g., bank vault).  
 ====
 
+====
+Example 1: For the small ACME company, one weekly backup of accounting data will be kept online on the NAS + an offline copy on an encrypted external disk stored in a car safe. On both media, 12 monthly backups and one yearly backup will be kept, allowing recovery up to 2 years in the past.  
+====
+====
+Example 2: For tax data backups, every transaction to the database will be saved by Barman using WAL logs. Each night, a full Barman backup of the database will be performed. Retention: 7 daily + 4 weekly + 12 monthly + 1 yearly backups stored online (hard drives) and nearline (tape library with LTO tapes). Data will be encrypted and compressed. A copy of weekly backups will be kept offline on tapes stored in a secure remote site.  
+====
+
+//🏷{"id": "2c96a319-9929-453b-a51e-d1de9b1103af", "labels": []}
+##### Restore
+
+[TIP]
+====
+Always remember that what we really want are **restores**, not backups. It is crucial to ensure that the restore process will work:
+
+* Are backups correct and complete?  
+* What restore tests are planned? At what frequency (at least once per year is a minimum)?  
+* How long will a restore take? Is this compatible with the RTO?  
+* How are errors handled? (retries, timeouts, logs, alerts, etc.).  
+
+* Do we have sufficient hardware resources for restore within the RTO window (intermediate storage, CPU/memory for decompression/decryption, etc.)?  
+
+* How are restore tests performed?  
+  ** Which test datasets?  
+  ** What reporting/follow-up format?  
+  ** Where are logs stored?  
+  ** Is there a risk of accidentally overwriting production data during restore tests? (if yes, test on another environment).  
+  ** Are restored data properly encrypted (restore tests must not risk massive confidentiality breaches)?  
+  ** …  
+====
+
+====
+Example 1: A production data restore test will be performed in pre-production at least once a year.  
+====
+====
+Example 2: Restore tests will be conducted on an encrypted file system (LUKS).  
+====
+====
+Example 3: A monthly restore of the latest PostgreSQL backups will be performed on a test environment with validation queries run against the restored data.  
+====
+
+
+//🏷{"id": "74ff1a8d-91b4-4437-bbfd-439e3d4b18b5", "labels": ["level::intermediate","detail_level::detailed"]}
+#### Logging
+
+[TIP]
+====
+Without being exhaustive on log files (to be detailed in the operations handbook), present the general policy for log production and management (log content itself is addressed in the development view):
+
+* **Rotation and retention policies**:  
+  ** How are log files managed? Application-level rotation (`DailyRollingFileAppender` in log4j, logback) or system-level (`logrotate`)?  
+  ** What retention policy is applied? (e.g., retention period, maximum file size before deletion).  
+  ** Where are old logs stored? (local files, object storage, centralized archive...).  
+
+* **Centralization and analysis of logs**:  
+  ** Is a log collection and analysis solution in place? (ELK, Loki, Splunk, etc.).  
+  ** Is real-time log monitoring provided? (alerts on critical errors).  
+
+* **Logging levels**:  
+  ** What log level is configured per module (`WARN`, `INFO`, `DEBUG`, etc.)?  
+  ** Should the application allow dynamic modification of log levels in production (e.g., via JMX, API)?  
+
+* **Security and compliance**:  
+  ** Are logs protected against injections (*Log Injection*)?  
+  ** Is anonymization or pseudonymization of sensitive data planned? (GDPR / privacy requirements).  
+  ** Ensure protection against unauthorized modification or deletion of logs.  
+  ** If logs are available for consultation, what authentication and authorization mechanisms are enforced?  
+====
+
+====
+.Example 1: Application log management  
+Application logs for the `service-xyz` module will be produced at `INFO` level in production, with daily rotation, two months of retention, and centralized storage in ELK.  
+====
+
+====
+.Example 2: Log security  
+Logs will be protected against injection via the `StringEscapeUtils.escapeHtml4()` method from `org.apache.commons.text`.  
+====
+
+====
+.Example 3: Access logs  
+Access logs will be forwarded to a remote log server in addition to being kept locally for a maximum of 7 days.  
+====
+
+//🏷{"id": "2c3d502d-d67c-417b-88f4-d610e158e930", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+### Monitoring
+
+[TIP]
+====
+Monitoring is a **central pillar of availability**, as it drastically reduces the **MTTD (Mean Time to Detect)** for failures.  
+Effective monitoring should not be **purely reactive** (alerting only when a failure occurs), but also **proactive** by detecting weak signals before an outage happens.
+
+- **Metrics**: raw data collected (CPU %, filesystem size, number of requests, etc.), from system, middleware, or application probes.  
+- **Indicators**: combinations of multiple metrics with defined alert thresholds (e.g., *"critical alert if server `s1` CPU usage exceeds 95% for more than 5 minutes"*).  
+====
+
+//🏷{"id": "f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
+#### Technical Monitoring
+
+[TIP]
+====
+List the **technical metrics (infrastructure & middleware)** to be monitored:
+
+- **System**:  
+  * CPU usage (%), load average, memory usage (%), swap in/out.  
+  * Disk and filesystem usage (% used, free inodes).  
+  * Network usage (latency, throughput, error rate).  
+  * Number of active processes and threads.  
+  * IO wait (CPU time blocked waiting for IO).  
+
+- **Middleware & databases**:  
+  * % of **HEAP used** in a JVM.  
+  * Number of **active threads** in a JVM.  
+  * Usage of a **thread pool** or **JDBC connection pool**.  
+  * Average database response time, number of pending queries, cache hit ratio.  
+  * Garbage collection (GC) statistics.  
+====
+====
+**Example**: Monitoring **CPU % in IO wait** and **server load average**.  
+====
+
+//🏷{"id": "be41d5fd-e1a8-4a49-bf80-a81c3db693db", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
+#### Application & Business Monitoring
+
+[TIP]
+====
+List here the **application** or **business-level metrics**:
+
+- **Application metrics**:  
+  * Number of HTTP requests received per service.  
+  * Average response time per REST API.  
+  * Service error rate (5xx).  
+
+- **Business metrics**:  
+  * Number of contracts processed per hour.  
+  * Volume of orders approved/rejected.  
+  * Number of packages pending shipment.  
+
+**Business Activity Monitoring (BAM)**:  
+A BAM layer can be implemented to generate **business process-oriented indicators** based on these metrics.  
+====
+====
+**Example**: The REST API for monitoring will expose a `Metric` resource containing **key business indicators**:  
+
+- **Number of packages pending shipment**.  
+- **Number of active warehouse staff**.  
+- **Transaction error rate**.  
+====
+
+//🏷{"id": "236fd883-5195-4b81-b5dd-f6c66f9ae3f0", "labels": ["level::intermediate", "detail_level::in-depth","monitoring"]}
+#### Monitoring & Observability Tools
+
+[TIP]
+====
+A monitoring platform collects, stores, and analyzes metrics in real time.  
+The most common Open Source tools are:
+
+- **Metric collection**:  
+  * **Prometheus** (HTTP scraping).  
+  * **Telegraf** (agent collecting CPU, memory, network, etc.).  
+  * **SNMP, JMX** for system and JVM monitoring.  
+
+- **Time-series metric storage**:  
+  * **InfluxDB, Prometheus TSDB, TimescaleDB**.  
+  * **Elasticsearch** (if log collection is also needed).  
+
+- **Visualization & alerting**:  
+  * **Grafana** (interactive dashboards).  
+  * **Zabbix, Netdata, Nagios** (classic system monitoring).  
+
+Indicators are displayed in **dynamic dashboards**, and **alert thresholds** are defined to notify operations teams.  
+====
+====
+**Example**:  
+Technical and application monitoring will rely on a **Grafana + Prometheus + Elasticsearch** stack.  
+====
+
+//🏷{"id": "aa3c7bab-527c-4411-a1f2-583a1d62118f", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+#### Alerting & Notifications
+
+[TIP]
+====
+Define **alert trigger conditions** and **notification channels**:
+
+- **Alert types**:  
+  * **Critical (urgent)** → server down, disk saturation, application crash.  
+  * **Warning** → upward trend, weak signals (e.g., memory usage > 80%).  
+
+- **Notification channels**:  
+  * **Email alerts** (non-urgent).  
+  * **Slack, Mattermost, Microsoft Teams** (operational monitoring).  
+  * **SMS or PagerDuty** (urgent, 24/7 on-call).  
+
+- **Triggering rules**:  
+  * Require repetition over a period before alerting (to avoid noise).  
+  * **Event correlation** to avoid false positives.  
+====
+====
+**Example**:  
+An **SMS alert** will be sent if:  
+
+- **No request has been received for 4 hours**.  
+- **The number of 5xx errors exceeds 10/hour** on a critical module.  
+====
+
+//🏷{"id": "20dff012-aa85-465f-ba2e-272d7580dd0b", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+##### Black-box Monitoring
+
+[TIP]
+====
+It is highly recommended (and inexpensive) to implement black-box monitoring tests (automated end-to-end scenarios). The goal is to test the system as a whole, from the end-user perspective, as opposed to white-box monitoring that targets specific modules.  
+
+In general, these tests are simple (e.g., scheduled HTTP requests using `curl`). They should be run from one or more remote sites to detect network outages.  
+
+They rarely need to perform update operations. If they do, it must be possible to identify this test data across all modules so it does not pollute business data or analytics.  
+====
+====
+**Example**: For a website, black-box monitoring tests will be run via HTTP requests executed by Netvigie. In case of failure, an email notification is sent to the operations team.  
+====
+
+//🏷{"id": "f455e87e-47f0-422a-a80b-0ec65517ad53", "labels": ["level::advanced", "detail_level::detailed","monitoring"]}
+##### Performance Monitoring (Metrology)
+
+[TIP]
+====
+Tracking application performance in production is essential to:
+
+* Provide factual feedback on *in vivo* performance, helping improve decision-making for hardware platform resizing.  
+* Detect failures proactively (e.g., sudden drop in the number of requests).  
+* Perform statistical analysis on module usage to guide decision-making (e.g., decommissioning an underused application).  
+
+Three main categories of solutions exist:
+
+* **APM (Application Performance Monitoring)**:  
+  These tools inject lightweight probes into the application, collect data, and present it via dashboards. Some even reconstruct full call chains using correlation IDs injected in distributed requests.  
+  **Examples**: Oracle Enterprise Manager, Oracle Mission Control, Radware, BMC APM, Dynatrace, Glowroot (Open Source), etc.  
+  ⚠ Ensure the overhead of these solutions is negligible or controlled.  
+
+* **Custom log-based metrology**:  
+  A simple solution for modest needs, extracting performance metrics from application logs.  
+
+* **External query sites**:  
+  These services perform periodic requests to the application and generate dashboards. They account for WAN transit times, which internal tools cannot. Best used as a complement to black-box monitoring.  
+====
+
+====
+**Example**:  
+
+* Site performance will be continuously monitored with **Datadog**.  
+* Deeper performance analysis will be performed with **Glowroot** as needed.  
+====
+
+//🏷{"id": "53b2f98c-11d9-4aa0-b762-b8f31db0c30f", "labels": ["level::intermediate"]}
 ### Decommissioning
 
 [TIP]
 ====
-This chapter will be read when the application reaches the end of its life and must be removed or replaced. 
+This section should be completed when the application reaches end-of-life and must be removed or replaced. It should cover:
 
-Among other things, he describes:
-
-* Data to be archived or on the contrary destroyed with a high level of confidence.
-* The physical devices to be removed or destroyed.
-* Server and/or client side uninstallation procedures (it is common to see obsolete modules still running on servers and causing performance and security issues that go under the radar).
-* Security constraints associated with decommissioning (this is a sensitive step that is often overlooked, for example hard drives can be found filled with very sensitive data following a donation of equipment).
+- **Data** to be archived or, conversely, destroyed with a **high level of assurance**.  
+- **Physical equipment** to be removed, recycled, or securely destroyed.  
+- **Uninstallation procedures** on both server and/or client side (it is common for obsolete modules to remain running, creating **performance and security risks**).  
+- **Security constraints** associated with decommissioning (this is a **critical step** often overlooked; for example, hard drives containing **sensitive data** may be recovered after simple hardware donations).  
 ====
 
 ====
-Example: The X, Y, and Z servers will be transferred to the social service for charitable donation after completely erasing the hard drives using the shred command, three passes.
+Example: Servers `X`, `Y`, and `Z` will be transferred to the social services department for charitable donation after secure disk wiping using the `shred` command with **3 passes**, ensuring definitive data deletion.  
 ====

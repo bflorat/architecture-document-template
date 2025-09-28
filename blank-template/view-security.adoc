@@ -6,298 +6,139 @@
 :icons: font
 :toc-title: Table of contents
 
-*Last modified* : {docdate} 
-
-*Last global review* : 
-
-*Document status* :  
-
+[#a08e807e-1e9b-4752-a5b8-372a40665c49]
 ## Introduction
 
-This is the security point of view. It describes all the measures implemented to prevent unauthorized use, misuse, illegitimate modification or misappropriation of application modules.
-
-The other views of the document are accessible link:./README.adoc[from here].
-
-The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
-
+[#cd8c64f1-d216-4b24-946c-175455e824a7]
 ### Reference Documentation
-
-.Safety documentary references
-[cols="1,1,3,3"]
+.Documentary references
+[cols="1e,1e,4e,4e"]
 |====
 | N ° | Version | Document title / URL | Detail
 
-|  |  |  | 
-
+| 1 | 1.0 | Safety_measures.pdf | Catalog of qualified safety measures
+| 2 | latest | Company security standards | http://acme.com/myurl
 |====
 
+[#ea245600-dbd6-4f56-a58c-8c77556643ad]
 ## Not ruled
 
+[#a058d388-72e1-4136-8659-7a9db1c1a340]
 ### Points subject to further study
 
-.Points subject to further study
-[cols="1,3,1,1,2"]
-|====
-| ID | Detail | Status | Subject holder | Deadline
-
-| 
-| 
-| 
-| 
-| 
-
-|====
-
+[#68a4f41c-1139-4cdd-bb9e-e15667f47fd9]
 ### Assumptions
 
-.Assumptions
-[cols="1,1"]
-|====
-| ID | Detail
-
-| 
-| 
-|====
-
+[#53ae9c06-1846-4dd2-ab55-f4a784c6a676]
 ## Constraints
 
+[#4882e5b9-c250-4079-8b24-04996016606d]
 ## Requirements
 
+[#323d4c77-810a-4015-bc1a-11da07e24f3b]
+### Integrity Requirements
 
-[[integrity-requirements]]
-### Integrity requirements
+[#acfa846e-0ed7-4f41-a593-f4ee29e94efd]
+### Confidentiality Requirements
 
-.Integrity level required by data class
-[cols = '2, 1, 1, 1, 1']
-|====
-| Data class
-| "Alterable" level ([small]#The data may be altered)#
-| "Detectable" level ([small]#The data may be altered if the alteration is identified within a reasonable time)#
-| "Controlled" level ([small]#The data may be altered, if the alteration is identified and the original data is recovered)#
-| "Integral" level ([small]#The data must always be rigorously intact)#
+[#94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b]
+### Identification Requirements
 
-| 
-|
-|
-|
-| 
+[#9d0646cd-3e3f-4878-96de-f215c9f20bdc]
+### Authentication Requirements
 
-|====
+[#58bf95ee-2fc4-4972-ac2b-7e2f775a4eb9]
+#### Authentication Requirements by Use Case
 
-[[confidentiality-requirements]]
-### Confidentiality requirements
-
-.Level of confidentiality required by data class
-[cols="1,1,1,1,1"]
-|====
-| Data class 
-| “Public” level ([small]#Anyone can access the data)#
-| Limited Level "([small]#Data is only accessible to authorized persons)#
-| "Reserved" level ([small]#Data can only be accessed by authorized internal staff)#
-| Level "Private "([small]#The data is visible only to the interested party)#
-
-| 
-| 
-|
-|
-|
-
-|====
-
-[[identification-requirements]]
-### Identification requirements
-
-
-[[authentication-requirements]]
-### Authentication requirements
-
-.Authentication requirement per use case
-[cols="1,1,1,1,1,1,1"]
-|====
-| Authentication case
-| Password respecting the company password policy
-| Known ssh public key
-| OTP by Token
-| Biometrics
-| Knowledge of business data
-| Activation email
-
-|||||||| 
-
-|====
-
-[[identity-federation-requirements]]
+[#f552f1e6-9aea-4866-8da1-e7ed676fd228]
 ### Identity Federation Requirements
 
+[#400376ad-cc62-4ab3-8e96-5a9f9a954e49]
+### SSO and SLO Requirements
 
-[[sso-requirements]]
-### SSO and SLO requirements
-
-[[non-repudiation-requirements]]
+[#01404b83-f96f-4649-ace0-e5611601b830]
 ### Non-repudiation requirements
 
-.Non-repudiation requirements
-[cols="e,e,e"]
-|===
-| Signed data | Origin of the client certificate | Origin of the server certificate
-
-| 
-| 
-| 
-|===
-
-[[privacy-requirements]]
+[#958fcccc-60cb-4158-940f-279cd1d12c9b]
 ### Anonymity and privacy requirements
 
-[[authorization-requirements]]
-### Authorizations requirements
+[#fcad5990-c241-4c88-b2c5-646602f8935a]
+### Authorization Requirements
 
-
-[[traceability-requirements]]
+[#e72e5ea5-5711-4665-8a91-76c63cbca2bc]
 ### Traceability and auditability requirements
 
-.Data to be kept for proof
-[cols="1,1,1"]
-|===
-| Data | Objective | Retention period
-
-| 
-| 
-| 
-
-|===
-
+[#d1f16239-18f7-4a4a-875e-34a587eb88b4]
 ## Security measures
 
+[#e60500e8-b4a3-471c-941c-8fd8c02c4da9]
 ### Integrity
+TIP: See also <<323d4c77-810a-4015-bc1a-11da07e24f3b,Integrity Requirements>>.
 
-Measures meeting the <<integrity-requirements>> :
-
-.Measures to ensure the required level of integrity
-[cols="1,1,1"]
-|===
-| Data class | Required level | Measures
-
-| 
-| 
-|
-
-|===
-
+[#a64b5e5d-e4d4-4ed2-b425-19cd542fa58e]
 ### Confidentiality
+TIP: See also <<acfa846e-0ed7-4f41-a593-f4ee29e94efd,Confidentiality Requirements>>.
 
-Measures meeting the <<confidentiality-requirements>>:
-
-.Measures to ensure the requested level of confidentiality
-[cols="1,1,1"]
-|===
-| Data class | Required level | Measures
-
-| 
-| 
-| 
-|===
-
+[#3779a946-fc73-455b-8bab-3d5398ce0311]
 ### Identification
+TIP: See also <<94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b,Identification Requirements>>.
 
-Measures meeting the <<identification-requirements>> :
-
-
+[#ac587042-7060-44cf-96aa-93fddadc15f5]
 ### Authentication
+TIP: See also <<9d0646cd-3e3f-4878-96de-f215c9f20bdc,Authentication Requirements>>.
 
-Measures meeting the <<authentication-requirements>>:
+[#49de0015-9e27-4f60-91ca-282feec8345d]
+### Identity Federation
+TIP: See also <<f552f1e6-9aea-4866-8da1-e7ed676fd228,Identity Federation Requirements>>.
 
-### Identity federation
+[#1c4774ab-e6fc-46a4-bb89-97e318a8dd8f]
+### SSO and SLO
 
-Measures meeting the <<identity-federation-requirements>>:
+[#8e35ee35-b5bc-433b-8389-f07e62a05339]
+### Service Accounts
 
-### SSO, SLO
+[#9f09dacf-d151-45af-a5f6-209823e7a401]
+### Non-repudiation and Timestamping
+TIP: See also <<01404b83-f96f-4649-ace0-e5611601b830,Non-repudiation requirements>>.
 
-Measures meeting the <<sso-requirements>>:
+[#72efb92f-13f8-48e5-aed1-b57c4eab56fc]
+### Anonymity and Privacy
+TIP: See also <<958fcccc-60cb-4158-940f-279cd1d12c9b,Anonymity and privacy requirements>>.
 
-### Service accounts
+[#e6d0ad26-40b7-412e-b861-1f8e6e2299ca]
+### Authorization (Access Rights)
+TIP: See also <<fcad5990-c241-4c88-b2c5-646602f8935a,Authorization Requirements>>.
 
-.Service accounts
-[cols = '1,2,2']
-|====
-| Account | Resource requiring authentication | How credentials are stored?
+[#3819b8cc-d9c4-4d29-9ca1-adae300a79e2]
+### Traceability and Auditability
+TIP: See also <<e72e5ea5-5711-4665-8a91-76c63cbca2bc,Traceability and auditability requirements>>.
 
-| 
-|
-|
-|====
+[#5e00eeef-1d5b-4a21-ac19-116ae376d999]
+### Cyberthreat Mitigation
 
-### Non-repudiation and timestamping
-
-Measures meeting the <<non-repudiation-requirements>>:
-
-
-### Anonymity and privacy
-
-Measures meeting the <<privacy-requirements>>:
-
-
-### Authorizations
-
-Measures meeting the <<authorization-requirements>>:
-
-### Traceability, auditability
-
-Measures meeting the <<traceability-requirements>>:
-
-### Combatting Cyber Threats
-
+[#d13f2885-ab5c-4543-9432-f53002c01c2c]
 #### Prevention Solutions
 
+[#ac7dde83-27c9-4916-9020-73efaab5fcb1]
 #### Detection Solutions
 
-#### Corrective Solutions
+[#d4498522-32aa-4987-aaec-2d9cf01130da]
+#### Response Solutions
 
-#### Predictive Solutions
+[#a69b42f5-4f4e-42bf-b4bc-c6093941600f]
+#### Prediction Solutions
 
+[#d4d0f075-dff9-4d81-aebc-bbd0cc45bb55]
+## Annexes
 
-## RACI
-
-[NOTE]
-====
+[#b2f76b28-83da-478b-bc94-f1bc29dc6084]
+### RACI & Security Governance
 :r: pass:quotes[[.green]#R#]
 :a: pass:quotes[[.red]#A#]
 :c: pass:quotes[[.blue]#C#]
 :i: pass:quotes[[.orange]#I#]
 :na: pass:quotes[[.grey]#N/A#]
-:and: pass:quotes[[.grey]#&amp;#]
+:et: pass:quotes[[.grey]#&amp;#]
 
-* {r}: *Responsive* (person who will execute: she is responsible for it)
-* {a}: *Accountable* (person who will approve the task: he is the authority)
-* {c}: *Consulted* (person who will be consulted in the execution of the task)
-* {i}: *Informed* (person who will be informed when the task is completed)
-====
-
-.Management of  ...
-[cols="6,^1,^1,^1"]
-|===
-||Team A|Team B|Team C
-
-.^|...
-.^|{r} {and} {a}
-.^|{c} {and} {i}
-.^|{a}
-
-|===
-
-## Self-checks
-
-### Self-check for vulnerabilities
-
-.Self-checking checklist to take into account common vulnerabilities
-[cols="e,e,3e"]
-|===
-| Vulnerability
-| Taken into account?
-| Technical measures undertaken
-
-| 
-| 
-| 
-|===
-
+[#7d8dff71-3acd-450b-bc68-d2e2efee2fbb]
+#### Vulnerability Self-Assessment

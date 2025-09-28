@@ -6,159 +6,83 @@
 :icons: font
 :toc-title: Table of contents
 
-*Last modified* : {docdate} 
-
-*Last global review* : 
-
-*Document status* :  
-
+[#32c8942e-443f-429d-a411-43869a720224]
 ## Introduction
 
-This is the sizing point of view of the project. It determines the hardware required by the project.
-
-The other views of the document are accessible link:./README.adoc[from here].
-
-The project glossary is available link:glossary.adoc[here]. We will not redefine the functional or technical terms used here.
-
-
+[#c443e562-398d-49ab-92bd-8031f3e91bec]
 ### Reference Documentation
-
-.Sizing documentary references
-[cols="1,1,4,4"]
-|====
+.Documentary references
+[cols="1e,1e,4e,4e"]
+|===
 | N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
 
-|  |  |  |
+| 1 | 1.2 | Report_benchmark_xyz.pdf |
+
 |====
 
-
+[#1ef7beb9-71ee-43e5-9a1b-c45a48959084]
 ## Not ruled
 
+[#c5db3e60-e70c-4ebb-9848-44a0cecc4c6e]
 ### Points subject to further study
 
-.Points subject to further study
-
-[cols="1,1,1,2,2"]
-|====
-| ID | Detail | Status | Subject holder | Deadline
-
-|  |  |  |  | 
-|====
-
-
+[#577c9b37-77a2-4568-9fb5-2804d6f9bc70]
 ### Assumptions
 
-.Assumptions
-[cols="1,4"]
-|====
-| ID | Detail
-
-|  | 
-
-|====
-
-
+[#69811b17-b947-4562-90ba-a97160421965]
 ## Constraints
 
-
+[#646fc728-6cef-4e75-9fa9-646b4ec2159d]
 ### Storage constraints
 
+[#1d3ec06e-d63d-4a61-bb4e-437358064687]
 ### CPU constraints
 
+[#ec6a420b-c284-442a-93fd-edc3d45ed00a]
 ### Memory constraints
 
+[#8d948872-15f9-49b6-9527-f511a2f7597d]
 ### Network constraints
 
+[#d6e3eb12-371b-4c26-b538-9fea2051bfed]
 ## Requirements
 
+[#962347a4-c3c8-4f0c-bcac-774a6ef617a4]
 ### Static sizing
 
+[#1736e661-2c68-4aa6-a157-9e4444d5a374]
 #### Metrics
 
-[cols="1,1,1,1,1,1,1"]
-|====
-| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail/assumptions
-
-|  |  | |  |  | |
-|====
-
+[#9968c2e6-46b9-4005-89d4-6a9114246a4c]
 #### Estimated storage needs
 
+[#b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be]
 ### Dynamic sizing
 
+[#910fc171-30ed-47cd-b03c-3ca918b3103e]
 #### Metrics
 
-[cols="1,1,1,1,1,1,1,1"]
-|====
-| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail/assumptions
-
-|  |  |  | |  |  |  | 
-
-
-|====
-
-
+[#3d09511c-17b2-43c3-bcba-0a62ead057b4]
 #### Estimated load
 
+[#c1a8f666-70e1-4acf-9d7a-5e1b06ecb588]
 ### Response time requirements
 
+[#24f70acd-5f7c-49b3-bd75-d594e5af8917]
 #### Response time of GUIs
 
-.Types of solicitation:
-[cols = '3, 1, 1, 1']
-|====
-| Type of request | Good level | Medium level | Insufficient level
-
-| 
-| 
-| 
-|
-
-|====
-
-
+[#88645b89-d407-4107-93b2-48003fd8688a]
 #### Duration of batch execution
 
-
+[#fb740b6a-bd23-4401-a7e0-b01610a01b9b]
 ## Target sizing
 
+[#63214041-3461-4019-a685-fac68fdb4d74]
 ### Estimate of resource requirements by deployable unit
 
-.Estimation of resource requirements by deployable unit
-[cols="2,1,1,3,2"]
-|====
-| Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
-
-| 
-| 
-| 
-| 
-|
-
-
-|====
-
+[#6e9675d7-5d8c-4cf8-989a-13640cd28ef3]
 ### Sizing of machines
-
-.Sizing of machines
-[cols = '1, 3, 1, 1, 1, 1, 1”]
-|====
-| Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External disk (GiB)
-
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-
-|====
-
-
-.Non-SAN external storage
-[cols='1,3,3']
-|====
-|Nature|Size (Gio)|Type(s) of machine using this share
-
-|====

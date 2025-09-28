@@ -1,0 +1,27 @@
+author: Bertrand Florat
+license: CC BY-SA 4.0
+parts:
+  - name: Application view
+    file: view-application.adoc
+  - name: Development view
+    file: view-development.adoc
+  - name: Infrastructure view
+    file: view-infrastructure.adoc
+  - name: Security view
+    file: view-security.adoc
+  - name: Sizing view
+    file: view-sizing.adoc
+multi_values_labels:
+  - name: level
+    available_values: [basic, intermediate, advanced]
+  - name: project_size
+    available_values: [small, medium, large] 
+  - detail_level:
+    available_values: [ overview, detailed, in-depth]   
+files_imported_into_blank_templates:
+  - base_dir: blank-template
+    files:  
+      - README.adoc
+  - base_dir: blank-template/resources
+    files:  
+      - views.png
