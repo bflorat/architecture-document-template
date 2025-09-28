@@ -19,9 +19,9 @@ multi_values_labels:
   - detail_level:
     available_values: [ overview, detailed, in-depth]   
 files_imported_into_blank_templates:
-  - base_dir: blank-templates
+  - base_dir: blank-template
     files:  
       - README.adoc
-  - base_dir: blank-templates/resources
+  - base_dir: blank-template/resources
     files:  
       - views.png
