@@ -22,6 +22,8 @@ files_imported_into_blank_templates:
   - base_dir: blank-template
     files:  
       - README.adoc
+      - glossary.adoc
+      - export
   - base_dir: blank-template/resources
     files:  
       - views.png
