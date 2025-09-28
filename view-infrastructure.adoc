@@ -1312,7 +1312,7 @@ Example of scope:
 * Ceph document backups.  
 ====
 
-//🏷{"id": "ef7922e8-8122-4120-86f9-c5fed0676811", "labels": [], link_to:["f0e94586-876d-46ca-b060-b5dcde468734","3e07d851-b2dc-422f-9cba-1b4447a5c956"]}
+//🏷{"id": "ef7922e8-8122-4120-86f9-c5fed0676811", "labels": [], "link_to":["f0e94586-876d-46ca-b060-b5dcde468734","3e07d851-b2dc-422f-9cba-1b4447a5c956"]}
 ##### Backup Strategy
 
 [TIP]
