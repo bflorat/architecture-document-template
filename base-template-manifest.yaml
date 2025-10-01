@@ -19,11 +19,40 @@ multi_values_labels:
   - detail_level:
     available_values: [ overview, detailed, in-depth]   
 files_imported_into_blank_templates:
-  - base_dir: blank-template
+  - src_dir: blank-template
+    dest_dir: .
     files:  
       - README.adoc
       - glossary.adoc
       - export
-  - base_dir: blank-template/resources
+  - src_dir: blank-template/resources
+    dest_dir: resources
     files:  
       - views.png
+files_imported_into_templates:
+  - src_dir: blank-template
+    dest_dir: .
+    files:  
+      - README.adoc
+      - export
+      - glossary.adoc
+  - src_dir: blank-template/resources
+    dest_dir: resources
+    files:  
+      - views.png
+  - src_dir: .
+    dest_dir: .
+    files:
+      - LICENSE.md
+  - src_dir: diagrams
+    dest_dir: diagrams
+    files:
+      - detailed-application-architecture-dynamic.svg
+      - detailled-application-design-dynamic.puml
+      - detailed-application-architecture-inventory.svg
+      - detailled-application-design-inventory.puml
+      - general-application-design.svg
+      - general-application-design.puml
+      - infrastructure.svg
+      - infrastructure.puml
+      - roles.svg
