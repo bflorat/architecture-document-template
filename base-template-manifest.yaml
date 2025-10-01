@@ -27,3 +27,26 @@ files_imported_into_blank_templates:
   - base_dir: blank-template/resources
     files:  
       - views.png
+files_imported_into_templates:
+  - base_dir: blank-template
+    files:  
+      - README.adoc
+      - export
+      - glossaire.adoc
+  - base_dir: blank-template/resources
+    files:  
+      - vues.png
+  - base_dir: .
+    files:
+      - LICENSE.md
+  - base_dir: diagrams
+    files:
+      - detailed-application-architecture-dynamic.svg
+      - detailled-application-design-dynamic.puml
+      - detailed-application-architecture-inventory
+      - detailled-application-design-inventory.puml
+      - general-application-design.svg
+      - general-application-design.puml
+      - infrastructure.svg
+      - infrastructure.puml
+      - roles.svg
