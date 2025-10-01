@@ -35,11 +35,11 @@ files_imported_into_templates:
     files:  
       - README.adoc
       - export
-      - glossaire.adoc
+      - glossary.adoc
   - src_dir: blank-template/resources
     dest_dir: resources
     files:  
-      - vues.png
+      - views.png
   - src_dir: .
     dest_dir: .
     files:
@@ -49,7 +49,7 @@ files_imported_into_templates:
     files:
       - detailed-application-architecture-dynamic.svg
       - detailled-application-design-dynamic.puml
-      - detailed-application-architecture-inventory
+      - detailed-application-architecture-inventory.svg
       - detailled-application-design-inventory.puml
       - general-application-design.svg
       - general-application-design.puml
