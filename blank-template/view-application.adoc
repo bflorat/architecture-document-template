@@ -83,6 +83,9 @@
 [#9efde825-9508-4669-918c-7cfb0d45c21f]
 ### Retention Periods
 
+[#afdd573d-d1f8-4958-99c1-e404592396d0]
+### Degraded modes
+
 [#ec7cfacf-e267-4937-80e8-b5c92409ecd1]
 ### Archiving
 

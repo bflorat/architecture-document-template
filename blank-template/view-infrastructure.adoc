@@ -99,9 +99,6 @@
 [#08cb1019-20c4-42ef-9bf2-4adf72936c1c]
 ### Availability requirements
 
-[#afdd573d-d1f8-4958-99c1-e404592396d0]
-### Degraded modes
-
 [#231768e7-6a9d-429e-b200-2febdd91a0e3]
 ### Robustness requirements
 
