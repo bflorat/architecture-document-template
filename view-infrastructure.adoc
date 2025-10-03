@@ -546,19 +546,6 @@ The availability required here must be consistent with the “Constraints on ava
 | 4 hours, 8 times a year
 |====
 
-//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
-### Degraded modes
-[TIP]
-====
-Specify the degraded application modes.
-====
-
-====
-Example 1: The _mysite.com_ site must be able to continue to accept orders in the absence of the logistics department.
-====
-====
-Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
-====
 
 //🏷{"id": "231768e7-6a9d-429e-b200-2febdd91a0e3", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Robustness requirements

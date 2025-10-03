@@ -321,6 +321,19 @@ Example:
 |====
 ====
 
+//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
+### Degraded modes
+[TIP]
+====
+Specify the degraded application modes.
+====
+
+====
+Example 1: The _mysite.com_ site must be able to continue to accept orders in the absence of the logistics department.
+====
+====
+Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
+====
 
 //🏷{"id": "ec7cfacf-e267-4937-80e8-b5c92409ecd1", "labels": ["detail_level::detailed", "archiving"]}
 ### Archiving
