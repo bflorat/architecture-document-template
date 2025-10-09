@@ -29,14 +29,15 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 
 [PRE-FILLED]
 ====
-.Documentary references
-[cols="1e,1e,4e,4e"]
-|====
+[cols="1,1,4,4"]
+|===
 | N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
 
-| 1 | 1.0 | Safety_measures.pdf | Catalog of qualified safety measures
-| 2 | latest | Company security standards | http://acme.com/myurl
-|====
+|===
 ====
 
 //🏷{"id": "ea245600-dbd6-4f56-a58c-8c77556643ad", "labels": ["context","uncertainty"]}
@@ -44,26 +45,65 @@ Mention here the reference (defined at IS level) architecture documents. This fi
 
 //🏷{"id": "a058d388-72e1-4136-8659-7a9db1c1a340", "labels": []}
 ### Points subject to further study
-.Points subject to further study
+
+[TIP]
+====
+Example: 
+
 [cols="1e,3e,1e,1e,2e"]
-|====
+|===
 | ID | Detail | Status | Subject holder | Deadline
 | ES1
 | It will be necessary to validate that the anti-CSRF measures put in place also resolve the flaws linked to the TLS + compression coupling (CRIME or BREACH type).
 | WIP
 | SOC team
 | BEFORE 2040
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
+====
 
 //🏷{"id": "68a4f41c-1139-4cdd-bb9e-e15667f47fd9", "labels": []}
 ### Assumptions
-.Assumptions
-[cols="e,e"]
-|====
+
+[TIP]
+====
+Give here the structuring assumptions taken for the design.
+
+Example:
+
+[cols="1e,6e"]
+|===
 | ID | Detail
 | HS1
 | The SAML solution currently in place in the organization does not meet the authentication requirements. An OpenID Connect solution will be implemented.
-|====
+|===
+
+====
+
+[PRE-FILLED]
+====
+[cols="1,6"]
+|===
+| ID | Detail
+| 
+| 
+|===
+====
+
 
 //🏷{"id": "53ae9c06-1846-4dd2-ab55-f4a784c6a676", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
@@ -108,7 +148,6 @@ Possible methodologies include:
 ====
 
 
-
 //🏷{"id": "323d4c77-810a-4015-bc1a-11da07e24f3b", "labels": []}
 ### Integrity Requirements
 
@@ -119,11 +158,10 @@ Integrity refers to the **accuracy, durability, and trustworthiness** of the app
 Guaranteeing data integrity means ensuring that data **cannot be altered or deleted** either unintentionally (_e.g., disk crash, software corruption, application bug_) or intentionally (_e.g., man-in-the-middle attack, privilege escalation, insider sabotage_).
 
 ⚠ **Do not multiply data classes unnecessarily**. A single classification for the entire application is often sufficient.
-====
 
 .Required integrity level by data class (example)
 [cols='2e,1e,1e,1e,1e']
-|====
+|===
 |Data Class |Non-Integral [small]#(Integrity errors are tolerated)# |Detectable [small]#(Errors are quickly identified)# |Controlled [small]#(Errors are corrected)# |Integral [small]#(No alteration is tolerated)#
 
 |**Business database data** | | | | X
@@ -132,7 +170,8 @@ Guaranteeing data integrity means ensuring that data **cannot be altered or dele
 |**NoSQL Big Data silo (pre-consolidation)** | X | | |
 |**Application source code** | | | | X
 |**Generated official documents (e.g., tax notice PDF)** | | | | X
-|====
+|===
+====
 
 [TIP]
 ====
@@ -141,6 +180,22 @@ Examples of associated mechanisms depending on the required integrity level:
 - **Detectable** → Access logs and digital fingerprint (hash) verification.  
 - **Controlled** → Version retention, auditability, automatic correction of detected errors.  
 - **Integral** → Encryption, digital signatures, synchronous replication, immutable storage (WORM).  
+====
+
+[PRE-FILLED]
+====
+.Required integrity level by data class
+[cols='2,1,1,1,1']
+|===
+|Data Class |Non-Integral [small]#(Integrity errors are tolerated)# |Detectable [small]#(Errors are quickly identified)# |Controlled [small]#(Errors are corrected)# |Integral [small]#(No alteration is tolerated)#
+
+|
+|
+|
+|
+|
+
+|===
 ====
 
 
@@ -155,11 +210,10 @@ Confidentiality is the guarantee that information **is accessible only to author
 
 - Do not multiply data classes unnecessarily. A single classification may be sufficient for the entire application.  
 - Ensure that confidentiality levels are **consistent with legal and contractual requirements**.  
-====
 
-.Required confidentiality level by data class
+.Required confidentiality level by data class (example)
 [cols="e,e,e,e,e"]
-|====
+|===
 |Data Class |Public [small]#(Accessible to anyone without restriction)# |Limited [small]#(Accessible only to authorized individuals)# |Restricted [small]#(Restricted to authorized internal staff)# |Private [small]#(Strictly individual access)#
 
 |**Editorial content**  
@@ -176,7 +230,8 @@ Confidentiality is the guarantee that information **is accessible only to author
 
 |**HR data (e.g., employee benefits)**  
 | | | | X
-|====
+|===
+====
 
 [TIP]
 ====
@@ -184,18 +239,25 @@ Confidentiality is the guarantee that information **is accessible only to author
 
 - **Public** → Web pages accessible without login.  
 - **Limited** → Information restricted to authenticated users (e.g., SaaS dashboard).  
-- **Restricted** → Sensitive internal data (e.g., system logs not accessible to customers).  
+- **Restricted/confidential** → Sensitive internal data (e.g., system logs not accessible to customers).  
 - **Private** → Personal data visible only to the concerned user (e.g., payslip).  
 ====
 
-[NOTE]
-====
-**Mapping to common US classification schemes**:  
 
-- **Public** → Public  
-- **Limited** → Internal Use Only  
-- **Restricted** → Confidential  
-- **Private** → Restricted / Highly Confidential (depending on corporate policy)  
+[PRE-FILLED]
+====
+.Required confidentiality level by data class
+[cols="1,1,1,1,1"]
+|===
+|Data Class |Public [small]#(Accessible to anyone without restriction)# |Limited [small]#(Accessible only to authorized individuals)# |Restricted [small]#(Restricted to authorized internal staff)# |Private [small]#(Strictly individual access)#
+
+| 
+|
+|
+|
+|
+|===
+
 ====
 
 
@@ -211,7 +273,7 @@ Identification makes it possible to **assign a unique identifier** to each user 
 
 .Identification requirements
 [cols="1e,3e"]
-|====
+|===
 |Requirement |Description
 
 |**Unique identifier**  
@@ -222,7 +284,7 @@ Identification makes it possible to **assign a unique identifier** to each user 
 
 |**Identifier permanence**  
 | An identifier must **never be deleted, modified, or reused**, even after a user account has been removed.  
-|====
+|===
 
 [TIP]
 ====
@@ -253,10 +315,21 @@ Authentication verifies that a user is indeed who they claim to be, by validatin
 
 //🏷{"id": "58bf95ee-2fc4-4972-ac2b-7e2f775a4eb9", "labels": ["detail_level::detailed"]}
 #### Authentication Requirements by Use Case
-The table below indicates the **authentication factors required** depending on the usage context:  
+
+[TIP]
+====
+
+**Best practices**:  
+
+- **Avoid password-only authentication** → always prefer at least a second factor (OTP, biometrics, etc.).  
+- **Use proven standards** → FIDO2, WebAuthn, TOTP, SAML, OpenID Connect.  
+- **Secure service accounts** → avoid static passwords; prefer SSH keys, certificates, or JWT tokens.  
+- **Manage revocation and renewal** → implement mechanisms to regenerate a factor if lost or compromised.  
+
+Example:
 
 [cols="e,e,e,e,e,e,e"]
-|====
+|===
 |Authentication Case  
 |Password compliant with the security policy  
 |Known SSH public key  
@@ -282,18 +355,33 @@ The table below indicates the **authentication factors required** depending on t
 
 |Login to mobile application Y  
 ||||X|||  
-|====
+|===
 
-[TIP]
-====
-**Best practices**:  
-
-- **Avoid password-only authentication** → always prefer at least a second factor (OTP, biometrics, etc.).  
-- **Use proven standards** → FIDO2, WebAuthn, TOTP, SAML, OpenID Connect.  
-- **Secure service accounts** → avoid static passwords; prefer SSH keys, certificates, or JWT tokens.  
-- **Manage revocation and renewal** → implement mechanisms to regenerate a factor if lost or compromised.  
 ====
 
+[PRE-FILLED]
+====
+The table below indicates the **authentication factors required** depending on the usage context:  
+
+[cols="1,1,1,1,1,1,1"]
+|===
+|Authentication Case  
+|Password compliant with the security policy  
+|Known SSH public key  
+|OTP via Token  
+|Biometrics  
+|Knowledge of business data  
+|Verification link by email  
+
+|
+|
+|
+|
+|
+|
+|  
+|===
+====
 
 
 //🏷{"id": "f552f1e6-9aea-4866-8da1-e7ed676fd228", "labels": ["level::advanced", "detail_level::detailed"]}
@@ -390,9 +478,9 @@ It generally relies on cryptographic mechanisms, particularly digital signatures
 
 - **United States** → The **ESIGN Act** (Electronic Signatures in Global and National Commerce Act) and **UETA** (Uniform Electronic Transactions Act) establish the legal validity of electronic signatures.  
 - **European Union** → The **eIDAS Regulation (EU 910/2014)** defines the framework for electronic identification and trust services, including **qualified electronic signatures** with strong non-repudiation guarantees.  
-====
 
-**Non-repudiation requirements by use case**
+
+**Non-repudiation requirements by use case (example)**
 [cols="e,e,e,e"]
 |===
 |Signed action or document |Required signature level |Origin of client certificate |Origin of server certificate
@@ -412,7 +500,20 @@ It generally relies on cryptographic mechanisms, particularly digital signatures
 |Client’s banking certificate
 |Payment provider PKI (e.g., Visa, Mastercard)
 |===
+====
 
+[PRE-FILLED]
+====
+[cols="1,1,1,1"]
+|===
+|Signed action or document |Required signature level |Origin of client certificate |Origin of server certificate
+
+|
+|
+|
+|
+|===
+====
 
 //🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": []}
 ### Anonymity and privacy requirements
@@ -473,7 +574,7 @@ In mid-2020s, many organizations use a **hybrid model**, where **RBAC handles ba
 
 **Classic role-based access control (RBAC) model:**  
 
-image::diagrammes/roles.svg[Classic role-based access management]
+image::diagrams/roles.svg[Classic role-based access management]
 
 **Predefined users and roles:**  
 Be sure to specify generic user categories such as:
@@ -549,15 +650,29 @@ Example 2: Any intrusion into the IS must be detected (as far as possible).
 ====
 Example 3: We need to be able to reconstruct the history of any patient's record at any date.
 ====
-.Data to be kept for proof
+.Data to be kept for proof (example)
 [cols="e,e,e"]
 |===
-| Data | Objective | Retention period
+| Data Nature| Objective | Retention period
 | Full log (IP, GMT time, detail) of orders placed on the site | Prove that the order has been placed | 1 year
 | Date and content of the confirmation email | Prove that the confirmation email has been sent | 2 years
 | Insurance contract signed and scanned in PDF | Prove that the contract has been signed | 5 years
 | Initial tax notice with digital signature | Keep the amount and tax. | 5 years
 |===
+
+[PRE-FILLED]
+====
+.Data to be kept for proof
+[cols="1,1,1"]
+|===
+| Data Nature | Objective | Retention period
+
+| 
+|
+| 
+|===
+====
+
 
 //🏷{"id": "d1f16239-18f7-4a4a-875e-34a587eb88b4", "labels": ["solution"]}
 ## Security measures
@@ -565,7 +680,10 @@ Example 3: We need to be able to reconstruct the history of any patient's record
 //🏷{"id": "e60500e8-b4a3-471c-941c-8fd8c02c4da9", "labels": [], "link_to": ["323d4c77-810a-4015-bc1a-11da07e24f3b"]}
 ### Integrity
 
-.Measures to ensure the required level of integrity
+[TIP]
+====
+
+.Measures to ensure the required level of integrity (example)
 [cols="e,e,e"]
 |===
 | Data class | Required level | Measures
@@ -604,12 +722,29 @@ a|
 * **Qualified timestamp** embedded in the signature (PAdES).  
 * Inclusion of the hexadecimal signature in the **PDF footer** for later verification.  
 |===
+====
+
+[PRE-FILLED]
+====
+
+.Measures to ensure the required level of integrity
+[cols="1,1,1"]
+|===
+| Data class | Required level | Measures
+
+| 
+| 
+|
+|===
+====
 
 
 //🏷{"id": "a64b5e5d-e4d4-4ed2-b425-19cd542fa58e", "labels": [], "link_to": ["acfa846e-0ed7-4f41-a593-f4ee29e94efd"]}
 ### Confidentiality
 
-.Measures to ensure the required level of confidentiality
+[TIP]
+====
+.Measures to ensure the required level of confidentiality (example)
 [cols="e,e,e"]
 |===
 | _Data class_ | _Required level_ | _Measures_
@@ -648,8 +783,6 @@ a|
 * Data modified on the client is **encrypted before transmission** and stored in the BLOB through REST service X.  
 |===
 
-[TIP]
-====
 ⚠ **Confidentiality of derived data**:  
 
 ✔ **Encrypted backups**:  
@@ -662,6 +795,18 @@ a|
 - **File-level encryption** with **encfs**, **Cryptomator**, or **dm-crypt**.  
 ====
 
+[PRE-FILLED]
+====
+.Measures to ensure the required level of confidentiality
+[cols="1,1,1"]
+|===
+| _Data class_ | _Required level_ | _Measures_
+
+| 
+| 
+| 
+|===
+====
 
 //🏷{"id": "3779a946-fc73-455b-8bab-3d5398ce0311", "labels": [], "link_to": ["94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b"]}
 ### Identification
@@ -799,18 +944,30 @@ Example 3: SSO will be implemented via **Keycloak** as the identity provider, wi
 - **Secure storage** of credentials (avoid storing secrets in plain text within configuration files).  
 - **Automatic rotation** of secrets where possible (e.g., HashiCorp Vault, AWS Secrets Manager, Azure Key Vault).  
 - **Minimal permissions** following the **Principle of Least Privilege**.  
-====
 
-.Service accounts
+.Service accounts (examples)
 [cols='1,2,2']
-|====
+|===
 |Account | Resource requiring authentication | Credential storage method
 
 |`jdbc_app` | PostgreSQL and SQL Server databases | **Stored as a Kubernetes Secret** (mounted as a volume only on the relevant pods)  
 |`api_backend` | REST API X | **Authentication via signed JWT stored in a secure secrets vault**  
 |`ci_cd_runner` | CI/CD server | **Stored in HashiCorp Vault with automatic secret rotation**  
-|====
+|===
+====
 
+[PRE-FILLED]
+====
+.Service accounts
+[cols='1,2,2']
+|===
+|Account | Resource requiring authentication | Credential storage method
+
+|
+|
+|
+|===
+====
 
 //🏷{"id": "9f09dacf-d151-45af-a5f6-209823e7a401", "labels": ["level::advanced"],"link_to":["01404b83-f96f-4649-ace0-e5611601b830"]}
 ### Non-repudiation and Timestamping
@@ -996,7 +1153,7 @@ Example 2: Use of **CrowdSec Threat Intelligence** to anticipate attack trends.
 //🏷{"id": "b2f76b28-83da-478b-bc94-f1bc29dc6084", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### RACI & Security Governance
 
-[NOTE]
+[PRE-FILLED]
 ====
 This RACI clearly defines the roles and responsibilities of the teams with regard to **information security management**.
 
@@ -1012,6 +1169,10 @@ This RACI clearly defines the roles and responsibilities of the teams with regar
 * {c}: *Consulted* (provides expertise and must be consulted).  
 * {i}: *Informed* (must be notified after completion).  
 
+====
+
+[TIP]
+====
 In a good RACI, there should **never** be more than one {a} per line.
 
 Example:  
@@ -1069,11 +1230,8 @@ Example:
 Vulnerability management follows the **OWASP Top 10**, **MITRE ATT&CK**, and **NIST 800-53** standards.
 
 Objective: Verify that **protection, detection, and remediation measures** are correctly applied to reduce the risk of attacks (e.g., ransomware, supply chain attacks, injections…).  
-====
 
-.Vulnerability self-assessment checklist
-
-Sample basic checks:
+.Vulnerability self-assessment checklist (example)
 
 [cols="e,e,3e"]
 |===
@@ -1123,3 +1281,20 @@ a|
 * **Debian/Ubuntu** updates applied weekly via **unattended-upgrades**.  
 * **PostgreSQL** updates applied within **7 days** after CVE publication.  
 |===
+====
+
+[PRE-FILLED]
+====
+.Vulnerability self-assessment checklist
+
+[cols="1,1,3"]
+|===
+|Vulnerability
+|Addressed?
+|Technical measures implemented
+
+|
+|
+|
+|===
+====

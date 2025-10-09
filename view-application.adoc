@@ -28,16 +28,15 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 [PRE-FILLED]
 ====
-.Documentary references
-[cols="1e,1e,4e,4e"]
-|====
+[cols="1,1,4,4"]
+|===
 | N ° | Version | Document title / URL | Detail
 |
 |
 |
 |
 
-|====
+|===
 ====
 
 //🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["uncertainty"]}
@@ -46,7 +45,9 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["uncertainty"]}
 ### Points subject to further study
 
-.Points subject to further study
+====
+Example:
+
 [cols="1e,6e,1e,1e,1e"]
 |===
 | Subject | Detail | Status | Subject bearer | Deadline
@@ -57,11 +58,30 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Project Y team
 | BEFORE 2040
 |===
+====
+
+[PRE-FILLED]
+====
+[cols="1,6,1,1,1"]
+|===
+| Subject | Detail | Status | Subject bearer | Deadline
+
+| 
+| 
+| 
+| 
+| 
+|===
+====
 
 //🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["uncertainty"]}
 ### Assumptions
 
-.Assumptions
+[TIP]
+====
+Give here the structuring assumptions taken for the design.
+
+Example: 
 [cols="1e,6e"]
 |===
 | ID | Detail
@@ -69,7 +89,18 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | HA1
 | Even if the decision to generalize the centralized directory is not fully endorsed, the application will rely on it and not on a local directory.
 |===
+====
 
+[PRE-FILLED]
+====
+[cols="1,6"]
+|===
+| ID | Detail
+
+|
+|
+|===
+====
 //🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["detail_level::overview"]}
 ## General context
 
@@ -113,10 +144,11 @@ If the IS is urbanized, identify the block concerned by the project.
 #### Internal actors
 
 [TIP]
+====
 By the term "internal", the IT team project refers to actors belonging to the organization. These actors can be humans or application modules.
 
-List of internal actors
-[cols="1e,1e,4e,4e"]
+Example:
+
 |===
 | Actor | Description | Population | Location
 
@@ -132,9 +164,26 @@ List of internal actors
 
 |===
 
+====
+
+[PRE-FILLED]
+====
+[cols="1,1,4,4"]
+|===
+| Actor | Description | Population | Location
+
+| 
+| 
+| 
+| 
+
+|===
+====
+
 #### External actors
 
-List of external actors
+====
+Example:
 [cols="e,e,e,e"]
 |===
 | Actor | Description | Population | Location
@@ -148,6 +197,22 @@ List of external actors
 | Max 2M
 | Worldwide
 |===
+====
+
+[PRE-FILLED]
+====
+[cols="1,1,1,1"]
+|===
+| Actor | Description | Population | Location
+
+| 
+| 
+| 
+| 
+
+|===
+====
+
 
 //🏷{"id": "deafbeef-dead-4bed-8ace-0b0b0b0b0b0b", "labels": []}
 #### Nature and Sensitivity of Data and Processing
@@ -156,11 +221,32 @@ Provide a summary of the business processes and the types of data they handle to
 
 WARNING: Do not reproduce the DPIA (Data Protection Impact Assessment) here, but reference it if it exists.
 
-[%header,cols="2,3,3,2,1,1,1,1"]
+====
+Example:
+
+[%header,cols="2e,3e,3e,2e,1e,1e,1e,1e"]
 |===
 | Business Process | Purpose | Categories of Data Processed | Internal Classification | C | I | A | T
 
 | _Ex. Issuance of certificate_ | _Produce an official record_ | _identity, civil status, technical logs_ | _High_ | _Restricted distribution_ | _High_ | _High_ | _Medium_
+|===
+
+====
+
+[PRE-FILLED]
+====
+[%header,cols="2,3,3,2,1,1,1,1"]
+|===
+| Business Process | Purpose | Categories of Data Processed | Internal Classification | C | I | A | T
+
+| 
+|
+|
+|
+| 
+|
+| 
+|
 |===
 
 [cols="1,5"]
@@ -168,6 +254,7 @@ WARNING: Do not reproduce the DPIA (Data Protection Impact Assessment) here, but
 | Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof: security requirements (Low, Medium, High)
 | Classification | Public, Internal, Restricted distribution, Confidential
 |===
+====
 
 
 //🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
@@ -303,8 +390,8 @@ Example:
 
 .Retention period for data and documents
 [cols="1e,1e"]
-|====
-| Data | Maximum Retention Period
+|===
+| Data Class | Maximum Retention Period
 
 | Payment Data (Credit Card)
 | 2 months
@@ -318,7 +405,21 @@ Example:
 | Archived Accounting Data
 | 30 years
 
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,1"]
+|===
+| Data Class | Maximum Retention Period
+
+| 
+| 
+
+
+|===
+
 ====
 
 //🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
@@ -517,7 +618,8 @@ List here the main network flows of the application.
 Do not detail the monitoring or clustering streams for example. Indicate the type of network (LAN, WAN).
 ====
 
-Partial example of an application flow matrix
+====
+Example:  Partial example of an application flow matrix
 [cols = '1e, 3e, 1e, 1e, 1e']
 |===
 | Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
@@ -525,3 +627,19 @@ Partial example of an application flow matrix
 | Company| PC / tablet / external mobile | WAN | gui-allmydata | R
 | batch-process-requests | service-compo-pdf | LAN | HTTP | C
 |===
+====
+
+[PRE-FILLED]
+====
+[cols = '1, 3, 1, 1, 1']
+|===
+| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+
+| 
+| 
+|
+|
+| 
+
+|===
+====

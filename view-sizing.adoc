@@ -27,8 +27,7 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 
 [PRE-FILLED]
 ====
-.Documentary references
-[cols="1e,1e,4e,4e"]
+[cols="1,1,4,4"]
 |===
 | N ° | Version | Document title / URL | Detail
 |
@@ -36,11 +35,8 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 |
 |
 
-| 1 | 1.2 | Report_benchmark_xyz.pdf |
-
-|====
+|===
 ====
-
 
 //🏷{"id": "1ef7beb9-71ee-43e5-9a1b-c45a48959084", "labels": []}
 ## Not ruled
@@ -48,7 +44,9 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 //🏷{"id": "c5db3e60-e70c-4ebb-9848-44a0cecc4c6e", "labels": []}
 ### Points subject to further study
 
-.Points subject to further study
+====
+Example:
+
 [cols="1e,1e,1e,2e,2e"]
 |===
 | ID | Detail | Status | Subject holder | Deadline
@@ -56,21 +54,34 @@ The project glossary is available link:glossary.adoc[here]. We will not redefine
 | 1 | SSD disk capacity | WIP | XYZ | 01/01/2022
 
 |===
+====
 
+[PRE-FILLED]
+====
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
+====
 
 //🏷{"id": "577c9b37-77a2-4568-9fb5-2804d6f9bc70", "labels": []}
 ### Assumptions
 
 [TIP]
 ====
-Give here the structuring assumptions taken for the design
-====
+Give here the structuring assumptions taken for the design.
 
-====
 Example:
 
 .Assumptions
-[cols="1e,4e"]
+[cols="1e,6e"]
 |===
 | ID | Detail
 
@@ -78,6 +89,16 @@ Example:
 
 |===
 
+====
+
+[PRE-FILLED]
+====
+[cols="1,6"]
+|===
+| ID | Detail
+| 
+| 
+|===
 ====
 
 //🏷{"id": "69811b17-b947-4562-90ba-a97160421965", "labels": ["detail_level::overview", "constraint"]}
@@ -160,7 +181,9 @@ TIP: These are the metrics used to determine the *cumulative* storage volume of 
 //🏷{"id": "1736e661-2c68-4aa6-a157-9e4444d5a374", "labels": ["detail_level::detailed"]}
 #### Metrics
 
-TIP: These are measured or estimated business data that will be used as inputs to the calculation of required storage.
+[TIP]
+====
+These are measured or estimated business data that will be used as inputs to the calculation of required storage.
 
 [cols="e,e,e,e,e,e,e"]
 |===
@@ -169,6 +192,23 @@ TIP: These are measured or estimated business data that will be used as inputs t
 | S1 | Number of eligible companies | Estimated | 4M | + 1% | Government [reference] | We consider that AllMyData is applicable only for companies with more than 10 employees
 | S2 | Average size of a PDF | Measured | 40KiB | 0% | Operators |
 |===
+====
+
+[PRE-FILLED]
+====
+[cols="1,1,1,1,1,1,1"]
+|===
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail/assumptions
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+|===
+====
 
 //🏷{"id": "9968c2e6-46b9-4005-89d4-6a9114246a4c", "labels": ["detail_level::detailed"]}
 #### Estimated storage needs
@@ -198,10 +238,8 @@ For the sizing calculations, remember to take into account the specificities of 
 For a database, plan the space occupied by the indexes, which is very specific to each application. A (very poor) preliminary estimate is to double the disk space (to be refined later).
 
 Only estimate data whose size is not negligible (several GiB minimum).
-====
 
-====
-. Example of static sizing of module C:
+[cols="e,e,e,e,e,e"]
 |===
 | Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
 
@@ -228,6 +266,22 @@ Only estimate data whose size is not negligible (several GiB minimum).
 |===
 ====
 
+[PRE-FILLED]
+====
+
+[cols="1,1,1,1,1,1"]
+|===
+| Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
+
+| 
+| 
+| 
+| 
+| 
+| 
+|===
+====
+
 //🏷{"id": "b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be", "labels": []}
 ### Dynamic sizing
 
@@ -235,8 +289,9 @@ TIP: These are metrics by duration (year, month, hour, ...) and allowing to dete
 
 //🏷{"id": "910fc171-30ed-47cd-b03c-3ca918b3103e", "labels": ["detail_level::detailed"]}
 #### Metrics
-
-TIP: These are the measured or estimated business data that will be used as inputs for the calculation.
+[TIP]
+====
+These are the measured or estimated business data that will be used as inputs for the calculation.
 
 [cols="e,e,e,e,e,e,e,e"]
 |===
@@ -249,7 +304,24 @@ a|
  - 3 peaks at 20% of the day at 8:00am-9:00am, 11:00am-12:00am and 02:00pm-03:00pm
  | | Users use the application during standard office hours
 |===
+====
 
+[PRE-FILLED]
+====
+[cols="1,1,1,1,1,1,1,1"]
+|===
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail/assumptions
+
+| 
+| 
+| 
+| 
+| 
+|
+|
+| 
+|===
+====
 
 //🏷{"id": "3d09511c-17b2-43c3-bcba-0a62ead057b4", "labels": ["detail_level::detailed"]}
 #### Estimated load
@@ -341,8 +413,7 @@ In the case of LAN access, it is preferable to integrate the network time, as th
 The response time objectives are always given with a *statistical tolerance* (90th percentile for example) because reality shows that it is very fluctuating being affected by a large number of factors.
 
 No need to multiply the types of requests (depending on the complexity of the screen, for example) because this type of criterion no longer makes much sense today, particularly for a SPA application).
-====
-====
+
 Example of types of solicitation:
 [cols = '3e, 1e, 1e, 1e']
 |===
@@ -379,6 +450,20 @@ Acceptable if:
 Apart from these values, the application must be optimized and go back to acceptance and then be subjected to load tests again.
 ====
 
+[PRE-FILLED]
+====
+[cols = '3, 1, 1, 1']
+|===
+| Type of request | Good level | Medium level | Insufficient level
+
+| 
+| 
+| 
+| 
+|===
+
+====
+
 //🏷{"id": "88645b89-d407-4107-93b2-48003fd8688a", "labels": ["detail_level::detailed", "batch"]}
 #### Duration of batch execution
 
@@ -413,9 +498,7 @@ We give a final sizing to support the static and dynamic sizing and meet the req
 [TIP]
 ====
 Give here RAM, disk and CPU per deployable unit (to be refined after performance campaign or MEP).
-====
 
-====
 Example:
 
 .Estimation of resource requirements by deployable unit
@@ -441,7 +524,21 @@ Example:
 | 24/7, main activity 8am-5pm GMT Mon-Fri
 | Postgresql instance
 |=== 
+====
 
+[PRE-FILLED]
+====
+.Estimation of resource requirements by deployable unit
+[cols="2,1,1,3,2"]
+|===
+| Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
+
+| 
+| 
+| 
+| 
+| 
+|===
 ====
 
 //🏷{"id": "6e9675d7-5d8c-4cf8-989a-13640cd28ef3", "labels": []}
@@ -456,9 +553,8 @@ This section provides the final sizing of the machines required.
 * The internal disk concerns the disk necessary for the OS and the binaries. For a physical machine, this is local storage (local SDD, NMVe or HDD disks). For a VM, it can be a local disk on the physical machine running the VM or a SAN.
 * The external disk concerns storage on a disk bay (SAN).
 * Others external storage deals with distributed file system (NFS, CIFS, WebDav ...) or object storage (Ceph, Swift, Scality, S3, ...)
-====
 
-.Sizing of machines
+.Sizing of machines (example)
 [cols = '1e, 3e, 1e, 1e, 1e, 1e, 1e']
 |===
 | Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
@@ -481,7 +577,7 @@ This section provides the final sizing of the machines required.
 
 |=== 
 
-.Non-SAN external storage
+.Non-SAN external storage (example)
 [cols='1e,3e,3e']
 |===
 |Nature |Size (Gio) |Type(s) of machine using this share
@@ -495,3 +591,33 @@ This section provides the final sizing of the machines required.
 |VM application server
 
 |===
+
+====
+
+[PRE-FILLED]
+====
+.Sizing of machines
+[cols = '1, 3, 1, 1, 1, 1, 1']
+|===
+| Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+
+|=== 
+
+.Non-SAN external storage
+[cols='1,3,3']
+|===
+|Nature |Size (Gio) |Type(s) of machine using this share
+
+| 
+| 
+| 
+|===
+====

@@ -33,15 +33,14 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 [PRE-FILLED]
 ====
-.Documentary references
-[cols="1e,2e,5e,4e"]
-|====
+[cols="1,2,5,4"]
+|===
 | N ° | Version | Document title / URL | Detail
 
 | 1 || 
 | 
 
-|====
+|===
 
 ====
 
@@ -50,9 +49,12 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 //🏷{"id": "87385297-c5c3-44f6-b9e8-7599576dda0a", "labels": []}
 ### Points subject to further study
-.Points subject to further study
+
+====
+Example:
+
 [cols="1e,5e,2e,2e,2e"]
-|====
+|===
 | ID | Detail | Status | Subject holder | Deadline
 
 | EI1
@@ -61,19 +63,54 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | SRE team
 | BEFORE 2040
 
-|====
+|===
+
+====
+
+[PRE-FILLED]
+====
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
+====
+
 
 //🏷{"id": "30d20b83-e35d-464b-8286-3ff230fb1471", "labels": []}
 ### Assumptions
 
-.Assumptions
-[cols="1e,5e"]
-|====
+[TIP]
+====
+Give here the structuring assumptions taken for the design.
+
+Example:
+
+[cols="1e,6e"]
+|===
 | ID | Detail
 
 | HI1
-| We assume that by the time the project will be released, PostgreSQL 12 will be validated internally.
-|====
+| We assume that by the time the project will be released, PostgreSQL choice will be validated internally.
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,5"]
+|===
+| ID | Detail
+
+| 
+| 
+|===
+====
 
 //🏷{"id": "82a207de-bc6f-4a62-a586-96a2b4c9f4dc", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
@@ -213,10 +250,9 @@ Give here the security level of the data center (DC) according to the Uptime Ins
 
 TIP: It should be noted that modern Cloud architectures favor the redundancy of DCs across distant sites rather than a higher Tier level at a single site (provided that data can be replicated effectively and a delay in immediate data consistency is acceptable, see the https://en.wikipedia.org/wiki/CAP_theorem[CAP theorem]). Simplistically, it can be calculated that the availability of two active DCs in parallel is seven nines versus four nines for a Tier 4 DC. A compromise between the two models is deployment in redundant zones of the same site, at the cost of greater vulnerability to disasters.
 
-
 .Tier levels of data centers (source: Wikipedia)
 [cols="1,1,1,1,1,1"]
-|====
+|===
 |Tier level | Features | Availability rate | Annual statistical unavailability | Hot maintenance possible? | Fault-tolerance?
 
 | Tier 1
@@ -243,7 +279,7 @@ TIP: It should be noted that modern Cloud architectures favor the redundancy of 
 | 24 mins
 | Yes
 | Yes
-|====
+|===
 ====
 
 ====
@@ -488,12 +524,11 @@ The main operating ranges are listed here (do not go into too much detail, this 
 Think about users located in other time zones.
 
 The information given here will be used as input to the application SLA.
-====
 
-====
-Example of operating windows
+Example of operating windows :
+
 [cols="1e,5e,2e"]
-|====
+|===
 | No window | Hours | Detail
 
 | 1
@@ -508,15 +543,30 @@ Example of operating windows
 | 24/7/365
 | Internet users
 
-|====
+|===
 ====
 
-//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"]}
+[PRE-FILLED]
+====
+[cols="1,5,2"]
+|===
+| No window | Hours | Detail
+
+| 
+| 
+| 
+
+|===
+====
+
+//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"], "link_to":["deafbeef-dead-4bed-8ace-0b0b0b0b0b0b,cc4a17a8-d68b-43cf-8b4e-c64829d950fc"]}
 ### Availability requirements
 
 [TIP]
 ====
 We list the availability requirements here. The technical measures to achieve them will be given in the technical architecture of the solution.
+
+The resulting maximum downtime listed here must follow nature and sensitivity of data defined in application view.
 
 These information can be used as input to the application *SLA*.
 
@@ -529,11 +579,12 @@ It is generally estimated that high availability (HA) starts at two new ones (99
 Give the availability requested by range.
 
 The availability required here must be consistent with the “Constraints on availability” of the IS.
-====
+
+Example: 
 
 .Maximum allowable downtime per range
 [cols="1e,5e"]
-|====
+|===
 | Operation range ID | Maximum downtime
 
 | 1
@@ -544,8 +595,21 @@ The availability required here must be consistent with the “Constraints on ava
 
 | 3
 | 4 hours, 8 times a year
-|====
+|===
+====
 
+[PRE-FILLED]
+====
+.Maximum allowable downtime per range
+[cols="1,5"]
+|===
+| Operation range ID | Maximum downtime
+
+| 
+| 
+
+|===
+====
 
 //🏷{"id": "231768e7-6a9d-429e-b200-2febdd91a0e3", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Robustness requirements
@@ -807,10 +871,8 @@ An HA system typically relies on:
 
 Fault Tolerance (FT) always includes High Availability (HA), but HA does not necessarily guarantee FT.
 
-====
 .Some Availability Solutions
-.Some Availability Solutions
-|====
+|===
 | Solution | Cost | Implementation Complexity | Availability Improvement
 | RAID 1 disks
 | XX
@@ -880,8 +942,9 @@ Fault Tolerance (FT) always includes High Availability (HA), but HA does not nec
 | XX
 | XX
 | XX
-|====
+|===
 
+====
 ====
 Example 1: To achieve the required 98% availability, the following availability measures are considered:
 
@@ -925,9 +988,8 @@ image::diagrams/infrastructure.svg[AllMyData deployment diagram]
 ====
 
 //🏷{"id": "28ba010e-1c33-41b9-8061-9596710563bc", "labels": ["detail_level::detailed"]}
-### Versions of infrastructure components
+### Infrastructure components
 
-### Infrastructure Component Versions
 [TIP]
 ====
 List operating systems, databases, message-oriented middleware (MOM), application servers, etc. here.
@@ -935,8 +997,8 @@ Only specify the exact patch/minor version (`y` or `z` in `x.y.z`) when this lev
 ====
 
 .Infrastructure Components Example
-[cols="1m,2m,1m,2m"]
-|====
+[cols="1e,m, 2e,1e,2e"]
+|===
 |Infrastructure Component |Role |Version |Technical Environment
 
 |Express.js
@@ -963,8 +1025,21 @@ Only specify the exact patch/minor version (`y` or `z` in `x.y.z`) when this lev
 |RDBMS
 |17.x
 |AlmaLinux 9.x
-|====
+|===
 
+[PRE-FILLED]
+====
+[cols="1m,2m,1m,2m"]
+|===
+|Infrastructure Component |Role |Version |Technical Environment
+
+| 
+| 
+| 
+| 
+|===
+
+====
 
 //🏷{"id": "3ff53ea7-2e7f-4d71-8848-6819ba23c930", "labels": ["detail_level::in-depth"]}
 ### Matrix of network flows
@@ -979,11 +1054,10 @@ In some organizations, this matrix may be too detailed for architecture document
 Application flows need not be referenced here, as readers are typically looking for different information. Operations and integration teams require comprehensive flow details for firewall configuration and installation purposes.
 
 Network types should include useful network information to assess performance (throughput, latency) and security: LAN, VLAN, Internet, LS, WAN, etc.
-====
 
-.Partial Example of Technical Flow Matrix
+Example of Technical Flow Matrix : 
 [cols="1m,2m,2m,2m,1m,1m,1m"]
-|====
+|===
 |ID|Source|Destination|Network Type|Protocol|Listening Port|Encryption?
 
 |1
@@ -1017,7 +1091,27 @@ Network types should include useful network information to assess performance (t
 |SNMP
 |199
 |No (but uses admin VLAN)
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1m,2m,2m,2m,1m,1m,1m"]
+|===
+|ID|Source|Destination|Network Type|Protocol|Listening Port|Encryption?
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+
+|===
+
+====
+
 
 //🏷{"id": "93947744-e0ec-4bc3-af30-cc60473b7caf", "labels": ["project_size::medium","project_size::large", "detail_level::detailed"]}
 ### Environments
@@ -1028,9 +1122,9 @@ Give here an overall view of the environments used by the application. The most 
 
 It is often useful to subdivide environments into 'platforms' made up of a set of machines isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
 
-.Environments
+Example: 
 [cols = '1,2,2,2']
-|====
+|===
 | Environment | Role | Content | Nb of platforms
 
 | Development
@@ -1042,6 +1136,20 @@ It is often useful to subdivide environments into 'platforms' made up of a set o
 | UAT
 | Tag deployed at the end of each Sprint
 | 2 (UAT1 and UAT2)
+====
+
+[PRE-FILLED]
+====
+
+[cols = '1,2,2,2']
+|===
+| Environment | Role | Content | Nb of platforms
+
+| 
+| 
+| 
+| 
+|===
 ====
 
 //🏷{"id": "0bbc320c-6291-4a89-b263-66abf1906ab0", "labels": ["level::intermediate"], "link_to":["da0d11fe-0dc9-478e-a984-7a80ea1be482"]}

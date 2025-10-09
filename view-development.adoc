@@ -30,16 +30,15 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 
 [PRE-FILLED]
 ====
-.Documentary references
-[cols="1e,1e,4e,4e"]
-|====
+[cols="1,1,4,4"]
+|===
 | N ° | Version | Document title / URL | Detail
 |
 |
 |
 |
 
-|====
+|===
 ====
 
 //🏷{"id": "fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e", "labels": ["context","uncertainty"]}
@@ -48,9 +47,12 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "b3592a4d-d0df-4f87-8416-97cfb287cd08", "labels": []}
 ### Points subject to further study
 
-.Points subject to further study
+[TIP]
+====
+Example:
+
 [cols="e,e,e,e,e"]
-|====
+|===
 | ID | Detail | Status | Subject holder | Deadline
 
 | ED1
@@ -59,20 +61,53 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 | Dev team
 | Before 2040
 
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,1,1,1,1"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
+====
 
 
 //🏷{"id": "fb0b1a28-1c08-4c0b-bb38-1cae99a46818", "labels": []}
 ### Assumptions
 
-.Assumptions
-[cols="1e,4e"]
-|====
+[TIP]
+====
+Give here the structuring assumptions taken for the design.
+
+Example:
+[cols="1e,6e"]
+|===
 | ID | Detail
 
 | HD1
 | Even if this point is not yet fully validated, the application will require a JRE 9 + to take advantage of the Java libraries and frameworks essential to the project.
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,6"]
+|===
+| ID | Detail
+
+| 
+| 
+|===
+
+====
 
 //🏷{"id": "84cd4aed-36c0-4564-8354-29a7de004923", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
@@ -287,18 +322,18 @@ Example: Using Reacts.js on an experimental basis within the organization. Valid
 ====
 
 //🏷{"id": "e9b08c72-a836-48ad-9255-e2977a09f290", "labels": []}
-#### Dependencies
+#### Main dependencies
 
 [TIP]
 ====
 List here for each dependency the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to list every minor library: focus on the structuring dependencies.
 ====
+
 ====
 Example:
 
-Software stack example
 [cols="1e,4e,1e"]
-|====
+|===
 | Library | Role | Version
 
 | Angular2 Framework
@@ -308,7 +343,21 @@ Software stack example
 | JasperReport
 | Document generator of invoices in PDF format
 | 6.3.0
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols="1,4,1"]
+|===
+| Library | Role | Version
+
+| 
+| 
+| 
+
+|===
+
 ====
 
 //🏷{"id": "ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7", "labels": ["level::intermediate"], "link_to": ["d6e3eb12-371b-4c26-b538-9fea2051bfed"]}
@@ -417,13 +466,11 @@ Example 1: this project will be additionally covered by BDD (Behavioral Driven D
 ====
 Example 2: this project will be developed in TDD (test first)
 ====
+
 ====
-
-Example 3: Types of tests:
-
-.Types of tests
+Example 3: 
 [cols = '2s, 1,1,1,1,4a']
-|====
+|===
 | Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
 
 | UT (Unit Tests)
@@ -504,7 +551,22 @@ detect as many bugs as possible before UAT tests.
 | UI, hand-launched batches
 | from 30% to 80% depending on the number of scenarios planned
 | Tests carried out in acceptance by some end-users on an uncapped environment with test books. End-to-end acceptance tests (we follow a test booklet with nominal cases), Exploratory tests (we try all possible combinations with minimal guidance in the test booklet)
-|====
+|===
+====
+
+[PRE-FILLED]
+====
+[cols = '2s, 1,1,1,1,4a']
+|===
+| Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
+
+|
+|
+|
+|
+|
+|
+|===
 ====
 
 NOTE: For a large project, the test strategy is usually the subject of a separate document. A standard strategy can also be defined at the IS level.
@@ -786,15 +848,12 @@ if (isDebugEnabled()) {
 [TIP]
 ====
 Explain when and what to log in so as to produce logs that can be used in production.
-====
 
-====
 Example:
 
-.Log levels
-[cols = '1,3,1,1']
-|====
-| Severity level | Context of use | Indicative volume | Environment
+[cols = '1e,3e,1e,1e']
+|===
+| Severity level | Context of use | Indicative volume | By environment
 
 | DEBUG
 | In a development environment, it allows you to display the values ​​of variables, method I/O, etc.
@@ -820,7 +879,21 @@ Example:
 | All blocking errors for the application (BDD access problem, HTTP 404 or 500). Position a maximum of context detail. Remember to log these errors on an appender console in the event that writing to FS is impossible (disk full). Remember that during a fatal error, even writing the log can fail (for example in the event of a memory overflow).
 | No limits.
 | All
-|====
+|===
+
+====
+
+[PRE-FILLED]
+====
+[cols = '1,3,1,1']
+|===
+| Severity level | Context of use | Indicative volume | By environment
+
+|
+|
+|
+|
+|===
 
 ====
  
