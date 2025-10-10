@@ -11,23 +11,41 @@
 
 [#cd8c64f1-d216-4b24-946c-175455e824a7]
 ### Reference Documentation
-.Documentary references
-[cols="1e,1e,4e,4e"]
-|====
+[cols="1,1,4,4"]
+|===
 | N ° | Version | Document title / URL | Detail
+|
+|
+|
+|
 
-| 1 | 1.0 | Safety_measures.pdf | Catalog of qualified safety measures
-| 2 | latest | Company security standards | http://acme.com/myurl
-|====
+|===
 
 [#ea245600-dbd6-4f56-a58c-8c77556643ad]
 ## Not ruled
 
 [#a058d388-72e1-4136-8659-7a9db1c1a340]
 ### Points subject to further study
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
 
 [#68a4f41c-1139-4cdd-bb9e-e15667f47fd9]
 ### Assumptions
+[cols="1,6"]
+|===
+| ID | Detail
+| 
+| 
+|===
 
 [#53ae9c06-1846-4dd2-ab55-f4a784c6a676]
 ## Constraints
@@ -37,9 +55,32 @@
 
 [#323d4c77-810a-4015-bc1a-11da07e24f3b]
 ### Integrity Requirements
+.Required integrity level by data class
+[cols='2,1,1,1,1']
+|===
+|Data Class |Non-Integral [small]#(Integrity errors are tolerated)# |Detectable [small]#(Errors are quickly identified)# |Controlled [small]#(Errors are corrected)# |Integral [small]#(No alteration is tolerated)#
+
+|
+|
+|
+|
+|
+
+|===
 
 [#acfa846e-0ed7-4f41-a593-f4ee29e94efd]
 ### Confidentiality Requirements
+.Required confidentiality level by data class
+[cols="1,1,1,1,1"]
+|===
+|Data Class |Public [small]#(Accessible to anyone without restriction)# |Limited [small]#(Accessible only to authorized individuals)# |Restricted [small]#(Restricted to authorized internal staff)# |Private [small]#(Strictly individual access)#
+
+| 
+|
+|
+|
+|
+|===
 
 [#94c138c1-3e8b-4eaf-8926-b5b9bfa6a86b]
 ### Identification Requirements
@@ -49,6 +90,26 @@
 
 [#58bf95ee-2fc4-4972-ac2b-7e2f775a4eb9]
 #### Authentication Requirements by Use Case
+The table below indicates the **authentication factors required** depending on the usage context:  
+
+[cols="1,1,1,1,1,1,1"]
+|===
+|Authentication Case  
+|Password compliant with the security policy  
+|Known SSH public key  
+|OTP via Token  
+|Biometrics  
+|Knowledge of business data  
+|Verification link by email  
+
+|
+|
+|
+|
+|
+|
+|  
+|===
 
 [#f552f1e6-9aea-4866-8da1-e7ed676fd228]
 ### Identity Federation Requirements
@@ -58,6 +119,15 @@
 
 [#01404b83-f96f-4649-ace0-e5611601b830]
 ### Non-repudiation requirements
+[cols="1,1,1,1"]
+|===
+|Signed action or document |Required signature level |Origin of client certificate |Origin of server certificate
+
+|
+|
+|
+|
+|===
 
 [#958fcccc-60cb-4158-940f-279cd1d12c9b]
 ### Anonymity and privacy requirements
@@ -67,6 +137,15 @@
 
 [#e72e5ea5-5711-4665-8a91-76c63cbca2bc]
 ### Traceability and auditability requirements
+.Data to be kept for proof
+[cols="1,1,1"]
+|===
+| Data Nature | Objective | Retention period
+
+| 
+|
+| 
+|===
 
 [#d1f16239-18f7-4a4a-875e-34a587eb88b4]
 ## Security measures
@@ -75,9 +154,30 @@
 ### Integrity
 TIP: See also <<323d4c77-810a-4015-bc1a-11da07e24f3b,Integrity Requirements>>.
 
+
+.Measures to ensure the required level of integrity
+[cols="1,1,1"]
+|===
+| Data class | Required level | Measures
+
+| 
+| 
+|
+|===
+
 [#a64b5e5d-e4d4-4ed2-b425-19cd542fa58e]
 ### Confidentiality
 TIP: See also <<acfa846e-0ed7-4f41-a593-f4ee29e94efd,Confidentiality Requirements>>.
+
+.Measures to ensure the required level of confidentiality
+[cols="1,1,1"]
+|===
+| _Data class_ | _Required level_ | _Measures_
+
+| 
+| 
+| 
+|===
 
 [#3779a946-fc73-455b-8bab-3d5398ce0311]
 ### Identification
@@ -96,6 +196,15 @@ TIP: See also <<f552f1e6-9aea-4866-8da1-e7ed676fd228,Identity Federation Require
 
 [#8e35ee35-b5bc-433b-8389-f07e62a05339]
 ### Service Accounts
+.Service accounts
+[cols='1,2,2']
+|===
+|Account | Resource requiring authentication | Credential storage method
+
+|
+|
+|
+|===
 
 [#9f09dacf-d151-45af-a5f6-209823e7a401]
 ### Non-repudiation and Timestamping
@@ -133,6 +242,8 @@ TIP: See also <<e72e5ea5-5711-4665-8a91-76c63cbca2bc,Traceability and auditabili
 
 [#b2f76b28-83da-478b-bc94-f1bc29dc6084]
 ### RACI & Security Governance
+This RACI clearly defines the roles and responsibilities of the teams with regard to **information security management**.
+
 :r: pass:quotes[[.green]#R#]
 :a: pass:quotes[[.red]#A#]
 :c: pass:quotes[[.blue]#C#]
@@ -140,5 +251,23 @@ TIP: See also <<e72e5ea5-5711-4665-8a91-76c63cbca2bc,Traceability and auditabili
 :na: pass:quotes[[.grey]#N/A#]
 :et: pass:quotes[[.grey]#&amp;#]
 
+
+* {r}: *Responsible* (executes the action).  
+* {a}: *Accountable* (approves the action and is answerable to the organization).  
+* {c}: *Consulted* (provides expertise and must be consulted).  
+* {i}: *Informed* (must be notified after completion).  
+
 [#7d8dff71-3acd-450b-bc68-d2e2efee2fbb]
-#### Vulnerability Self-Assessment
+### Vulnerability Self-Assessment
+.Vulnerability self-assessment checklist
+
+[cols="1,1,3"]
+|===
+|Vulnerability
+|Addressed?
+|Technical measures implemented
+
+|
+|
+|
+|===

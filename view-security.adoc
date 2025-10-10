@@ -1223,7 +1223,7 @@ Example:
 
 
 //🏷{"id": "7d8dff71-3acd-450b-bc68-d2e2efee2fbb", "labels": ["level::intermediate","detail_level::detailed"]}
-#### Vulnerability Self-Assessment
+### Vulnerability Self-Assessment
 
 [TIP]
 ====

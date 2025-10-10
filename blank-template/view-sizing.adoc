@@ -11,8 +11,7 @@
 
 [#c443e562-398d-49ab-92bd-8031f3e91bec]
 ### Reference Documentation
-.Documentary references
-[cols="1e,1e,4e,4e"]
+[cols="1,1,4,4"]
 |===
 | N ° | Version | Document title / URL | Detail
 |
@@ -20,18 +19,33 @@
 |
 |
 
-| 1 | 1.2 | Report_benchmark_xyz.pdf |
-
-|====
+|===
 
 [#1ef7beb9-71ee-43e5-9a1b-c45a48959084]
 ## Not ruled
 
 [#c5db3e60-e70c-4ebb-9848-44a0cecc4c6e]
 ### Points subject to further study
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
 
 [#577c9b37-77a2-4568-9fb5-2804d6f9bc70]
 ### Assumptions
+[cols="1,6"]
+|===
+| ID | Detail
+| 
+| 
+|===
 
 [#69811b17-b947-4562-90ba-a97160421965]
 ## Constraints
@@ -56,15 +70,52 @@
 
 [#1736e661-2c68-4aa6-a157-9e4444d5a374]
 #### Metrics
+[cols="1,1,1,1,1,1,1"]
+|===
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Source | Detail/assumptions
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+|===
 
 [#9968c2e6-46b9-4005-89d4-6a9114246a4c]
 #### Estimated storage needs
+
+[cols="1,1,1,1,1,1"]
+|===
+| Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
+
+| 
+| 
+| 
+| 
+| 
+| 
+|===
 
 [#b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be]
 ### Dynamic sizing
 
 [#910fc171-30ed-47cd-b03c-3ca918b3103e]
 #### Metrics
+[cols="1,1,1,1,1,1,1,1"]
+|===
+| Metric | Description | Measured or Estimated? | Value | Forecast annual increase (%) | Seasonality | Source | Detail/assumptions
+
+| 
+| 
+| 
+| 
+| 
+|
+|
+| 
+|===
 
 [#3d09511c-17b2-43c3-bcba-0a62ead057b4]
 #### Estimated load
@@ -74,6 +125,15 @@
 
 [#24f70acd-5f7c-49b3-bd75-d594e5af8917]
 #### Response time of GUIs
+[cols = '3, 1, 1, 1']
+|===
+| Type of request | Good level | Medium level | Insufficient level
+
+| 
+| 
+| 
+| 
+|===
 
 [#88645b89-d407-4107-93b2-48003fd8688a]
 #### Duration of batch execution
@@ -83,6 +143,41 @@
 
 [#63214041-3461-4019-a685-fac68fdb4d74]
 ### Estimate of resource requirements by deployable unit
+.Estimation of resource requirements by deployable unit
+[cols="2,1,1,3,2"]
+|===
+| Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
+
+| 
+| 
+| 
+| 
+| 
+|===
 
 [#6e9675d7-5d8c-4cf8-989a-13640cd28ef3]
 ### Sizing of machines
+.Sizing of machines
+[cols = '1, 3, 1, 1, 1, 1, 1']
+|===
+| Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+
+|=== 
+
+.Non-SAN external storage
+[cols='1,3,3']
+|===
+|Nature |Size (Gio) |Type(s) of machine using this share
+
+| 
+| 
+| 
+|===

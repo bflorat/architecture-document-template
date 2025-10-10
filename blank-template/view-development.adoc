@@ -11,25 +11,42 @@
 
 [#712fc07b-76ba-4093-bbf8-cceeaa903e64]
 ### Reference Documentation
-.Documentary references
-[cols="1e,1e,4e,4e"]
-|====
+[cols="1,1,4,4"]
+|===
 | N ° | Version | Document title / URL | Detail
 |
 |
 |
 |
 
-|====
+|===
 
 [#fa1ed85e-92d0-4aa9-9421-dcf267d0cf0e]
 ## Not ruled
 
 [#b3592a4d-d0df-4f87-8416-97cfb287cd08]
 ### Points subject to further study
+[cols="1,1,1,1,1"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
 
 [#fb0b1a28-1c08-4c0b-bb38-1cae99a46818]
 ### Assumptions
+[cols="1,6"]
+|===
+| ID | Detail
+
+| 
+| 
+|===
 
 [#84cd4aed-36c0-4564-8354-29a7de004923]
 ## Constraints
@@ -83,7 +100,16 @@
 #### Stack profile
 
 [#e9b08c72-a836-48ad-9255-e2977a09f290]
-#### Dependencies
+#### Main dependencies
+[cols="1,4,1"]
+|===
+| Library | Role | Version
+
+| 
+| 
+| 
+
+|===
 
 [#ec64dc5b-cdc1-4ab3-ae41-ac3c1c3ad9e7]
 ### Performance
@@ -103,6 +129,17 @@ TIP: See also xref:view-sizing.adoc#d6e3eb12-371b-4c26-b538-9fea2051bfed[Require
 
 [#99e519d3-e8cf-4b3c-8e87-e06a1bf675af]
 ### Specificities of the tests
+[cols = '2s, 1,1,1,1,4a']
+|===
+| Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
+
+|
+|
+|
+|
+|
+|
+|===
 
 [#6ff8aacb-5020-4ade-a10d-3dce3898276b]
 ### Ecodesign
@@ -149,6 +186,15 @@ TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 
 [#992c0bb3-83bc-4598-84ff-150a67df3324]
 #### Levels and quantity of logs
+[cols = '1,3,1,1']
+|===
+| Severity level | Context of use | Indicative volume | By environment
+
+|
+|
+|
+|
+|===
 
 [#f2e9066c-18d9-4234-b37c-27d342b1c99e]
 ### Administrative tools

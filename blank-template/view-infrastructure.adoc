@@ -11,24 +11,41 @@
 
 [#06fd3383-f875-4a44-a1f8-d135f9050038]
 ### Reference Documentation
-.Documentary references
-[cols="1e,2e,5e,4e"]
-|====
+[cols="1,2,5,4"]
+|===
 | N ° | Version | Document title / URL | Detail
 
 | 1 || 
 | 
 
-|====
+|===
 
 [#933039be-008f-40c7-a630-a08002b379f1]
 ## Not ruled
 
 [#87385297-c5c3-44f6-b9e8-7599576dda0a]
 ### Points subject to further study
+[cols="1,5,2,2,2"]
+|===
+| ID | Detail | Status | Subject holder | Deadline
+
+| 
+| 
+| 
+| 
+| 
+
+|===
 
 [#30d20b83-e35d-464b-8286-3ff230fb1471]
 ### Assumptions
+[cols="1,5"]
+|===
+| ID | Detail
+
+| 
+| 
+|===
 
 [#82a207de-bc6f-4a62-a586-96a2b4c9f4dc]
 ## Constraints
@@ -95,9 +112,27 @@
 
 [#332c967b-3729-4a5f-984e-fc2f301b0329]
 ### Operating ranges
+[cols="1,5,2"]
+|===
+| No window | Hours | Detail
+
+| 
+| 
+| 
+
+|===
 
 [#08cb1019-20c4-42ef-9bf2-4adf72936c1c]
 ### Availability requirements
+.Maximum allowable downtime per range
+[cols="1,5"]
+|===
+| Operation range ID | Maximum downtime
+
+| 
+| 
+
+|===
 
 [#231768e7-6a9d-429e-b200-2febdd91a0e3]
 ### Robustness requirements
@@ -136,15 +171,45 @@
 ### Deployment in production
 
 [#28ba010e-1c33-41b9-8061-9596710563bc]
-### Versions of infrastructure components
+### Infrastructure components
+[cols="1m,2m,1m,2m"]
+|===
+|Infrastructure Component |Role |Version |Technical Environment
 
-### Infrastructure Component Versions
+| 
+| 
+| 
+| 
+|===
 
 [#3ff53ea7-2e7f-4d71-8848-6819ba23c930]
 ### Matrix of network flows
+[cols="1m,2m,2m,2m,1m,1m,1m"]
+|===
+|ID|Source|Destination|Network Type|Protocol|Listening Port|Encryption?
+
+| 
+| 
+| 
+| 
+| 
+| 
+| 
+
+|===
 
 [#93947744-e0ec-4bc3-af30-cc60473b7caf]
 ### Environments
+
+[cols = '1,2,2,2']
+|===
+| Environment | Role | Content | Nb of platforms
+
+| 
+| 
+| 
+| 
+|===
 
 [#0bbc320c-6291-4a89-b263-66abf1906ab0]
 ### Ecodesign
