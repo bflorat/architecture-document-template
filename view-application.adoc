@@ -590,7 +590,7 @@ Example 2: In the event of a problem with the new module, a rollback will be pro
 ====
 
 
-//🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["detail_level::detailed","archiving"],link_to": ["4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f"]}
+//🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["detail_level::detailed","archiving"],"link_to": ["4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f"]}
 ### Archiving
 
 [TIP]
@@ -605,7 +605,7 @@ Describe here the measures to meet archiving requirements. This section will mai
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
 ====
 
-//🏷{"id": "0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809", "labels": ["detail_level::detailed"],link_to": ["fedcba98-7654-4321-8abc-0def12345678"]}
+//🏷{"id": "0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809", "labels": ["detail_level::detailed"],'link_to": ["fedcba98-7654-4321-8abc-0def12345678"]}
 ### Purges
 
 [TIP]
