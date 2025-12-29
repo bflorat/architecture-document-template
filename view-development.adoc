@@ -6,11 +6,20 @@
 :icons: font
 :toc-title: Table of contents
 
-*Last modified* : {docdate} 
+[PRE-FILLED]
+====
+*Last modification* : _{docdate}_
 
-*Last global review* : _<perform regular global reviews of the view at least once a year while the project is active and mention the date here>_
+*Date of last full review* : 
 
-*Document status* :  _<'WIP', 'DRAFT', ...>_
+*Document status* :  
+
+====
+
+TIP: Regularly perform full reviews of this view (at least once a year while the project is active) and record the date here.
+
+TIP: Indicate the status of the view, for example 'DRAFT', 'FINALIZED', ...
+
 
 //🏷{"id": "84c5d434-ea70-41fc-92bc-53a40ab29025", "labels": ["context"]}
 ## Introduction

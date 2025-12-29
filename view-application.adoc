@@ -6,11 +6,20 @@
 :icons: font
 :toc-title: Table of contents
 
-*Last modified* : {docdate} 
+[PRE-FILLED]
+====
+*Last modification* : _{docdate}_
 
-*Last global review* : _<perform regular global reviews of the view at least once a year while the project is active and mention the date here>_
+*Date of last full review* : 
 
-*Document status* :  _<'WIP', 'DRAFT', ...>_
+*Document status* :  
+
+====
+
+TIP: Regularly perform full reviews of this view (at least once a year while the project is active) and record the date here.
+
+TIP: Indicate the status of the view, for example 'DRAFT', 'FINALIZED', ...
+
 
 //🏷{"id": "74c82505-5f47-4342-8f1b-f6951d603062", "labels": ["context"]}
 ## Introduction
@@ -42,7 +51,10 @@ Mention here the reference (defined at a IS level) architecture documents. This 
 //🏷{"id": "946b3119-a878-47ca-86f2-4c9e22ef0c89", "labels": ["uncertainty"]}
 ## Not ruled
 
-//🏷{"id": "af23d422-402c-49be-900f-2f55a5619615", "labels": ["uncertainty"]}
+TIP: In architecture, uncertainty should be stated clearly to help understand design choices and the current situation.
+
+
+//🏷{"id": "0f9d2e4a-3c71-4b9e-8f3b-2b8c7d1e9a60", "labels": ["uncertainty"]}
 ### Points subject to further study
 
 ====
@@ -74,7 +86,7 @@ Example:
 |===
 ====
 
-//🏷{"id": "60a52e4c-4416-429a-a739-37153b05133c", "labels": ["uncertainty"]}
+//🏷{"id": "7a1cdb2e-4f52-42a1-9c3e-6e0f2d3a8b91", "labels": ["uncertainty"]}
 ### Assumptions
 
 [TIP]
@@ -104,7 +116,7 @@ Example:
 //🏷{"id": "382fd086-f48e-4ad5-9911-07e3de281971", "labels": ["detail_level::overview"]}
 ## General context
 
-//🏷{"id": "ba1f44fe-c47a-4d34-bfdb-07e777e23dda", "labels": []}
+//🏷{"id": "a2b4c6d8-e0f1-4a2b-9c3d-5e6f7a8b9c0d", "labels": []}
 ### Objectives
 
 [TIP]
@@ -120,7 +132,7 @@ Example 2: This project is the rewrite in web technologies of the X legacy appli
 Example 3: The X application is one of the main modules of the Y program. It leverages the person and billing repositories to enrich the CMS with real-time customer data.
 ====
 
-//🏷{"id": "bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00", "labels": ["rewrite"]}
+//🏷{"id": "c1d2e3f4-a5b6-4c7d-8e9f-0123456789ab", "labels": ["rewrite"]}
 ### Existing
 
 [TIP]
@@ -237,7 +249,7 @@ Example:
 ====
 [%header,cols="2,3,3,2,1,1,1,1"]
 |===
-| Business Process | Purpose | Categories of Data Processed | Internal Classification | C | I | A | T
+| Business Process | Purpose | Categories of Data Processed | Classification | C | I | A | T
 
 | 
 |
@@ -251,13 +263,13 @@ Example:
 
 [cols="1,5"]
 |===
-| Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof: security requirements (Low, Medium, High)
+| Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof. Provide requirement : Low, Medium or High
 | Classification | Public, Internal, Restricted distribution, Confidential
 |===
 ====
 
 
-//🏷{"id": "d979e090-c43f-48f5-a0e3-83b810efff9f", "labels": ["detail_level::overview", "constraint"]}
+//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview", "constraint"]}
 ## Constraints
 
 TIP: Limits and imposed choices on how you may design/implement the solution. They restrict the design space (technology, process, organization, time, budget, regulation).
@@ -310,7 +322,7 @@ Example 4: All the batches must be able to operate in competition with the UIs w
 Example 5: Services cannot be called directly. The calls must be made via an exposed route at the level of the company bus which will in turn call the service. It is then possible to control, prioritize, orchestrate or manage the calls.
 ====
 ====
-Example 6: The modules of this application follow the SOA architecture as defined in the reference document X.
+Example 6: The modules of this application follow the microservices architecture as defined in the reference document X.
 ====
 ====
 Example 7: modules in an Internet zone cannot call modules in an Intranet zone for security reasons.
@@ -330,19 +342,19 @@ Example 2: The project code will be under the free and open source license GPL V
 ====
 
 ====
-Example 3: The data exposed by the project will be licensed under ODS-By.
+Example 3: The data exposed by the project will be licensed under CC-By.
 ====
 
 ====
 Example 4: The EULA of the software package provides access to sources for users with shares in the company.
 ====
 
-//🏷{"id": "3b714287-891e-4ea3-a7a4-17672caaf945", "labels": ["detail_level::overview","requirement"]}
+//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": ["detail_level::overview","requirement"]}
 ## Requirements
 
 TIP: What the solution must achieve for stakeholders: capabilities, behaviors, and quality levels. They express needs/goals and are (ideally) testable. Depending on your context, feel free to add sub-sections.
 
-//🏷{"id": "9352a89a-3f8b-4028-98d5-58fb970e01ef", "labels": []}
+//🏷{"id": "1b2c3d4e-5f60-47a1-82b3-c4d5e6f70809", "labels": []}
 ### Strategic Requirements
 
 TIP: Describe here the requirements related to the overall strategy of the project in terms of trajectory, budget, and organization.
@@ -364,7 +376,7 @@ TIP: Describe here the requirements regarding protocols, formats, and semantics 
 Example: Our XYZ modules must be exposed to X organizations from the Internet in the form of authenticated REST APIs.
 ====
 
-//🏷{"id": "7d3090d0-87d0-434f-9717-f9a12ccf60d1", "labels": ["level::intermediate","detail_level::detailed"]}
+//🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["level::intermediate","detail_level::detailed"]}
 ### Concurrency management requirements
 
 [TIP]
@@ -375,10 +387,48 @@ Specify the internal or external modules that may interfere with the application
 Example 1: All modules of this application must be able to run concurrently. In particular, batches/GUI concurrency must always be possible because the batches must be able to run during the day.
 ====
 ====
-Example 2: Batch X should only be started if batch Y is completed correctly, otherwise data may be corrupted.
+Example 2: Job X must only be executed if job Y has completed successfully, otherwise data corruption may occur.
+====
+====
+Example 3: No other instance of job X must be executed in parallel, otherwise data corruption may occur.
 ====
 
-//🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["detail_level::detailed"]}
+
+//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
+### Degraded modes
+[TIP]
+====
+Specify the degraded application modes.
+====
+
+====
+Example 1: The _mysite.com_ site must be able to continue to accept orders in the absence of the logistics department.
+====
+====
+Example 2: If the SMTP server no longer works, the emails will be persisted then resubmitted automatically when the service is fixed.
+====
+
+
+//🏷{"id": "4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f", "labels": ["detail_level::detailed", "archiving"]}
+### Archiving
+
+[TIP]
+====
+Archiving is the copying of important data to a dedicated offline medium for occasional consultation, unlike backup which is intended for restoration. Archives are often required for legal reasons and kept for thirty years or more.
+
+Specify if application data needs to be kept long-term. Specify the reasons for this archiving (usually legal).
+
+Specify if specific integrity protection mechanisms (mainly to prevent any modification) need to be put in place.
+====
+
+====
+Example 1: As required by the law, accounting data must be kept for at least ten years.
+====
+====
+Example 2: Accounting documents must remain available online for a defined minimum period, and then be archived for long-term retention, while ensuring that their integrity can be verified cryptographically over time.
+====
+
+//🏷{"id": "fedcba98-7654-4321-8abc-0def12345678", "labels": ["detail_level::detailed"]}
 ### Retention Periods
 
 TIP: Specify here how long data and documents persisted by your application modules should be kept. Note that these durations may be legally constrained (see legal constraints above), for example in the context of the GDPR right to be forgotten.
@@ -422,39 +472,6 @@ Example:
 
 ====
 
-//🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
-### Degraded modes
-[TIP]
-====
-Specify the degraded application modes.
-====
-
-====
-Example 1: The _mysite.com_ site must be able to continue to accept orders in the absence of the logistics department.
-====
-====
-Example 2: If the SMTP server no longer works, the emails will be stored in the database and then resubmitted following a manual operation by the operators.
-====
-
-//🏷{"id": "ec7cfacf-e267-4937-80e8-b5c92409ecd1", "labels": ["detail_level::detailed", "archiving"]}
-### Archiving
-
-[TIP]
-====
-Archiving is the copying of important data to a dedicated offline medium for occasional consultation, unlike backup which is intended for restoration. Archives are often required for legal reasons and kept for thirty years or more.
-
-Specify if application data needs to be kept long-term. Specify the reasons for this archiving (usually legal).
-
-Specify if specific integrity protection mechanisms (mainly to prevent any modification) need to be put in place.
-====
-
-====
-Example 1: As required by the law, accounting data must be kept for at least ten years.
-====
-====
-Example 2: Accounting documents must be kept online (in the database) for at least two years and then can be archived for at least ten more years. A SHA256 hash will be calculated at the time of archiving and stored separately to verify the integrity of the documents if needed.
-====
-
 
 //🏷{"id": "b269e65b-a8c7-4518-a861-5c6c17802869", "labels": ["solution","detail_level::overview"]}
 ## Target architecture
@@ -487,10 +504,7 @@ Do not include specific infrastructure system (SMTP server, security device, rev
 ====
 
 ====
-Example 1: Thanks to the August 03, 20xx derogation, the GUI will be written using an SPA (Single Page Application) technology.
-====
-====
-Example 2: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration. AllMyData is made up of several independent modules (GUIs, batches and APIs).
+Example: AllMyData allows a company to retrieve by email a document summarizing all the information the administration has on it. The administration can supplement its data with those of another administration. AllMyData is made up of several independent modules (GUIs, batches and APIs).
 ====
 
 image::diagrams/general-application-design.svg[General application architecture diagram]
@@ -510,7 +524,7 @@ Ideally, the diagram should fit on an A4 page, be self-explanatory, and understa
 
 ====
 
-//🏷{"id": "148fd29c-b0a0-4bff-b5da-71f5b1195e1e", "labels": ["project_size::medium", "detail_level::detailed"]}
+//🏷{"id": "f0c1b2a3-4d5e-46f7-88a9-b0c1d2e3f4a5", "labels": ["project_size::medium", "detail_level::detailed"]}
 #### Principles that dictated the choices
 
 [TIP]
@@ -521,7 +535,7 @@ Give here the intention in the architecture conception.
 Example: we will use a monolithic and non-micro-service approach due to a lack of expertise within the IT project team.
 ====
 
-//🏷{"id": "d4124d8e-47b9-4cfa-94ec-8164180bdecc", "labels": ["project_size::large", "detail_level::detailed"]}
+//🏷{"id": "aa11bb22-cc33-44dd-88ee-ff0011223344", "labels": ["project_size::large", "detail_level::detailed"]}
 #### Inventory view
 
 [TIP]
@@ -533,7 +547,7 @@ Example: module X, Y and Z in the ACCOUNTING domain. Modules A, B in the PERSON 
 ====
 image::diagrams/detailed-application-architecture-inventory.svg[Detailed application architecture diagram (inventory view)] 
 
-//🏷{"id": "6c06792f-9e6d-4156-88d3-468063716834", "labels": ["project_size::large", "detail_level::detailed"]}
+//🏷{"id": "123e4567-e89b-42d3-a456-426614174001", "labels": ["project_size::large", "detail_level::detailed"]}
 #### Links between modules
 
 [TIP]
@@ -544,7 +558,7 @@ If (and only if) the complexity of the application justifies it, propose, in add
 
 Use a simple, non-significant, and hierarchical sequence as the ID for the flows (e.g., 1, 2.1, 2.2.3, ..., n).
 
-For each flow, specify the protocol, a read/write/execute attribute, and a description to make the diagram self-explanatory. If the flow is asynchronous, indicate this (in the example below, the call is shown in dashed lines).
+For each flow, specify the protocol, a read/write/execute attribute, and a description. If the flow is asynchronous, indicate this (in the example below, the call is shown in dashed lines).
 
 Each communication chain describes a major functionality. In cases of complex sequences, it is recommended to break down the functionality into several communication chains containing only synchronous calls (see https://florat.net/architecture-as-code-with-c4-and-plantuml/[this article]).
 
@@ -576,7 +590,7 @@ Example 2: In the event of a problem with the new module, a rollback will be pro
 ====
 
 
-//🏷{"id": "f49dc567-ef07-45db-b25a-34c57a58f213", "labels": ["detail_level::detailed","archiving"]}
+//🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["detail_level::detailed","archiving"],link_to": ["4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f"]}
 ### Archiving
 
 [TIP]
@@ -591,7 +605,7 @@ Describe here the measures to meet archiving requirements. This section will mai
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
 ====
 
-//🏷{"id": "7a01e2dd-1921-4e41-95d6-57f2b80e447b", "labels": ["detail_level::detailed"]}
+//🏷{"id": "0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809", "labels": ["detail_level::detailed"],link_to": ["fedcba98-7654-4321-8abc-0def12345678"]}
 ### Purges
 
 [TIP]
@@ -608,7 +622,7 @@ Example 2: Each API is responsible for purging the data it exposes. For this, pl
 ====
 
 
-//🏷{"id": "3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895", "labels": ["detail_level::in-depth"]}
+//🏷{"id": "9f8e7d6c-5b4a-49a8-9c7d-6e5f4d3c2b1a", "labels": ["detail_level::in-depth"]}
 ### Matrix of application flows
 
 [TIP]
@@ -622,7 +636,7 @@ Do not detail the monitoring or clustering streams for example. Indicate the typ
 Example:  Partial example of an application flow matrix
 [cols = '1e, 3e, 1e, 1e, 1e']
 |===
-| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+| Source | Destination | Network type | Protocol | Mode
 
 | Company| PC / tablet / external mobile | WAN | gui-allmydata | R
 | batch-process-requests | service-compo-pdf | LAN | HTTP | C
@@ -633,7 +647,7 @@ Example:  Partial example of an application flow matrix
 ====
 [cols = '1, 3, 1, 1, 1']
 |===
-| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+| Source | Destination | Network type | Protocol | Mode
 
 | 
 | 
@@ -642,4 +656,6 @@ Example:  Partial example of an application flow matrix
 | 
 
 |===
+
+_Mode: Read\(R), Write (W) or Call\(C) to a stateless system_
 ====
