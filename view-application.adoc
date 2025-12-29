@@ -605,7 +605,7 @@ Describe here the measures to meet archiving requirements. This section will mai
 Example: Bank statements older than 10 years will be archived on LTO tape and hard drive. A set of each medium will be stored in a vault in two different banks.
 ====
 
-//🏷{"id": "0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809", "labels": ["detail_level::detailed"],'link_to": ["fedcba98-7654-4321-8abc-0def12345678"]}
+//🏷{"id": "0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809", "labels": ["detail_level::detailed"],"link_to": ["fedcba98-7654-4321-8abc-0def12345678"]}
 ### Purges
 
 [TIP]
