@@ -148,7 +148,7 @@ Example 3: The application will be built, tested and deployed continuously with 
 
 [TIP]
 ====
-Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements were given by the project decision-makers. Schedule interviews to determine them. If some requirements are not realistic, mention this in the reference points to be decided.
+Contrary to the constraints which fixed the framework to which any application had to conform, the non-functional requirements were given by the project decision-makers. Schedule interviews to determine them. If some requirements are not realistic, mention this in the reference points to be decided. Avoid introducing new ergonomic “concepts” so as not to confuse users (principle of least astonishment).
 ====
 
 //🏷{"id": "48bb8b97-2e97-4515-bf3b-95864f85e4e9", "labels": ["gui"]}
@@ -165,15 +165,23 @@ There are other accessibility standards. Be careful to correctly assess the targ
 
 ====
 
+====
+Example: All features must be usable using the **keyboard only**.
+====
+
 //🏷{"id": "b098d142-655e-4521-9d4f-2c2ea8eceb45", "labels": ["gui"]}
 ### Ergonomics
 
 //🏷{"id": "3c031334-5598-4817-87b4-dec34ce8389b", "labels": ["detail_level::detailed"]}
-#### Ergonomic charter
+#### Specificities on UX
 
 [TIP]
 ====
 In general, we refer here to the body's ergonomic charter. List any specificities. Do not duplicate here the accessibility constraints listed above.
+====
+
+====
+Example: Validation must be **progressive and immediate** (field-level), without waiting for final submission.
 ====
  
 //🏷{"id": "90b4af62-df5b-485e-87c4-7dd0b21d0464", "labels": ["detail_level::in-depth"]}
@@ -202,6 +210,10 @@ The choice of fonts follows licensing constraints. In order to ensure legal secu
 Redhat, for instance, provides four families of TrueType fonts (Liberation) under an Open Source license that is legally secure and compatible with the Monotype, Courier-New, Arial and Times New Roman.
 ====
 
+====
+Example: Text must remain readable when the browser is **zoomed up to 200%**, without loss of content or functionality.
+====
+
 //🏷{"id": "cfd3435f-d888-43e3-a634-35c3d5d92cb4", "labels": ["level::intermediate", "detail_level::in-depth"]}
 #### Responsive website
 
@@ -217,6 +229,9 @@ List the multi-media display constraints. When possible, use modern frameworks (
 
 WARNING: A responsive design comes with its constraints (code duplication, increase in the volume of data to be downloaded by the client, complexity, more end-to-end tests to be expected…).
 
+====
+Example: On smartphone screens, the primary navigation must collapse into a single accessible menu, and all core features must remain usable without horizontal scrolling.
+====
 
 //🏷{"id": "30cc6226-2213-4351-83aa-a4905c5d4baa", "labels": ["level::advanced", "detail_level::in-depth"]}
 #### Progressive Web Apps (PWA)
@@ -236,21 +251,20 @@ Example: Application X will be fully PWA. Tests will have to demonstrate that th
 ====
 Specify which browsers are supported if your project comes with a Web GUI.
 
-When addressing an audience whose you do not manage browsers (such as a website on the Internet), the best option to make things intelligible and clarify the issues is to negotiate with the stakeholders of the project a minimum percentage audience supported based on https://gs.statcounter.com/ouvernstatistics]. For example: "Support 95% of browsers".
+When addressing an audience whose you do not manage browsers (such as a website on the Internet), the best option to make things intelligible and clarify the issues is to negotiate with the stakeholders of the project a minimum percentage audience supported based on https://gs.statcounter.com/[statistics]. For example: "Support 95% of browsers".
 
 ====
 
-WARNING: Supporting old browsers (IE in particular) can generate prohibitive additional costs and security issues. In all cases, the additional costs of testing on multiple platforms should be assessed. There are good (paid) tools like Litmus or EmailOnAcid to render websites and HTML emails on a combination of OS / player type (PC / tablet / mobile) / browser very large (in the order of 50). This type of site is essential for a general public application.
-
+WARNING: Supporting old browsers (IE in particular) can generate prohibitive additional costs and security issues. In all cases, the additional costs of testing on multiple platforms should be assessed. There are good (paid) tools like Litmus or EmailOnAcid to render websites and HTML emails on a combination of OS / player type (PC / tablet / mobile) / browser very large. This type of site is essential when testing applications intended for the general public.
 
 ====
 Example 1: The intranet application X must work on internally qualified browsers (see [Ref xyz])
 ====
 ====
-Example 2: Application Y being an internet application targeting the widest possible audience, including terminals in developing countries. It will have to support Firefox 3+, IE 8+, Opera 6+.
+Example 2: Application Y being an internet application targeting the widest possible audience, including terminals in developing countries. It must be tested on browsers corresponding to the 95th percentile of usage.
 ====
 ====
-Example 3: Application Z is aimed at the broadest audience and with reasonably old systems and will therefore have to support: Firefox 6+, Chrome 8+, Opera 8+, IE 10, Edge.
+Example 3: Application Z is aimed at the broadest audience and with reasonably old systems and will therefore have to support: Firefox 135+, Chrome 126+, Safari 5+, Opera 20+, Edge.
 ====
 
 //🏷{"id": "39318743-8131-4d46-9354-c64804066ae8", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
@@ -260,10 +274,10 @@ Example 3: Application Z is aimed at the broadest audience and with reasonably o
 ====
 Specify whether the application must be able to continue to function without Internet or LAN access (very common for applications used by professionals on the move for example).
 
-These can be classic heavy clients (Java, C, ...) having their local database that can be synchronized back to the office. They can also be PWA applications (see above) using a service worker for static resources and browser storage (local storage, IndexedDB database).
+These can be classic heavy clients (Java, C, ...) having their local database that can be synchronized back to the office. They can also be PWA applications (see above) using a service worker for static resources and browser storage (local storage, IndexedDB database, ...).
 ====
 ====
-Example 1: The application will be developed in Java Swing with local storage based on an H2 database synchronized with the common database by REST calls.
+Example 1: The application will be developed in Kotlin Jetpack Compose with local storage based on an H2 database synchronized with the common database by REST calls.
 ====
 ====
 Example 2: The mobile application will be in PWA mode, entirely written in HTML5 with local storage to store the day's data into the browser.
@@ -335,7 +349,7 @@ Example: Using Reacts.js on an experimental basis within the organization. Valid
 
 [TIP]
 ====
-List here for each dependency the main libraries and frameworks used as well as their version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to list every minor library: focus on the structuring dependencies.
+List here for each dependency the main libraries and frameworks used as well as their major version. Do not list the libraries supplied to the runtime by the application servers or the frameworks. There is no need to list every minor library: focus on the structuring dependencies.
 ====
 
 ====
@@ -345,13 +359,13 @@ Example:
 |===
 | Library | Role | Version
 
-| Angular2 Framework
+| Framework React.js
 | GUI JS Framework
-| 2.1.1
+| 19
 
 | JasperReport
 | Document generator of invoices in PDF format
-| 6.3.0
+| 7
 |===
 ====
 
@@ -374,12 +388,11 @@ Example:
 
 [TIP]
 ====
-Even though performance campaigns are planned, experience shows that most of performance problems could have been detected early during development. It is therefore important that developers profile their code on their own workstation. This has to be set in the Definition Of Done of the project. It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time or concurrency issues. There are many ways to simulate concurrency and load. You'll find bellow some basic means accessible to any developer.
+Even though performance campaigns are planned, a large proportion of performance problems could have been detected early during development. It is therefore important that developers profile their code on their own workstation. This has to be set in the Definition Of Done of the project. It will not be possible to detect all the problems (scalability, concurrency, robustness, cache tuning, ...) but most of the response time or concurrency issues. There are many ways to simulate concurrency and load. You'll find bellow some basic means accessible to any developer.
 
 Backend side:
 
 * Make sure that the server paging goes from the service call until the database (use `FETCH FIRST x ROWS ONLY` and https://www.postgresqltutorial.com/postgresql-fetch/[not `LIMIT` and `OFFSET`]).
-* Do not put in place unnecessary constraints in the database.
 * In cases of very large volumes (from hundreds of millions), use database table partitioning.
 * Don't forget to add all the necessary indexes, use the analysis of the execution plan to verify the absence of full scans.
 * Beware of SQL functions that 'break' indexes (like `UPPER()`) or use function indexes. Give priority to processing on the backend code side if possible.
@@ -401,11 +414,11 @@ Frontend and backend:
 * Any resource (chain size, number of calls over a period, ...) must always be limited to a threshold (no "open bar" behaviors).
 * Check that the size of HTTP requests remains below a few tens of KiB (excluding GET on files). Use "Sorting and Pagination, client and server pagination".
 * Track network chatter: group requests when possible (you have to find a compromise with the previous rule). Use the SOLID (Interfaces Segregation) rule 'I'.
-* Provide multi-valued endpoints (example: `GET /people?List=id1,id2,...`) to retrieve several elements at once (must result in a single `SELECT WHERE .. IN` in the final query, not a loop in the code!)
+* Provide endpoints that support batch requests to retrieve several elements at once (must result in a single `SELECT WHERE .. IN` in the final query, not a loop in the code!)
 
 ====
 
-WARNING: Do not fall into the premature optimization trap : it is "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards. Only optimize if it is worth it (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds or even nanoseconds.
+WARNING: Do not fall into the premature optimization trap : it is "the source of all the problems" according to Donald Knuth. Write the simplest code possible and follow a good design, only optimize it afterwards. Only optimize if it is worth it (Pareto law). Start with the most significant optimizations and do not waste time grabbing microseconds.
 
 //🏷{"id": "cacf4bd8-9e8a-449c-af31-1fd27169a685", "labels": ["level::intermediate",  "detail_level::detailed"]}
 ### Software factory specifics
@@ -480,7 +493,7 @@ Example 2: this project will be developed in TDD (test first)
 Example 3: 
 [cols = '2s, 1,1,1,1,4a']
 |===
-| Type of test | Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
+| Type of test | Appropriate Time to invest | Manual or automated? | Type of module targeted | Target Coverage Rate | Detail
 
 | UT (Unit Tests)
 | Very high
@@ -522,7 +535,7 @@ Example 3:
 | Automated
 | UI
 | 30%, nominal cases (happy path)
-| Written in CodeceptJS, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be mocked but will be run against an end-to-end instantiated linking chain. To avoid unnecessary work, these tests will be done at the level of entire features, not necessarily at each sprint. These tests will also serve as system tests since they will require a maximum of actual (non-mocked) modules.
+| Written in Playright, Cypress.js, Selenium or similar technology. They will be limited to a role of smoke tests (detection of gross problems). These tests will not be mocked but will be run against an end-to-end instantiated linking chain. To avoid unnecessary work, these tests will be done at the level of entire features. These tests will also serve as system tests since they will require a maximum of actual (non-mocked) modules.
 
 | Performance tests
 | Low (excluding dedicated performance campaigns)
@@ -609,22 +622,81 @@ Where:
 * I (gCO2/kWh): The amount of carbon emitted per kWh;
 * M (gCO2): The carbon footprint of the hardware;
 * R: The reference quantity (e.g., per user, per device, ...).
+* SCI: gCO₂e (grams of CO₂ equivalent) per functional unit
+
+Potential energy-efficiency improvement areas for the project (state of the art):
+
+* Use **modern browser profiling tools**
+  (Chrome DevTools, Firefox Profiler, Safari Web Inspector), along with
+  **Lighthouse** and **WebPageTest**, to analyze:
+  - number of requests,
+  - request size,
+  - request duration,
+  - CPU usage and network impact.
+
+* For mobile applications:
+  - Android: **Battery Historian**, **Android Studio Energy Profiler**;
+  - iOS: **Xcode Instruments – Energy Log**;
+  to identify energy-intensive phases and inefficient background activity.
+
+* Use **specialized software sustainability tools**:
+  - **Greenspector** (application-level energy analysis);
+  - **Scaphandre**, **Kepler**, or **PowerAPI / Intel RAPL** for server and container energy estimation;
+  - **Cloud Carbon Footprint** for cloud-based workloads (AWS, GCP, Azure).
+
+* Optimize media assets:
+  - adopt modern formats (**AVIF**, **WebP**);
+  - apply lossless compression where applicable;
+  - dynamically adapt image sizes to device capabilities (responsive images).
+
+* Optimize CPU and memory usage:
+  - eliminate unnecessary processing;
+  - profile applications regularly;
+  - for Java applications, optimize allocation patterns and configure
+    **modern garbage collectors** (G1, ZGC, Shenandoah, depending on use case).
+
+* Implement **lazy loading strategies**:
+  - defer non-critical resources;
+  - progressively load data based on user interaction.
+
+* Reduce data volumes:
+  - apply pagination or cursor-based APIs;
+  - enforce strict server-side filtering;
+  - avoid over-fetching (use batching where appropriate).
+
+* Group compute-intensive operations into **scheduled batch jobs**
+  to improve energy efficiency through workload consolidation.
 
 ====
 ====
-Example 1: The gulp application building process will apply an image size reduction via the imagemin-pngcrush plugin.
+Example 1: The application build process (Vite) automatically applies image
+optimization through a dedicated plugin (e.g. AVIF/WebP generation), reducing
+network usage and client-side energy consumption.
 ====
 ====
-Example 2: Robustness tests running over several days will be performed on the mobile application after each optimization to assess the energy consumption of the application.
+Example 2: Long-running endurance and robustness tests are executed on the mobile
+application after each optimization cycle to assess changes in energy and battery
+consumption over time.
 ====
 ====
-Example 3: The performance campaigns will integrate a detailed analysis of the consumption of bandwidth and CPU cycles even if the response time requirements are covered to help  identifying eco-design optimizations.
+Example 3: Performance testing campaigns include a detailed analysis of bandwidth
+usage and CPU cycles, even when response-time requirements are met, in order to
+identify further opportunities for sustainability-driven optimization.
 ====
 ====
-Example 4: For a requirement of a maximum of 100kg CO2/year emitted by online service A, which uses 20% of a physical server, given that the carbon intensity of the server, excluding operation, is estimated at 1.5 TCO2 over its entire life cycle of 10 years (thus 30kg CO2/year pro-rata for service A), how much energy (E) can be consumed?
+Example 4: For a maximum requirement of **100 kgCO2/year** for online service A:
 
-Using the SCI formula (see above), and assuming a total consumption of the server of 800W and 20,000 calls per hour on average, with US electricity having a carbon intensity of 400g/kWh, E must not exceed 175 kWh/year, which equates to 1 mWh/call.
+- the service uses **20%** of a physical server;
+- the embodied carbon footprint of the server is estimated at **1.5 tCO2**
+  over a 10-year lifecycle;
+- resulting in **30 kgCO2/year** attributed to service A.
+
+Using the **SCI formula**, with an average server power draw of **800 W**,
+**20,000 requests per hour**, and a US electricity carbon intensity of
+approximately **400 gCO2/kWh**, annual energy consumption must not exceed
+**175 kWh/year**, corresponding to **0.98 mWh per request** maximum.
 ====
+
 
 //🏷{"id": "bb5d8145-8519-4516-98a9-fc089f758d9c", "labels": ["level::intermediate", "detail_level::detailed"]}
 ### Management of robustness
@@ -665,7 +737,7 @@ Examples of points to be addressed:
 
 ====
 ====
-Example: our JSF application will store in an HTTP session only its shopping cart, not the product references.
+Example: Our PHP application will store in an HTTP session only its shopping cart, not the product references.
 ====
 
 //🏷{"id": "4ffcfd1b-87c9-48d0-96d6-f3b3b817a869", "labels": []}
@@ -734,7 +806,7 @@ How do you configure the application? Examples of points to be addressed:
 ====
 Example (application deployed in Kubernetes):
 
-The configuration will be injected at runtime via environment variables provided in the Kubernetes Deployment Descriptor. No live reloading.
+The configuration will be injected at runtime via environment variables provided in a `ConfigMap`. No live reloading.
 ====
 
 //🏷{"id": "01a81b2c-1dc0-4563-a2e2-5c5248086499", "labels": ["level::advanced", "detail_level::in-depth"]}
@@ -742,7 +814,7 @@ The configuration will be injected at runtime via environment variables provided
 
 [TIP]
 ====
-What are the branch workflows to plan? git-flow? TBD (Trunked-based Development)? other?
+What are the branch workflows to plan? git-flow? TBD (Trunked-Based Development)? other?
 ====
 
 ====
@@ -760,7 +832,7 @@ Example:
 
 [TIP]
 ====
-What is versioned and what versioning scheme is uses?
+What is versioned and what versioning scheme is used?
 ====
 
 ====
@@ -769,11 +841,11 @@ Example:
 * In general, any non-derived resource (source, tool, ci-cd script, template, database DDL, ...) must be versioned.
 * The modules will be versioned according to the numbering `x.y.z` (`<major). <Evolution>. <fix>`)
 * The libraries will be versioned according to the same numbering as the modules but the `x` value will be incremented during any version upgrade breaking upward compatibility (principle of Semantic Versioning).
-* The overall logical version of the project will be: `<lot>.<Sprint number>.<Deployment number>`
+* The overall version of the project will be: `<lot>.<Sprint number>.<Deployment number>`
 
 ====
 
-//🏷{"id": "79682de3-09b7-46f1-8354-9371295d18a8", "labels": ["level::intermediate",  "detail_level::in-depth"]}
+//🏷{"id": "79682de3-09b7-46f1-8354-9371295d18a8", "labels": ["level::intermediate",  "detail_level::in-depth"], "link_to":["9efde825-9508-4669-918c-7cfb0d45c21f"]}
 ### Concurrency
 
 [TIP]
@@ -799,7 +871,7 @@ What are the rules for encoding strings? This is a recurring problem. This probl
 ====
 
 ====
-Example 1: The only encoding allowed in all modules and infrastructure components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources, configuration files, databases, and files.
+Example 1: The only encoding allowed in all modules and infrastructure components is UTF-8. The use of ISO-8859-1, CP-1252 or any other encoding is strictly prohibited. This includes the configuration of application servers (Node, Tomcat ...), sources (including `.properties` files), configuration files, databases, and files.
 ====
 ====
 Example 2: If an external system requires sending or receiving character strings in an encoding different from UTF-8 (example: a REST service which returns data in ISO-8859-1) and that it is not possible to modify the contract, it is imperative to translate character strings within an anti-corruption layer as early as possible. In addition, never persist in our systems a data in a non-UTF-8 encoding.
@@ -810,17 +882,17 @@ Example 2: If an external system requires sending or receiving character strings
 
 [TIP]
 ====
-How do we manage the storage of dates? This, as the management of encoding is a recurring problem (one day shift, bugs during summer/winter time changes, etc.) and yet simple to solve: follow the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 standard] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC."[Wikipedia]).
+How do we manage the storage of dates and times? This, as the management of encoding is a recurring problem (one day shift, bugs during summer/winter time changes, etc.) and yet simple to solve: follow the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 standard] ("Time zones in ISO 8601 are represented as local time (with the location unspecified), as UTC, or as an offset from UTC."[Wikipedia]).
 ====
 
 ====
 Example 1: Hours will never be stored without a time zone. Basically, we will use timestamps with timezone (`timestamptz`) and in Java or JS, objects integrating the time zone explicitly (eg: `Instant` and not `LocalDateTime` in java) or epochs. The precision will be at least a millisecond.
 ====
 ====
-Example 2: Dates and date-times will be stored in database as epoch millis in long integer format. In the case of dates, we will store the epoch millis at 12:00 UTC (and not 00:00, too close to the previous day, risk of bug).
+Example 2: Dates and date-times will be stored in database as epoch millis in long integer format. Dates must be stored using the ISO-8601 `YYYY-MM-DD` format without time false precision.
 ====
 
-//🏷{"id": "96ec879c-3ce3-4e48-a3f9-84590c281fd4", "labels": ["detail_level::detailed"]}
+//🏷{"id": "96ec879c-3ce3-4e48-a3f9-84590c281fd4", "labels": ["detail_level::detailed"],"link_to":["0a25770c-6a02-4fa3-82cc-bf5152d3cba6"]}
 ### Log management
 
 NOTE: The log infrastructure aspects are detailed in the link:view-infrastructure.adoc[infrastructure view].
@@ -846,9 +918,7 @@ Example 1:
 * Avoid expensive calculations (example: many concatenations) and use conditional blocks (example in Java:
 
 ```java
-if (isDebugEnabled()) {
-   logger.debug (a+b+c)
-}
+log.info("Issue on item {} for user {}",item.getId(), user.getId());
 ```
 ====
 
@@ -934,14 +1004,14 @@ It is necessary to keep a good fluidity of batch data recovery. The pagination a
 ====
 
 ====
-Example 1 (Server side)
+Example 1 (Server side):
 
 * API output requests are systematically sorted in ascending order (the default) or descending order. In addition, it will be possible to choose the field on which the sorting is done via another query param.
 * In order to limit the number of requests to the API, it returns a limited number of elements (this number can be configured according to the size of the individual elements). This is the query param `range` containing the number of the page to retrieve + the number of elements of the page. Each API will offer a default value (around a hundred).
 ====
 
 ====
-Example 2 (Client side)
+Example 2 (Client side):
 
 * The sort must be applied to all the elements in the database, not only to the elements of the last query returned by the server.
 * The returned elements will be displayed in block tables (configurable size of an indicative size of around 20 elements).
@@ -960,10 +1030,10 @@ Example: we will use Liquibase embedded in the war to create and update the DDL 
 ====
 
 //🏷{"id": "201fca5f-50af-41f9-ab97-60b2f7abddc6", "labels": ["level::intermediate",  "detail_level::detailed"], "link_to": ["fbe627e5-be3f-41ec-9a2a-c43bd3587c6e"]}
-### i18N Management
+### Internationalization Management
 [TIP]
 ====
-Describe how you meet the internationalization requirements mentioned above.
+Describe how you meet the i18n requirements mentioned above.
 ====
 
 ====
