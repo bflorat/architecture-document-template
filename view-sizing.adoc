@@ -125,7 +125,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 //🏷{"id": "646fc728-6cef-4e75-9fa9-646b4ec2159d", "labels": []}
 ### Storage constraints
 
-TIP: List here the possible constraints related to the disks
+TIP: List here the possible constraints related to the disks.
 
 [Example]
 ====
@@ -133,16 +133,20 @@ Example: The maximum disk space that can be allocated to a VM is 2 TiB.
 ====
 
 //🏷{"id": "1d3ec06e-d63d-4a61-bb4e-437358064687", "labels": ["level::intermediate", "detail_level::detailed"]}
-### CPU constraints
+### Compute constraints
 
-TIP: List here the possible constraints related to the computing power
+TIP: List here the possible constraints related to the computing power (CPU, GPU, TPU)
 [Example]
 ====
-Example 1: A VM will have a maximum of 10 VCPUs
+Example 1: A VM will have a maximum of 10 VCPUs.
 ====
 
 ====
 Example 2: All the pods of the application should not require more than 1 CPU per node.
+====
+
+====
+Example 3: On TPU v5e, an inference model is allocated a dedicated slice of 8 chips (≈128 GB of total HBM). A slice hosts no more than one “latency-critical” model.
 ====
 
 //🏷{"id": "ec6a420b-c284-442a-93fd-edc3d45ed00a", "labels": ["level::intermediate", "detail_level::detailed"]}
@@ -160,7 +164,7 @@ Example: a pod or a Kubernetes job should not use more than 6 GiB of RAM
 TIP: List here the possible network volume constraints used
 [Example]
 ====
-Example 1: The minimum latency for requests on the WAN between London and Tokyo is 250 ms
+Example 1: The minimum latency for requests on the WAN between London and Tokyo is 250 ms.
 ====
 
 [Example]
@@ -224,7 +228,7 @@ These are measured or estimated business data that will be used as inputs to the
 
 [TIP]
 ====
-List here the storage needs of each module or infrastructure component (especially databases) once the application has reached full load (volume at two years for example).
+List here the storage needs of each module or infrastructure component (especially databases) once the application has reached full load (volume at five years for example).
 
 Take into account:
 
@@ -250,7 +254,7 @@ Only estimate data whose size is not negligible (several GiB minimum).
 
 [cols="e,e,e,e,e,e"]
 |===
-| Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
+| Data | Description | Unit size | Number of items at 5 years | Total size | Annual increase
 
 | Table Article
 | Catalog items
@@ -280,7 +284,7 @@ Only estimate data whose size is not negligible (several GiB minimum).
 
 [cols="1,1,1,1,1,1"]
 |===
-| Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
+| Data | Description | Unit size | Number of items at 5 years | Total size | Annual increase
 
 | 
 | 
@@ -311,7 +315,7 @@ a|
  - Constant over the year
  - Constant over the week
  - 3 peaks at 20% of the day at 8:00am-9:00am, 11:00am-12:00am and 02:00pm-03:00pm
- | | Users use the application during standard office hours
+ | Communications Department, report dated 01/01/2040 | Users use the application during standard office hours
 |===
 ====
 
@@ -348,12 +352,12 @@ Do not consider that the load is constant but take into account:
 
 If the calculation of the peak for a module at the end of the linking chain is complex (for example, a central IS service exposing referential data and called by many modules which each have their own peak), cut the day into time intervals sufficiently small (one hour for example) and the measured or estimated sum of the calls of each caller (batch or GUI) will be calculated over each interval to thus determine the highest cumulative demand.
 
-If the application runs on a PaaS type cloud, the load will be absorbed dynamically, but take care to *estimate the additional cost* and to set consistent consumption limits to respect the budget while ensuring a good level of service.
+If the application runs on a serverless type cloud service, the load will be absorbed dynamically, but take care to *estimate the additional cost* and to set consistent consumption limits to respect the budget while ensuring a good level of service.
 ====
 
 .Example: dynamic volumetric estimation of the REST endpoint `GET Detail` of the AllMyData application
 |===
-| Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K / H
+| Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K
 | Average duration of a user session
 | 15 mins
 | Average number of service calls per session
