@@ -16,7 +16,7 @@
 
 ====
 
-TIP: Regularly perform full reviews of this view (at least once a year while the project is active) and record the date here.
+TIP: Regularly perform full reviews of this view (at least once a year while the project is active) update the date above.
 
 TIP: Indicate the status of the view, for example 'DRAFT', 'FINALIZED', ...
 
@@ -150,9 +150,9 @@ This chapter has a pedagogical vocation because it highlights the maximum possib
 Provide here the elements which make possible to estimate the average incident detection time.
 ====
 ====
-Example 1: hypervision is done 24/7/365
+Example 1: Centralized monitoring is done 24/7/365
 
-Example 2: the production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
+Example 2: The production support service is available during office hours but an on-call duty is set up with alerting by e-mail and SMS 24/7 from Monday to Friday.
 ====
 
 //🏷{"id": "dc11b031-5685-4972-9832-138fa74cd30b", "labels": ["detail_level::detailed","monitoring"]}
@@ -165,9 +165,7 @@ Give here the tools and monitoring rules imposed at the IS level and any related
 ====
 Example 1: The application will be supervised using Zabbix
 
-Example 2: The batches must be able to be launch using a REST endpoint
-
-Example 3: A failed batch must not be scheduled again without a human acknowledgment
+Example 2: Alerting will be triggered from logs using Grafana alerts.
 ====
 
 //🏷{"id": "6903a99e-8b8e-464b-909c-d40da5a808d1", "labels": ["detail_level::detailed"]}
@@ -221,7 +219,7 @@ TIP: List here the elements related to the network allowing to estimate the dura
 ====
 Example 1: A network engineer is on call every weekend.
 
-Example 2: Orange's SLA provides for restoration of the Internet connection under nominal conditions in less than 24 hours.
+Example 2: AT&T's SLA provides for restoration of the Internet connection under nominal conditions in less than 24 hours.
 ====
 
 //🏷{"id": "b39586c3-6bbe-417f-ad64-eff53c81d283", "labels": ["detail_level::detailed"]}
@@ -229,7 +227,13 @@ Example 2: Orange's SLA provides for restoration of the Internet connection unde
 TIP: List here the elements allowing to evaluate the duration of data restoration (files / objects / database). The RTO requirements listed below should take this MTTR into account.
 
 ====
-Example 1: The Barman restore time of a Postgresql database is approximately (in hours) `0.1*x + 0.2*y` with x, the size of the database in GiB and `y` the number of days of logs to replay.
+Example 1: The PostgreSQL restore time with Barman is approximately DB / IO + WALd × WALt / PAR hours, where:
+
+* DB is the database size (GiB)
+* IO is the effective read/write throughput (GiB/hour)
+* WALd is the number of days of WAL files to replay
+* WALt is the average time to replay one day of WAL
+* PAR is the restore parallelism level
 
 Example 2: Restoring an offline backup (on tape) requires at least 4 hours of additional preparation.
 ====
@@ -246,7 +250,7 @@ Give here the list and the duration of the standard programmed interruptions (ma
 ====
 Example 1: We estimate the interruption for maintenance of each server at 5 mins per month. The base effective server availability rate is therefore 99.99%.
 
-Example 2: following security updates to certain RPM packages (kernel, libc, etc.), the RHEL servers are restarted automatically the night of the Wednesday following the update. This will result in an downtime of 5 mins on average 4 times a year.
+Example 2: following security updates to certain RPM packages (kernel, libc, etc.), the RHEL servers are restarted automatically the night of the Wednesday following the update. This will result in an downtime of 5 mins on average 10 times a year.
 
 ====
 
@@ -303,7 +307,7 @@ Example: the Madrid DC is Tier 3
 Make it clear to stakeholders that, even with application-level HA, the **maximum end-to-end availability** is capped by
 the availability of underlying dependencies (datacenter, network, platform).
 This **Availability Ceiling** is the product of their SLAs, and is always
-≤ the least available dependency.
+< the least available dependency.
 
 `A_upper_bound = ∏(A_SLA of each serial dependency)  ≤  min(A_SLA)`
 
@@ -408,21 +412,20 @@ Example 2: Given the very high level of security required to run the application
 ====
 
 ====
-Example 3: Given the very large number of calls from this application to the PERSON repository, both will be collocated in the XYZ VLAN.
+Example 3: Given the very large number of calls from this application to the `PERSON` repository, both will be collocated in the `XYZ` VLAN.
 ====
 
-//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"]}
+//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"], "link_to":["8d948872-15f9-49b6-9527-f511a2f7597d"]}}
 ### Network constraints
 
 [TIP]
 ====
 List the constraints dealing with the network, in particular the theoretical maximum bandwith and the divisions into security zones.
+
+Performance considerations are detailed in the sizing view.
 ====
 ====
-Example 1: the LAN has a maximum bandwith of 10 Gbps
-====
-====
-Example 2: The intranet modules must be located in a trusted zone that cannot be accessed from the Internet.
+Example: The intranet modules must be located in a trusted zone that cannot be accessed from the Internet.
 ====
 
 //🏷{"id": "86a3082e-7069-4120-b86f-f886ef919986", "labels": ["detail_level::detailed"]}

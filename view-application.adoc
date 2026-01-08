@@ -16,7 +16,7 @@
 
 ====
 
-TIP: Regularly perform full reviews of this view (at least once a year while the project is active) and record the date here.
+TIP: Regularly perform full reviews of this view (at least once a year while the project is active) update the date above.
 
 TIP: Indicate the status of the view, for example 'DRAFT', 'FINALIZED', ...
 

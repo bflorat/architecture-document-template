@@ -16,7 +16,7 @@
 
 ====
 
-TIP: Regularly perform full reviews of this view (at least once a year while the project is active) and record the date here.
+TIP: Regularly perform full reviews of this view (at least once a year while the project is active) update the date above.
 
 TIP: Indicate the status of the view, for example 'DRAFT', 'FINALIZED', ...
 
@@ -169,7 +169,7 @@ Example 1: The minimum latency for requests on the WAN between London and Tokyo 
 
 [Example]
 ====
-Example 2: The Ethernet network of the Datacenter has a bandwidth of 40 Gbps.
+Example 2: The backbone network of the Datacenter has a bandwidth of 40 Gbps.
 ====
 
 //🏷{"id": "d6e3eb12-371b-4c26-b538-9fea2051bfed", "labels": ["detail_level::overview", "requirement"]}
@@ -357,7 +357,7 @@ If the application runs on a serverless type cloud service, the load will be abs
 
 .Example: dynamic volumetric estimation of the REST endpoint `GET Detail` of the AllMyData application
 |===
-| Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K
+| Maximum rate of users connected at the same time in annual peak | S1 x F1 x 0.2 = 8K over 1h
 | Average duration of a user session
 | 15 mins
 | Average number of service calls per session
