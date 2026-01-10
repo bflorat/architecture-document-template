@@ -475,9 +475,9 @@ Example 6: An update schedule for critical components will be established to pre
 List the constraints related to logs
 ====
 ====
-Example 1: an application must not produce more than 1 Tio of logs/month.
+Example 1: An application must not produce more than 1 Tio of logs/month.
 
-Example 2: the maximum retention period for logs is 3 months.
+Example 2: The maximum retention period for logs is 3 months.
 ====
 
 //🏷{"id": "608d63e6-7299-4976-bf59-52fa1c6ac486", "labels": ["detail_level::detailed"]}
