@@ -144,7 +144,7 @@ Example 3: The application will be built, tested and deployed continuously with 
 ====
 
 //🏷{"id": "8d79cc07-e094-4863-8bb8-0a3ca317743d", "labels": ["detail_level::overview", "requirement"]}
-## Non-functional requirements
+## Non-Functional Requirements
 
 [TIP]
 ====
@@ -152,7 +152,7 @@ Contrary to the constraints which fixed the framework to which any application h
 ====
 
 //🏷{"id": "48bb8b97-2e97-4515-bf3b-95864f85e4e9", "labels": ["gui"]}
-### Accessibility
+### Accessibility Requirements
 
 [TIP]
 ====
@@ -170,7 +170,7 @@ Example: All features must be usable using the **keyboard only**.
 ====
 
 //🏷{"id": "b098d142-655e-4521-9d4f-2c2ea8eceb45", "labels": ["gui"]}
-### Ergonomics
+### Ergonomics Requirements
 
 //🏷{"id": "3c031334-5598-4817-87b4-dec34ce8389b", "labels": ["detail_level::detailed"]}
 #### Specificities on UX
@@ -199,7 +199,7 @@ Example 2: Most screens will be fitted with accordions.
 ====
 
 //🏷{"id": "1cacea74-bede-43b3-93a5-804fd60ff4fb", "labels": ["detail_level::in-depth"]}
-#### Fonts
+#### Fonts Requirements
 
 [TIP]
 ====
@@ -215,7 +215,7 @@ Example: Text must remain readable when the browser is **zoomed up to 200%**, wi
 ====
 
 //🏷{"id": "cfd3435f-d888-43e3-a634-35c3d5d92cb4", "labels": ["level::intermediate", "detail_level::in-depth"]}
-#### Responsive website
+#### Responsive Website Requirements
 
 [TIP]
 ====
@@ -234,7 +234,7 @@ Example: On smartphone screens, the primary navigation must collapse into a sing
 ====
 
 //🏷{"id": "30cc6226-2213-4351-83aa-a4905c5d4baa", "labels": ["level::advanced", "detail_level::in-depth"]}
-#### Progressive Web Apps (PWA)
+#### Progressive Web Apps (PWA) Requirements
 
 [TIP]
 ====
@@ -245,7 +245,7 @@ Example: Application X will be fully PWA. Tests will have to demonstrate that th
 ====
 
 //🏷{"id": "67ff8381-8145-4dc4-bd15-cfec867dc8b5", "labels": []}
-#### Supported browsers
+#### Supported Browsers Requirements
 
 [TIP]
 ====
@@ -268,7 +268,7 @@ Example 3: Application Z is aimed at the broadest audience and with reasonably o
 ====
 
 //🏷{"id": "39318743-8131-4d46-9354-c64804066ae8", "labels": ["level::intermediate", "project_size::large", "detail_level::overview", "constraint"]}
-#### Offline mode
+#### Offline Mode Requirements
 
 [TIP]
 ====
@@ -284,7 +284,7 @@ Example 2: The mobile application will be in PWA mode, entirely written in HTML5
 ====
 
 //🏷{"id": "fbe627e5-be3f-41ec-9a2a-c43bd3587c6e", "labels": []}
-#### Internationalization (i18n)
+#### Internationalization (i18n) Requirements
 
 [TIP]
 ====
@@ -312,7 +312,7 @@ Example 2: The static pages of the site must follow good SEO practices to optimi
 ====
 
 //🏷{"id": "c8e58371-6bea-48e2-ab0e-989fec63e0ee", "labels": []}
-### Ecodesign requirements
+### Ecodesign Requirements
 
 [TIP]
 ====

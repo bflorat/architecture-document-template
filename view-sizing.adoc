@@ -123,7 +123,7 @@ It is interesting to explain them in order to obtain realistic requirements. For
 
 
 //🏷{"id": "646fc728-6cef-4e75-9fa9-646b4ec2159d", "labels": []}
-### Storage constraints
+### Storage Constraints
 
 TIP: List here the possible constraints related to the disks.
 
@@ -133,7 +133,7 @@ Example: The maximum disk space that can be allocated to a VM is 2 TiB.
 ====
 
 //🏷{"id": "1d3ec06e-d63d-4a61-bb4e-437358064687", "labels": ["level::intermediate", "detail_level::detailed"]}
-### Compute constraints
+### Compute Constraints
 
 TIP: List here the possible constraints related to the computing power (CPU, GPU, TPU)
 [Example]
@@ -150,7 +150,7 @@ Example 3: On TPU v5e, an inference model is allocated a dedicated slice of 8 ch
 ====
 
 //🏷{"id": "ec6a420b-c284-442a-93fd-edc3d45ed00a", "labels": ["level::intermediate", "detail_level::detailed"]}
-### Memory constraints
+### Memory Constraints
 
 TIP: List here the possible constraints related to memory
 [Example]
@@ -159,7 +159,7 @@ Example: a pod or a Kubernetes job should not use more than 6 GiB of RAM
 ====
 
 //🏷{"id": "8d948872-15f9-49b6-9527-f511a2f7597d", "labels": []}
-### Network constraints
+### Network Constraints
 
 TIP: List here the possible network volume constraints used
 [Example]
@@ -187,7 +187,7 @@ The following sections dealing with static and dynamic sizing calculations give 
 ====
 
 //🏷{"id": "962347a4-c3c8-4f0c-bcac-774a6ef617a4", "labels": []}
-### Static sizing
+### Static Sizing Requirements
 
 TIP: These are the metrics used to determine the *cumulative* storage volume of the project. Remember to clearly specify the assumptions made for the estimated metrics. It will thus be possible to review them if new business elements appear.
 
@@ -296,7 +296,7 @@ Only estimate data whose size is not negligible (several GiB minimum).
 ====
 
 //🏷{"id": "b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be", "labels": []}
-### Dynamic sizing
+### Dynamic Sizing Requirements
 
 TIP: These are metrics by duration (year, month, hour, ...) and allowing to determine the load applied to the architecture, which will help to size the systems in terms of CPU, bandwidth and performance of disks.
 
@@ -415,7 +415,7 @@ Example: the Oracle BD01 database is used for reading by the REST endpoint `GET 
 ### Response time requirements
 
 //🏷{"id": "24f70acd-5f7c-49b3-bd75-d594e5af8917", "labels": ["detail_level::detailed", "gui"]}
-#### Response time of GUIs
+#### Response Time of GUIs Requirements
 
 [TIP]
 ====
@@ -478,7 +478,7 @@ Apart from these values, the application must be optimized and go back to accept
 ====
 
 //🏷{"id": "88645b89-d407-4107-93b2-48003fd8688a", "labels": ["detail_level::detailed", "batch"]}
-#### Duration of batch execution
+#### Duration of batch Requirements
 
 [TIP]
 ====

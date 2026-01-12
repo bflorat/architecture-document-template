@@ -275,7 +275,7 @@ Example:
 TIP: Limits and imposed choices on how you may design/implement the solution. They restrict the design space (technology, process, organization, time, budget, regulation).
 
 //🏷{"id": "58897e87-0c12-4139-b5da-daec9cae21c6", "labels": []}
-### Budget
+### Budget Constraints
 
 TIP: Give the budget constraints of the project
 ====
@@ -286,7 +286,7 @@ Example 2: Cloud infrastructure should cost less than $20K a month
 ====
 
 //🏷{"id": "ac5b1f28-bfcb-4543-a90b-abcff2b41822", "labels": []}
-### Planning
+### Planning Constraints
 
 TIP: Without detailing the project schedules, it is suggested to highlight interesting elements for the architecture.
 ====
@@ -329,7 +329,7 @@ Example 7: modules in an Internet zone cannot call modules in an Intranet zone f
 ====
 
 //🏷{"id": "abafa462-262f-429e-aad8-d2cdc0cf15a3", "labels": []}
-### Legals
+### Legal Constraints
 
 List here (without detailing too much) any legal constraints related to the project.
 
@@ -368,7 +368,7 @@ Example 2 (migration project): Legacy modules should require as few adaptations 
 ====
 
 //🏷{"id": "38fd6aa0-2354-4d0d-9812-10ed917eae5e", "labels": []}
-### Interoperability
+### Interoperability Requirements
 
 TIP: Describe here the requirements regarding protocols, formats, and semantics to be followed to facilitate exchanges with organizations or third parties.
 
@@ -377,7 +377,7 @@ Example: Our XYZ modules must be exposed to X organizations from the Internet in
 ====
 
 //🏷{"id": "9efde825-9508-4669-918c-7cfb0d45c21f", "labels": ["level::intermediate","detail_level::detailed"]}
-### Concurrency management requirements
+### Concurrency management Requirements
 
 [TIP]
 ====
@@ -395,7 +395,7 @@ Example 3: No other instance of job X must be executed in parallel, otherwise da
 
 
 //🏷{"id": "afdd573d-d1f8-4958-99c1-e404592396d0", "labels": ["level::advanced","detail_level::detailed"]}
-### Degraded modes
+### Degraded Modes Requirements
 [TIP]
 ====
 Specify the degraded application modes.
@@ -410,7 +410,7 @@ Example 2: If the SMTP server no longer works, the emails will be persisted then
 
 
 //🏷{"id": "4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f", "labels": ["detail_level::detailed", "archiving"]}
-### Archiving
+### Archiving Requirements
 
 [TIP]
 ====
@@ -429,7 +429,7 @@ Example 2: Accounting documents must remain available online for a defined minim
 ====
 
 //🏷{"id": "fedcba98-7654-4321-8abc-0def12345678", "labels": ["detail_level::detailed"]}
-### Retention Periods
+### Retention Periods Requirements
 
 TIP: Specify here how long data and documents persisted by your application modules should be kept. Note that these durations may be legally constrained (see legal constraints above), for example in the context of the GDPR right to be forgotten.
 
