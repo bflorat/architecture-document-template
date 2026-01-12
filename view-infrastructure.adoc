@@ -571,7 +571,7 @@ Example of operating windows :
 |===
 ====
 
-//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"], "link_to":["deafbeef-dead-4bed-8ace-0b0b0b0b0b0b,cc4a17a8-d68b-43cf-8b4e-c64829d950fc"]}
+//🏷{"id": "08cb1019-20c4-42ef-9bf2-4adf72936c1c", "labels": ["availability"], "link_to":["cc4a17a8-d68b-43cf-8b4e-c64829d950fc"]}
 ### Availability requirements
 
 [TIP]
@@ -586,7 +586,7 @@ Be careful to frame these requirements because decision-makers often tends to re
 
 The physical, technical or even software architecture can be completely different depending on the availability requirements (middleware or even database clusters, expensive hardware redundancies, asynchronous architecture, session caches, failover, etc.).
 
-It is generally estimated that high availability (HA) starts at two new ones (99%), that is to say around 90 hours of downtime per year.
+It is generally estimated that high availability (HA) starts at three nines (99.9%), that is to say around 8h45 of downtime per year.
 
 Give the availability requested by range.
 
@@ -603,7 +603,7 @@ Example:
 | 24h, maximum 7 times a year
 
 | 2
-| 4 hours, 8 times a year
+| 1h, 8 times a year
 
 | 3
 | 4 hours, 8 times a year
@@ -635,7 +635,7 @@ This robustness is expressed in absolute value per unit of time: number of (tech
 Be careful not to be too demanding on this point because great robustness can imply the implementation of fault-tolerant systems that are complex, expensive and that can go against the capacity to scale up, or even availability.
 ====
 ====
-Example 1: no more than 0.001% of requests in error
+Example 1: no more than 0.001% of requests in error.
 ====
 ====
 Example 2: the user must not lose his shopping cart even in the event of a breakdown (be careful, this type of requirement impacts the architecture in depth, see the Availability section).
@@ -663,7 +663,7 @@ Data restoration occurs mainly in following cases:
 Example: We shouldn't loose more than one working day of application data.
 ====
 
-//🏷{"id": "3e07d851-b2dc-422f-9cba-1b4447a5c956", "labels": ["level::intermediate", "project_size::medium", "project_size::large", "detail_level::overview"]}
+//🏷{"id": "3e07d851-b2dc-422f-9cba-1b4447a5c956", "labels": ["level::intermediate", "project_size::medium", "project_size::large", "detail_level::overview"],"link_to": ["6903a99e-8b8e-464b-909c-d40da5a808d1"]}
 ### RTO Requirements
 
 [TIP]
@@ -691,7 +691,7 @@ Specify here how the application should be deployed on the server side.
 
 For example :
 
-* Is the installation manual? scripted with IT Automation tools like Ansible or SaltStack? via Docker images?
+* Is the installation manual? scripted with IT Automation tools like Ansible or Terraform? via Docker/OCI images?
 * How are the modules deployed? As packages? Are we using a package repository (type yum or apt)? Do we use containers?
 * How are they upgraded?
 ====
@@ -706,7 +706,6 @@ Specify here how the application should be deployed on the client side:
 * If the application is large (large .js files or images for example), is there a risk of an impact on the network?
 * Local proxy caching to be expected?
 * Are firewall rules to be expected?
-* (For a Java application): which version of JRE is needed on clients?
 * (For a standalone application): which version of the OS is supported?
 * If the OS is Windows, does the installation go through a deployment tool (Novell ZENWorks for example)? Does the application come with a Nullsoft-style installer? Does it affect the system (environment variables, registry, etc.) or is it in portable mode (single zip)?
 * If the OS is Linux, should the application be provided as a package?
@@ -763,7 +762,7 @@ Examples:
 * Active/active clusters will be exposed behind an LVS + Keepalived with direct routing for the return.
 ====
 
-//🏷{"id": "17a46000-c51d-4fb7-868c-7386aef5b523", "labels": ["level::intermediate","availability"]}
+//🏷{"id": "17a46000-c51d-4fb7-868c-7386aef5b523", "labels": ["level::intermediate","availability"],"link_to":["08cb1019-20c4-42ef-9bf2-4adf72936c1c"]}
 ### Availability
 
 [TIP]
@@ -1063,7 +1062,7 @@ Also detail operational flows (such as JMX or SNMP protocols).
 
 In some organizations, this matrix may be too detailed for architecture documentation and is maintained separately by integrators or operations teams.
 
-Application flows need not be referenced here, as readers are typically looking for different information. Operations and integration teams require comprehensive flow details for firewall configuration and installation purposes.
+Application flows between modules need not be referenced here, only flows between machines, as readers are typically looking for different information. Operations and integration teams require comprehensive flow details for firewall configuration and installation purposes.
 
 Network types should include useful network information to assess performance (throughput, latency) and security: LAN, VLAN, Internet, LS, WAN, etc.
 
@@ -1132,7 +1131,7 @@ Example of Technical Flow Matrix :
 ====
 Give here an overall view of the environments used by the application. The most common environments are: development, testing, acceptance, pre-production/benchmarks, production, training.
 
-It is often useful to subdivide environments into 'platforms' made up of a set of machines isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and` UAT2` allowing two testers to work in isolation.
+It is often useful to subdivide environments into "platforms" made up of a set of machines isolated from each other (although they may share common hardware resources). For example, a test environment can consist of lanes `UAT1` and `UAT2` allowing two testers to work in isolation.
 
 Example: 
 [cols = '1,2,2,2']
@@ -1176,7 +1175,7 @@ However, some practices are **specifically tied to eco-design** and should be co
 
 #### Energy Optimization & Infrastructure
 * **Power consumption measurement & monitoring**:  
-  - Use energy analysis tools such as PowerAPI (or equivalent).  
+  - Use energy analysis tools such as PowerAPI or Scaphandre.  
   - Integrate energy metrics into your observability stack (e.g. Prometheus with custom energy metrics).  
 
 * **Resource management & sharing**:  
@@ -1185,8 +1184,8 @@ However, some practices are **specifically tied to eco-design** and should be co
 
 * **Data center efficiency**:  
   - Host workloads in **energy-efficient data centers**. The key metric is PUE (Power Usage Effectiveness).  
-  - **PUE examples**: AWS reports a global PUE of 1.15 (with some top sites as low as 1.04) :contentReference[oaicite:0]{index=0}.  
-  - **Caveat**: Efficiency goes beyond PUE — consider also the **energy source** (renewable vs fossil).  
+  - **PUE examples**: AWS reports a global PUE of 1.15 (with some top sites as low as 1.04).  
+  - **Caveat**: Efficiency goes beyond PUE — consider also the **energy source** (renewable vs fossil). For example, in 2024 the carbon intensity of electricity in France was 21.7 gCO₂e/kWh, compared with an average of 352 gCO₂e/kWh in the United States.  
 
 #### **Overall energy impact**
 * **Assess full stack energy impact**:  
@@ -1230,72 +1229,79 @@ This measure can also be used in the event of a DDOS-type attack because it allo
 ====
 
 //🏷{"id": "44f0732c-3b29-4bd5-873f-046fc010f728", "labels": ["level::advanced", "detail_level::in-depth"]}
+#### Quality of Service
+
+[TIP]
+====
+It is also useful to plan for dynamic regulation mechanisms, for example:
+
+* **Throttling**: regulation of request throughput (e.g., if a client exceeds **1,000 calls per minute**, its requests are queued or artificially slowed down).
+* **Rate Limiting**: strict limitation of the number of calls a client can make to an endpoint (e.g., each client is limited to **100 calls per minute on endpoint E**. Any excess request returns a **429 Too Many Requests** error).
+* **Token-based systems** (for intranets where machines are under full control): each client is assigned a token quota that limits its calls. This system allows **differentiated priorities** by allocating more tokens to certain strategic clients.
+====
+
+====
+**Example 1:**  
+A **token-based system** regulates access to the `DetailArticle` resource with a total of **1,000 concurrent tokens**.  
+Beyond this limit, requests will receive a **429 Too Many Requests** error and must retry using **exponential backoff**.
+
+.Example: Token allocation by operation type
+|===
+|Operation on `DetailArticle` | Token share
+
+|GET  | 80%
+|POST | 5%
+|PUT  | 15%
+|===
+====
+
+====
+**Example 2:**  
+A **Rate Limiting** policy of **100 requests per source per minute** is enforced at the reverse proxy level.  
+Requests exceeding this threshold will receive a **429 Too Many Requests** error and must be rescheduled by the client.
+====
+
+//🏷{"id": "5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796", "labels": ["level::advanced", "detail_level::in-depth"]}
 ### Timeout Management
 
 [TIP]
 ====
-All distributed calls (e.g., HTTP(S) to APIs, object storage access, database queries) must have **strictly defined connection and execution timeouts**.  
-Without appropriate timeouts, contention may arise, leading to **critical blocking and resource saturation** if downstream systems slow down.  
+All distributed calls (e.g., HTTP(S) calls to APIs, access to object storage, database queries) must be **strictly bounded in both connection time and execution time**.  
+Without appropriate timeouts, resource contention may arise, leading to **critical blocking situations and resource saturation** when systems slow down.
 
 **Key principles:**
 
-* **Define cascading timeouts** along the call chain.  
-  - Example: **10s at the reverse proxy**, **8s at the REST API**, **5s at the database**.  
-  - Goal: ensure an infrastructure service does not continue processing a request after its caller has already given up.  
-* **Avoid identical timeout values everywhere**, as this can cause simultaneous expirations and undesirable cascading failures.  
-* **Use smart retries with exponential backoff** (progressively increasing the delay between attempts).  
-* **Add jitter** to the backoff to avoid thundering herds when multiple requests fail at once.  
+* **Define progressive timeouts** along the call chain.  
+  - E.g., **10 s on the reverse proxy**, **8 s on the REST API**, **5 s on the database**.  
+  - Goal: prevent an infrastructure service from continuing to process a request after the calling module has already given up.
+* **Avoid identical timeout values everywhere**, which could cause synchronized expirations and unwanted cascading effects.
+* **Use intelligent retries with exponential backoff** (progressively increasing the delay between retries).
+* **Add jitter** to the exponential backoff to avoid load spikes when multiple requests expire simultaneously.
 
 **Jitter:**
 
-- If multiple clients fail simultaneously and retry with a **fixed delay**, they risk overwhelming the system.  
-- Jitter introduces **randomized variability** into the backoff delay to spread the load.  
+- If multiple clients fail at the same time and apply retries with a **fixed delay**, they may overload the system.
+- Jitter consists in **adding random variability** to the exponential backoff delay to smooth out traffic bursts.
 - Example:  
-  * **Without jitter**: all clients retry after **1s, then 2s, then 4s…** → risk of request spikes.  
-  * **With jitter**: retries occur at **1.1s, 1.8s, 3.6s, 4.2s…** → load is better distributed.  
+  * **Without jitter**: All clients retry after **1s, then 2s, then 4s…** → Risk of congestion.  
+  * **With jitter**: Retries are spread over **1.1s, 1.8s, 3.6s, 4.2s…** → Load is better distributed.
+
 ====
 
 ====
-**Example of defined timeouts in a reference architecture:**
+**Example of timeouts defined for a typical architecture:**
 
 |===
-|Infrastructure Module or Component |Connection Timeout (ms)|Execution Timeout (ms)
+|Module or Infrastructure Component | Connection Timeout (ms) | Execution Timeout (ms)
 
-|JavaScript REST Client   | 1000 | 5000
-|API Gateway (Reverse Proxy) | 1500 | 4000
-|Node.js REST API         | 1000 | 3500
-|PostgreSQL Database      | 500  | 3000
-|===
-====
-
-
-//🏷{"id": "5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796", "labels": ["level::intermediate","detail_level::detailed"]}
-### Timeout management
-
-[TIP]
-====
-In general, all distributed calls (in particular HTTP(S) to APIs or object storage and calls to databases) must be limited in connection time AND execution time. Without these timeouts, deadly module contentions can occur in the event of performance issues.
-
-Describe here the different timeouts implemented on the linking chains. Keep in mind that from client to persistence, timeouts should decrease as you go through the linking chain (example: 10 secs on the Reverse proxy, 8 secs on the REST endpoint, 5 secs on the database). In the opposite case, an infrastructure component can continue to process a request when its calling module has already given up, which poses both problems of wasting resources but above all effects that are difficult to predict.
-
-Also avoid using exactly the same value in all the linking chain to avoid unexpected effects linked to the concomitant timeouts.
-
-====
-
-====
-Example:
+|JavaScript REST Client        | 1000 | 5000
+|API Gateway (Reverse Proxy)   | 1500 | 4000
+|Node.js REST API              | 1000 | 3500
+|PostgreSQL Database           | 500  | 3000
 
 |===
-| Module or Infrastructure component | Timeout (ms)
-
-| Rest JavaScript Client | 5000
-| API Gateway | 4000
-| API Rest Node.js | 3500
-| PG database | 3000
-
-|===
-
 ====
+
 
 //🏷{"id": "c9a330f1-ffde-44e2-a432-a1e178440333", "labels": ["operations"]}
 ### Operations
@@ -1345,7 +1351,7 @@ Be sure to specify any constraints in case of partial startup (e.g., does the ap
 
 [TIP]
 ====
-Describe here all scheduled operations and how they are monitored, including:
+Describe scheduled operations principles and how they are monitored, including when relevant:
 
 * Jobs and their potential interdependencies (execution order, constraints, frequency).  
 * Internal processes (cleanup tasks, maintenance) that serve only technical roles (purges, index rebuilds, deletion of temporary data, etc.).  
@@ -1546,7 +1552,7 @@ Example 2: For tax data backups, every transaction to the database will be saved
 Always remember that what we really want are **restores**, not backups. It is crucial to ensure that the restore process will work:
 
 * Are backups correct and complete?  
-* What restore tests are planned? At what frequency (at least once per year is a minimum)?  
+* What restore tests are planned? At what frequency [at least once per year is a minimum]?  
 * How long will a restore take? Is this compatible with the RTO?  
 * How are errors handled? (retries, timeouts, logs, alerts, etc.).  
 
@@ -1614,12 +1620,12 @@ Logs will be protected against injection via the `StringEscapeUtils.escapeHtml4(
 Access logs will be forwarded to a remote log server in addition to being kept locally for a maximum of 7 days.  
 ====
 
-//🏷{"id": "2c3d502d-d67c-417b-88f4-d610e158e930", "labels": ["level::intermediate", "detail_level::detailed","monitoring"]}
+//🏷{"id": "2c3d502d-d67c-417b-88f4-d610e158e930", "labels": ["level::intermediate", "detail_level::detailed","monitoring"],"link_to":["a18eb613-e522-4bf5-a1fd-742b9d754ce1"]}
 ### Monitoring
 
 [TIP]
 ====
-Monitoring is a **central pillar of availability**, as it drastically reduces the **MTTD (Mean Time to Detect)** for failures.  
+Monitoring is a **pillar of availability**, as it drastically reduces the **MTTD (Mean Time to Detect)** for failures.  
 Effective monitoring should not be **purely reactive** (alerting only when a failure occurs), but also **proactive** by detecting weak signals before an outage happens.
 
 - **Metrics**: raw data collected (CPU %, filesystem size, number of requests, etc.), from system, middleware, or application probes.  
@@ -1690,14 +1696,14 @@ The most common Open Source tools are:
 - **Metric collection**:  
   * **Prometheus** (HTTP scraping).  
   * **Telegraf** (agent collecting CPU, memory, network, etc.).  
-  * **SNMP, JMX** for system and JVM monitoring.  
+  * **SNMP, JMX** protocols for system and JVM monitoring.  
 
 - **Time-series metric storage**:  
   * **InfluxDB, Prometheus TSDB, TimescaleDB**.  
   * **Elasticsearch** (if log collection is also needed).  
 
 - **Visualization & alerting**:  
-  * **Grafana** (interactive dashboards).  
+  * **Grafana** (interactive dashboards), *Kibana*.  
   * **Zabbix, Netdata, Nagios** (classic system monitoring).  
 
 Indicators are displayed in **dynamic dashboards**, and **alert thresholds** are defined to notify operations teams.  
@@ -1723,9 +1729,9 @@ Define **alert trigger conditions** and **notification channels**:
   * **Slack, Mattermost, Microsoft Teams** (operational monitoring).  
   * **SMS or PagerDuty** (urgent, 24/7 on-call).  
 
-- **Triggering rules**:  
+- **Triggering and ending rules**:  
   * Require repetition over a period before alerting (to avoid noise).  
-  * **Event correlation** to avoid false positives.  
+  * Alert resolution conditions.
 ====
 ====
 **Example**:  
@@ -1747,7 +1753,7 @@ In general, these tests are simple (e.g., scheduled HTTP requests using `curl`).
 They rarely need to perform update operations. If they do, it must be possible to identify this test data across all modules so it does not pollute business data or analytics.  
 ====
 ====
-**Example**: For a website, black-box monitoring tests will be run via HTTP requests executed by Netvigie. In case of failure, an email notification is sent to the operations team.  
+**Example**: For a website, black-box monitoring tests will be run via HTTP requests executed by GCP uptime checks. In case of failure, an email notification is sent to the operations team.  
 ====
 
 //🏷{"id": "f455e87e-47f0-422a-a80b-0ec65517ad53", "labels": ["level::advanced", "detail_level::detailed","monitoring"]}
@@ -1758,7 +1764,7 @@ They rarely need to perform update operations. If they do, it must be possible t
 Tracking application performance in production is essential to:
 
 * Provide factual feedback on *in vivo* performance, helping improve decision-making for hardware platform resizing.  
-* Detect failures proactively (e.g., sudden drop in the number of requests).  
+* Provides precious insights about production issues.
 * Perform statistical analysis on module usage to guide decision-making (e.g., decommissioning an underused application).  
 
 Three main categories of solutions exist:
