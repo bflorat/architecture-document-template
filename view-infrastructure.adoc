@@ -415,7 +415,7 @@ Example 2: Given the very high level of security required to run the application
 Example 3: Given the very large number of calls from this application to the `PERSON` repository, both will be collocated in the `XYZ` VLAN.
 ====
 
-//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"], "link_to":["8d948872-15f9-49b6-9527-f511a2f7597d"]}}
+//🏷{"id": "6f7d74be-7024-4a6e-af4d-d084d49109ae", "labels": ["detail_level::detailed"], "link_to":["8d948872-15f9-49b6-9527-f511a2f7597d"]}
 ### Network Constraints
 
 [TIP]
