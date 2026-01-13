@@ -592,7 +592,7 @@ The application runs autonomously and does not share authentication with other s
 
 
 //🏷{"id": "01404b83-f96f-4649-ace0-e5611601b830", "labels": ["level::advanced"]}
-### Non-repudiation requirements
+### Non-repudiation Requirements
 [TIP]
 ====
 Non-repudiation ensures that a user or an organization cannot deny having performed a specific action (signature, approval, transaction, etc.).
@@ -646,8 +646,38 @@ In modern information systems, non-repudiation relies almost systematically on c
 |===
 ====
 
+**Data to be kept for proof**
+
+====
+Example :
+
+[cols="e,e,e"]
+|===
+| Data Nature| Objective | Retention period
+| Full log (IP, GMT time, detail) of orders placed on the site | Prove that the order has been placed | 1 year
+| Date and content of the confirmation email | Prove that the confirmation email has been sent | 2 years
+| Insurance contract signed and scanned in PDF | Prove that the contract has been signed | 5 years
+| Initial tax notice with digital signature | Keep the amount and tax. | 5 years
+|===
+====
+
+[PRE-FILLED]
+====
+.Data to be kept for proof
+[cols="1,1,1"]
+|===
+| Data Nature | Objective | Retention period
+
+| 
+|
+| 
+|===
+====
+
+
 //🏷{"id": "958fcccc-60cb-4158-940f-279cd1d12c9b", "labels": []}
-### Anonymity and privacy requirements
+### Anonymity and Privacy Requirements
+
 [TIP]
 List the constraints of anonymity and legal privacy.
 ====
@@ -817,52 +847,36 @@ Example 3: Access to sensitive operations is authorized
 ====
 
 //🏷{"id": "e72e5ea5-5711-4665-8a91-76c63cbca2bc", "labels": ["level::intermediate"]}
-### Traceability and auditability requirements
+### Traceability and auditability Requirements
 [TIP]
 ====
 List here the trace requirements for detecting, for example:
+
 * Misuse of back-office applications by employees
 * Computer intrusions
 * Data alteration
+
 The traces are nominative and complete to allow auditing. They are therefore themselves sensitive and often require a good level of confidentiality.
 Differentiate:
+
 * Application traces, i.e., assessments of a complete use case such as 'Agent X consulted Ms. Y's file' and that are stored in databases;
 * ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level and much more volatile.
+
 ====
-For the most sensitive data, it is possible to provide traceability at two levels (tracing the consultation of traces) to avoid abusive hierarchical traceability.
-The traceability of the data of the repositories (base of people typically) requires a complete historization, which is in any case a good practice. To do this, provide an MCD allowing a record to be added for each change with a modification date and an effective date.
+For the most sensitive data, traceability can be implemented at two levels (including traceability of access to audit logs) in order to prevent abusive or excessive hierarchical monitoring.
+
+Traceability for repository data (typically master data such as person records) requires full historization, which is considered a best practice in any case.
+This involves recording both the modification date and the effective date for each change.
+Audit logs must also be subject to defined retention and purging policies.
 ====
-Example 1: for module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the previous and the new value.
+Example 1: For module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the previous and the new value.
 ====
 ====
-Example 2: Any intrusion into the IS must be detected (as far as possible).
+Example 2: Any VPN access must be logged.
 ====
 ====
 Example 3: We need to be able to reconstruct the history of any patient's record at any date.
 ====
-.Data to be kept for proof (example)
-[cols="e,e,e"]
-|===
-| Data Nature| Objective | Retention period
-| Full log (IP, GMT time, detail) of orders placed on the site | Prove that the order has been placed | 1 year
-| Date and content of the confirmation email | Prove that the confirmation email has been sent | 2 years
-| Insurance contract signed and scanned in PDF | Prove that the contract has been signed | 5 years
-| Initial tax notice with digital signature | Keep the amount and tax. | 5 years
-|===
-
-[PRE-FILLED]
-====
-.Data to be kept for proof
-[cols="1,1,1"]
-|===
-| Data Nature | Objective | Retention period
-
-| 
-|
-| 
-|===
-====
-
 
 //🏷{"id": "d1f16239-18f7-4a4a-875e-34a587eb88b4", "labels": ["solution"]}
 ## Security measures
@@ -924,6 +938,7 @@ a|
 * **Qualified timestamp** embedded in the signature (**PAdES**).
 * Inclusion of the hexadecimal signature fingerprint in the **PDF footer** for subsequent verification.
 |===
+====
 
 [PRE-FILLED]
 ====
@@ -1037,7 +1052,8 @@ Example 3: Service accounts will be identified via a unique API key stored in a 
 [TIP]
 ====
 Describe here the authentication mechanisms in place, including:  
-- The method of password storage and verification.  
+
+- The method of authentication secrets storage and verification.  
 - Any additional authentication factors.  
 - The lifecycle management of credentials (creation, update, deactivation).  
 ====
@@ -1060,10 +1076,10 @@ Example 3: To enable account recovery, users will be able to reset their passwor
 **Strong authentication (2FA/MFA):**
 
 ====
-Example 4: When adding a new wire transfer beneficiary in the online banking portal, the user must provide:  
+Example 4: When adding a new wire transfer beneficiary in the online banking portal, the user must provide: 
 
-  - Their regular password.  
-  - An **OTP** generated by a TOTP application (Google Authenticator, FreeOTP, etc.).  
+ - Their regular password.  
+ - An **OTP** generated by a TOTP application (Google Authenticator, FreeOTP, etc.).  
 ====
 
 ====
@@ -1212,7 +1228,7 @@ Example 3: A **cookie consent banner** will be implemented on all **Angular** ap
 
 
 //🏷{"id": "e6d0ad26-40b7-412e-b861-1f8e6e2299ca", "labels": ["level::intermediate"],"link_to":["fcad5990-c241-4c88-b2c5-646602f8935a"]}
-### Authorization (Access Rights)
+### Authorizations (Access Rights)
 
 ====
 Example 1: **Authorization management** will be implemented **at the application level** and stored in the **PostgreSQL database**.  
@@ -1272,7 +1288,9 @@ The response framework can be aligned with the **NIST Cybersecurity Framework (C
 //🏷{"id": "d13f2885-ab5c-4543-9432-f53002c01c2c", "labels": []}
 #### Prevention Solutions
 
-These solutions help **anticipate threats** before they occur:
+These solutions help **anticipate threats** before they occur.
+
+Examples:
 
 * **User and IT staff training and awareness**.  
 * Make sure developers are familiar with and apply mitigations from the **https://owasp.org/www-project-top-ten/[OWASP Top 10]** application security best practices (e.g., protecting against injection, broken authentication, insecure design, and other critical risks).  
@@ -1309,9 +1327,13 @@ These solutions allow you to **identify attacks in progress**:
   - SAST: Analysis of **source code** to identify known vulnerabilities.  
   - DAST: Analysis of **runtime behaviors**.  
 * **SCA (Software Composition Analysis)**: Analyze software dependencies to detect **CVE (Common Vulnerabilities and Exposures)**.  
-
+* **SBOM (Software Bill of Materials)**:  
+  a structured inventory of software components and their dependencies, enabling:
+  - **rapid identification of exposure** to newly disclosed vulnerabilities,
+  - improved **software supply chain security**,
+  - support for compliance and risk assessments.
 ====
-Example 1: Integration of **OWASP Dependency-Check** into the CI/CD pipeline to detect vulnerable libraries.  
+Example 1: [SCA solution] Integration of **OWASP Dependency-Check** into the CI/CD pipeline to detect vulnerable libraries.  
 ====
 
 //🏷{"id": "d4498522-32aa-4987-aaec-2d9cf01130da", "labels": []}
