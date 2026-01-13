@@ -86,7 +86,7 @@ TIP: Architecture documentation often uses several synonyms for the same concept
 
 
 ## License
-* Copyright (c) 2017-2025 Bertrand Florat and contributors
+* Copyright (c) 2017-2026 Bertrand Florat and contributors
 * This template is licensed under https://creativecommons.org/licenses/by-sa/4.0/[CC-BY-SA 4.0] : Creative Commons Attribution - Share Alike V4.0
 * You can create your *own template* as long as it retains the CC BY-SA 4.0 license and therefore contains these three elements:
 ** The name of the creator (Bertrand Florat);
