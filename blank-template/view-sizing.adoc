@@ -6,6 +6,12 @@
 :icons: font
 :toc-title: Table of contents
 
+*Last modification* : _{docdate}_
+
+*Date of last full review* : 
+
+*Document status* :  
+
 [#32c8942e-443f-429d-a411-43869a720224]
 ## Introduction
 
@@ -51,22 +57,22 @@
 ## Constraints
 
 [#646fc728-6cef-4e75-9fa9-646b4ec2159d]
-### Storage constraints
+### Storage Constraints
 
 [#1d3ec06e-d63d-4a61-bb4e-437358064687]
-### CPU constraints
+### Compute Constraints
 
 [#ec6a420b-c284-442a-93fd-edc3d45ed00a]
-### Memory constraints
+### Memory Constraints
 
 [#8d948872-15f9-49b6-9527-f511a2f7597d]
-### Network constraints
+### Network Constraints
 
 [#d6e3eb12-371b-4c26-b538-9fea2051bfed]
 ## Requirements
 
 [#962347a4-c3c8-4f0c-bcac-774a6ef617a4]
-### Static sizing
+### Static Sizing Requirements
 
 [#1736e661-2c68-4aa6-a157-9e4444d5a374]
 #### Metrics
@@ -88,7 +94,7 @@
 
 [cols="1,1,1,1,1,1"]
 |===
-| Data | Description | Unit size | Number of items at 2 years | Total size | Annual increase
+| Data | Description | Unit size | Number of items at 5 years | Total size | Annual increase
 
 | 
 | 
@@ -99,7 +105,7 @@
 |===
 
 [#b22cadba-e5a7-4c3a-b4b8-f9ea32a2a0be]
-### Dynamic sizing
+### Dynamic Sizing Requirements
 
 [#910fc171-30ed-47cd-b03c-3ca918b3103e]
 #### Metrics
@@ -124,7 +130,7 @@
 ### Response time requirements
 
 [#24f70acd-5f7c-49b3-bd75-d594e5af8917]
-#### Response time of GUIs
+#### Response Time of GUIs Requirements
 [cols = '3, 1, 1, 1']
 |===
 | Type of request | Good level | Medium level | Insufficient level
@@ -136,14 +142,13 @@
 |===
 
 [#88645b89-d407-4107-93b2-48003fd8688a]
-#### Duration of batch execution
+#### Duration of batch Requirements
 
 [#fb740b6a-bd23-4401-a7e0-b01610a01b9b]
 ## Target sizing
 
 [#63214041-3461-4019-a685-fac68fdb4d74]
 ### Estimate of resource requirements by deployable unit
-.Estimation of resource requirements by deployable unit
 [cols="2,1,1,3,2"]
 |===
 | Deployable unit | (V)CPU requirement per instance | Memory requirement per instance (MiB) | Periods of activity | Comments
@@ -157,7 +162,6 @@
 
 [#6e9675d7-5d8c-4cf8-989a-13640cd28ef3]
 ### Sizing of machines
-.Sizing of machines
 [cols = '1, 3, 1, 1, 1, 1, 1']
 |===
 | Zone | Machine type | Number of machines | Number of (V)CPU | Memory (GiB) | Internal disk (GiB) | External SAN disk (GiB)
@@ -170,9 +174,10 @@
 | 
 | 
 
-|=== 
+|===
 
-.Non-SAN external storage
+[#e30801f9-af5b-49f3-bdca-214aae776336]
+### Non-SAN external storage
 [cols='1,3,3']
 |===
 |Nature |Size (Gio) |Type(s) of machine using this share

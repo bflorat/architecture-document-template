@@ -1187,7 +1187,7 @@ However, some practices are **specifically tied to eco-design** and should be co
   - **PUE examples**: AWS reports a global PUE of 1.15 (with some top sites as low as 1.04).  
   - **Caveat**: Efficiency goes beyond PUE — consider also the **energy source** (renewable vs fossil). For example, in 2024 the carbon intensity of electricity in France was 21.7 gCO₂e/kWh, compared with an average of 352 gCO₂e/kWh in the United States.  
 
-#### **Overall energy impact**
+#### Overall energy impact
 * **Assess full stack energy impact**:  
   - Energy used at the **client side and network** often outweighs server energy.  
   - **Extending hardware lifecycle** (servers, devices) is effective in reducing carbon footprint.  

@@ -862,12 +862,13 @@ Differentiate:
 * Application traces, i.e., assessments of a complete use case such as 'Agent X consulted Ms. Y's file' and that are stored in databases;
 * ... and the application traces (logs) as in a log file: `[INFO] 2016/12/23 11:14[Agent X] Call of the consult service` which are of technical level and much more volatile.
 
-====
 For the most sensitive data, traceability can be implemented at two levels (including traceability of access to audit logs) in order to prevent abusive or excessive hierarchical monitoring.
 
 Traceability for repository data (typically master data such as person records) requires full historization, which is considered a best practice in any case.
 This involves recording both the modification date and the effective date for each change.
 Audit logs must also be subject to defined retention and purging policies.
+====
+
 ====
 Example 1: For module X, any business action (update or consultation) must be the subject of a application trace containing at least the agent, the date and in case of modification the previous and the new value.
 ====

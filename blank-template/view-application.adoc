@@ -6,6 +6,12 @@
 :icons: font
 :toc-title: Table of contents
 
+*Last modification* : _{docdate}_
+
+*Date of last full review* : 
+
+*Document status* :  
+
 [#74c82505-5f47-4342-8f1b-f6951d603062]
 ## Introduction
 
@@ -24,7 +30,7 @@
 [#946b3119-a878-47ca-86f2-4c9e22ef0c89]
 ## Not ruled
 
-[#af23d422-402c-49be-900f-2f55a5619615]
+[#0f9d2e4a-3c71-4b9e-8f3b-2b8c7d1e9a60]
 ### Points subject to further study
 [cols="1,6,1,1,1"]
 |===
@@ -37,7 +43,7 @@
 | 
 |===
 
-[#60a52e4c-4416-429a-a739-37153b05133c]
+[#7a1cdb2e-4f52-42a1-9c3e-6e0f2d3a8b91]
 ### Assumptions
 [cols="1,6"]
 |===
@@ -50,10 +56,10 @@
 [#382fd086-f48e-4ad5-9911-07e3de281971]
 ## General context
 
-[#ba1f44fe-c47a-4d34-bfdb-07e777e23dda]
+[#a2b4c6d8-e0f1-4a2b-9c3d-5e6f7a8b9c0d]
 ### Objectives
 
-[#bbb1f617-3ceb-4f80-a3c4-dbc9b16bcd00]
+[#c1d2e3f4-a5b6-4c7d-8e9f-0123456789ab]
 ### Existing
 
 [#67bbae56-5ed3-4977-8467-2c951882d1a9]
@@ -90,7 +96,7 @@
 #### Nature and Sensitivity of Data and Processing
 [%header,cols="2,3,3,2,1,1,1,1"]
 |===
-| Business Process | Purpose | Categories of Data Processed | Internal Classification | C | I | A | T
+| Business Process | Purpose | Categories of Data Processed | Classification | C | I | A | T
 
 | 
 |
@@ -104,39 +110,45 @@
 
 [cols="1,5"]
 |===
-| Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof: security requirements (Low, Medium, High)
+| Legend | \(C)onfidentiality (I)ntegrity (A)vailability (T)raceability / proof. Provide requirement : Low, Medium or High
 | Classification | Public, Internal, Restricted distribution, Confidential
 |===
 
-[#d979e090-c43f-48f5-a0e3-83b810efff9f]
+[#3b714287-891e-4ea3-a7a4-17672caaf945]
 ## Constraints
 
 [#58897e87-0c12-4139-b5da-daec9cae21c6]
-### Budget
+### Budget Constraints
 
 [#ac5b1f28-bfcb-4543-a90b-abcff2b41822]
-### Planning
+### Planning Constraints
 
 [#5837249a-8fcc-4e42-9dd9-384c4fa32afc]
 ### Urbanization
 
 [#abafa462-262f-429e-aad8-d2cdc0cf15a3]
-### Legals
-
-[#3b714287-891e-4ea3-a7a4-17672caaf945]
-## Requirements
+### Legal Constraints
 
 [#9352a89a-3f8b-4028-98d5-58fb970e01ef]
+## Requirements
+
+[#1b2c3d4e-5f60-47a1-82b3-c4d5e6f70809]
 ### Strategic Requirements
 
 [#38fd6aa0-2354-4d0d-9812-10ed917eae5e]
-### Interoperability
-
-[#7d3090d0-87d0-434f-9717-f9a12ccf60d1]
-### Concurrency management requirements
+### Interoperability Requirements
 
 [#9efde825-9508-4669-918c-7cfb0d45c21f]
-### Retention Periods
+### Concurrency management Requirements
+
+[#afdd573d-d1f8-4958-99c1-e404592396d0]
+### Degraded Modes Requirements
+
+[#4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f]
+### Archiving Requirements
+
+[#fedcba98-7654-4321-8abc-0def12345678]
+### Retention Periods Requirements
 [cols="1,1"]
 |===
 | Data Class | Maximum Retention Period
@@ -147,12 +159,6 @@
 
 |===
 
-[#afdd573d-d1f8-4958-99c1-e404592396d0]
-### Degraded modes
-
-[#ec7cfacf-e267-4937-80e8-b5c92409ecd1]
-### Archiving
-
 [#b269e65b-a8c7-4518-a861-5c6c17802869]
 ## Target architecture
 
@@ -162,29 +168,31 @@
 [#6390e724-c2f0-4737-99a0-531fdcfe8e20]
 ### Detailed application architecture
 
-[#148fd29c-b0a0-4bff-b5da-71f5b1195e1e]
+[#f0c1b2a3-4d5e-46f7-88a9-b0c1d2e3f4a5]
 #### Principles that dictated the choices
 
-[#d4124d8e-47b9-4cfa-94ec-8164180bdecc]
+[#aa11bb22-cc33-44dd-88ee-ff0011223344]
 #### Inventory view
 
-[#6c06792f-9e6d-4156-88d3-468063716834]
+[#123e4567-e89b-42d3-a456-426614174001]
 #### Links between modules
 
 [#9ac6e5d2-e9a0-427e-ba12-27dedbd8ac4d]
 ### Transition paths
 
-[#f49dc567-ef07-45db-b25a-34c57a58f213]
+[#5f6e7d8c-9b0a-4f3e-8d7c-6b5a4e3d2c1f]
 ### Archiving
+TIP: See also <<4a3b2c1d-0e9f-4d8c-8b7a-6a5b4c3d2e1f,Archiving Requirements>>.
 
-[#7a01e2dd-1921-4e41-95d6-57f2b80e447b]
+[#0a1b2c3d-4e5f-4061-82a3-b4c5d6e7f809]
 ### Purges
+TIP: See also <<fedcba98-7654-4321-8abc-0def12345678,Retention Periods Requirements>>.
 
-[#3a80c49f-5f9d-4c1d-bcb5-d3ef292e2895]
+[#9f8e7d6c-5b4a-49a8-9c7d-6e5f4d3c2b1a]
 ### Matrix of application flows
 [cols = '1, 3, 1, 1, 1']
 |===
-| Source | Destination | Network type | Protocol | Mode.footnote:[Read\(R), Write (W) or Call\(C) to a stateless system]
+| Source | Destination | Network type | Protocol | Mode
 
 | 
 | 
@@ -193,3 +201,5 @@
 | 
 
 |===
+
+_Mode: Read\(R), Write (W) or Call\(C) to a stateless system_
