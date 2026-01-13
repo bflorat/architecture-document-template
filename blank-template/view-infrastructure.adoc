@@ -6,6 +6,12 @@
 :icons: font
 :toc-title: Table of contents
 
+*Last modification* : _{docdate}_
+
+*Date of last full review* : 
+
+*Document status* :  
+
 [#e3208a9c-8d35-46a1-9399-aacea9817e0a]
 ## Introduction
 
@@ -51,19 +57,19 @@
 ## Constraints
 
 [#cc4a17a8-d68b-43cf-8b4e-c64829d950fc]
-### Constraints on availability
+### Availability Constraints
 
 [#a18eb613-e522-4bf5-a1fd-742b9d754ce1]
-#### MTTD
+#### MTTD Constraints
 
 [#dc11b031-5685-4972-9832-138fa74cd30b]
-#### Monitoring tools
+#### Monitoring Tooling Constraints
 
 [#6903a99e-8b8e-464b-909c-d40da5a808d1]
-#### MTTR
+#### MTTR Constraints
 
 [#e7470aba-8588-4792-bc94-28e4bf186b63]
-##### Hardware
+##### Hardware Constraints
 
 [#96cd73f1-0dca-447e-8fc8-2d9c03399e1c]
 ##### System and virtualization
@@ -75,43 +81,44 @@
 ##### Data Restore
 
 [#421860fb-b6b3-461a-b149-57c6ba6dae41]
-#### Scheduled interruptions
+#### Scheduled Interruptions Constraints
 
 [#21d704f6-f740-40f9-986c-36274643a711]
 #### Level of service of the datacenter
 
 [#7c1d0446-34df-4572-92b0-19baaba54183]
-#### Availability Ceiling (Upper Bound)
+#### Availability Ceiling
 
 [#4860fb1c-98e9-4c2c-adfc-09ea8149235d]
-#### Disaster Management
+#### Disaster Management Constraints
 
 [#c7c4fce5-c971-4ec8-bef7-006381492aff]
-### Hosting
+### Hosting Constraints
 
 [#6f7d74be-7024-4a6e-af4d-d084d49109ae]
-### Network constraints
+### Network Constraints
+TIP: See also xref:view-sizing.adoc#8d948872-15f9-49b6-9527-f511a2f7597d[Network Constraints].
 
 [#86a3082e-7069-4120-b86f-f886ef919986]
-### Deployment constraints
+### Deployment Constraints
 
 [#16781642-a7f3-40f1-b208-e4064ffedaa4]
 ### Constraints Related to the Lifecycle of Infrastructure Components
 
 [#0a25770c-6a02-4fa3-82cc-bf5152d3cba6]
-### Log constraints
+### Log Constraints
 
 [#608d63e6-7299-4976-bf59-52fa1c6ac486]
-### Backup and restore constraints
+### Backup And Restore Constraints
 
 [#22e6cfa3-bc3d-466c-a902-9854540258b7]
-### Costs
+### Costs Constraints
 
 [#f9ed2469-e3e5-48a1-8b69-4b9c9492c6cb]
 ## Requirements
 
 [#332c967b-3729-4a5f-984e-fc2f301b0329]
-### Operating ranges
+### Operating Ranges
 [cols="1,5,2"]
 |===
 | No window | Hours | Detail
@@ -123,7 +130,9 @@
 |===
 
 [#08cb1019-20c4-42ef-9bf2-4adf72936c1c]
-### Availability requirements
+### Availability Requirements
+TIP: See also <<cc4a17a8-d68b-43cf-8b4e-c64829d950fc,Availability Constraints>>.
+
 .Maximum allowable downtime per range
 [cols="1,5"]
 |===
@@ -135,16 +144,17 @@
 |===
 
 [#231768e7-6a9d-429e-b200-2febdd91a0e3]
-### Robustness requirements
+### Robustness Requirements
 
 [#f0e94586-876d-46ca-b060-b5dcde468734]
-### RPO requirements
+### RPO Requirements
 
 [#3e07d851-b2dc-422f-9cba-1b4447a5c956]
 ### RTO Requirements
+TIP: See also <<6903a99e-8b8e-464b-909c-d40da5a808d1,MTTR Constraints>>.
 
 [#cdb68f23-d2c5-4373-9f7d-e358191f0ebf]
-### Deployment and upgrades requirements
+### Deployment and Upgrades Requirements
 
 [#663ee84f-7dde-4c6d-acf6-a810ab8fafb4]
 #### Server side
@@ -156,16 +166,17 @@
 #### Specific deployment strategy
 
 [#da0d11fe-0dc9-478e-a984-7a80ea1be482]
-### Ecodesign requirements
+### Ecodesign Requirements
 
 [#602a7a0a-7f25-4512-b0ab-3b97c8a734e0]
-## Target architecture
+## Target Architecture
 
 [#8088138c-5258-4f3a-a293-0984501bb5db]
 ### Principles
 
 [#17a46000-c51d-4fb7-868c-7386aef5b523]
 ### Availability
+TIP: See also <<08cb1019-20c4-42ef-9bf2-4adf72936c1c,Availability Requirements>>.
 
 [#c23ff676-32e3-4957-8cec-6a7619a33567]
 ### Deployment in production
@@ -213,11 +224,11 @@
 
 [#0bbc320c-6291-4a89-b263-66abf1906ab0]
 ### Ecodesign
-TIP: See also <<da0d11fe-0dc9-478e-a984-7a80ea1be482,Ecodesign requirements>>.
+TIP: See also <<da0d11fe-0dc9-478e-a984-7a80ea1be482,Ecodesign Requirements>>.
 
 #### Energy Optimization & Infrastructure
 
-#### **Overall energy impact**
+#### Overall energy impact
 
 [#46e9c057-75cb-4bc0-9c8d-9af81f737c61]
 ### Load regulation
@@ -226,10 +237,10 @@ TIP: See also <<da0d11fe-0dc9-478e-a984-7a80ea1be482,Ecodesign requirements>>.
 #### Circuit breakers
 
 [#44f0732c-3b29-4bd5-873f-046fc010f728]
-### Timeout Management
+#### Quality of Service
 
 [#5fa5ed39-9b6d-4dec-a8c1-1dc1929ff796]
-### Timeout management
+### Timeout Management
 
 [#c9a330f1-ffde-44e2-a432-a1e178440333]
 ### Operations
@@ -251,7 +262,7 @@ TIP: See also <<da0d11fe-0dc9-478e-a984-7a80ea1be482,Ecodesign requirements>>.
 
 [#ef7922e8-8122-4120-86f9-c5fed0676811]
 ##### Backup Strategy
-TIP: See also <<f0e94586-876d-46ca-b060-b5dcde468734,RPO requirements>>, <<3e07d851-b2dc-422f-9cba-1b4447a5c956,RTO Requirements>>.
+TIP: See also <<f0e94586-876d-46ca-b060-b5dcde468734,RPO Requirements>>, <<3e07d851-b2dc-422f-9cba-1b4447a5c956,RTO Requirements>>.
 
 [#93b244a6-976c-465a-80fc-9665a81adeb9]
 ##### Tooling
@@ -270,6 +281,7 @@ TIP: See also <<f0e94586-876d-46ca-b060-b5dcde468734,RPO requirements>>, <<3e07d
 
 [#2c3d502d-d67c-417b-88f4-d610e158e930]
 ### Monitoring
+TIP: See also <<a18eb613-e522-4bf5-a1fd-742b9d754ce1,MTTD Constraints>>.
 
 [#f31e9b70-8bf9-41b5-bbb0-c6b3f6de9347]
 #### Technical Monitoring
@@ -284,10 +296,10 @@ TIP: See also <<f0e94586-876d-46ca-b060-b5dcde468734,RPO requirements>>, <<3e07d
 #### Alerting & Notifications
 
 [#20dff012-aa85-465f-ba2e-272d7580dd0b]
-##### Black-box Monitoring
+#### Black-box Monitoring
 
 [#f455e87e-47f0-422a-a80b-0ec65517ad53]
-##### Performance Monitoring (Metrology)
+#### Performance Monitoring
 
 [#53b2f98c-11d9-4aa0-b762-b8f31db0c30f]
 ### Decommissioning

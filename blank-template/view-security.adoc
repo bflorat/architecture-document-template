@@ -6,6 +6,12 @@
 :icons: font
 :toc-title: Table of contents
 
+*Last modification* : _{docdate}_
+
+*Date of last full review* : 
+
+*Document status* :  
+
 [#a08e807e-1e9b-4752-a5b8-372a40665c49]
 ## Introduction
 
@@ -87,28 +93,14 @@
 
 [#9d0646cd-3e3f-4878-96de-f215c9f20bdc]
 ### Authentication Requirements
-
-[#58bf95ee-2fc4-4972-ac2b-7e2f775a4eb9]
-#### Authentication Requirements by Use Case
-The table below indicates the **authentication factors required** depending on the usage context:  
-
-[cols="1,1,1,1,1,1,1"]
+[cols="1,1,1,1"]
 |===
-|Authentication Case  
-|Password compliant with the security policy  
-|Known SSH public key  
-|OTP via Token  
-|Biometrics  
-|Knowledge of business data  
-|Verification link by email  
+|Use Case | Factor 1 | Factor 2 | ...
 
-|
-|
-|
-|
-|
-|
-|  
+| 
+| 
+| 
+| 
 |===
 
 [#f552f1e6-9aea-4866-8da1-e7ed676fd228]
@@ -118,7 +110,7 @@ The table below indicates the **authentication factors required** depending on t
 ### SSO and SLO Requirements
 
 [#01404b83-f96f-4649-ace0-e5611601b830]
-### Non-repudiation requirements
+### Non-repudiation Requirements
 [cols="1,1,1,1"]
 |===
 |Signed action or document |Required signature level |Origin of client certificate |Origin of server certificate
@@ -128,15 +120,6 @@ The table below indicates the **authentication factors required** depending on t
 |
 |
 |===
-
-[#958fcccc-60cb-4158-940f-279cd1d12c9b]
-### Anonymity and privacy requirements
-
-[#fcad5990-c241-4c88-b2c5-646602f8935a]
-### Authorization Requirements
-
-[#e72e5ea5-5711-4665-8a91-76c63cbca2bc]
-### Traceability and auditability requirements
 .Data to be kept for proof
 [cols="1,1,1"]
 |===
@@ -146,6 +129,15 @@ The table below indicates the **authentication factors required** depending on t
 |
 | 
 |===
+
+[#958fcccc-60cb-4158-940f-279cd1d12c9b]
+### Anonymity and Privacy Requirements
+
+[#fcad5990-c241-4c88-b2c5-646602f8935a]
+### Authorization Requirements
+
+[#e72e5ea5-5711-4665-8a91-76c63cbca2bc]
+### Traceability and auditability Requirements
 
 [#d1f16239-18f7-4a4a-875e-34a587eb88b4]
 ## Security measures
@@ -172,7 +164,7 @@ TIP: See also <<acfa846e-0ed7-4f41-a593-f4ee29e94efd,Confidentiality Requirement
 .Measures to ensure the required level of confidentiality
 [cols="1,1,1"]
 |===
-| _Data class_ | _Required level_ | _Measures_
+| Data class | Required level | Measures
 
 | 
 | 
@@ -208,19 +200,19 @@ TIP: See also <<f552f1e6-9aea-4866-8da1-e7ed676fd228,Identity Federation Require
 
 [#9f09dacf-d151-45af-a5f6-209823e7a401]
 ### Non-repudiation and Timestamping
-TIP: See also <<01404b83-f96f-4649-ace0-e5611601b830,Non-repudiation requirements>>.
+TIP: See also <<01404b83-f96f-4649-ace0-e5611601b830,Non-repudiation Requirements>>.
 
 [#72efb92f-13f8-48e5-aed1-b57c4eab56fc]
 ### Anonymity and Privacy
-TIP: See also <<958fcccc-60cb-4158-940f-279cd1d12c9b,Anonymity and privacy requirements>>.
+TIP: See also <<958fcccc-60cb-4158-940f-279cd1d12c9b,Anonymity and Privacy Requirements>>.
 
 [#e6d0ad26-40b7-412e-b861-1f8e6e2299ca]
-### Authorization (Access Rights)
+### Authorizations (Access Rights)
 TIP: See also <<fcad5990-c241-4c88-b2c5-646602f8935a,Authorization Requirements>>.
 
 [#3819b8cc-d9c4-4d29-9ca1-adae300a79e2]
 ### Traceability and Auditability
-TIP: See also <<e72e5ea5-5711-4665-8a91-76c63cbca2bc,Traceability and auditability requirements>>.
+TIP: See also <<e72e5ea5-5711-4665-8a91-76c63cbca2bc,Traceability and auditability Requirements>>.
 
 [#5e00eeef-1d5b-4a21-ac19-116ae376d999]
 ### Cyberthreat Mitigation
@@ -259,13 +251,10 @@ This RACI clearly defines the roles and responsibilities of the teams with regar
 
 [#7d8dff71-3acd-450b-bc68-d2e2efee2fbb]
 ### Vulnerability Self-Assessment
-.Vulnerability self-assessment checklist
 
 [cols="1,1,3"]
 |===
-|Vulnerability
-|Addressed?
-|Technical measures implemented
+|Vulnerability |Addressed? |Technical measures implemented
 
 |
 |

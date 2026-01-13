@@ -6,6 +6,12 @@
 :icons: font
 :toc-title: Table of contents
 
+*Last modification* : _{docdate}_
+
+*Date of last full review* : 
+
+*Document status* :  
+
 [#84c5d434-ea70-41fc-92bc-53a40ab29025]
 ## Introduction
 
@@ -52,43 +58,43 @@
 ## Constraints
 
 [#8d79cc07-e094-4863-8bb8-0a3ca317743d]
-## Non-functional requirements
+## Non-Functional Requirements
 
 [#48bb8b97-2e97-4515-bf3b-95864f85e4e9]
-### Accessibility
+### Accessibility Requirements
 
 [#b098d142-655e-4521-9d4f-2c2ea8eceb45]
-### Ergonomics
+### Ergonomics Requirements
 
 [#3c031334-5598-4817-87b4-dec34ce8389b]
-#### Ergonomic charter
+#### Specificities on UX
 
 [#90b4af62-df5b-485e-87c4-7dd0b21d0464]
 #### Specificities on widgets
 
 [#1cacea74-bede-43b3-93a5-804fd60ff4fb]
-#### Fonts
+#### Fonts Requirements
 
 [#cfd3435f-d888-43e3-a634-35c3d5d92cb4]
-#### Responsive website
+#### Responsive Website Requirements
 
 [#30cc6226-2213-4351-83aa-a4905c5d4baa]
-#### Progressive Web Apps (PWA)
+#### Progressive Web Apps (PWA) Requirements
 
 [#67ff8381-8145-4dc4-bd15-cfec867dc8b5]
-#### Supported browsers
+#### Supported Browsers Requirements
 
 [#39318743-8131-4d46-9354-c64804066ae8]
-#### Offline mode
+#### Offline Mode Requirements
 
 [#fbe627e5-be3f-41ec-9a2a-c43bd3587c6e]
-#### Internationalization (i18n)
+#### Internationalization (i18n) Requirements
 
 [#8c3bc449-1b44-44cf-82a1-f26cdbf258af]
 ### SEO Requirements
 
 [#c8e58371-6bea-48e2-ab0e-989fec63e0ee]
-### Ecodesign requirements
+### Ecodesign Requirements
 
 [#2c0aa24a-24b8-4272-8787-b5e5207785fb]
 ## Target architecture
@@ -143,7 +149,7 @@ TIP: See also xref:view-sizing.adoc#d6e3eb12-371b-4c26-b538-9fea2051bfed[Require
 
 [#6ff8aacb-5020-4ade-a10d-3dce3898276b]
 ### Ecodesign
-TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
+TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign Requirements>>.
 
 [#bb5d8145-8519-4516-98a9-fc089f758d9c]
 ### Management of robustness
@@ -171,6 +177,7 @@ TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 
 [#79682de3-09b7-46f1-8354-9371295d18a8]
 ### Concurrency
+TIP: See also xref:view-application.adoc#9efde825-9508-4669-918c-7cfb0d45c21f[Concurrency management Requirements].
 
 [#856b9e7b-3305-48c3-bb99-798cf409181d]
 ### Encoding
@@ -180,6 +187,7 @@ TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 
 [#96ec879c-3ce3-4e48-a3f9-84590c281fd4]
 ### Log management
+TIP: See also xref:view-infrastructure.adoc#0a25770c-6a02-4fa3-82cc-bf5152d3cba6[Log Constraints].
 
 [#cad3fb2c-5047-4025-892f-3180e74579c8]
 #### General rules
@@ -206,5 +214,5 @@ TIP: See also <<c8e58371-6bea-48e2-ab0e-989fec63e0ee,Ecodesign requirements>>.
 ### Provisioning and DDL updates
 
 [#201fca5f-50af-41f9-ab97-60b2f7abddc6]
-### i18N Management
-TIP: See also <<fbe627e5-be3f-41ec-9a2a-c43bd3587c6e,Internationalization (i18n)>>.
+### Internationalization Management
+TIP: See also <<fbe627e5-be3f-41ec-9a2a-c43bd3587c6e,Internationalization (i18n) Requirements>>.
