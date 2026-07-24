@@ -763,6 +763,44 @@ How do we deal with errors? Examples of points to be addressed:
 Example (Spring): technical (unforeseen) errors such as the timeout to a REST service call are caught at the highest level of the application (via an `ErrorHandler`). All of its information is logged with the full stack-trace but the caller must only retrieve the generic error code XYZ without the stack-trace (for security reasons).
 ====
 
+//🏷{"id": "ce3486d9-0d31-4f13-85a9-e940f213ae31", "labels": []}
+#### Controls
+
+[TIP]
+====
+List here the patterns and technical solutions implemented to validate all data entering the service.
+
+It is essential never to trust the caller and to systematically validate all received data. In particular, anti-corruption layers should be implemented in exposed services as well as in jobs consuming data from third-party systems.
+
+Once data has been persisted in your system, it becomes your responsibility to manage it. This may require evolving the code to handle unexpected content or content originating from older versions of the data model.
+
+For an automated system, the best strategy is generally to apply the strictest possible controls when data enters the system.
+
+It is also important not to limit validation to frontend controls, which mainly constitute surface-level controls. These controls must be systematically duplicated on the backend, where they provide hardening and guarantee the integrity of the system.
+
+Rejection of invalid input: it is necessary to define precisely what “rejecting” means: returning a functional error in the response or merely logging it, placing the input in quarantine, producing metrics, raising alerts, providing replay capabilities, and preventing infinite retry loops that could eventually overload the system if invalid input were not rejected. For batch processing, specify whether the entire batch is rejected or only the invalid items.
+
+Examples of common controls:
+
+* ensuring that a value belongs to a finite list, represented, for example, by an enumeration;
+* checking date consistency, for example by rejecting February 31;
+* checking compliance with an expected format: email address, telephone number, postal code, date, etc.;
+* enforcing a maximum length, for example 255 characters for a field;
+* enforcing minimum and maximum bounds for numeric values, for example `0 < age < 150`;
+* verifying that the content of an attachment matches the expected format: PDF, PNG, JPEG, etc. Do not rely solely on the MIME type or file extension; also inspect the file content, for example by checking the format's magic signature;
+* checking whether a value must be present, absent, or null, for example when an email address is mandatory. However, remember to preserve compatibility when exposing multiple versions of your service.
+====
+
+.Example 1
+====
+With Spring, use JSpecify annotations to explicitly define the nullability contracts of controller input parameters, for example `@Nullable`. If this contract is violated, Spring returns a 400 (Bad Request) response to the caller.
+====
+
+.Example 2
+====
+The job retrieving a JSON feed from partner XYZ validates the document against the JSON Schema corresponding to the expected version of the data model. Any non-compliant JSON feed is rejected in its entirety, even if some items are valid. The rejected feed is logged, and an alert is sent to the support team.
+====
+
 //🏷{"id": "7a33eb60-882d-4095-bde2-9a477cc27433", "labels": ["gui"]}
 #### Frontend robustness
 
