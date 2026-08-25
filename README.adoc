@@ -99,7 +99,6 @@ TIP: Architecture documentation often uses several synonyms for the same concept
 * Proofreading: Dr. Christophe Gaie
 * Feedback: Antoine Parra Del Pozo, Pascal Bousquet, Philippe Mayjonade, Nicolas Chahwekilian, Steven Morvan
 * All diagrams of this model were generated with the excellent tool http://plantuml.com/[PlantUML]. The https://c4model.com/[C4 diagrams] use the https://github.com/plantuml-stdlib/C4-PlantUML[C4 Plantuml customization].
-* Lise Florat for helping with the translation into English.
 
 ## Partial bibliography
 * _Site Reliability Engineering_ - Google
