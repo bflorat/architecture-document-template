@@ -94,6 +94,9 @@ TIP: Architecture documentation often uses several synonyms for the same concept
 ** A disclaimer and a link to https://github.com/bflorat/architecture-document-template.
 * The architecture *documents resulting from this template do not have to apply this license*. It is nevertheless recommended to include a link to https://github.com/bflorat/architecture-document-template[this page].
 
+## Related Architecture Tools
+* https://myspec.dev[MySpec] - Spec-driven development platform compiling guided developer discovery interviews into deterministic 4-file bundles (constitution, requirements, solution, tasks) with MCP server integration.
+
 ## Thanks
 * https://github.com/bflorat/architecture-document-template/graphs/contributors[Contributors]
 * Proofreading: Dr. Christophe Gaie
